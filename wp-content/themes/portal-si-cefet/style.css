@@ -1,0 +1,146 @@
+/*
+Theme Name: Portal SI CEFET/RJ
+Theme URI: https://www.cefet-rj.br
+Author: Fábrica de Software — Curso de SI
+Description: Tema institucional do Portal de Sistemas de Informação (base para Design System gov.br).
+Version: 0.1.1
+Requires at least: 6.4
+Requires PHP: 7.4
+Text Domain: portal-si-cefet
+*/
+
+/* Layout mínimo — será substituído/refinado com DS gov.br (RNF01/RNF02). */
+:root {
+	--portal-color-text: #1a1a1a;
+	--portal-color-bg: #fff;
+	--portal-color-link: #1351b4;
+	--portal-space: 1rem;
+	--portal-max-width: 72rem;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	line-height: 1.5;
+	color: var(--portal-color-text);
+	background: var(--portal-color-bg);
+}
+
+a {
+	color: var(--portal-color-link);
+}
+
+.site-header {
+	border-bottom: 1px solid #ddd;
+}
+
+.site-header__inner {
+	max-width: var(--portal-max-width);
+	margin: 0 auto;
+	padding: var(--portal-space);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--portal-space);
+}
+
+.site-title {
+	margin: 0;
+	font-size: 1.125rem;
+	font-weight: 700;
+}
+
+.site-title a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.nav-primary .nav-primary__list,
+.nav-footer .nav-footer__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem 1.25rem;
+}
+
+.nav-primary a,
+.nav-footer a {
+	text-decoration: none;
+}
+
+.nav-primary a:hover,
+.nav-footer a:hover,
+.site-title a:hover {
+	text-decoration: underline;
+}
+
+.breadcrumbs {
+	max-width: var(--portal-max-width);
+	margin: 0 auto;
+	padding: 0.75rem var(--portal-space);
+	font-size: 0.875rem;
+	border-bottom: 1px solid #eee;
+}
+
+.breadcrumbs__current {
+	font-weight: 600;
+}
+
+.site-main {
+	max-width: var(--portal-max-width);
+	margin: 0 auto;
+	padding: var(--portal-space);
+}
+
+.entry-title {
+	margin-top: 0;
+}
+
+.site-footer {
+	margin-top: 2rem;
+	border-top: 1px solid #ddd;
+	padding: var(--portal-space);
+}
+
+.site-footer .nav-footer__list {
+	justify-content: center;
+}
+
+.site-footer__meta {
+	text-align: center;
+	margin: 1rem 0 0;
+	font-size: 0.875rem;
+	color: #555;
+}
+
+/* Link “Ir para o conteúdo” — visível ao focar (RNF03). */
+.skip-link.screen-reader-text {
+	position: absolute;
+	left: -9999px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.skip-link.screen-reader-text:focus {
+	position: fixed;
+	left: var(--portal-space);
+	top: var(--portal-space);
+	width: auto;
+	height: auto;
+	padding: 0.5rem 1rem;
+	background: #000;
+	color: #fff;
+	z-index: 100000;
+	overflow: visible;
+	clip: auto;
+}

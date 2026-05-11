@@ -1,0 +1,44 @@
+# Portal SI CEFET/RJ — ambiente local WordPress + MariaDB
+# Uso: copie env.example para .env, ajuste senhas, depois: docker compose up -d
+# WordPress: http://localhost:8080 — assistente de instalação abre no navegador LOCAL.
+
+services:
+  db:
+    image: mariadb:11
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: ${WORDPRESS_DB_NAME:-wordpress}
+      MARIADB_USER: ${WORDPRESS_DB_USER:-wordpress}
+      MARIADB_PASSWORD: ${WORDPRESS_DB_PASSWORD:?defina WORDPRESS_DB_PASSWORD no arquivo .env}
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:?defina MARIADB_ROOT_PASSWORD no arquivo .env}
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  wordpress:
+    image: wordpress:latest
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${WP_PORT:-8080}:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER:-wordpress}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME:-wordpress}
+      # Idioma padrão do instalador (pt_BR). Pode mudar no assistente.
+      WORDPRESS_LOCALE: ${WORDPRESS_LOCALE:-pt_BR}
+    volumes:
+      # Core, uploads e plugins padrão ficam no volume; só o tema custom vem da pasta do Git.
+      - wp_data:/var/www/html
+      - ./wp-content/themes/portal-si-cefet:/var/www/html/wp-content/themes/portal-si-cefet
+
+volumes:
+  db_data:
+  wp_data:

@@ -1,0 +1,9 @@
+.env
+*.log
+
+# Windows / macOS
+Thumbs.db
+.DS_Store
+
+# Notas locais (opcional; remova esta linha se quiser versionar)
+*.infos
