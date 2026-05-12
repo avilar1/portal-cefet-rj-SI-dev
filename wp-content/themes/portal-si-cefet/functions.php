@@ -38,7 +38,7 @@ function portal_si_cefet_scripts() {
 		'portal-si-cefet-style',
 		get_stylesheet_uri(),
 		array(),
-		'0.1.1'
+		'0.1.2'
 	);
 }
 add_action( 'wp_enqueue_scripts', 'portal_si_cefet_scripts' );

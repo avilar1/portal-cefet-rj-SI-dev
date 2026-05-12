@@ -3,17 +3,27 @@ Theme Name: Portal SI CEFET/RJ
 Theme URI: https://www.cefet-rj.br
 Author: Fábrica de Software — Curso de SI
 Description: Tema institucional do Portal de Sistemas de Informação (base para Design System gov.br).
-Version: 0.1.1
+Version: 0.1.2
 Requires at least: 6.4
 Requires PHP: 7.4
 Text Domain: portal-si-cefet
 */
 
-/* Layout mínimo — será substituído/refinado com DS gov.br (RNF01/RNF02). */
+/*
+ * Esqueleto visual (RN04 / §9.2): tokens oficiais de cor; tipografia e componentes
+ * finais (Rawline, Raleway, barra gov.br completa) entram quando o layout React for fechado.
+ */
 :root {
+	/* Paleta DS gov.br — documento de requisitos §9.2 */
+	--ds-blue: #1351b4;
+	--ds-blue-dark: #0c326f;
+	--ds-yellow: #ffcd07;
+	--ds-green: #168821;
+
 	--portal-color-text: #1a1a1a;
 	--portal-color-bg: #fff;
-	--portal-color-link: #1351b4;
+	--portal-color-link: var(--ds-blue);
+	--portal-color-link-hover: var(--ds-blue-dark);
 	--portal-space: 1rem;
 	--portal-max-width: 72rem;
 }
@@ -34,6 +44,33 @@ body {
 
 a {
 	color: var(--portal-color-link);
+}
+
+a:hover {
+	color: var(--portal-color-link-hover);
+}
+
+/* Faixa superior — placeholder até integrar o header oficial do DS. */
+.br-header-stub {
+	background: var(--ds-blue-dark);
+	color: #fff;
+	font-size: 0.8125rem;
+}
+
+.br-header-stub__inner {
+	max-width: var(--portal-max-width);
+	margin: 0 auto;
+	padding: 0.35rem var(--portal-space);
+}
+
+.br-header-stub__link {
+	color: #fff;
+	text-decoration: none;
+}
+
+.br-header-stub__link:hover {
+	color: var(--ds-yellow);
+	text-decoration: underline;
 }
 
 .site-header {
@@ -122,13 +159,16 @@ a {
 }
 
 /* Link “Ir para o conteúdo” — visível ao focar (RNF03). */
-.skip-link.screen-reader-text {
+.screen-reader-text {
 	position: absolute;
-	left: -9999px;
-	top: auto;
 	width: 1px;
 	height: 1px;
+	padding: 0;
+	margin: -1px;
 	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
 }
 
 .skip-link.screen-reader-text:focus {
