@@ -1,0 +1,51 @@
+WordPress — redação, notícias e papéis (RF31, RF17–RF19)
+
+OBJETIVO
+- Fechar o fluxo “quem pode o quê” e como se publicam notícias, sem depender
+  do layout visual final.
+
+PERFIS (RF31)
+- Administrador: acede a tudo (plugins, temas, utilizadores, ajustes).
+- Editor: pode criar, editar, publicar e apagar posts e páginas, gerir
+  categorias e etiquetas, carregar ficheiros. Não deve instalar plugins nem
+  alterar o tema (reduz risco de quebrar o site).
+
+CRIAR UM EDITOR DE TESTE
+1) wp-admin > Utilizadores > Adicionar novo
+2) Função: Editor
+3) E-mail e palavra-passe fortes; guarde as credenciais só para desenvolvimento.
+
+TESTAR O FLUXO EDITORIAL
+1) Saia do wp-admin e entre com o utilizador Editor.
+2) Posts > Todos os posts — deve ver o rascunho “Post de exemplo (rascunho)”
+   (criado automaticamente na primeira visita de um Administrador ao painel
+   após atualizar o tema; ver nota abaixo se não aparecer).
+3) Edite o texto, opcionalmente defina imagem em destaque, escolha categoria
+   (ex.: Institucional ou Eventos).
+4) Publique. Abra a página Notícias no site e confirme que o artigo aparece.
+5) Entre de novo como Administrador e confirme que consegue apagar/repor o
+   conteúdo de teste.
+
+CATEGORIAS (RF17 — filtro por categoria)
+- O tema cria duas categorias de exemplo: “Institucional” e “Eventos”.
+- A coordenação pode definir a taxonomia final (nomes e slugs) e apagar as
+  que não forem usadas.
+
+TEMPLATES NO TEMA
+- single.php — página de um artigo (RF18).
+- archive.php — listagens por categoria, tag, data, autor (ligado a RF17).
+
+REVER O SEED EDITORIAL
+- Opção na base de dados: portal_si_editorial_seeded_v1
+- Se precisar de voltar a correr o seed automático, apague essa opção
+  (plugin de gestão de BD, WP-CLI ou phpMyAdmin) e visite o wp-admin como
+  Administrador outra vez.
+- O post de exemplo usa o slug: post-de-exemplo-rascunho
+
+WP-CLI (opcional, com o serviço wpcli do docker-compose):
+  docker compose --profile wpcli run --rm wpcli wp user create editor1 editor1@cefet-rj.br --role=editor --user_pass='EscolhaUmaSenhaForte'
+
+BOAS PRÁTICAS
+- Em produção: 2FA para administradores (RNF04), política de cópias e revisão
+  com a coordenação (RN01, RN07).
+- Manter “desencorajar indexação” só em desenvolvimento (Ajustes > Leitura).

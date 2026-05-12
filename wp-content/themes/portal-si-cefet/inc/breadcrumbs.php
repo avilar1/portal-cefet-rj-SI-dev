@@ -47,6 +47,12 @@ function portal_si_the_breadcrumbs() {
 		$pid   = (int) get_option( 'page_for_posts' );
 		$label = $pid ? get_the_title( $pid ) : __( 'Notícias', 'portal-si-cefet' );
 		$parts[] = '<span class="breadcrumbs__current" aria-current="page">' . esc_html( $label ) . '</span>';
+	} elseif ( is_category() || is_tag() || is_author() || is_date() ) {
+		$posts_page = (int) get_option( 'page_for_posts' );
+		if ( $posts_page ) {
+			$parts[] = portal_si_breadcrumb_link( get_permalink( $posts_page ), get_the_title( $posts_page ) );
+		}
+		$parts[] = '<span class="breadcrumbs__current" aria-current="page">' . esc_html( wp_strip_all_tags( get_the_archive_title() ) ) . '</span>';
 	} elseif ( is_search() ) {
 		$parts[] = '<span class="breadcrumbs__current" aria-current="page">' . esc_html__( 'Busca', 'portal-si-cefet' ) . '</span>';
 	} else {
