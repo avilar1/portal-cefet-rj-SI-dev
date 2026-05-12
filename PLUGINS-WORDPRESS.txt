@@ -1,0 +1,56 @@
+Plugins alinhados ao documento (secção 9.1) — ambiente Docker local
+
+OBJETIVO
+- Instalar e ativar, de forma repetível, os plugins “essenciais” citados no
+  projeto (SEO, cache, segurança, formulários, backup).
+- WP Rocket é pago; usamos W3 Total Cache como equivalente gratuito (RNF08).
+
+PRÉ-REQUISITO
+- Containers a correr: docker compose up -d
+- WordPress já instalado (assistente concluído).
+
+INSTALAÇÃO AUTOMÁTICA (recomendado — WP-CLI no Docker)
+1) Na pasta do projeto (onde está docker-compose.yml), no PowerShell:
+
+   .\scripts\install-plugins.ps1
+
+   Ou manualmente:
+
+   docker compose --profile wpcli run --rm wpcli wp plugin install ^
+     wordpress-seo w3-total-cache wordfence contact-form-7 updraftplus ^
+     --activate
+
+2) No painel (wp-admin), complete assistentes e definições mínimas:
+
+   Yoast SEO (wordpress-seo) — RNF09 / RF34 (sitemap)
+   - Idioma PT-BR no assistente; associar site a título/descrição institucional.
+   - Ativar sitemap XML nas definições do Yoast (geralmente já vem ativo).
+   - Em desenvolvimento local: pode manter “desencorajar indexação” no
+     WordPress (Ajustes > Leitura) até o site público.
+
+   W3 Total Cache — RNF08
+   - Ativar “Page Cache” básico; não ativar tudo de uma vez sem testar.
+   - Se o layout partir, desative minify JS/CSS até o tema estar fechado.
+
+   Wordfence — RNF04 / RNF11
+   - Confirmar e-mail para alertas (pode ser dev).
+   - Firewall em “learning mode” primeiro se notar bloqueios em dev.
+
+   Contact Form 7 — RF16 / RF28
+   - Criar formulários depois nas páginas correspondentes (parceiros, ouvidoria).
+   - LGPD: textos de consentimento virão com o conteúdo jurídico (RN10).
+
+   UpdraftPlus — RNF12
+   - Configurar destino de backup (Drive, S3, pasta local mapeada, etc.).
+   - Frequência mínima semanal + retenção 30 dias (documento).
+
+ALTERNATIVA (sem script)
+- Painel > Plugins > Adicionar novo > pesquisar e instalar os mesmos nomes.
+
+OUTRAS TROCAS CITADAS NO DOCUMENTO (opcional)
+- Rank Math em vez de Yoast (um ou outro, não os dois ativos a disputar SEO).
+- WPForms Lite em vez de Contact Form 7 (escolher UM stack de formulários).
+
+NOTA SOBRE PRIORIDADE DE RFs
+- Ver REQUISITOS-PRIORIDADE.txt: o backlog de “páginas e módulos” segue RF
+  prioridade ALTA; plugins fecham sobretudo RNF e RF34 (sitemap).

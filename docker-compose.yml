@@ -39,6 +39,26 @@ services:
       - wp_data:/var/www/html
       - ./wp-content/themes/portal-si-cefet:/var/www/html/wp-content/themes/portal-si-cefet
 
+  # WP-CLI: use só sob demanda (não sobe com "docker compose up -d" por omissão).
+  # Ex.: docker compose --profile wpcli run --rm wpcli wp plugin list
+  wpcli:
+    image: wordpress:cli
+    profiles:
+      - wpcli
+    user: "33:33"
+    volumes:
+      - wp_data:/var/www/html
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER:-wordpress}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME:-wordpress}
+    depends_on:
+      db:
+        condition: service_healthy
+      wordpress:
+        condition: service_started
+
 volumes:
   db_data:
   wp_data:

@@ -1,0 +1,38 @@
+Portal SI CEFET/RJ — premissa de prioridade (combinado com a coordenação)
+
+REGRA DE TRABALHO
+- Entregas de funcionalidade devem priorizar requisitos funcionais (RF) de
+  prioridade ALTA no documento de análise de requisitos.
+- RFs de prioridade MÉDIA ou BAIXA só entram depois que o conjunto ALTA do
+  módulo correspondente estiver estável, ou se o cliente abrir exceção.
+
+RFS COM PRIORIDADE ALTA (referência: Analise_Requisitos_Portal_SI_CefetRJ)
+- RF01  Home
+- RF02  Sobre o curso
+- RF03  Grade curricular
+- RF05  Ingresso
+- RF06  Documentos institucionais
+- RF08  Corpo docente
+- RF09  Projetos de pesquisa e extensão
+- RF12  Importação de planilha (professores)
+- RF13  Página da Fábrica de Software
+- RF14  Portfólio de projetos
+- RF16  Canal de contato parceiros (formulário)
+- RF17  Listagem de notícias
+- RF18  Detalhe de notícia
+- RF19  CRUD notícias no painel
+- RF20  Agenda / calendário
+- RF22  Links de serviços externos
+- RF25  Repositório de TCCs
+- RF26  Fluxo de disciplinas
+- RF27  Página de contato
+- RF29  Contato da coordenação (destaque)
+- RF30  Área administrativa
+- RF31  Perfis Administrador / Editor
+- RF32  Menu principal configurável
+- RF33  Busca global
+- RF34  Sitemap XML — no documento consta prioridade MÉDIA; atende RNF09/SEO
+  e costuma ser fechada cedo com plugin (Yoast/Rank Math).
+
+Obs.: RNFs (acessibilidade, LGPD, performance, etc.) continuam obrigatórios;
+  não são “baixa prioridade” no sentido de poderem ser ignorados.
