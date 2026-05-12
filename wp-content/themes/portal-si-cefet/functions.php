@@ -9,6 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once get_template_directory() . '/inc/seed-ia.php';
 require_once get_template_directory() . '/inc/seed-editorial.php';
+require_once get_template_directory() . '/inc/comments-policy.php';
 require_once get_template_directory() . '/inc/breadcrumbs.php';
 require_once get_template_directory() . '/inc/search.php';
 
@@ -40,7 +41,7 @@ function portal_si_cefet_scripts() {
 		'portal-si-cefet-style',
 		get_stylesheet_uri(),
 		array(),
-		'0.1.4'
+		'0.1.5'
 	);
 }
 add_action( 'wp_enqueue_scripts', 'portal_si_cefet_scripts' );

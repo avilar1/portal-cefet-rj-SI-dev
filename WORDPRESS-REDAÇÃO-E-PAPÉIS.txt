@@ -49,3 +49,8 @@ BOAS PRÁTICAS
 - Em produção: 2FA para administradores (RNF04), política de cópias e revisão
   com a coordenação (RN01, RN07).
 - Manter “desencorajar indexação” só em desenvolvimento (Ajustes > Leitura).
+
+COMENTÁRIOS (RI06)
+- O tema desativa comentários e pingbacks em posts e páginas (sem comentários
+  abertos no portal institucional). Não é necessário desligar manualmente em
+  cada post novo.
