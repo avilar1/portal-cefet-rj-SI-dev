@@ -9,6 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once get_template_directory() . '/inc/seed-ia.php';
 require_once get_template_directory() . '/inc/breadcrumbs.php';
+require_once get_template_directory() . '/inc/search.php';
 
 /**
  * Suporte a recursos usados nas próximas etapas (título, thumbnails, HTML5).
@@ -38,7 +39,7 @@ function portal_si_cefet_scripts() {
 		'portal-si-cefet-style',
 		get_stylesheet_uri(),
 		array(),
-		'0.1.2'
+		'0.1.3'
 	);
 }
 add_action( 'wp_enqueue_scripts', 'portal_si_cefet_scripts' );

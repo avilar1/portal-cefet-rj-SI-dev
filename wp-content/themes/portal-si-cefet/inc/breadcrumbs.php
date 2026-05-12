@@ -47,6 +47,8 @@ function portal_si_the_breadcrumbs() {
 		$pid   = (int) get_option( 'page_for_posts' );
 		$label = $pid ? get_the_title( $pid ) : __( 'Notícias', 'portal-si-cefet' );
 		$parts[] = '<span class="breadcrumbs__current" aria-current="page">' . esc_html( $label ) . '</span>';
+	} elseif ( is_search() ) {
+		$parts[] = '<span class="breadcrumbs__current" aria-current="page">' . esc_html__( 'Busca', 'portal-si-cefet' ) . '</span>';
 	} else {
 		$title = get_the_archive_title();
 		if ( $title ) {

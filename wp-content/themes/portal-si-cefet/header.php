@@ -42,5 +42,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		);
 		?>
+		<div class="site-header__search">
+			<?php
+			get_search_form(
+				array(
+					'aria_label' => __( 'Busca no portal', 'portal-si-cefet' ),
+				)
+			);
+			?>
+		</div>
 	</div>
 </header>
