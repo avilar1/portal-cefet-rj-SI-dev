@@ -3,7 +3,7 @@ Theme Name: Portal SI CEFET/RJ
 Theme URI: https://www.cefet-rj.br
 Author: Fábrica de Software — Curso de SI
 Description: Tema institucional do Portal de Sistemas de Informação (base para Design System gov.br).
-Version: 0.2.1
+Version: 0.2.2
 Requires at least: 6.4
 Requires PHP: 7.4
 Text Domain: portal-si-cefet
@@ -17,6 +17,10 @@ Text Domain: portal-si-cefet
 	--ds-blue-dark: #0c326f;
 	--ds-yellow: #ffcd07;
 	--ds-green: #168821;
+
+	/* Tipografia DS gov.br — requer inc/fonts.php (Rawline + Raleway). */
+	--font-body: "Rawline", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	--font-heading: "Raleway", var(--font-body);
 
 	--portal-color-text: #1a1a1a;
 	--portal-color-bg: #fff;
@@ -34,10 +38,19 @@ Text Domain: portal-si-cefet
 
 body {
 	margin: 0;
-	font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	font-family: var(--font-body);
 	line-height: 1.5;
 	color: var(--portal-color-text);
 	background: var(--portal-color-bg);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-heading);
 }
 
 a {

@@ -7,23 +7,15 @@
 	--color-primary: #1351b4;
 	--color-secondary: #0c326f;
 	--color-highlight: #ffcd07;
-	--font-body: "Rawline", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-	--font-heading: "Raleway", system-ui, sans-serif;
 	--portal-max-width: 72rem;
 	--portal-space: 1rem;
 }
 
-body {
-	font-family: var(--font-body);
-}
-
-h1,
-h2,
-h3,
-h4,
 .portal-hero__title,
 .portal-section-header__title,
-.portal-footer-sitemap__heading {
+.portal-service-links__heading,
+.portal-footer-sitemap__heading,
+.portal-main-nav__brand-name {
 	font-family: var(--font-heading);
 }
 
