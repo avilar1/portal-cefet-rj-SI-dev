@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 ?>
-<main id="main" class="site-main site-main--search" tabindex="-1">
+<main id="main-content" class="site-main site-main--search" tabindex="-1">
 	<?php portal_si_the_breadcrumbs(); ?>
 
 	<h1 class="search-results-title">

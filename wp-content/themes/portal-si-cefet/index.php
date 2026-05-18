@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 ?>
-<main id="main" class="site-main" tabindex="-1">
+<main id="main-content" class="site-main" tabindex="-1">
 	<?php portal_si_the_breadcrumbs(); ?>
 
 	<?php if ( is_home() && ! is_front_page() ) : ?>

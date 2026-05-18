@@ -3,18 +3,16 @@ Theme Name: Portal SI CEFET/RJ
 Theme URI: https://www.cefet-rj.br
 Author: Fábrica de Software — Curso de SI
 Description: Tema institucional do Portal de Sistemas de Informação (base para Design System gov.br).
-Version: 0.1.5
+Version: 0.2.1
 Requires at least: 6.4
 Requires PHP: 7.4
 Text Domain: portal-si-cefet
 */
 
 /*
- * Esqueleto visual (RN04 / §9.2): tokens oficiais de cor; tipografia e componentes
- * finais (Rawline, Raleway, barra gov.br completa) entram quando o layout React for fechado.
+ * Base do tema — tokens DS gov.br; layout da home em assets/css/home.css.
  */
 :root {
-	/* Paleta DS gov.br — documento de requisitos §9.2 */
 	--ds-blue: #1351b4;
 	--ds-blue-dark: #0c326f;
 	--ds-yellow: #ffcd07;
@@ -50,68 +48,7 @@ a:hover {
 	color: var(--portal-color-link-hover);
 }
 
-/* Faixa superior — placeholder até integrar o header oficial do DS. */
-.br-header-stub {
-	background: var(--ds-blue-dark);
-	color: #fff;
-	font-size: 0.8125rem;
-}
-
-.br-header-stub__inner {
-	max-width: var(--portal-max-width);
-	margin: 0 auto;
-	padding: 0.35rem var(--portal-space);
-}
-
-.br-header-stub__link {
-	color: #fff;
-	text-decoration: none;
-}
-
-.br-header-stub__link:hover {
-	color: var(--ds-yellow);
-	text-decoration: underline;
-}
-
-.site-header {
-	border-bottom: 1px solid #ddd;
-}
-
-.site-header__inner {
-	max-width: var(--portal-max-width);
-	margin: 0 auto;
-	padding: var(--portal-space);
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: var(--portal-space);
-}
-
-.site-header__search {
-	flex: 1 1 12rem;
-	max-width: 22rem;
-	min-width: 10rem;
-	margin-left: auto;
-}
-
-@media (max-width: 48rem) {
-	.site-header__search {
-		flex-basis: 100%;
-		max-width: none;
-		margin-left: 0;
-		order: 3;
-	}
-
-	.nav-primary {
-		order: 2;
-	}
-
-	.site-title {
-		order: 1;
-	}
-}
-
-/* Busca global (RF33) — esqueleto; refinamento com DS depois. */
+/* Busca global (RF33) */
 .portal-global-search {
 	display: flex;
 	align-items: stretch;
@@ -176,38 +113,6 @@ a:hover {
 	margin-top: 0;
 }
 
-.site-title {
-	margin: 0;
-	font-size: 1.125rem;
-	font-weight: 700;
-}
-
-.site-title a {
-	text-decoration: none;
-	color: inherit;
-}
-
-.nav-primary .nav-primary__list,
-.nav-footer .nav-footer__list {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.75rem 1.25rem;
-}
-
-.nav-primary a,
-.nav-footer a {
-	text-decoration: none;
-}
-
-.nav-primary a:hover,
-.nav-footer a:hover,
-.site-title a:hover {
-	text-decoration: underline;
-}
-
 .breadcrumbs {
 	max-width: var(--portal-max-width);
 	margin: 0 auto;
@@ -255,23 +160,6 @@ a:hover {
 	margin-bottom: 1.5rem;
 	padding-bottom: 1rem;
 	border-bottom: 1px solid #eee;
-}
-
-.site-footer {
-	margin-top: 2rem;
-	border-top: 1px solid #ddd;
-	padding: var(--portal-space);
-}
-
-.site-footer .nav-footer__list {
-	justify-content: center;
-}
-
-.site-footer__meta {
-	text-align: center;
-	margin: 1rem 0 0;
-	font-size: 0.875rem;
-	color: #555;
 }
 
 /* Link “Ir para o conteúdo” — visível ao focar (RNF03). */

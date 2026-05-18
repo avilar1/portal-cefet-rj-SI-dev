@@ -1,6 +1,6 @@
 <?php
 /**
- * Rodapé: menu secundário (legal / mapa) e fechamento do documento.
+ * Rodapé — zonas 7 e 8 do layout MVP (RN10, RNF07).
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -9,18 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <footer class="site-footer" role="contentinfo">
 	<?php
-	wp_nav_menu(
-		array(
-			'theme_location'  => 'footer',
-			'container'       => 'nav',
-			'container_class' => 'nav-footer',
-			'container_aria_label' => __( 'Menu rodapé', 'portal-si-cefet' ),
-			'menu_class'      => 'nav-footer__list',
-			'fallback_cb'     => false,
-		)
-	);
+	get_template_part( 'template-parts/footer/sitemap' );
+	get_template_part( 'template-parts/footer/legal-bar' );
 	?>
-	<p class="site-footer__meta">&copy; <?php echo esc_html( wp_date( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?></p>
 </footer>
 <?php wp_footer(); ?>
 </body>
