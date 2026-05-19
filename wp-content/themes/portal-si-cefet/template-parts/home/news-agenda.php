@@ -42,7 +42,11 @@ $events       = portal_si_home_agenda_events();
 						?>
 						<li class="portal-news-card">
 							<article class="<?php echo esc_attr( portal_si_br_card_class( array( 'hover' ) ) ); ?>">
-								<a class="portal-news-card__media" href="<?php the_permalink(); ?>">
+								<a
+									class="portal-news-card__media"
+									href="<?php the_permalink(); ?>"
+									aria-label="<?php echo esc_attr( sprintf( __( 'Ver notícia: %s', 'portal-si-cefet' ), get_the_title() ) ); ?>"
+								>
 									<?php if ( has_post_thumbnail() ) : ?>
 										<?php the_post_thumbnail( 'medium_large', array( 'class' => 'portal-news-card__img' ) ); ?>
 									<?php else : ?>

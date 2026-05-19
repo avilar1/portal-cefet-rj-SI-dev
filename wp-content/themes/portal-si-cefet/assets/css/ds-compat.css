@@ -138,12 +138,3 @@
 	color: var(--color-secondary, #0c326f);
 	white-space: nowrap;
 }
-
-/* Alto contraste (complementa portal-high-contrast em home.css) */
-body.portal-high-contrast .br-header {
-	filter: none;
-}
-
-body.portal-high-contrast .portal-header-nav__list a {
-	color: #000 !important;
-}

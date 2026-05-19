@@ -119,12 +119,15 @@
 }
 
 .portal-legal-nav a:hover,
+.portal-legal-nav__contrast:hover {
+	color: var(--color-primary);
+	text-decoration: underline;
+}
+
 .portal-legal-nav a:focus-visible,
-.portal-legal-nav__contrast:hover,
 .portal-legal-nav__contrast:focus-visible {
 	color: var(--color-primary);
 	text-decoration: underline;
-	outline: none;
 }
 
 .portal-legal-nav__contrast:focus-visible {
@@ -271,7 +274,6 @@
 .portal-main-nav__search-toggle:hover,
 .portal-main-nav__search-toggle:focus-visible {
 	border-color: #fff;
-	outline: none;
 }
 
 .portal-main-nav__search-panel {
@@ -830,29 +832,4 @@
 
 .site-header {
 	border-bottom: 0;
-}
-
-/* Alto contraste (H11) */
-body.portal-high-contrast {
-	--color-primary: #000;
-	--color-secondary: #000;
-	--portal-color-text: #000;
-	--portal-color-bg: #fff;
-	background: #fff !important;
-	color: #000 !important;
-}
-
-body.portal-high-contrast a {
-	color: #000 !important;
-	text-decoration: underline !important;
-}
-
-body.portal-high-contrast .portal-hero__overlay {
-	background: rgba(0, 0, 0, 0.85) !important;
-}
-
-body.portal-high-contrast .portal-btn--primary {
-	background: #000 !important;
-	color: #fff !important;
-	border-color: #000 !important;
 }

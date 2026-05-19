@@ -117,12 +117,7 @@ function portal_si_section_divider( array $args = array() ) {
 	}
 
 	if ( $args['label'] ) {
-		printf(
-			'<span class="%1$s"%2$s role="separator" aria-label="%3$s">',
-			$class_attr,
-			$id_attr,
-			esc_attr( $args['label'] )
-		);
+		printf( '<span class="%1$s"%2$s>', $class_attr, $id_attr );
 		echo '<span class="portal-section-divider__label">';
 		echo esc_html( $args['label'] );
 		echo '</span></span>';

@@ -27,7 +27,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</a>
 			</li>
 			<li>
-				<button type="button" class="portal-legal-nav__contrast" data-portal-contrast-toggle>
+				<button
+					type="button"
+					class="portal-legal-nav__contrast"
+					data-portal-contrast-toggle
+					aria-pressed="false"
+				>
 					<?php esc_html_e( 'Alto Contraste', 'portal-si-cefet' ); ?>
 				</button>
 			</li>

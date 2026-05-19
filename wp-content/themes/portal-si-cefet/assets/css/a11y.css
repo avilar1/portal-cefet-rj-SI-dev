@@ -1,0 +1,261 @@
+/**
+ * Acessibilidade — alto contraste (H11) e preferências do usuário.
+ * Padrão: texto preto (#000) em fundo branco (#fff), links sublinhados,
+ * foco amarelo (#ff0), áreas institucionais invertidas (fundo preto, texto branco).
+ */
+
+/* —— prefers-reduced-motion —— */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* —— Alto contraste —— */
+body.portal-high-contrast {
+	--color-primary: #000;
+	--color-secondary: #000;
+	--color-highlight: #ff0;
+	--portal-color-text: #000;
+	--portal-color-bg: #fff;
+	--portal-color-link: #000;
+	--portal-color-link-hover: #000;
+	--govbr-blue: #000;
+	--govbr-blue-dark: #000;
+	background: #fff !important;
+	color: #000 !important;
+}
+
+body.portal-high-contrast :focus-visible {
+	outline: 3px solid #ff0 !important;
+	outline-offset: 2px !important;
+}
+
+/* Zona 1 */
+body.portal-high-contrast .portal-top-banner {
+	background: #000 !important;
+	color: #fff !important;
+	border-bottom: 3px solid #fff;
+}
+
+body.portal-high-contrast .portal-top-banner a {
+	color: #fff !important;
+	text-decoration: underline !important;
+}
+
+body.portal-high-contrast .portal-top-banner a:hover,
+body.portal-high-contrast .portal-top-banner a:focus-visible {
+	color: #ff0 !important;
+}
+
+/* Zona 2 */
+body.portal-high-contrast .portal-legal-nav {
+	background: #fff !important;
+	border-bottom: 2px solid #000;
+}
+
+body.portal-high-contrast .portal-legal-nav a,
+body.portal-high-contrast .portal-legal-nav__contrast {
+	color: #000 !important;
+	font-weight: 700;
+	text-decoration: underline !important;
+}
+
+body.portal-high-contrast .portal-legal-nav__contrast[aria-pressed="true"] {
+	background: #000 !important;
+	color: #fff !important;
+}
+
+/* Zona 3 */
+body.portal-high-contrast .portal-main-nav {
+	background: #000 !important;
+	color: #fff !important;
+	box-shadow: none !important;
+	border-bottom: 3px solid #fff;
+}
+
+body.portal-high-contrast .portal-main-nav__brand,
+body.portal-high-contrast .portal-main-nav__brand:hover,
+body.portal-high-contrast .portal-main-nav__brand:focus-visible,
+body.portal-high-contrast .nav-primary a,
+body.portal-high-contrast .portal-main-nav__search-toggle {
+	color: #fff !important;
+}
+
+body.portal-high-contrast .nav-primary a:hover,
+body.portal-high-contrast .nav-primary a:focus-visible {
+	color: #ff0 !important;
+}
+
+body.portal-high-contrast .portal-main-nav__search-panel {
+	background: #fff !important;
+	border: 2px solid #000;
+	box-shadow: none !important;
+}
+
+body.portal-high-contrast .portal-global-search__input {
+	border: 2px solid #000 !important;
+	color: #000 !important;
+	background: #fff !important;
+}
+
+body.portal-high-contrast .portal-global-search__submit {
+	background: #000 !important;
+	color: #fff !important;
+	border: 2px solid #000 !important;
+}
+
+/* Zona 4 */
+body.portal-high-contrast .portal-hero__overlay {
+	background: #000 !important;
+	opacity: 0.9 !important;
+}
+
+body.portal-high-contrast .portal-hero__title,
+body.portal-high-contrast .portal-hero__campus,
+body.portal-high-contrast .portal-hero__description {
+	color: #fff !important;
+}
+
+body.portal-high-contrast .portal-hero .portal-btn--primary {
+	background: #fff !important;
+	color: #000 !important;
+	border: 3px solid #fff !important;
+}
+
+body.portal-high-contrast .portal-hero .portal-btn--secondary {
+	background: #000 !important;
+	color: #fff !important;
+	border: 3px solid #fff !important;
+}
+
+body.portal-high-contrast .portal-hero .portal-btn:hover,
+body.portal-high-contrast .portal-hero .portal-btn:focus-visible {
+	background: #ff0 !important;
+	color: #000 !important;
+	border-color: #000 !important;
+}
+
+/* Separadores */
+body.portal-high-contrast .portal-section-divider__label {
+	color: #000 !important;
+}
+
+body.portal-high-contrast .br-divider.content::before,
+body.portal-high-contrast .br-divider.content::after {
+	border-color: #000 !important;
+}
+
+/* Zona 5 */
+body.portal-high-contrast .portal-service-links {
+	background: #fff !important;
+}
+
+body.portal-high-contrast .portal-service-card,
+body.portal-high-contrast .portal-news-card.br-card {
+	background: #fff !important;
+	border: 2px solid #000 !important;
+	box-shadow: none !important;
+}
+
+body.portal-high-contrast .portal-service-card__title,
+body.portal-high-contrast .portal-news-card__tag {
+	color: #000 !important;
+}
+
+body.portal-high-contrast .portal-service-card__description,
+body.portal-high-contrast .portal-news-card__meta {
+	color: #000 !important;
+}
+
+body.portal-high-contrast .portal-service-card__icon {
+	color: #000 !important;
+}
+
+body.portal-high-contrast .portal-service-card:hover,
+body.portal-high-contrast .portal-service-card:focus-visible {
+	border-left-color: #000 !important;
+	background: #ff0 !important;
+}
+
+body.portal-high-contrast .br-card.hover:hover {
+	background-image: none !important;
+	background: #ff0 !important;
+}
+
+/* Zona 6 */
+body.portal-high-contrast .portal-section-header__title,
+body.portal-high-contrast .portal-news-card__title a {
+	color: #000 !important;
+}
+
+body.portal-high-contrast .portal-section-header__more,
+body.portal-high-contrast .portal-agenda-list__link {
+	color: #000 !important;
+	text-decoration: underline !important;
+}
+
+body.portal-high-contrast .portal-news-agenda__agenda {
+	background: #fff !important;
+	border: 2px solid #000 !important;
+}
+
+body.portal-high-contrast .portal-agenda-list__item {
+	border-color: #000 !important;
+}
+
+body.portal-high-contrast .portal-agenda-list__date {
+	color: #000 !important;
+}
+
+/* Zona 7–8 */
+body.portal-high-contrast .portal-footer-sitemap {
+	background: #000 !important;
+	color: #fff !important;
+	border-top: 3px solid #fff;
+}
+
+body.portal-high-contrast .portal-footer-sitemap a {
+	color: #fff !important;
+	text-decoration: underline !important;
+	opacity: 1 !important;
+}
+
+body.portal-high-contrast .portal-footer-sitemap a:hover,
+body.portal-high-contrast .portal-footer-sitemap a:focus-visible {
+	color: #ff0 !important;
+}
+
+body.portal-high-contrast .portal-footer-sitemap__brand {
+	border-color: #fff !important;
+}
+
+body.portal-high-contrast .portal-footer-legal {
+	background: #000 !important;
+	color: #fff !important;
+	border-top: 2px solid #fff;
+}
+
+body.portal-high-contrast .portal-footer-legal a,
+body.portal-high-contrast .portal-footer-legal__cookies {
+	color: #fff !important;
+	text-decoration: underline !important;
+}
+
+/* Links genéricos em fundo claro (exceto botões do hero) */
+body.portal-high-contrast .portal-news-agenda a:not(.portal-btn),
+body.portal-high-contrast .site-main a:not(.portal-btn) {
+	color: #000 !important;
+	text-decoration: underline !important;
+}
+
+body.portal-high-contrast .skip-link.screen-reader-text:focus {
+	background: #000 !important;
+	color: #fff !important;
+	border: 2px solid #ff0;
+}
