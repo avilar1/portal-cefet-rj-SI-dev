@@ -15,9 +15,10 @@ require_once get_template_directory() . '/inc/search.php';
 require_once get_template_directory() . '/inc/home.php';
 require_once get_template_directory() . '/inc/fonts.php';
 require_once get_template_directory() . '/inc/design-system.php';
+require_once get_template_directory() . '/inc/ds-components.php';
 require_once get_template_directory() . '/inc/nav.php';
 
-define( 'PORTAL_SI_CEFET_VERSION', '0.3.1' );
+define( 'PORTAL_SI_CEFET_VERSION', '0.3.2' );
 
 /**
  * Suporte a recursos usados nas próximas etapas (título, thumbnails, HTML5).
@@ -67,7 +68,7 @@ function portal_si_cefet_scripts() {
 	wp_enqueue_style(
 		'portal-si-cefet-layout',
 		get_template_directory_uri() . '/assets/css/home.css',
-		array( 'portal-si-cefet-style' ),
+		array( 'portal-si-cefet-style', 'portal-si-ds-compat' ),
 		PORTAL_SI_CEFET_VERSION
 	);
 

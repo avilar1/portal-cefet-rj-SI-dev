@@ -13,7 +13,6 @@
 
 .portal-hero__title,
 .portal-section-header__title,
-.portal-service-links__heading,
 .portal-footer-sitemap__heading,
 .portal-main-nav__brand-name {
 	font-family: var(--font-heading);
@@ -455,6 +454,16 @@
 	outline-offset: 2px;
 }
 
+/* Separadores de seção (br-divider) */
+.portal-section-divider-wrap {
+	padding: 1.25rem var(--portal-space) 0;
+}
+
+.portal-is-home .portal-service-links + .portal-section-divider-wrap {
+	padding-top: 0;
+	padding-bottom: 1rem;
+}
+
 /* —— Zona 5 —— */
 .portal-service-links {
 	background: #f8f8f8;
@@ -466,14 +475,6 @@
 	margin: 0 auto;
 }
 
-.portal-service-links__heading {
-	margin: 0 0 1.75rem;
-	text-align: center;
-	font-size: 1.375rem;
-	font-weight: 700;
-	color: var(--color-secondary);
-}
-
 .portal-service-links__grid {
 	list-style: none;
 	margin: 0;
@@ -483,26 +484,7 @@
 	gap: 1rem;
 }
 
-.portal-service-card {
-	display: flex;
-	align-items: flex-start;
-	gap: 1rem;
-	padding: 1.25rem 1.25rem 1.25rem 1rem;
-	background: #fff;
-	border: 1px solid #e8e8e8;
-	border-left: 3px solid transparent;
-	border-radius: 2px;
-	text-decoration: none;
-	color: inherit;
-	transition: border-color 0.15s ease, box-shadow 0.15s ease;
-}
-
-.portal-service-card:hover,
-.portal-service-card:focus-visible {
-	border-left-color: var(--color-primary);
-	box-shadow: 0 4px 12px rgba(19, 81, 180, 0.12);
-	outline: none;
-}
+/* Layout interno — visual do br-card vem do GovBR-DS (ds-components) */
 
 .portal-service-card__icon {
 	flex-shrink: 0;
@@ -587,9 +569,6 @@
 }
 
 .portal-news-card {
-	background: #fff;
-	border: 1px solid #e8e8e8;
-	border-radius: 2px;
 	overflow: hidden;
 }
 
@@ -613,9 +592,7 @@
 	background: linear-gradient(135deg, #d8e4f5, #eef2f8);
 }
 
-.portal-news-card__body {
-	padding: 1rem;
-}
+/* padding do corpo via .card-content (GovBR-DS) */
 
 .portal-news-card__meta {
 	margin: 0 0 0.5rem;

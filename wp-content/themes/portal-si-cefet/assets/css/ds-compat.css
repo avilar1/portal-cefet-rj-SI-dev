@@ -75,10 +75,68 @@
 	background: rgba(255, 255, 255, 0.12);
 }
 
-/* Cards de serviço — hover alinhado ao DS */
+/* br-card na home — ajustes sem conflitar com header */
+.portal-service-links .br-card,
+.portal-news-grid .br-card {
+	margin-bottom: 0;
+	text-decoration: none;
+	color: inherit;
+}
+
+.portal-service-card {
+	display: block;
+	border-left: 3px solid transparent;
+	transition: border-color 0.15s ease;
+}
+
+.portal-service-card__inner {
+	display: flex;
+	align-items: flex-start;
+	gap: 1rem;
+	padding: 0;
+}
+
+.portal-service-card:hover,
+.portal-service-card:focus-visible {
+	border-left-color: var(--color-primary, #1351b4);
+}
+
 .portal-service-card:focus-visible {
 	outline: 3px solid var(--color-highlight, #ffcd07);
 	outline-offset: 2px;
+}
+
+.portal-news-card.br-card {
+	overflow: hidden;
+}
+
+/* Separadores entre seções da home */
+.portal-section-divider-wrap {
+	max-width: var(--portal-max-width, 72rem);
+	margin: 0 auto;
+	padding: 0 var(--portal-space, 1rem);
+}
+
+.portal-section-divider {
+	margin: 0;
+	border: 0;
+}
+
+/* Variante content do DS 3.7 — linha + título + linha (gov.br) */
+.portal-section-divider.content {
+	width: 100%;
+}
+
+.portal-section-divider__label {
+	flex-shrink: 0;
+	font-family: var(--font-heading, "Raleway", sans-serif);
+	font-size: 0.8125rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	line-height: 1.2;
+	text-transform: uppercase;
+	color: var(--color-secondary, #0c326f);
+	white-space: nowrap;
 }
 
 /* Alto contraste (complementa portal-high-contrast em home.css) */

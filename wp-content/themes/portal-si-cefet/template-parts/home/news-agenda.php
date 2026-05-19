@@ -20,7 +20,7 @@ $news_query = new WP_Query(
 $noticias_url = portal_si_page_url( 'noticias' );
 $events       = portal_si_home_agenda_events();
 ?>
-<section class="portal-news-agenda" aria-labelledby="portal-news-title">
+<section class="portal-news-agenda" aria-labelledby="portal-news-agenda-title">
 	<div class="portal-news-agenda__inner">
 		<div class="portal-news-agenda__news">
 			<header class="portal-section-header">
@@ -41,7 +41,7 @@ $events       = portal_si_home_agenda_events();
 						$cat_name   = ! empty( $categories ) ? $categories[0]->name : __( 'Institucional', 'portal-si-cefet' );
 						?>
 						<li class="portal-news-card">
-							<article>
+							<article class="<?php echo esc_attr( portal_si_br_card_class( array( 'hover' ) ) ); ?>">
 								<a class="portal-news-card__media" href="<?php the_permalink(); ?>">
 									<?php if ( has_post_thumbnail() ) : ?>
 										<?php the_post_thumbnail( 'medium_large', array( 'class' => 'portal-news-card__img' ) ); ?>
@@ -49,7 +49,7 @@ $events       = portal_si_home_agenda_events();
 										<span class="portal-news-card__placeholder" aria-hidden="true"></span>
 									<?php endif; ?>
 								</a>
-								<div class="portal-news-card__body">
+								<div class="card-content portal-news-card__body">
 									<p class="portal-news-card__meta">
 										<span class="portal-news-card__tag"><?php echo esc_html( $cat_name ); ?></span>
 										<time datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>">

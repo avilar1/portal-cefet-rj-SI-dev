@@ -1,9 +1,9 @@
 <?php
 /**
- * Design System gov.br — modo adaptado (tokens + boas práticas, sem core.min.css).
+ * Design System gov.br — modo híbrido.
  *
- * O pacote completo @govbr-ds/core conflita com o layout do portal; usamos
- * theme.json + CSS do tema alinhados aos tokens oficiais (#1351B4, Rawline, Raleway).
+ * Tokens leves do tema (ds-tokens.css) + componentes pontuais do @govbr-ds/core 3.7
+ * (card, divider) via inc/ds-components.php — sem core.min.css completo.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
