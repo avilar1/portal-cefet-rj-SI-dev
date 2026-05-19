@@ -21,38 +21,15 @@ function portal_si_page_url( $slug ) {
 }
 
 /**
- * Eventos da agenda na home (placeholder até The Events Calendar).
+ * Eventos da agenda na home (CPT portal_evento).
  *
- * @return array<int, array{date: string, title: string, url: string}>
+ * @return array<int, array{date: string, date_iso: string, title: string, url: string}>
  */
 function portal_si_home_agenda_events() {
-	$agenda_url = portal_si_page_url( 'agenda-e-eventos' );
-
-	$events = array(
-		array(
-			'date'  => '12 Jun 2026',
-			'title' => __( 'Semana de Integração — Calouros', 'portal-si-cefet' ),
-			'url'   => $agenda_url,
-		),
-		array(
-			'date'  => '20 Ago 2026',
-			'title' => __( 'Defesas de TCC — 2º semestre', 'portal-si-cefet' ),
-			'url'   => $agenda_url,
-		),
-		array(
-			'date'  => '15 Out 2026',
-			'title' => __( 'Feira de Projetos — Fábrica de Software', 'portal-si-cefet' ),
-			'url'   => $agenda_url,
-		),
-		array(
-			'date'  => '10 Dez 2026',
-			'title' => __( 'Encerramento do semestre letivo', 'portal-si-cefet' ),
-			'url'   => $agenda_url,
-		),
-	);
+	$events = portal_si_get_upcoming_eventos( 4 );
 
 	/**
-	 * Permite substituir eventos por integração com plugin de calendário.
+	 * Permite ajustar ou substituir a lista (ex.: plugin de calendário).
 	 *
 	 * @param array $events Lista de eventos.
 	 */

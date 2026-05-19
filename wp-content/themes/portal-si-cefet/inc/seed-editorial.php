@@ -86,6 +86,8 @@ function portal_si_run_editorial_seed() {
 		return;
 	}
 
+	portal_si_seed_sample_eventos();
+
 	update_option( PORTAL_SI_EDITORIAL_SEEDED_OPTION, 1 );
 }
 

@@ -456,16 +456,6 @@
 	outline-offset: 2px;
 }
 
-/* Separadores de seção (br-divider) */
-.portal-section-divider-wrap {
-	padding: 1.25rem var(--portal-space) 0;
-}
-
-.portal-is-home .portal-service-links + .portal-section-divider-wrap {
-	padding-top: 0;
-	padding-bottom: 1rem;
-}
-
 /* —— Zona 5 —— */
 .portal-service-links {
 	background: #f8f8f8;

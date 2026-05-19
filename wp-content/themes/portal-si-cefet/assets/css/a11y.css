@@ -259,3 +259,26 @@ body.portal-high-contrast .skip-link.screen-reader-text:focus {
 	color: #fff !important;
 	border: 2px solid #ff0;
 }
+
+/* Páginas internas — agenda e evento */
+body.portal-high-contrast .portal-page-header__title,
+body.portal-high-contrast .portal-event-card__title a,
+body.portal-high-contrast .portal-event-card__meta {
+	color: #000 !important;
+}
+
+body.portal-high-contrast .portal-event-card,
+body.portal-high-contrast .portal-event-card.br-card {
+	border: 2px solid #000 !important;
+	box-shadow: none !important;
+}
+
+body.portal-high-contrast .portal-event-card__excerpt {
+	color: #000 !important;
+}
+
+body.portal-high-contrast .site-main--evento .portal-btn--primary {
+	background: #000 !important;
+	color: #fff !important;
+	border: 2px solid #000 !important;
+}

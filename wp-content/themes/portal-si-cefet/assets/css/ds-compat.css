@@ -110,11 +110,11 @@
 	overflow: hidden;
 }
 
-/* Separadores entre seções da home */
+/* Separadores — respiro antes e depois (home, agenda, etc.) */
 .portal-section-divider-wrap {
 	max-width: var(--portal-max-width, 72rem);
 	margin: 0 auto;
-	padding: 0 var(--portal-space, 1rem);
+	padding: 2rem var(--portal-space, 1rem);
 }
 
 .portal-section-divider {

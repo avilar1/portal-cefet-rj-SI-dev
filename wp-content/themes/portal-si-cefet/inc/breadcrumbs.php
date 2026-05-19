@@ -37,7 +37,13 @@ function portal_si_the_breadcrumbs() {
 			}
 		}
 		$parts[] = '<span class="breadcrumbs__current" aria-current="page">' . esc_html( get_the_title() ) . '</span>';
-	} elseif ( is_single() ) {
+	} elseif ( is_singular( PORTAL_SI_EVENTO_POST_TYPE ) || ( is_singular() && PORTAL_SI_EVENTO_POST_TYPE === get_post_type() ) ) {
+		$parts[] = portal_si_breadcrumb_link(
+			portal_si_page_url( 'agenda-e-eventos' ),
+			__( 'Agenda e Eventos', 'portal-si-cefet' )
+		);
+		$parts[] = '<span class="breadcrumbs__current" aria-current="page">' . esc_html( get_the_title() ) . '</span>';
+	} elseif ( is_single() && 'post' === get_post_type() ) {
 		$posts_page = (int) get_option( 'page_for_posts' );
 		if ( $posts_page ) {
 			$parts[] = portal_si_breadcrumb_link( get_permalink( $posts_page ), get_the_title( $posts_page ) );

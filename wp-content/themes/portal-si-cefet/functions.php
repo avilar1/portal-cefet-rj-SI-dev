@@ -7,9 +7,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+define( 'PORTAL_SI_CEFET_VERSION', '0.3.6' );
+
 require_once get_template_directory() . '/inc/seed-ia.php';
 require_once get_template_directory() . '/inc/seed-editorial.php';
 require_once get_template_directory() . '/inc/comments-policy.php';
+require_once get_template_directory() . '/inc/evento.php';
 require_once get_template_directory() . '/inc/breadcrumbs.php';
 require_once get_template_directory() . '/inc/search.php';
 require_once get_template_directory() . '/inc/home.php';
@@ -18,8 +21,6 @@ require_once get_template_directory() . '/inc/design-system.php';
 require_once get_template_directory() . '/inc/ds-components.php';
 require_once get_template_directory() . '/inc/a11y.php';
 require_once get_template_directory() . '/inc/nav.php';
-
-define( 'PORTAL_SI_CEFET_VERSION', '0.3.3' );
 
 /**
  * Suporte a recursos usados nas próximas etapas (título, thumbnails, HTML5).
@@ -51,6 +52,9 @@ function portal_si_cefet_body_classes( $classes ) {
 	if ( is_front_page() ) {
 		$classes[] = 'portal-is-home';
 	}
+	if ( is_page( 'agenda-e-eventos' ) ) {
+		$classes[] = 'portal-is-agenda';
+	}
 	return $classes;
 }
 add_filter( 'body_class', 'portal_si_cefet_body_classes' );
@@ -70,6 +74,13 @@ function portal_si_cefet_scripts() {
 		'portal-si-cefet-layout',
 		get_template_directory_uri() . '/assets/css/home.css',
 		array( 'portal-si-cefet-style', 'portal-si-ds-compat' ),
+		PORTAL_SI_CEFET_VERSION
+	);
+
+	wp_enqueue_style(
+		'portal-si-pages',
+		get_template_directory_uri() . '/assets/css/pages.css',
+		array( 'portal-si-cefet-layout' ),
 		PORTAL_SI_CEFET_VERSION
 	);
 

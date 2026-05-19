@@ -18,6 +18,7 @@ $news_query = new WP_Query(
 );
 
 $noticias_url = portal_si_page_url( 'noticias' );
+$agenda_url   = portal_si_page_url( 'agenda-e-eventos' );
 $events       = portal_si_home_agenda_events();
 ?>
 <section class="portal-news-agenda" aria-labelledby="portal-news-agenda-title">
@@ -81,19 +82,21 @@ $events       = portal_si_home_agenda_events();
 				<h2 id="portal-agenda-title" class="portal-section-header__title">
 					<?php esc_html_e( 'Agenda', 'portal-si-cefet' ); ?>
 				</h2>
+				<a class="portal-section-header__more" href="<?php echo esc_url( $agenda_url ); ?>">
+					<?php esc_html_e( 'Ver todos', 'portal-si-cefet' ); ?>
+				</a>
 			</header>
-			<ul class="portal-agenda-list">
-				<?php foreach ( $events as $event ) : ?>
-					<li class="portal-agenda-list__item">
-						<time class="portal-agenda-list__date" datetime="<?php echo esc_attr( $event['date'] ); ?>">
-							<?php echo esc_html( $event['date'] ); ?>
-						</time>
-						<a class="portal-agenda-list__link" href="<?php echo esc_url( $event['url'] ); ?>">
-							<?php echo esc_html( $event['title'] ); ?>
-						</a>
-					</li>
-				<?php endforeach; ?>
-			</ul>
+			<?php
+			get_template_part(
+				'template-parts/evento/list',
+				null,
+				array(
+					'events'        => $events,
+					'variant'       => 'compact',
+					'empty_message' => __( 'Nenhum evento programado no momento. Consulte a agenda completa ou volte em breve.', 'portal-si-cefet' ),
+				)
+			);
+			?>
 		</aside>
 	</div>
 </section>
