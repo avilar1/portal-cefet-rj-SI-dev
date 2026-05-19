@@ -1,7 +1,6 @@
 <?php
 /**
- * Cabeçalho — zonas 1 a 3 do layout MVP (RN04, RF32, RF33).
- * Barras superiores rolam; menu principal permanece fixo no topo.
+ * Cabeçalho híbrido — layout do portal + boas práticas gov.br (RN04, RF32, RF33).
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

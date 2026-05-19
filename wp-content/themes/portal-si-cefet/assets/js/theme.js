@@ -1,16 +1,13 @@
 /**
- * Interações do tema — menu mobile, busca expansível, contraste (H11).
+ * Interações do header portal (menu mobile, busca, contraste, cookies).
  */
 (function () {
 	'use strict';
 
-	var body = document.body;
-
 	function setExpanded(button, expanded) {
-		if (!button) {
-			return;
+		if (button) {
+			button.setAttribute('aria-expanded', expanded ? 'true' : 'false');
 		}
-		button.setAttribute('aria-expanded', expanded ? 'true' : 'false');
 	}
 
 	var menuToggle = document.querySelector('[data-portal-menu-toggle]');
@@ -47,12 +44,11 @@
 		});
 	}
 
-	var contrastToggle = document.querySelector('[data-portal-contrast-toggle]');
-	if (contrastToggle) {
-		contrastToggle.addEventListener('click', function () {
-			body.classList.toggle('portal-high-contrast');
+	document.querySelectorAll('[data-portal-contrast-toggle]').forEach(function (btn) {
+		btn.addEventListener('click', function () {
+			document.body.classList.toggle('portal-high-contrast');
 		});
-	}
+	});
 
 	var cookiesBtn = document.querySelector('[data-portal-cookies-notice]');
 	if (cookiesBtn) {

@@ -1,0 +1,30 @@
+/**
+ * Tokens e padrões inspirados no GovBR-DS — sem importar core.min.css.
+ */
+
+:root {
+	--govbr-blue: #1351b4;
+	--govbr-blue-dark: #0c326f;
+	--govbr-yellow: #ffcd07;
+	--govbr-focus: 3px solid var(--govbr-yellow);
+}
+
+/* Foco visível (WCAG / H11) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+	outline: var(--govbr-focus);
+	outline-offset: 2px;
+}
+
+/* Botão primário — padrão DS adaptado */
+.portal-btn--primary {
+	background: var(--govbr-blue);
+	border-color: var(--govbr-blue);
+}
+
+.portal-btn--primary:hover,
+.portal-btn--primary:focus-visible {
+	background: var(--govbr-blue-dark);
+	border-color: var(--govbr-blue-dark);
+}

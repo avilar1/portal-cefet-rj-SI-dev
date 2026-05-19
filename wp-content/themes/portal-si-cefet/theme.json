@@ -1,0 +1,108 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.4/theme.json",
+	"version": 2,
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"slug": "govbr-blue",
+					"name": "Azul interativo",
+					"color": "#1351B4"
+				},
+				{
+					"slug": "govbr-blue-dark",
+					"name": "Azul profundo",
+					"color": "#0C326F"
+				},
+				{
+					"slug": "govbr-yellow",
+					"name": "Amarelo destaque",
+					"color": "#FFCD07"
+				},
+				{
+					"slug": "govbr-green",
+					"name": "Verde",
+					"color": "#168821"
+				},
+				{
+					"slug": "neutral-100",
+					"name": "Fundo claro",
+					"color": "#F8F8F8"
+				},
+				{
+					"slug": "neutral-900",
+					"name": "Texto",
+					"color": "#1A1A1A"
+				}
+			]
+		},
+		"typography": {
+			"fontFamilies": [
+				{
+					"slug": "rawline",
+					"name": "Rawline",
+					"fontFamily": "\"Rawline\", system-ui, sans-serif"
+				},
+				{
+					"slug": "raleway",
+					"name": "Raleway",
+					"fontFamily": "\"Raleway\", \"Rawline\", sans-serif"
+				}
+			],
+			"fontSizes": [
+				{ "slug": "xs", "size": "0.75rem", "name": "Extra pequeno" },
+				{ "slug": "sm", "size": "0.875rem", "name": "Pequeno" },
+				{ "slug": "md", "size": "1rem", "name": "Médio" },
+				{ "slug": "lg", "size": "1.125rem", "name": "Grande" },
+				{ "slug": "xl", "size": "1.5rem", "name": "Extra grande" },
+				{ "slug": "2xl", "size": "2rem", "name": "Título" }
+			]
+		},
+		"layout": {
+			"contentSize": "72rem",
+			"wideSize": "72rem"
+		},
+		"spacing": {
+			"units": [ "px", "rem", "%" ],
+			"spacingSizes": [
+				{ "slug": "xs", "size": "0.25rem", "name": "XS" },
+				{ "slug": "sm", "size": "0.5rem", "name": "SM" },
+				{ "slug": "md", "size": "1rem", "name": "MD" },
+				{ "slug": "lg", "size": "1.5rem", "name": "LG" },
+				{ "slug": "xl", "size": "2.5rem", "name": "XL" }
+			]
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "#ffffff",
+			"text": "#1A1A1A"
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--rawline)",
+			"fontSize": "var(--wp--preset--font-size--md)",
+			"lineHeight": "1.5"
+		},
+		"elements": {
+			"heading": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--raleway)"
+				}
+			},
+			"link": {
+				"color": {
+					"text": "#1351B4"
+				}
+			},
+			"button": {
+				"color": {
+					"background": "#1351B4",
+					"text": "#ffffff"
+				},
+				"border": {
+					"radius": "2px"
+				}
+			}
+		}
+	}
+}

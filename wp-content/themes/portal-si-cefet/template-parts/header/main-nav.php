@@ -1,6 +1,6 @@
 <?php
 /**
- * Zona 3 — Navegação principal (RF32, RF33).
+ * Zona 3 — Navegação principal (layout portal + RF32, RF33).
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -35,18 +35,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</button>
 
 		<div class="portal-main-nav__menu-wrap" id="portal-primary-menu">
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location'       => 'primary',
-					'container'            => 'nav',
-					'container_class'      => 'nav-primary',
-					'container_aria_label' => __( 'Menu principal', 'portal-si-cefet' ),
-					'menu_class'           => 'nav-primary__list',
-					'fallback_cb'          => false,
-				)
-			);
-			?>
+			<nav class="nav-primary nav-primary--desktop" aria-label="<?php esc_attr_e( 'Menu principal', 'portal-si-cefet' ); ?>">
+				<?php portal_si_render_header_compact_menu(); ?>
+			</nav>
+			<nav class="nav-primary nav-primary--mobile" aria-label="<?php esc_attr_e( 'Menu completo', 'portal-si-cefet' ); ?>">
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location'       => 'primary',
+						'container'            => false,
+						'menu_class'           => 'nav-primary__list nav-primary__list--full',
+						'fallback_cb'          => false,
+					)
+				);
+				?>
+			</nav>
 		</div>
 
 		<div class="portal-main-nav__search-wrap">

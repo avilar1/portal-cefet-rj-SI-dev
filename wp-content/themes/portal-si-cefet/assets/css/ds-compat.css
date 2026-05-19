@@ -1,0 +1,91 @@
+/**
+ * Compatibilidade Portal SI + GovBR-DS (ajustes pontuais).
+ */
+
+/* Alinha largura do container DS ao portal */
+.br-header .container-lg {
+	max-width: var(--portal-max-width, 72rem);
+}
+
+/* Menu horizontal no desktop (além do off-canvas mobile) */
+.portal-header-nav {
+	display: none;
+	flex: 1;
+	justify-content: flex-end;
+}
+
+.portal-header-nav__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25rem 1.25rem;
+	align-items: center;
+}
+
+.portal-header-nav__list a {
+	color: var(--color-secondary, #0c326f);
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 0.9375rem;
+}
+
+.portal-header-nav__list a:hover,
+.portal-header-nav__list a:focus-visible {
+	color: var(--color-primary, #1351b4);
+	text-decoration: underline;
+}
+
+@media (min-width: 64rem) {
+	.portal-header-nav {
+		display: flex;
+	}
+
+	.br-header .header-bottom {
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 1rem;
+	}
+}
+
+/* Botão de contraste dentro da br-list */
+.portal-br-item-button {
+	width: 100%;
+	text-align: left;
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	font: inherit;
+}
+
+/* Hero: botões oficiais */
+.portal-hero__actions .br-button {
+	margin: 0.25rem;
+}
+
+.portal-hero__actions .br-button.is-secondary {
+	--interactive: #fff;
+	color: #fff;
+	border: 2px solid #fff;
+	background: transparent;
+}
+
+.portal-hero__actions .br-button.is-secondary:hover {
+	background: rgba(255, 255, 255, 0.12);
+}
+
+/* Cards de serviço — hover alinhado ao DS */
+.portal-service-card:focus-visible {
+	outline: 3px solid var(--color-highlight, #ffcd07);
+	outline-offset: 2px;
+}
+
+/* Alto contraste (complementa portal-high-contrast em home.css) */
+body.portal-high-contrast .br-header {
+	filter: none;
+}
+
+body.portal-high-contrast .portal-header-nav__list a {
+	color: #000 !important;
+}
