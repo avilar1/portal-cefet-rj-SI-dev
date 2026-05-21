@@ -105,7 +105,7 @@ function portal_si_footer_sitemap_columns() {
 			),
 		),
 		array(
-			'title' => __( 'Fábrica, Comunicação e Contato', 'portal-si-cefet' ),
+			'title' => __( 'Comunicação e Contato', 'portal-si-cefet' ),
 			'links' => array(
 				array(
 					'label' => __( 'Fábrica de Software', 'portal-si-cefet' ),
