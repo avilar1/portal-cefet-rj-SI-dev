@@ -35,6 +35,11 @@ function portal_si_the_breadcrumbs() {
 			foreach ( $ancestors as $ancestor_id ) {
 				$parts[] = portal_si_breadcrumb_link( get_permalink( $ancestor_id ), get_the_title( $ancestor_id ) );
 			}
+		} elseif ( function_exists( 'portal_si_is_institucional_child_page' ) && portal_si_is_institucional_child_page( $post ) ) {
+			$hub_id = portal_si_get_page_id_by_slug( PORTAL_SI_INSTITUCIONAL_HUB_SLUG );
+			if ( $hub_id ) {
+				$parts[] = portal_si_breadcrumb_link( get_permalink( $hub_id ), get_the_title( $hub_id ) );
+			}
 		}
 		$parts[] = '<span class="breadcrumbs__current" aria-current="page">' . esc_html( get_the_title() ) . '</span>';
 	} elseif ( is_singular( PORTAL_SI_EVENTO_POST_TYPE ) || ( is_singular() && PORTAL_SI_EVENTO_POST_TYPE === get_post_type() ) ) {

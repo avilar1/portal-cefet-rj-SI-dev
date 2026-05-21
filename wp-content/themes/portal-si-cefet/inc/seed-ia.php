@@ -22,6 +22,7 @@ function portal_si_ia_level1_pages() {
 	return array(
 		array( 'title' => 'Início', 'slug' => 'inicio' ),
 		array( 'title' => 'Ingresso', 'slug' => 'ingresso' ),
+		array( 'title' => 'Institucional', 'slug' => 'institucional' ),
 		array( 'title' => 'Sobre o Curso', 'slug' => 'sobre-o-curso' ),
 		array( 'title' => 'Grade Curricular', 'slug' => 'grade-curricular' ),
 		array( 'title' => 'Corpo Docente', 'slug' => 'corpo-docente' ),
@@ -30,6 +31,7 @@ function portal_si_ia_level1_pages() {
 		array( 'title' => 'Infraestrutura', 'slug' => 'infraestrutura' ),
 		array( 'title' => 'Carreira e Egressos', 'slug' => 'carreira-e-egressos' ),
 		array( 'title' => 'Vida Estudantil', 'slug' => 'vida-estudantil' ),
+		array( 'title' => 'Documentos Institucionais', 'slug' => 'documentos-institucionais' ),
 		array( 'title' => 'Notícias', 'slug' => 'noticias' ),
 		array( 'title' => 'Agenda e Eventos', 'slug' => 'agenda-e-eventos' ),
 		array( 'title' => 'Contato', 'slug' => 'contato' ),
@@ -168,21 +170,18 @@ function portal_si_run_ia_seed() {
 	$menu_rodape_id    = portal_si_ensure_nav_menu( 'Menu rodapé' );
 
 	if ( $menu_principal_id > 0 ) {
-		$principal_order = array(
-			'inicio',
-			'ingresso',
-			'sobre-o-curso',
-			'grade-curricular',
-			'corpo-docente',
-			'pesquisa-e-extensao',
-			'fabrica-de-software',
-			'infraestrutura',
-			'carreira-e-egressos',
-			'vida-estudantil',
-			'noticias',
-			'agenda-e-eventos',
-			'contato',
-		);
+		$principal_order = function_exists( 'portal_si_primary_menu_slugs' )
+			? portal_si_primary_menu_slugs()
+			: array(
+				'inicio',
+				'institucional',
+				'corpo-docente',
+				'pesquisa-e-extensao',
+				'fabrica-de-software',
+				'noticias',
+				'agenda-e-eventos',
+				'contato',
+			);
 		$principal_ids = array();
 		foreach ( $principal_order as $slug ) {
 			if ( ! empty( $ids_level1[ $slug ] ) ) {

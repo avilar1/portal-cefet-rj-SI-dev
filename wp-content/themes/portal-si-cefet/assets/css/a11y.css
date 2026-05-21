@@ -247,9 +247,9 @@ body.portal-high-contrast .portal-footer-legal__cookies {
 	text-decoration: underline !important;
 }
 
-/* Links genéricos em fundo claro (exceto botões do hero) */
-body.portal-high-contrast .portal-news-agenda a:not(.portal-btn),
-body.portal-high-contrast .site-main a:not(.portal-btn) {
+/* Links genéricos em fundo claro (exceto botões do hero e cards de navegação) */
+body.portal-high-contrast .portal-news-agenda a:not(.portal-btn):not(.portal-service-card):not(.br-card),
+body.portal-high-contrast .site-main a:not(.portal-btn):not(.portal-service-card):not(.portal-noticia-card) {
 	color: #000 !important;
 	text-decoration: underline !important;
 }
@@ -278,8 +278,26 @@ body.portal-high-contrast .portal-event-card__excerpt {
 }
 
 body.portal-high-contrast .site-main--evento .portal-btn--primary,
-body.portal-high-contrast .site-main--noticia .portal-btn--primary {
+body.portal-high-contrast .site-main--noticia .portal-btn--primary,
+body.portal-high-contrast .site-main--institucional-hub .portal-btn--primary {
 	background: #000 !important;
 	color: #fff !important;
 	border: 2px solid #000 !important;
+}
+
+/* Hub institucional */
+body.portal-high-contrast .portal-inst-zona-b {
+	background: #fff !important;
+}
+
+body.portal-high-contrast .portal-inst-zona-b__title,
+body.portal-high-contrast .portal-inst-zona-c__title,
+body.portal-high-contrast .portal-inst-zona-c__text {
+	color: #000 !important;
+}
+
+body.portal-high-contrast .portal-inst-zona-c__icon-wrap {
+	background: #fff !important;
+	border: 2px solid #000 !important;
+	color: #000 !important;
 }

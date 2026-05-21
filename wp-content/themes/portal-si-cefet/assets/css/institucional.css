@@ -1,0 +1,138 @@
+/**
+ * Hub Institucional — layout_hub_institucional_mvp.md
+ */
+
+.site-main--institucional-hub {
+	padding-bottom: 3rem;
+}
+
+/* —— Zona A —— */
+.portal-inst-zona-a {
+	padding-bottom: 0.25rem;
+}
+
+.portal-inst-zona-a__intro {
+	max-width: 48rem;
+}
+
+/* —— Zona B —— */
+.portal-inst-zona-b {
+	background: #f8f8f8;
+	padding: 2.25rem var(--portal-space) 2.75rem;
+}
+
+.portal-inst-zona-b__inner {
+	max-width: var(--portal-max-width);
+	margin: 0 auto;
+}
+
+.portal-inst-zona-b__title {
+	margin: 0 0 1.25rem;
+	font-family: var(--font-heading);
+	font-size: 1.375rem;
+	font-weight: 700;
+	color: var(--color-secondary, #0c326f);
+	line-height: 1.25;
+}
+
+.portal-inst-zona-b__grid {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+}
+
+.portal-inst-zona-b__card {
+	min-height: 100%;
+}
+
+/* —— Zona C —— */
+.portal-inst-zona-c {
+	padding: 2.5rem var(--portal-space) 3rem;
+	background: #fff;
+}
+
+.portal-inst-zona-c__inner {
+	max-width: var(--portal-max-width);
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr minmax(8rem, 11rem);
+	gap: 2rem;
+	align-items: center;
+}
+
+.portal-inst-zona-c__title {
+	margin: 0 0 0.75rem;
+	font-family: var(--font-heading);
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--color-secondary, #0c326f);
+	line-height: 1.25;
+}
+
+.portal-inst-zona-c__text {
+	margin: 0 0 1.25rem;
+	font-size: 1.0625rem;
+	color: #444;
+	line-height: 1.55;
+	max-width: 40rem;
+}
+
+.portal-inst-zona-c__cta {
+	margin: 0;
+}
+
+.portal-inst-zona-c__visual {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.portal-inst-zona-c__icon-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 7.5rem;
+	height: 7.5rem;
+	border-radius: 50%;
+	background: linear-gradient(145deg, #e8f0fa 0%, #f4f7fb 100%);
+	color: var(--color-primary, #1351b4);
+}
+
+.portal-inst-zona-c__icon-wrap .portal-service-card__icon-svg {
+	width: 3.25rem;
+	height: 3.25rem;
+}
+
+@media (max-width: 64rem) {
+	.portal-inst-zona-b__grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.portal-inst-zona-c__inner {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+
+	.portal-inst-zona-c__visual {
+		justify-content: flex-start;
+	}
+
+	.portal-inst-zona-c__icon-wrap {
+		width: 5.5rem;
+		height: 5.5rem;
+	}
+
+	.portal-inst-zona-c__icon-wrap .portal-service-card__icon-svg {
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+}
+
+@media (max-width: 30rem) {
+	.portal-inst-zona-b__grid {
+		grid-template-columns: 1fr;
+	}
+}

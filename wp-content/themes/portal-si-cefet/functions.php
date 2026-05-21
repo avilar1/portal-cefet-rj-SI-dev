@@ -7,21 +7,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PORTAL_SI_CEFET_VERSION', '0.3.7' );
+define( 'PORTAL_SI_CEFET_VERSION', '0.3.8' );
 
 require_once get_template_directory() . '/inc/seed-ia.php';
 require_once get_template_directory() . '/inc/seed-editorial.php';
 require_once get_template_directory() . '/inc/comments-policy.php';
 require_once get_template_directory() . '/inc/evento.php';
 require_once get_template_directory() . '/inc/noticia.php';
+require_once get_template_directory() . '/inc/institucional.php';
 require_once get_template_directory() . '/inc/breadcrumbs.php';
 require_once get_template_directory() . '/inc/search.php';
 require_once get_template_directory() . '/inc/home.php';
+require_once get_template_directory() . '/inc/nav.php';
 require_once get_template_directory() . '/inc/fonts.php';
 require_once get_template_directory() . '/inc/design-system.php';
 require_once get_template_directory() . '/inc/ds-components.php';
 require_once get_template_directory() . '/inc/a11y.php';
-require_once get_template_directory() . '/inc/nav.php';
 
 /**
  * Suporte a recursos usados nas próximas etapas (título, thumbnails, HTML5).
@@ -58,6 +59,9 @@ function portal_si_cefet_body_classes( $classes ) {
 	}
 	if ( ( is_home() && ! is_front_page() ) || is_singular( 'post' ) || is_category() || is_tag() || is_author() || is_date() ) {
 		$classes[] = 'portal-is-noticias';
+	}
+	if ( is_page( PORTAL_SI_INSTITUCIONAL_HUB_SLUG ) ) {
+		$classes[] = 'portal-is-institucional-hub';
 	}
 	return $classes;
 }

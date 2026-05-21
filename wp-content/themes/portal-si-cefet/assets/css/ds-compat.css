@@ -75,12 +75,19 @@
 	background: rgba(255, 255, 255, 0.12);
 }
 
-/* br-card na home — ajustes sem conflitar com header */
+/* br-card clicável — sem sublinhado de link (home, hub institucional, notícias) */
 .portal-service-links .br-card,
-.portal-news-grid .br-card {
+.portal-news-grid .br-card,
+.portal-inst-zona-b .br-card,
+.portal-inst-zona-b .portal-service-card {
 	margin-bottom: 0;
 	text-decoration: none;
 	color: inherit;
+}
+
+.portal-inst-zona-b .portal-service-card__title,
+.portal-inst-zona-b .portal-service-card__description {
+	text-decoration: none;
 }
 
 .portal-service-card {
