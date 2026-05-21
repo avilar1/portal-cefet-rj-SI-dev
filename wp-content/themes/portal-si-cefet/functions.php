@@ -7,12 +7,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PORTAL_SI_CEFET_VERSION', '0.3.6' );
+define( 'PORTAL_SI_CEFET_VERSION', '0.3.7' );
 
 require_once get_template_directory() . '/inc/seed-ia.php';
 require_once get_template_directory() . '/inc/seed-editorial.php';
 require_once get_template_directory() . '/inc/comments-policy.php';
 require_once get_template_directory() . '/inc/evento.php';
+require_once get_template_directory() . '/inc/noticia.php';
 require_once get_template_directory() . '/inc/breadcrumbs.php';
 require_once get_template_directory() . '/inc/search.php';
 require_once get_template_directory() . '/inc/home.php';
@@ -55,6 +56,9 @@ function portal_si_cefet_body_classes( $classes ) {
 	if ( is_page( 'agenda-e-eventos' ) ) {
 		$classes[] = 'portal-is-agenda';
 	}
+	if ( ( is_home() && ! is_front_page() ) || is_singular( 'post' ) || is_category() || is_tag() || is_author() || is_date() ) {
+		$classes[] = 'portal-is-noticias';
+	}
 	return $classes;
 }
 add_filter( 'body_class', 'portal_si_cefet_body_classes' );
@@ -81,6 +85,13 @@ function portal_si_cefet_scripts() {
 		'portal-si-pages',
 		get_template_directory_uri() . '/assets/css/pages.css',
 		array( 'portal-si-cefet-layout' ),
+		PORTAL_SI_CEFET_VERSION
+	);
+
+	wp_enqueue_style(
+		'portal-si-noticias',
+		get_template_directory_uri() . '/assets/css/noticias.css',
+		array( 'portal-si-pages' ),
 		PORTAL_SI_CEFET_VERSION
 	);
 

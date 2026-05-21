@@ -157,19 +157,19 @@ body.portal-high-contrast .portal-service-links {
 }
 
 body.portal-high-contrast .portal-service-card,
-body.portal-high-contrast .portal-news-card.br-card {
+body.portal-high-contrast .portal-noticia-card.br-card {
 	background: #fff !important;
 	border: 2px solid #000 !important;
 	box-shadow: none !important;
 }
 
 body.portal-high-contrast .portal-service-card__title,
-body.portal-high-contrast .portal-news-card__tag {
+body.portal-high-contrast .portal-noticia-meta__tag {
 	color: #000 !important;
 }
 
 body.portal-high-contrast .portal-service-card__description,
-body.portal-high-contrast .portal-news-card__meta {
+body.portal-high-contrast .portal-noticia-meta {
 	color: #000 !important;
 }
 
@@ -190,7 +190,7 @@ body.portal-high-contrast .br-card.hover:hover {
 
 /* Zona 6 */
 body.portal-high-contrast .portal-section-header__title,
-body.portal-high-contrast .portal-news-card__title a {
+body.portal-high-contrast .portal-noticia-card__title a {
 	color: #000 !important;
 }
 
@@ -277,7 +277,8 @@ body.portal-high-contrast .portal-event-card__excerpt {
 	color: #000 !important;
 }
 
-body.portal-high-contrast .site-main--evento .portal-btn--primary {
+body.portal-high-contrast .site-main--evento .portal-btn--primary,
+body.portal-high-contrast .site-main--noticia .portal-btn--primary {
 	background: #000 !important;
 	color: #fff !important;
 	border: 2px solid #000 !important;

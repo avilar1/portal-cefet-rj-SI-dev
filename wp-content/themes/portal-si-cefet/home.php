@@ -1,6 +1,6 @@
 <?php
 /**
- * Arquivos de notícias (categoria, tag, data, autor).
+ * Listagem de notícias — página de posts (Configurações → Leitura).
  *
  * @package Portal_SI_CEFET
  */
@@ -10,16 +10,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header();
+
+$intro = portal_si_noticias_page_intro();
 ?>
-<main id="main-content" class="site-main site-main--archive site-main--noticias" tabindex="-1">
+<main id="main-content" class="site-main site-main--page site-main--noticias" tabindex="-1">
 	<?php portal_si_the_breadcrumbs(); ?>
 
 	<header class="portal-page-header">
-		<h1 class="portal-page-header__title"><?php echo esc_html( wp_strip_all_tags( get_the_archive_title() ) ); ?></h1>
-		<?php if ( get_the_archive_description() ) : ?>
-			<div class="portal-page-header__intro archive-description">
-				<?php the_archive_description(); ?>
-			</div>
+		<h1 class="portal-page-header__title"><?php echo esc_html( portal_si_noticias_page_title() ); ?></h1>
+		<?php if ( $intro ) : ?>
+			<p class="portal-page-header__intro"><?php echo esc_html( $intro ); ?></p>
 		<?php endif; ?>
 	</header>
 
@@ -40,8 +40,9 @@ get_header();
 				'template-parts/noticia/grid',
 				null,
 				array(
-					'items'        => $items,
-					'show_excerpt' => true,
+					'items'         => $items,
+					'show_excerpt'  => true,
+					'empty_message' => __( 'Nenhuma notícia publicada ainda.', 'portal-si-cefet' ),
 				)
 			);
 
@@ -57,7 +58,8 @@ get_header();
 				'template-parts/noticia/grid',
 				null,
 				array(
-					'empty_message' => __( 'Nada encontrado neste arquivo.', 'portal-si-cefet' ),
+					'items'         => array(),
+					'empty_message' => __( 'Nenhuma notícia publicada ainda. A equipa editorial pode publicar em Posts no painel.', 'portal-si-cefet' ),
 				)
 			);
 		}

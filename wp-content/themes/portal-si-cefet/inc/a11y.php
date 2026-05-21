@@ -32,7 +32,7 @@ function portal_si_enqueue_a11y_styles() {
 	wp_enqueue_style(
 		'portal-si-a11y',
 		get_template_directory_uri() . '/assets/css/a11y.css',
-		array( 'portal-si-pages' ),
+		array( 'portal-si-noticias' ),
 		PORTAL_SI_CEFET_VERSION
 	);
 }

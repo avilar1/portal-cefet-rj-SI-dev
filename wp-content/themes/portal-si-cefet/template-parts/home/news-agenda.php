@@ -17,64 +17,28 @@ $news_query = new WP_Query(
 	)
 );
 
-$noticias_url = portal_si_page_url( 'noticias' );
+$noticias_items = portal_si_map_noticias_from_query( $news_query );
+$noticias_url   = portal_si_noticias_url();
 $agenda_url   = portal_si_page_url( 'agenda-e-eventos' );
 $events       = portal_si_home_agenda_events();
 ?>
 <section class="portal-news-agenda" aria-labelledby="portal-news-agenda-title">
 	<div class="portal-news-agenda__inner">
 		<div class="portal-news-agenda__news">
-			<header class="portal-section-header">
-				<h2 id="portal-news-title" class="portal-section-header__title">
-					<?php esc_html_e( 'Notícias', 'portal-si-cefet' ); ?>
-				</h2>
-				<a class="portal-section-header__more" href="<?php echo esc_url( $noticias_url ); ?>">
-					<?php esc_html_e( 'Ver todas', 'portal-si-cefet' ); ?>
-				</a>
-			</header>
-
-			<?php if ( $news_query->have_posts() ) : ?>
-				<ul class="portal-news-grid">
-					<?php
-					while ( $news_query->have_posts() ) :
-						$news_query->the_post();
-						$categories = get_the_category();
-						$cat_name   = ! empty( $categories ) ? $categories[0]->name : __( 'Institucional', 'portal-si-cefet' );
-						?>
-						<li class="portal-news-card">
-							<article class="<?php echo esc_attr( portal_si_br_card_class( array( 'hover' ) ) ); ?>">
-								<a
-									class="portal-news-card__media"
-									href="<?php the_permalink(); ?>"
-									aria-label="<?php echo esc_attr( sprintf( __( 'Ver notícia: %s', 'portal-si-cefet' ), get_the_title() ) ); ?>"
-								>
-									<?php if ( has_post_thumbnail() ) : ?>
-										<?php the_post_thumbnail( 'medium_large', array( 'class' => 'portal-news-card__img' ) ); ?>
-									<?php else : ?>
-										<span class="portal-news-card__placeholder" aria-hidden="true"></span>
-									<?php endif; ?>
-								</a>
-								<div class="card-content portal-news-card__body">
-									<p class="portal-news-card__meta">
-										<span class="portal-news-card__tag"><?php echo esc_html( $cat_name ); ?></span>
-										<time datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>">
-											<?php echo esc_html( get_the_date() ); ?>
-										</time>
-									</p>
-									<h3 class="portal-news-card__title">
-										<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-									</h3>
-								</div>
-							</article>
-						</li>
-					<?php endwhile; ?>
-				</ul>
-			<?php else : ?>
-				<p class="portal-news-agenda__empty">
-					<?php esc_html_e( 'Nenhuma notícia publicada ainda. A equipa editorial pode publicar posts em Notícias.', 'portal-si-cefet' ); ?>
-				</p>
-			<?php endif; ?>
-			<?php wp_reset_postdata(); ?>
+			<?php
+			get_template_part(
+				'template-parts/noticia/list-section',
+				null,
+				array(
+					'items'         => $noticias_items,
+					'title'         => __( 'Notícias', 'portal-si-cefet' ),
+					'heading_id'    => 'portal-news-title',
+					'more_url'      => $noticias_url,
+					'grid_class'    => 'portal-noticia-grid portal-noticia-grid--home',
+					'empty_message' => __( 'Nenhuma notícia publicada ainda. A equipa editorial pode publicar posts em Notícias.', 'portal-si-cefet' ),
+				)
+			);
+			?>
 		</div>
 
 		<aside class="portal-news-agenda__agenda" aria-labelledby="portal-agenda-title">

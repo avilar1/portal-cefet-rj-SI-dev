@@ -551,72 +551,6 @@
 	white-space: nowrap;
 }
 
-.portal-news-grid {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 1.25rem;
-}
-
-.portal-news-card {
-	overflow: hidden;
-}
-
-.portal-news-card__media {
-	display: block;
-	aspect-ratio: 16 / 10;
-	overflow: hidden;
-	background: #e8eef5;
-}
-
-.portal-news-card__img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
-
-.portal-news-card__placeholder {
-	display: block;
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(135deg, #d8e4f5, #eef2f8);
-}
-
-/* padding do corpo via .card-content (GovBR-DS) */
-
-.portal-news-card__meta {
-	margin: 0 0 0.5rem;
-	font-size: 0.8125rem;
-	color: #555;
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.35rem 0.75rem;
-}
-
-.portal-news-card__tag {
-	font-weight: 700;
-	color: var(--color-primary);
-}
-
-.portal-news-card__title {
-	margin: 0;
-	font-size: 1.0625rem;
-	line-height: 1.35;
-}
-
-.portal-news-card__title a {
-	color: var(--color-secondary);
-	text-decoration: none;
-}
-
-.portal-news-card__title a:hover,
-.portal-news-card__title a:focus-visible {
-	color: var(--color-primary);
-	text-decoration: underline;
-}
-
 .portal-news-agenda__agenda {
 	background: #f5f5f5;
 	padding: 1.25rem;
@@ -669,15 +603,6 @@
 		grid-template-columns: 1fr;
 	}
 
-	.portal-news-grid {
-		grid-template-columns: 1fr;
-	}
-}
-
-@media (min-width: 48rem) and (max-width: 64rem) {
-	.portal-news-grid {
-		grid-template-columns: repeat(2, 1fr);
-	}
 }
 
 /* —— Zona 7 —— */
