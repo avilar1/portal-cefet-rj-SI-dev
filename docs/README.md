@@ -11,11 +11,18 @@ A pasta `contexto/` na raiz do repositório permanece no `.gitignore` (materiais
 | [Analise_Requisitos_Portal_SI_CefetRJ_revisado.md](referencias/Analise_Requisitos_Portal_SI_CefetRJ_revisado.md) | Regras de negócio (RN), requisitos funcionais (RF), IA (Seção 8), cronograma |
 | [heuristicas_governo_eletronico.md](referencias/heuristicas_governo_eletronico.md) | Heurísticas H1–H12 para portais de governo eletrônico |
 
+## Editorial vs código (obrigatório para a equipe)
+
+| Documento | Conteúdo |
+|-----------|----------|
+| [**conteudo-wordpress-vs-codigo.md**](conteudo-wordpress-vs-codigo.md) | O que se edita no **wp-admin**, o que fica no **tema/`data/`**, e por que alterar PHP não atualiza a página depois do *seed* |
+
 ## Layouts aprovados (prompts de implementação)
 
 | Arquivo | Tela |
 |---------|------|
 | [layout_homepage_mvp_v2.md](referencias/layout_homepage_mvp_v2.md) | Página inicial (8 zonas) |
 | [layout_hub_institucional_mvp.md](referencias/layout_hub_institucional_mvp.md) | Hub `/institucional/` |
+| [layout_sobre_o_curso_mvp.md](referencias/layout_sobre_o_curso_mvp.md) | Sobre o Curso — RF02 (`/sobre-o-curso/`) |
 
 Ao alterar requisitos ou layouts, atualize os ficheiros **nesta pasta** e abra pull request para a equipe inteira receber a mesma versão.

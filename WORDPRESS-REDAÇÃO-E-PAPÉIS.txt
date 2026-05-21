@@ -1,5 +1,10 @@
 WordPress — redação, notícias e papéis (RF31, RF17–RF19)
 
+ONDE EDITAR TEXTO (PÁGINAS INSTITUCIONAIS)
+- Sobre o Curso e outras páginas narrativas: conteúdo no wp-admin (Páginas),
+  não em ficheiros PHP do tema, depois do seed inicial.
+- Guia completo: docs/conteudo-wordpress-vs-codigo.md
+
 OBJETIVO
 - Fechar o fluxo “quem pode o quê” e como se publicam notícias, sem depender
   do layout visual final.

@@ -301,3 +301,26 @@ body.portal-high-contrast .portal-inst-zona-c__icon-wrap {
 	border: 2px solid #000 !important;
 	color: #000 !important;
 }
+
+/* Sobre o Curso */
+body.portal-high-contrast .portal-sobre-hero {
+	background: #000 !important;
+}
+
+body.portal-high-contrast .portal-sobre-hero .breadcrumbs__link,
+body.portal-high-contrast .portal-sobre-hero .breadcrumbs__current,
+body.portal-high-contrast .portal-sobre-hero__title,
+body.portal-high-contrast .portal-sobre-hero__intro {
+	color: #fff !important;
+}
+
+body.portal-high-contrast .portal-sobre-stats__value,
+body.portal-high-contrast .portal-sobre-section__title,
+body.portal-high-contrast .portal-sobre-comp-card__title,
+body.portal-high-contrast .portal-sobre-person-card__name {
+	color: #000 !important;
+}
+
+body.portal-high-contrast .portal-sobre-anchor-nav__link.is-active {
+	border-bottom-color: #ff0 !important;
+}

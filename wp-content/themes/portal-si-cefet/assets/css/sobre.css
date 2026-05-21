@@ -1,0 +1,526 @@
+/**
+ * Sobre o Curso — RF02 (layout_sobre_o_curso_mvp.md + Figma).
+ */
+
+.site-main--sobre {
+	max-width: none;
+	padding: 0;
+}
+
+/* —— Zona A: Hero —— */
+.portal-sobre-hero {
+	background: var(--color-secondary, #0c326f);
+	color: #fff;
+	padding: 1.25rem var(--portal-space) 2.5rem;
+}
+
+.portal-sobre-hero__inner {
+	max-width: var(--portal-max-width);
+	margin: 0 auto;
+}
+
+.portal-sobre-hero .breadcrumbs {
+	border-bottom: 0;
+	padding: 0 0 1rem;
+	margin: 0;
+	font-size: 0.8125rem;
+}
+
+.portal-sobre-hero .breadcrumbs__link,
+.portal-sobre-hero .breadcrumbs__current,
+.portal-sobre-hero .breadcrumbs__sep {
+	color: rgba(255, 255, 255, 0.92);
+}
+
+.portal-sobre-hero .breadcrumbs__link:hover,
+.portal-sobre-hero .breadcrumbs__link:focus-visible {
+	color: #fff;
+	text-decoration: underline;
+}
+
+.portal-sobre-hero__title {
+	margin: 0 0 0.75rem;
+	font-family: var(--font-heading);
+	font-size: clamp(1.75rem, 4vw, 2.5rem);
+	font-weight: 700;
+	line-height: 1.15;
+	color: #fff;
+}
+
+.portal-sobre-hero__intro {
+	margin: 0;
+	max-width: 42rem;
+	font-size: 1.0625rem;
+	line-height: 1.55;
+	color: rgba(255, 255, 255, 0.95);
+}
+
+/* —— Zona B: Números —— */
+.portal-sobre-stats {
+	background: #f4f6f8;
+	padding: 0 var(--portal-space) 2rem;
+	margin-top: -1.25rem;
+}
+
+.portal-sobre-stats__inner {
+	max-width: var(--portal-max-width);
+	margin: 0 auto;
+}
+
+.portal-sobre-stats__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1rem;
+}
+
+.portal-sobre-stats__item.br-card {
+	margin-bottom: 0;
+	box-shadow: 0 2px 8px rgba(12, 50, 111, 0.08);
+}
+
+.portal-sobre-stats__content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 1.25rem 1rem;
+}
+
+.portal-sobre-stats__value {
+	font-family: var(--font-heading);
+	font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+	font-weight: 700;
+	color: var(--color-primary, #1351b4);
+	line-height: 1.2;
+}
+
+.portal-sobre-stats__label {
+	margin-top: 0.35rem;
+	font-size: 0.6875rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: #666;
+	line-height: 1.35;
+}
+
+/* —— Corpo —— */
+.portal-sobre-body {
+	background: #fff;
+}
+
+.portal-sobre-content__block {
+	max-width: var(--portal-max-width);
+	margin: 0 auto;
+	padding: 2rem var(--portal-space) 0;
+}
+
+.portal-sobre-content__block--main {
+	padding-top: 0;
+	padding-bottom: 2.5rem;
+}
+
+/* —— Zona C: Carta —— */
+.portal-sobre-carta {
+	margin-bottom: 0;
+}
+
+.portal-sobre-carta__grid {
+	display: grid;
+	grid-template-columns: 1fr minmax(12rem, 38%);
+	gap: 2rem;
+	align-items: start;
+}
+
+.portal-sobre-carta__text p {
+	margin: 0 0 1rem;
+	font-size: 1.0625rem;
+	line-height: 1.55;
+	color: #333;
+}
+
+.portal-sobre-carta__sign {
+	margin-top: 1rem !important;
+	font-size: 0.875rem;
+	font-style: italic;
+	color: #666;
+}
+
+.portal-sobre-carta__media {
+	margin: 0;
+}
+
+.portal-sobre-carta__media img {
+	width: 100%;
+	height: auto;
+	border-radius: 6px;
+	display: block;
+}
+
+/* —— Zona D: Âncoras —— */
+.portal-sobre-anchor-wrap {
+	border-top: 1px solid #e5e5e5;
+	background: #fff;
+	position: sticky;
+	top: 0;
+	z-index: 20;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+
+.portal-sobre-anchor-wrap__inner {
+	max-width: var(--portal-max-width);
+	margin: 0 auto;
+	padding: 1rem var(--portal-space) 0.75rem;
+}
+
+.portal-sobre-anchor-wrap__context {
+	margin: 0 0 0.75rem;
+	font-size: 0.875rem;
+	color: #555;
+	line-height: 1.4;
+}
+
+.portal-sobre-anchor-nav__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 1.75rem;
+}
+
+.portal-sobre-anchor-nav__link {
+	display: inline-block;
+	padding: 0.35rem 0;
+	font-weight: 600;
+	font-size: 0.9375rem;
+	color: var(--color-primary, #1351b4);
+	text-decoration: none;
+	border-bottom: 3px solid transparent;
+}
+
+.portal-sobre-anchor-nav__link:hover,
+.portal-sobre-anchor-nav__link:focus-visible {
+	color: var(--color-secondary, #0c326f);
+	text-decoration: none;
+}
+
+.portal-sobre-anchor-nav__link.is-active {
+	border-bottom-color: var(--color-highlight, #ffcd07);
+	color: var(--color-secondary, #0c326f);
+}
+
+/* —— Seções RF02 —— */
+.portal-sobre-section {
+	margin-top: 2.5rem;
+	scroll-margin-top: 5.5rem;
+}
+
+.portal-sobre-section__title {
+	margin: 0 0 1rem;
+	padding-bottom: 0.5rem;
+	font-family: var(--font-heading);
+	font-size: 1.75rem;
+	font-weight: 700;
+	color: var(--color-secondary, #0c326f);
+	border-bottom: 4px solid var(--color-highlight, #ffcd07);
+	line-height: 1.25;
+}
+
+.portal-sobre-section__title--plain {
+	border-bottom: 0;
+	padding-bottom: 0;
+	color: var(--color-primary, #1351b4);
+	font-size: 1.5rem;
+}
+
+.portal-sobre-section__subtitle {
+	margin: 1.5rem 0 1rem;
+	font-family: var(--font-heading);
+	font-size: 1.125rem;
+	font-weight: 700;
+	color: var(--color-secondary, #0c326f);
+}
+
+.portal-sobre-section p {
+	margin: 0 0 1rem;
+	font-size: 1.0625rem;
+	line-height: 1.55;
+	color: #333;
+}
+
+/* Destaque / timeline */
+.portal-sobre-highlight {
+	margin: 1.5rem 0 0;
+	padding: 1.25rem 1.25rem 1.25rem 1rem;
+	background: #f0f4fa;
+	border-left: 4px solid var(--color-primary, #1351b4);
+	border-radius: 0 4px 4px 0;
+}
+
+.portal-sobre-highlight__title {
+	margin: 0 0 1rem;
+	font-size: 1.0625rem;
+	font-weight: 700;
+	color: var(--color-primary, #1351b4);
+}
+
+.portal-sobre-timeline {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.portal-sobre-timeline li {
+	display: flex;
+	gap: 0.75rem;
+	align-items: flex-start;
+	margin-bottom: 0.75rem;
+	font-size: 0.9375rem;
+	line-height: 1.45;
+	color: #444;
+}
+
+.portal-sobre-timeline li::before {
+	content: "";
+	flex-shrink: 0;
+	width: 1.25rem;
+	height: 1.25rem;
+	margin-top: 0.15rem;
+	background: var(--color-primary, #1351b4);
+	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V10h14v10z'/%3E%3C/svg%3E") center / contain no-repeat;
+	-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V10h14v10z'/%3E%3C/svg%3E") center / contain no-repeat;
+	background-color: var(--color-primary, #1351b4);
+}
+
+.portal-sobre-timeline__year {
+	font-weight: 700;
+	color: var(--color-secondary, #0c326f);
+	min-width: 2.5rem;
+}
+
+/* Competências 2×2 */
+.portal-sobre-comp-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+	margin-top: 0.5rem;
+}
+
+.portal-sobre-comp-card {
+	margin-bottom: 0;
+}
+
+.portal-sobre-comp-card .card-content {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 0.75rem 1rem;
+	padding: 1rem;
+}
+
+.portal-sobre-comp-card__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.5rem;
+	height: 2.5rem;
+	background: var(--color-primary, #1351b4);
+	color: #fff;
+	border-radius: 4px;
+	grid-row: span 2;
+}
+
+.portal-sobre-comp-card__title {
+	margin: 0;
+	font-size: 1rem;
+	font-weight: 700;
+	color: var(--color-primary, #1351b4);
+	align-self: end;
+}
+
+.portal-sobre-comp-card p {
+	margin: 0;
+	font-size: 0.875rem;
+	color: #555;
+	line-height: 1.45;
+	grid-column: 2;
+}
+
+/* Aviso PPC */
+.portal-sobre-notice {
+	margin: 0 0 1.25rem;
+	padding: 1rem 1.25rem;
+	background: #eef4fc;
+	border: 1px solid #c5d9f0;
+	border-radius: 4px;
+	font-size: 0.9375rem;
+	line-height: 1.5;
+}
+
+.portal-sobre-notice a {
+	font-weight: 600;
+}
+
+/* Áreas de atuação */
+.portal-sobre-areas-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+	margin-bottom: 1.25rem;
+}
+
+.portal-sobre-areas-card {
+	padding: 1rem 1.25rem;
+	background: #f8f8f8;
+	border-radius: 4px;
+}
+
+.portal-sobre-areas-card h4 {
+	margin: 0 0 0.75rem;
+	font-size: 1rem;
+	font-weight: 700;
+	color: var(--color-primary, #1351b4);
+}
+
+.portal-sobre-areas-card ul {
+	margin: 0;
+	padding-left: 1.15rem;
+	font-size: 0.875rem;
+	color: #444;
+	line-height: 1.5;
+}
+
+/* Coordenação */
+.portal-sobre-person-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.25rem;
+	margin: 1.5rem 0;
+}
+
+.portal-sobre-person-card {
+	margin-bottom: 0;
+}
+
+.portal-sobre-person-card__inner {
+	display: flex;
+	gap: 1rem;
+	align-items: flex-start;
+	padding: 1.25rem;
+}
+
+.portal-sobre-person-card__avatar {
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 4.5rem;
+	height: 4.5rem;
+	border-radius: 50%;
+	background: var(--color-primary, #1351b4);
+	color: #fff;
+}
+
+.portal-sobre-person-card__name {
+	margin: 0 0 0.25rem;
+	font-size: 1.0625rem;
+	font-weight: 700;
+	color: var(--color-secondary, #0c326f);
+}
+
+.portal-sobre-person-card__role {
+	margin: 0 0 0.5rem;
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: var(--color-primary, #1351b4);
+}
+
+.portal-sobre-person-card__contact {
+	margin: 0 0 0.25rem;
+	font-size: 0.8125rem;
+	color: #444;
+}
+
+.portal-sobre-office {
+	margin-top: 1rem;
+	padding: 1.25rem 1.5rem;
+	background: #f4f6f8;
+	border-radius: 4px;
+}
+
+.portal-sobre-office__title {
+	margin: 0 0 0.75rem;
+	font-size: 1.0625rem;
+	font-weight: 700;
+	color: var(--color-secondary, #0c326f);
+}
+
+.portal-sobre-office p {
+	margin: 0 0 0.35rem;
+	font-size: 0.9375rem;
+}
+
+/* —— Zona F —— */
+.portal-sobre-footer-cta {
+	padding: 2.5rem var(--portal-space) 3.5rem;
+	background: #fff;
+	border-top: 1px solid #eee;
+}
+
+.portal-sobre-footer-cta__inner {
+	max-width: var(--portal-max-width);
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 1rem 1.5rem;
+}
+
+.portal-sobre-footer-cta__secondary {
+	font-weight: 600;
+	color: var(--color-primary, #1351b4);
+	text-decoration: none;
+}
+
+.portal-sobre-footer-cta__secondary:hover,
+.portal-sobre-footer-cta__secondary:focus-visible {
+	text-decoration: underline;
+}
+
+/* Conteúdo Gutenberg genérico dentro da página */
+.portal-sobre-content .wp-block-image img {
+	border-radius: 6px;
+}
+
+@media (max-width: 64rem) {
+	.portal-sobre-stats__list {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.portal-sobre-carta__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.portal-sobre-comp-grid,
+	.portal-sobre-person-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.portal-sobre-areas-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 30rem) {
+	.portal-sobre-stats__list {
+		grid-template-columns: 1fr;
+	}
+
+	.portal-sobre-anchor-nav__list {
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+}

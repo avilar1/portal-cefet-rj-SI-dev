@@ -4,7 +4,7 @@ Repositório da **Fábrica de Software** do curso de **Sistemas de Informação*
 
 Portal institucional em **WordPress** com tema próprio `portal-si-cefet`, identidade alinhada ao **Design System do Governo Federal (gov.br)** e escopo definido na **Análise de Requisitos** do projeto.
 
-**Versão atual do tema:** `0.3.8`
+**Versão atual do tema:** `0.3.9`
 
 ---
 
@@ -22,6 +22,7 @@ O desenvolvimento segue **três referências obrigatórias**, versionadas em [`d
 
 - [`layout_homepage_mvp_v2.md`](docs/referencias/layout_homepage_mvp_v2.md) — Home (8 zonas)
 - [`layout_hub_institucional_mvp.md`](docs/referencias/layout_hub_institucional_mvp.md) — Hub Institucional
+- [`layout_sobre_o_curso_mvp.md`](docs/referencias/layout_sobre_o_curso_mvp.md) — Sobre o Curso (RF02)
 
 > A pasta `contexto/` na raiz continua **fora do Git** (`.gitignore`) para materiais locais pesados. O que a equipe deve **compartilhar e revisar** está em **`docs/`**.
 
@@ -55,6 +56,7 @@ Prioridade de entrega: requisitos funcionais de **prioridade Alta** — ver tamb
 | **Home (RF01)** | 8 zonas: hero, acesso rápido (`br-card`), notícias + agenda |
 | **Comunicação** | Notícias (`inc/noticia.php`, templates, listagem 9/página); CPT **eventos** + agenda + single evento |
 | **Institucional** | Hub `/institucional/` (zonas A/B/C), dados em `data/institucional.php`, páginas filhas com breadcrumb `Início › Institucional › …` |
+| **Sobre o Curso (RF02)** | `/sobre-o-curso/` — hero, números, carta, âncoras, seções RF02; **textos no WP**, números em `data/sobre-o-curso.php` — ver [`docs/conteudo-wordpress-vs-codigo.md`](docs/conteudo-wordpress-vs-codigo.md) |
 | **Navegação** | Menu por **módulos** (requisitos §5): Institucional, Docentes, Pesquisa e Extensão, Fábrica, Comunicação, Contato — ver `inc/nav.php` |
 
 ### Padrão técnico para novos módulos
@@ -145,12 +147,13 @@ projeto/
 
 Ordem alinhada ao cronograma da Análise de Requisitos (Sprint 2+):
 
-1. **Páginas institucionais** — Sobre o Curso (RF02), Ingresso (RF05), Grade (RF03/RF26), Infraestrutura (RF04), Documentos (RF06).
-2. **Corpo docente** — CPT + importação planilha (RF08, RF12).
-3. **Pesquisa e extensão**, **Fábrica de Software** (RF09–RF16).
-4. **Serviços digitais** — links úteis, TCCs (RF22–RF25).
-5. **Contato** — formulários, mapa (RF27–RF29).
-6. **Breadcrumb gov.br** (`br-breadcrumb`) e refinamentos de acessibilidade.
+1. ~~**Sobre o Curso (RF02)**~~ — implementado; ver [`layout_sobre_o_curso_mvp.md`](docs/referencias/layout_sobre_o_curso_mvp.md).
+2. **Demais páginas institucionais** — Ingresso (RF05), Grade (RF03/RF26), Infraestrutura (RF04), Documentos (RF06).
+3. **Corpo docente** — CPT + importação planilha (RF08, RF12).
+4. **Pesquisa e extensão**, **Fábrica de Software** (RF09–RF16).
+5. **Serviços digitais** — links úteis, TCCs (RF22–RF25).
+6. **Contato** — formulários, mapa (RF27–RF29).
+7. **Breadcrumb gov.br** (`br-breadcrumb`) e refinamentos de acessibilidade.
 
 ---
 
@@ -160,6 +163,7 @@ Ordem alinhada ao cronograma da Análise de Requisitos (Sprint 2+):
 |---------|----------|
 | [`docs/referencias/`](docs/referencias/) | Requisitos, heurísticas, layouts MVP |
 | [`docs/README.md`](docs/README.md) | Índice da pasta docs |
+| [`docs/conteudo-wordpress-vs-codigo.md`](docs/conteudo-wordpress-vs-codigo.md) | **WP vs código** — seed, Sobre o Curso, quem edita o quê |
 | `REQUISITOS-PRIORIDADE.txt` | RFs Alta resumidos |
 | `PLUGINS-WORDPRESS.txt` | Stack e checklist |
 | `WORDPRESS-REDAÇÃO-E-PAPÉIS.txt` | Papéis WP e editorial |
@@ -168,7 +172,7 @@ Ordem alinhada ao cronograma da Análise de Requisitos (Sprint 2+):
 
 ## Para relatório / apresentação
 
-> Entregamos ambiente **Docker + WordPress**, tema **portal-si-cefet** com **Home**, **módulo de comunicação** (notícias e agenda/eventos), **hub institucional** e navegação organizada por **módulos do documento de requisitos**, com base no **DS gov.br** (híbrido) e heurísticas de **governo eletrônico**. A documentação de produto está versionada em **`docs/referencias/`**. Próximas sprints cobrem páginas filhas do institucional, docentes, Fábrica e contato, priorizando RFs de **Alta** prioridade.
+> Entregamos ambiente **Docker + WordPress**, tema **portal-si-cefet** com **Home**, **módulo de comunicação** (notícias e agenda/eventos), **hub institucional**, página **Sobre o Curso (RF02)** e navegação por **módulos do documento de requisitos**, com base no **DS gov.br** (híbrido) e heurísticas de **governo eletrônico**. A documentação de produto está versionada em **`docs/referencias/`**. Próximas sprints cobrem demais páginas institucionais, docentes, Fábrica e contato, priorizando RFs de **Alta** prioridade.
 
 ---
 
@@ -181,6 +185,7 @@ Ordem alinhada ao cronograma da Análise de Requisitos (Sprint 2+):
 | Tema desatualizado | Bind mount em `docker-compose.yml`; `docker compose up -d` |
 | Menu antigo no mobile | Recarregar o site (sync única `portal_si_nav_modules_sync_v1`) ou visitar wp-admin |
 | Breadcrumb sem “Institucional” | Páginas filhas devem ter pai `institucional` (sync em `inc/institucional.php`) |
+| Alterei `inc/sobre.php` e o site não mudou | Conteúdo já está na BD; editar **Páginas → Sobre o Curso** no WP — ver [`docs/conteudo-wordpress-vs-codigo.md`](docs/conteudo-wordpress-vs-codigo.md) |
 
 ---
 
