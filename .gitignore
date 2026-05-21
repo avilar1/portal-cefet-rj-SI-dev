@@ -8,4 +8,5 @@ Thumbs.db
 # Notas locais (opcional; remova esta linha se quiser versionar)
 *.infos
 
+# Materiais locais / pacotes DS completos (documentação oficial em docs/referencias/)
 contexto/
