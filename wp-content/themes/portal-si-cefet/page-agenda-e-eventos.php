@@ -17,6 +17,17 @@ $past     = portal_si_get_past_eventos( -1 );
 <main id="main-content" class="site-main site-main--page site-main--agenda" tabindex="-1">
 	<?php portal_si_the_breadcrumbs(); ?>
 
+	<div class="portal-agenda-notice">
+		<p>
+			<strong><?php esc_html_e( 'Calendário acadêmico oficial', 'portal-si-cefet' ); ?></strong> —
+			<?php esc_html_e( 'datas do ano letivo, recessos e prazos da graduação estão em', 'portal-si-cefet' ); ?>
+			<a href="<?php echo esc_url( portal_si_page_url( 'calendario-academico' ) ); ?>">
+				<?php esc_html_e( 'Calendário Acadêmico', 'portal-si-cefet' ); ?>
+			</a>.
+			<?php esc_html_e( 'Esta página é a agenda de eventos e atividades do curso.', 'portal-si-cefet' ); ?>
+		</p>
+	</div>
+
 	<?php
 	while ( have_posts() ) :
 		the_post();

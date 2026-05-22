@@ -35,6 +35,26 @@
 	margin-bottom: 0;
 }
 
+/* Aviso: calendário oficial ≠ agenda de eventos */
+.portal-agenda-notice {
+	max-width: var(--portal-max-width);
+	margin: 0 auto 1.25rem;
+	padding: 1rem var(--portal-space);
+	background: #eef4fc;
+	border: 1px solid #c5d9f0;
+	border-radius: 4px;
+}
+
+.portal-agenda-notice p {
+	margin: 0;
+	font-size: 0.9375rem;
+	line-height: 1.5;
+}
+
+.portal-agenda-notice a {
+	font-weight: 600;
+}
+
 /* Seções de eventos (agenda) */
 .portal-event-section {
 	margin-bottom: 1rem;

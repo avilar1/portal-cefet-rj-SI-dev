@@ -4,7 +4,7 @@ Repositório da **Fábrica de Software** do curso de **Sistemas de Informação*
 
 Portal institucional em **WordPress** com tema próprio `portal-si-cefet`, identidade alinhada ao **Design System do Governo Federal (gov.br)** e escopo definido na **Análise de Requisitos** do projeto.
 
-**Versão atual do tema:** `0.3.9`
+**Versão atual do tema:** `0.4.0`
 
 ---
 
@@ -53,7 +53,8 @@ Prioridade de entrega: requisitos funcionais de **prioridade Alta** — ver tamb
 |------|----------|
 | **Shell global** | Header (faixa gov.br, menu legal, nav principal, busca), breadcrumbs, rodapé (mapa + barra legal), alto contraste e `prefers-reduced-motion` |
 | **Design System** | Tokens (`ds-tokens.css`), vendor gov.br 3.7.0 (card, divider, core-tokens), `ds-compat.css` |
-| **Home (RF01)** | 8 zonas: hero, acesso rápido (RF22: Área do Aluno, Professor, Chamados + Grade/Calendário internos), notícias + agenda |
+| **Home (RF01)** | 8 zonas: hero, acesso rápido (RF22 externos + Grade + **Calendário Acadêmico**), notícias + **Agenda** (eventos) |
+| **Calendário Acadêmico** | `/calendario-academico/` — resumo 2026 + PDF oficial (≠ `/agenda-e-eventos/`) |
 | **Comunicação** | Notícias (`inc/noticia.php`, templates, listagem 9/página); CPT **eventos** + agenda + single evento |
 | **Institucional** | Hub `/institucional/` (zonas A/B/C), dados em `data/institucional.php`, páginas filhas com breadcrumb `Início › Institucional › …` |
 | **Sobre o Curso (RF02)** | `/sobre-o-curso/` — hero, números, carta, âncoras, seções RF02; **textos no WP**, números em `data/sobre-o-curso.php` — ver [`docs/conteudo-wordpress-vs-codigo.md`](docs/conteudo-wordpress-vs-codigo.md) |
@@ -134,7 +135,8 @@ projeto/
 |------------|--------|
 | `/` (front) | Home |
 | `/institucional/` | Hub institucional |
-| `/sobre-o-curso/`, `/ingresso/`, … | Filhas do institucional (breadcrumb com hub) |
+| `/sobre-o-curso/`, `/calendario-academico/`, `/ingresso/`, … | Filhas do institucional (breadcrumb com hub) |
+| `/agenda-e-eventos/` | Eventos do curso (comunicação) — não é o calendário oficial |
 | `/noticias/` | Comunicação — notícias |
 | `/agenda-e-eventos/`, `/evento/.../` | Comunicação — eventos |
 | `/corpo-docente/`, `/pesquisa-e-extensao/` | Docentes / pesquisa |

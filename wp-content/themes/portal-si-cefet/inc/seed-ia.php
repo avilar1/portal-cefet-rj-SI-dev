@@ -25,6 +25,7 @@ function portal_si_ia_level1_pages() {
 		array( 'title' => 'Institucional', 'slug' => 'institucional' ),
 		array( 'title' => 'Sobre o Curso', 'slug' => 'sobre-o-curso' ),
 		array( 'title' => 'Grade Curricular', 'slug' => 'grade-curricular' ),
+		array( 'title' => 'Calendário Acadêmico', 'slug' => 'calendario-academico' ),
 		array( 'title' => 'Corpo Docente', 'slug' => 'corpo-docente' ),
 		array( 'title' => 'Pesquisa e Extensão', 'slug' => 'pesquisa-e-extensao' ),
 		array( 'title' => 'Fábrica de Software', 'slug' => 'fabrica-de-software' ),

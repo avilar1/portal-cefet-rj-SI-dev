@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PORTAL_SI_CEFET_VERSION', '0.3.9' );
+define( 'PORTAL_SI_CEFET_VERSION', '0.4.1' );
 
 require_once get_template_directory() . '/inc/seed-ia.php';
 require_once get_template_directory() . '/inc/seed-editorial.php';
@@ -16,6 +16,7 @@ require_once get_template_directory() . '/inc/evento.php';
 require_once get_template_directory() . '/inc/noticia.php';
 require_once get_template_directory() . '/inc/institucional.php';
 require_once get_template_directory() . '/inc/sobre.php';
+require_once get_template_directory() . '/inc/calendario.php';
 require_once get_template_directory() . '/inc/breadcrumbs.php';
 require_once get_template_directory() . '/inc/search.php';
 require_once get_template_directory() . '/inc/home.php';
@@ -66,6 +67,9 @@ function portal_si_cefet_body_classes( $classes ) {
 	}
 	if ( is_page( PORTAL_SI_SOBRE_SLUG ) ) {
 		$classes[] = 'portal-is-sobre';
+	}
+	if ( is_page( PORTAL_SI_CALENDARIO_SLUG ) ) {
+		$classes[] = 'portal-is-calendario';
 	}
 	return $classes;
 }

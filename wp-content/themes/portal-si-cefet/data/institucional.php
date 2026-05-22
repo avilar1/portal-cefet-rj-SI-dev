@@ -37,6 +37,12 @@ return array(
 				'slug'        => 'grade-curricular',
 			),
 			array(
+				'icon'        => 'calendar',
+				'title'       => 'Calendário Acadêmico',
+				'description' => 'Ano letivo, recessos e prazos oficiais (2026)',
+				'slug'        => 'calendario-academico',
+			),
+			array(
 				'icon'        => 'building',
 				'title'       => 'Infraestrutura',
 				'description' => 'Laboratórios, biblioteca e recursos do campus',

@@ -26,7 +26,7 @@ return array(
 		'description' => 'Datas importantes e eventos',
 		'url'         => '',
 		'external'    => false,
-		'slug'        => 'agenda-e-eventos',
+		'slug'        => 'calendario-academico',
 	),
 	array(
 		'icon'        => 'graduation',
