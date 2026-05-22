@@ -63,7 +63,7 @@ Referência de implementação: [`layout_sobre_o_curso_mvp.md`](referencias/layo
 
 | Módulo | Conteúdo no WP | Conteúdo no código / `data/` |
 |--------|----------------|------------------------------|
-| **Home** | Pouco; estrutura fixa por zona | `inc/home.php`, templates, CSS; textos/cards em código ou dados do tema |
+| **Home** | Pouco; estrutura fixa por zona | `inc/home.php`, templates, CSS; **acesso rápido (Zona 5)** em `data/home-service-links.php` (RF22: links externos + Grade/Calendário internos) |
 | **Hub Institucional** | Página hub pode ter conteúdo WP | Cards e textos do hub: `data/institucional.php` |
 | **Notícias** | Posts, categorias, imagens | Templates `archive` / `single`, listagem em `inc/noticia.php` |
 | **Eventos** | CPT `evento` no WP | `inc/evento.php`, templates |

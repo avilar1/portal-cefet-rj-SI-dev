@@ -37,47 +37,49 @@ function portal_si_home_agenda_events() {
 }
 
 /**
- * Links de serviço — zona 5 (acesso rápido funcional).
+ * Links de serviço — zona 5 (RF01, RF22: acesso rápido).
  *
- * @return array<int, array{icon: string, title: string, description: string, url: string}>
+ * URLs externas e textos: data/home-service-links.php
+ *
+ * @return array<int, array{icon: string, title: string, description: string, url: string, external: bool}>
  */
 function portal_si_home_service_links() {
-	return array(
-		array(
-			'icon'        => 'clipboard',
-			'title'       => __( 'Grade Curricular', 'portal-si-cefet' ),
-			'description' => __( 'Consultar disciplinas e ementas', 'portal-si-cefet' ),
-			'url'         => portal_si_page_url( 'grade-curricular' ),
-		),
-		array(
-			'icon'        => 'calendar',
-			'title'       => __( 'Calendário Acadêmico', 'portal-si-cefet' ),
-			'description' => __( 'Datas importantes e eventos', 'portal-si-cefet' ),
-			'url'         => portal_si_page_url( 'agenda-e-eventos' ),
-		),
-		array(
-			'icon'        => 'graduation',
-			'title'       => __( 'Processo Seletivo', 'portal-si-cefet' ),
-			'description' => __( 'Informações sobre inscrição', 'portal-si-cefet' ),
-			'url'         => portal_si_page_url( 'ingresso' ),
-		),
-		array(
-			'icon'        => 'teacher',
-			'title'       => __( 'Corpo Docente', 'portal-si-cefet' ),
-			'description' => __( 'Conhecer professores e pesquisadores', 'portal-si-cefet' ),
-			'url'         => portal_si_page_url( 'corpo-docente' ),
-		),
-		array(
-			'icon'        => 'megaphone',
-			'title'       => __( 'Ouvidoria', 'portal-si-cefet' ),
-			'description' => __( 'Canal de comunicação e denúncias', 'portal-si-cefet' ),
-			'url'         => portal_si_page_url( 'contato' ),
-		),
-		array(
-			'icon'        => 'document',
-			'title'       => __( 'Documentos', 'portal-si-cefet' ),
-			'description' => __( 'Regulamentos, normas e formulários', 'portal-si-cefet' ),
-			'url'         => portal_si_page_url( 'documentos-institucionais' ),
-		),
-	);
+	static $links = null;
+
+	if ( null !== $links ) {
+		return $links;
+	}
+
+	$path = get_template_directory() . '/data/home-service-links.php';
+	$raw  = is_readable( $path ) ? require $path : array();
+	$out  = array();
+
+	foreach ( $raw as $row ) {
+		if ( ! is_array( $row ) ) {
+			continue;
+		}
+
+		$url = isset( $row['url'] ) ? (string) $row['url'] : '';
+		if ( '' === $url && ! empty( $row['slug'] ) ) {
+			$url = portal_si_page_url( (string) $row['slug'] );
+		}
+
+		if ( '' === $url ) {
+			continue;
+		}
+
+		$out[] = array(
+			'icon'        => isset( $row['icon'] ) ? (string) $row['icon'] : 'document',
+			'title'       => isset( $row['title'] ) ? (string) $row['title'] : '',
+			'description' => isset( $row['description'] ) ? (string) $row['description'] : '',
+			'url'         => $url,
+			'external'    => ! empty( $row['external'] ),
+		);
+	}
+
+	/**
+	 * @param array<int, array{icon: string, title: string, description: string, url: string, external: bool}> $out Links da home.
+	 */
+	$links = apply_filters( 'portal_si_home_service_links', $out );
+	return $links;
 }

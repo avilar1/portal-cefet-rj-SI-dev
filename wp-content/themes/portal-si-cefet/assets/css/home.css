@@ -505,6 +505,13 @@
 	line-height: 1.4;
 }
 
+.portal-service-card__external-mark {
+	margin-left: 0.15em;
+	font-size: 0.85em;
+	font-weight: 400;
+	opacity: 0.85;
+}
+
 @media (max-width: 64rem) {
 	.portal-service-links__grid {
 		grid-template-columns: repeat(2, 1fr);

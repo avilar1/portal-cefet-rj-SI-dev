@@ -1,6 +1,6 @@
 <?php
 /**
- * Zona 5 — Serviços / links rápidos (RF01, RF03, RF05, RF17, RF20).
+ * Zona 5 — Acesso rápido (RF01, RF22 — serviços externos + páginas internas).
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -13,10 +13,21 @@ $services = portal_si_home_service_links();
 	<div class="portal-service-links__inner">
 		<ul class="portal-service-links__grid">
 			<?php foreach ( $services as $service ) : ?>
+				<?php
+				$is_external = ! empty( $service['external'] );
+				$card_class  = portal_si_br_card_class( array( 'hover' ) ) . ' portal-service-card';
+				if ( $is_external ) {
+					$card_class .= ' portal-service-card--external';
+				}
+				?>
 				<li>
 					<a
-						class="<?php echo esc_attr( portal_si_br_card_class( array( 'hover' ) ) . ' portal-service-card' ); ?>"
+						class="<?php echo esc_attr( $card_class ); ?>"
 						href="<?php echo esc_url( $service['url'] ); ?>"
+						<?php if ( $is_external ) : ?>
+							target="_blank"
+							rel="noopener noreferrer"
+						<?php endif; ?>
 					>
 						<div class="card-content portal-service-card__inner">
 							<span class="portal-service-card__icon" aria-hidden="true">
@@ -26,7 +37,13 @@ $services = portal_si_home_service_links();
 								?>
 							</span>
 							<span class="portal-service-card__body">
-								<span class="portal-service-card__title"><?php echo esc_html( $service['title'] ); ?></span>
+								<span class="portal-service-card__title">
+									<?php echo esc_html( $service['title'] ); ?>
+									<?php if ( $is_external ) : ?>
+										<span class="portal-service-card__external-mark" aria-hidden="true">↗</span>
+										<span class="screen-reader-text"><?php esc_html_e( '(abre em nova aba)', 'portal-si-cefet' ); ?></span>
+									<?php endif; ?>
+								</span>
 								<span class="portal-service-card__description"><?php echo esc_html( $service['description'] ); ?></span>
 							</span>
 						</div>

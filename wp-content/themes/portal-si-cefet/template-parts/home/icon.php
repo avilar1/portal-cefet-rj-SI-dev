@@ -2,7 +2,7 @@
 /**
  * Ícones SVG da home.
  *
- * @var string $icon clipboard|calendar|graduation|teacher|megaphone|document|book|building|users.
+ * @var string $icon clipboard|calendar|graduation|teacher|megaphone|document|book|building|users|ticket|briefcase.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -34,6 +34,10 @@ if ( isset( $args ) && is_array( $args ) && isset( $args['icon'] ) ) {
 		<path fill="currentColor" d="M12 7V3H2v18h20V7H12zm-2 12H6v-2h4v2zm0-4H6v-2h4v2zm0-4H6V9h4v2zm8 8h-6v-2h6v2zm0-4h-6v-2h6v2zm0-4h-6V9h6v2z"/>
 	<?php elseif ( 'users' === $icon ) : ?>
 		<path fill="currentColor" d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5z"/>
+	<?php elseif ( 'ticket' === $icon ) : ?>
+		<path fill="currentColor" d="M20 6H4a2 2 0 0 0-2 2v2h20V8a2 2 0 0 0-2-2zm0 4H2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6zM11 15h2v2h-2v-2z"/>
+	<?php elseif ( 'briefcase' === $icon ) : ?>
+		<path fill="currentColor" d="M10 4h4a2 2 0 0 1 2 2h2v2H6V6h2a2 2 0 0 1 2-2zm-4 6h14v10H6V10zm2 2v2h2v-2H8zm4 0v2h2v-2h-2z"/>
 	<?php else : ?>
 		<path fill="currentColor" d="M12 2 2 7l10 5 10-5-10-5zm0 2.18L18.82 7 12 10.82 5.18 7 12 4.18zM2 17l10 5 10-5M2 12l10 5 10-5"/>
 	<?php endif; ?>
