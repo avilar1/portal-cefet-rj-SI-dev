@@ -27,7 +27,7 @@ function portal_si_calendario_tpl_arg( $args, $key, $default = null ) {
 }
 
 /**
- * Configuração do calendário.
+ * Configuração do calendário (meta da página no WP; fallback: data/calendario-academico.php).
  *
  * @return array<string, mixed>
  */
@@ -38,26 +38,30 @@ function portal_si_calendario_config() {
 		return $config;
 	}
 
-	$path = get_template_directory() . '/data/calendario-academico.php';
-	if ( is_readable( $path ) ) {
-		$loaded = require $path;
-		if ( is_array( $loaded ) ) {
-			$config = $loaded;
-			return apply_filters( 'portal_si_calendario_config', $config );
-		}
+	if ( function_exists( 'portal_si_calendario_get_page_data' ) ) {
+		$config = portal_si_calendario_get_page_data();
+	} else {
+		$config = portal_si_calendario_defaults();
 	}
 
-	$config = array();
 	return apply_filters( 'portal_si_calendario_config', $config );
 }
 
 /**
- * URL pública do PDF no tema (se o ficheiro existir).
+ * URL pública do PDF — biblioteca de media ou ficheiro padrão do tema.
  *
  * @return string URL vazia se ausente.
  */
 function portal_si_calendario_pdf_url() {
-	$config   = portal_si_calendario_config();
+	$config = portal_si_calendario_config();
+
+	if ( ! empty( $config['pdf_attachment_id'] ) ) {
+		$url = wp_get_attachment_url( (int) $config['pdf_attachment_id'] );
+		if ( $url ) {
+			return $url;
+		}
+	}
+
 	$filename = isset( $config['pdf_filename'] ) ? (string) $config['pdf_filename'] : '';
 	if ( '' === $filename ) {
 		return '';
@@ -69,6 +73,43 @@ function portal_si_calendario_pdf_url() {
 	}
 
 	return get_template_directory_uri() . '/assets/documentos/' . rawurlencode( $filename );
+}
+
+/**
+ * Data da última atualização do documento oficial (PDF CONPUS), definida no painel.
+ *
+ * @return string
+ */
+function portal_si_calendario_document_updated_display() {
+	$config = portal_si_calendario_config();
+	$raw    = '';
+	if ( ! empty( $config['last_updated'] ) ) {
+		$raw = (string) $config['last_updated'];
+	} elseif ( ! empty( $config['source_updated'] ) ) {
+		$raw = (string) $config['source_updated'];
+	}
+	if ( function_exists( 'portal_si_calendario_format_date_display' ) ) {
+		return portal_si_calendario_format_date_display( $raw );
+	}
+	return $raw;
+}
+
+/** @deprecated Use portal_si_calendario_document_updated_display() */
+function portal_si_calendario_last_updated_display() {
+	return portal_si_calendario_document_updated_display();
+}
+
+/**
+ * Última vez que um editor/admin gravou esta página no portal (automático).
+ *
+ * @param int $page_id ID da página.
+ * @return array{date: string, author: string}|null
+ */
+function portal_si_calendario_portal_revision_display( $page_id = 0 ) {
+	if ( function_exists( 'portal_si_calendario_portal_revision' ) ) {
+		return portal_si_calendario_portal_revision( $page_id );
+	}
+	return null;
 }
 
 /**
@@ -103,6 +144,10 @@ function portal_si_ensure_calendario_page() {
 
 	if ( ! $page_id ) {
 		return;
+	}
+
+	if ( function_exists( 'portal_si_calendario_seed_page_meta' ) ) {
+		portal_si_calendario_seed_page_meta( $page_id );
 	}
 
 	$hub_id = portal_si_get_page_id_by_slug( PORTAL_SI_INSTITUCIONAL_HUB_SLUG );

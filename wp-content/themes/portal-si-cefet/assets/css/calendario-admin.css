@@ -1,0 +1,34 @@
+.portal-calendario-admin-help {
+	margin: 0 0 1em;
+	padding: 10px 12px;
+	background: #f0f6fc;
+	border-left: 4px solid #1351b4;
+}
+
+.portal-calendario-admin-subtitle {
+	margin: 1.5em 0 0.75em;
+	font-size: 1.05em;
+}
+
+.portal-calendario-admin-fieldset {
+	margin: 0 0 1.25em;
+	padding: 12px 14px;
+	border: 1px solid #c3c4c7;
+	background: #fff;
+}
+
+.portal-calendario-admin-fieldset legend {
+	padding: 0 6px;
+}
+
+.portal-calendario-admin-grid th,
+.portal-calendario-admin-grid td {
+	vertical-align: top;
+}
+
+.portal-calendario-admin-revision {
+	margin: 1.25em 0 0;
+	padding: 10px 12px;
+	background: #f6f7f7;
+	border: 1px solid #c3c4c7;
+}

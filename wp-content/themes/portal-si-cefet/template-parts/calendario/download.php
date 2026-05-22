@@ -50,15 +50,13 @@ $official = isset( $config['official_page_url'] ) ? (string) $config['official_p
 				</a>
 			<?php endif; ?>
 		</div>
-		<?php if ( ! empty( $config['source_updated'] ) ) : ?>
+		<?php
+		$doc_updated = portal_si_calendario_document_updated_display();
+		if ( $doc_updated ) :
+			?>
 			<p class="portal-calendario-download__updated">
-				<?php
-				printf(
-					/* translators: %s: date */
-					esc_html__( 'Versão do arquivo de referência: %s', 'portal-si-cefet' ),
-					esc_html( (string) $config['source_updated'] )
-				);
-				?>
+				<strong><?php esc_html_e( 'Última atualização do documento oficial:', 'portal-si-cefet' ); ?></strong>
+				<?php echo esc_html( $doc_updated ); ?>
 			</p>
 		<?php endif; ?>
 	</div>

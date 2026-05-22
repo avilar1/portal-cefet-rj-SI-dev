@@ -64,7 +64,7 @@ Referência de implementação: [`layout_sobre_o_curso_mvp.md`](referencias/layo
 | Módulo | Conteúdo no WP | Conteúdo no código / `data/` |
 |--------|----------------|------------------------------|
 | **Home** | Pouco; estrutura fixa por zona | `inc/home.php`, templates, CSS; **acesso rápido (Zona 5)** em `data/home-service-links.php` (RF22: links externos + Grade + Calendário) |
-| **Calendário Acadêmico** | Resumo opcional no editor (excerpt/conteúdo) | `data/calendario-academico.php`, PDF em `assets/documentos/`, página `page-calendario-academico.php` |
+| **Calendário Acadêmico** | **Datas, PDF, última atualização** — caixa na página [Calendário Acadêmico] no wp-admin; resumo da página = intro | Estrutura no tema; valores iniciais em `data/calendario-academico.php` (só seed). Guia: [`edicao-calendario-academico.md`](edicao-calendario-academico.md) |
 | **Agenda e Eventos** | Eventos (CPT `portal_evento`) no wp-admin | `page-agenda-e-eventos.php`, `inc/evento.php` — **não** é o calendário oficial |
 | **Hub Institucional** | Página hub pode ter conteúdo WP | Cards e textos do hub: `data/institucional.php` |
 | **Notícias** | Posts, categorias, imagens | Templates `archive` / `single`, listagem em `inc/noticia.php` |

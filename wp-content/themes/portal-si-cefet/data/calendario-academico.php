@@ -1,9 +1,11 @@
 <?php
 /**
- * Calendário acadêmico 2026 — Campus Maria da Graça (graduação / SI).
+ * Valores INICIAIS do calendário (seed na primeira instalação).
  *
- * Resumo legível derivado do PDF CONPUS (11/11/2025) e comunicado oficial de volta às aulas 2026.
- * Fonte de verdade para conferência: PDF no tema + página do CEFET/RJ.
+ * Depois da instalação, editores alteram datas em:
+ * wp-admin → Páginas → Calendário Acadêmico → caixa "Calendário acadêmico — datas e PDF".
+ *
+ * Guia: docs/edicao-calendario-academico.md
  *
  * @see assets/documentos/calendario-academico-2026-campus-mg.pdf
  */

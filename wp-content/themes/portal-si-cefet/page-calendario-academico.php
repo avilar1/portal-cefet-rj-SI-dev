@@ -49,6 +49,24 @@ get_header();
 				);
 				?>
 			</p>
+			<?php
+			$revision = portal_si_calendario_portal_revision_display();
+			if ( $revision ) :
+				?>
+				<p class="portal-calendario-portal-revision">
+					<strong><?php esc_html_e( 'Informações revisadas no portal em:', 'portal-si-cefet' ); ?></strong>
+					<?php echo esc_html( $revision['date'] ); ?>
+					<?php if ( ! empty( $revision['author'] ) ) : ?>
+						<?php
+						printf(
+							/* translators: %s: user display name */
+							esc_html__( 'por %s', 'portal-si-cefet' ),
+							esc_html( $revision['author'] )
+						);
+						?>
+					<?php endif; ?>
+				</p>
+			<?php endif; ?>
 		</header>
 		<?php
 	endwhile;

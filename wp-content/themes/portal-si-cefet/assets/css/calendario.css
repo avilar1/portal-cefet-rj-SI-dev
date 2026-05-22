@@ -14,6 +14,16 @@
 	color: #666;
 }
 
+.portal-calendario-portal-revision {
+	margin: 0.5rem 0 0;
+	padding: 0.65rem 0.85rem;
+	font-size: 0.875rem;
+	background: #f8f8f8;
+	border-left: 3px solid #888;
+	color: #444;
+	line-height: 1.45;
+}
+
 .portal-calendario-section__title {
 	margin: 0 0 1rem;
 	font-family: var(--font-heading);
