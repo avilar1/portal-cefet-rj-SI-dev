@@ -58,7 +58,7 @@
 /* —— Zona B: Números —— */
 .portal-sobre-stats {
 	background: #f4f6f8;
-	padding: 0 var(--portal-space) 2rem;
+	padding: 1rem var(--portal-space) 2rem;
 	margin-top: -1.25rem;
 }
 
