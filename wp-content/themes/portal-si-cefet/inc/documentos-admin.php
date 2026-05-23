@@ -10,6 +10,58 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'PORTAL_SI_DOCUMENTOS_UPLOADS_META', '_portal_si_documentos_uploads' );
 
 /**
+ * Secções da página onde uma publicação pode aparecer.
+ *
+ * @return array<string, string>
+ */
+function portal_si_documentos_upload_sections() {
+	return array(
+		'editorial' => __( 'Comunicados e publicações do curso', 'portal-si-cefet' ),
+		'curso'     => __( 'Curso de Sistemas de Informação', 'portal-si-cefet' ),
+	);
+}
+
+/**
+ * Secção padrão conforme tipo (normativos → bloco do curso).
+ *
+ * @param string $kind Tipo sanitizado.
+ * @param string $title Título.
+ * @return string
+ */
+function portal_si_documentos_default_upload_section( $kind, $title = '' ) {
+	if ( 'normativo' === $kind ) {
+		return 'curso';
+	}
+
+	$title_l = strtolower( remove_accents( $title ) );
+	if ( false !== strpos( $title_l, 'ppc' ) || false !== strpos( $title_l, 'projeto pedagogico' ) ) {
+		return 'curso';
+	}
+
+	return 'editorial';
+}
+
+/**
+ * Normaliza secção guardada ou inferida.
+ *
+ * @param array<string, mixed> $row Linha bruta.
+ * @return string
+ */
+function portal_si_documentos_normalize_upload_section( array $row ) {
+	$sections = portal_si_documentos_upload_sections();
+	$section  = isset( $row['section'] ) ? sanitize_key( (string) $row['section'] ) : '';
+
+	if ( isset( $sections[ $section ] ) ) {
+		return $section;
+	}
+
+	$kind  = isset( $row['kind'] ) ? sanitize_key( (string) $row['kind'] ) : 'outro';
+	$title = isset( $row['title'] ) ? (string) $row['title'] : '';
+
+	return portal_si_documentos_default_upload_section( $kind, $title );
+}
+
+/**
  * Tipos de publicação (rótulo no site).
  *
  * @return array<string, string>
@@ -91,13 +143,16 @@ function portal_si_documentos_get_uploads( $page_id = 0 ) {
 			$meta = 'PDF · ' . $meta;
 		}
 
+		$section = portal_si_documentos_normalize_upload_section( $row );
+
 		$out[] = array(
 			'title'       => $title,
 			'description' => isset( $row['description'] ) ? trim( (string) $row['description'] ) : '',
 			'url'         => $url,
 			'meta'        => $meta,
 			'external'    => (bool) ( $external_url && ! $attachment_id ),
-			'editorial'   => true,
+			'editorial'   => 'editorial' === $section,
+			'section'     => $section,
 			'date_ts'     => $date_ts,
 		);
 	}
@@ -118,13 +173,34 @@ function portal_si_documentos_get_uploads( $page_id = 0 ) {
 }
 
 /**
+ * Publicações por secção da página.
+ *
+ * @param int    $page_id ID da página.
+ * @param string $section editorial|curso.
+ * @return array<int, array<string, mixed>>
+ */
+function portal_si_documentos_get_uploads_for_section( $section, $page_id = 0 ) {
+	$section = sanitize_key( $section );
+	$all     = portal_si_documentos_get_uploads( $page_id );
+
+	return array_values(
+		array_filter(
+			$all,
+			static function ( $item ) use ( $section ) {
+				return isset( $item['section'] ) && $section === $item['section'];
+			}
+		)
+	);
+}
+
+/**
  * Converte publicações editáveis num grupo para o template.
  *
  * @param int $page_id ID da página.
  * @return array<string, mixed>|null
  */
 function portal_si_documentos_editorial_group( $page_id = 0 ) {
-	$items = portal_si_documentos_get_uploads( $page_id );
+	$items = portal_si_documentos_get_uploads_for_section( 'editorial', $page_id );
 	if ( empty( $items ) ) {
 		return null;
 	}
@@ -230,6 +306,12 @@ function portal_si_documentos_render_upload_row( $index, array $row, array $kind
 	if ( ! isset( $kinds[ $kind ] ) ) {
 		$kind = 'comunicado';
 	}
+	$sections      = portal_si_documentos_upload_sections();
+	$section       = portal_si_documentos_normalize_upload_section( $row );
+	$title_for_def = isset( $row['title'] ) ? (string) $row['title'] : '';
+	if ( ! isset( $row['section'] ) && '' === $title_for_def ) {
+		$section = portal_si_documentos_default_upload_section( $kind, '' );
+	}
 	?>
 	<fieldset class="portal-documentos-admin-row" data-row-index="<?php echo esc_attr( (string) $index ); ?>">
 		<legend>
@@ -259,6 +341,17 @@ function portal_si_documentos_render_upload_row( $index, array $row, array $kind
 							<option value="<?php echo esc_attr( $key ); ?>" <?php selected( $kind, $key ); ?>><?php echo esc_html( $label ); ?></option>
 						<?php endforeach; ?>
 					</select>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row"><label><?php esc_html_e( 'Exibir na seção', 'portal-si-cefet' ); ?></label></th>
+				<td>
+					<select name="portal_si_documentos_upload[<?php echo esc_attr( (string) $index ); ?>][section]">
+						<?php foreach ( $sections as $key => $label ) : ?>
+							<option value="<?php echo esc_attr( $key ); ?>" <?php selected( $section, $key ); ?>><?php echo esc_html( $label ); ?></option>
+						<?php endforeach; ?>
+					</select>
+					<p class="description"><?php esc_html_e( 'Normativos e PPC costumam ficar em «Curso de Sistemas de Informação»; comunicados e memorandos, no topo.', 'portal-si-cefet' ); ?></p>
 				</td>
 			</tr>
 			<tr>
@@ -313,9 +406,10 @@ function portal_si_documentos_save_meta_box( $post_id ) {
 		return;
 	}
 
-	$raw    = isset( $_POST['portal_si_documentos_upload'] ) && is_array( $_POST['portal_si_documentos_upload'] ) ? wp_unslash( $_POST['portal_si_documentos_upload'] ) : array();
-	$kinds  = portal_si_documentos_upload_kinds();
-	$stored = array();
+	$raw      = isset( $_POST['portal_si_documentos_upload'] ) && is_array( $_POST['portal_si_documentos_upload'] ) ? wp_unslash( $_POST['portal_si_documentos_upload'] ) : array();
+	$kinds    = portal_si_documentos_upload_kinds();
+	$sections = portal_si_documentos_upload_sections();
+	$stored   = array();
 
 	foreach ( $raw as $row ) {
 		if ( ! is_array( $row ) ) {
@@ -332,6 +426,11 @@ function portal_si_documentos_save_meta_box( $post_id ) {
 			$kind = 'outro';
 		}
 
+		$section = isset( $row['section'] ) ? sanitize_key( (string) $row['section'] ) : '';
+		if ( ! isset( $sections[ $section ] ) ) {
+			$section = portal_si_documentos_default_upload_section( $kind, $title );
+		}
+
 		$attachment_id = isset( $row['attachment_id'] ) ? absint( $row['attachment_id'] ) : 0;
 		$external_url  = isset( $row['external_url'] ) ? esc_url_raw( (string) $row['external_url'] ) : '';
 		$date          = isset( $row['date'] ) ? sanitize_text_field( (string) $row['date'] ) : '';
@@ -344,6 +443,7 @@ function portal_si_documentos_save_meta_box( $post_id ) {
 			'title'         => $title,
 			'description'   => isset( $row['description'] ) ? sanitize_textarea_field( (string) $row['description'] ) : '',
 			'kind'          => $kind,
+			'section'       => $section,
 			'date'          => $date,
 			'attachment_id' => $attachment_id,
 			'external_url'  => $external_url,

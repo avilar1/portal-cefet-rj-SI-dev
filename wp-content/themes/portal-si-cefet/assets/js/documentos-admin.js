@@ -78,4 +78,17 @@
 		$row.find('.portal-doc-attachment-id').val('');
 		$row.find('.portal-doc-file-name').text('Nenhum ficheiro selecionado');
 	});
+	$('#portal_si_doc_rows').on('change', 'select[name$="[kind]"]', function () {
+		var $row = $(this).closest('.portal-documentos-admin-row');
+		var kind = $(this).val();
+		var $section = $row.find('select[name$="[section]"]');
+		if (!$section.length) {
+			return;
+		}
+		if (kind === 'normativo') {
+			$section.val('curso');
+		} else if ($section.val() === 'curso' && kind !== 'normativo') {
+			$section.val('editorial');
+		}
+	});
 })(jQuery);

@@ -108,14 +108,23 @@ function portal_si_documentos_groups() {
 		if ( ! is_array( $group ) ) {
 			continue;
 		}
-		$items = isset( $group['items'] ) && is_array( $group['items'] ) ? $group['items'] : array();
-		$clean = array();
+		$group_id = ! empty( $group['id'] ) ? sanitize_key( (string) $group['id'] ) : '';
+		$items    = isset( $group['items'] ) && is_array( $group['items'] ) ? $group['items'] : array();
+		$clean    = array();
 		foreach ( $items as $item ) {
 			if ( ! is_array( $item ) || empty( $item['title'] ) ) {
 				continue;
 			}
 			$clean[] = $item;
 		}
+
+		if ( 'curso' === $group_id && function_exists( 'portal_si_documentos_get_uploads_for_section' ) ) {
+			$curso_uploads = portal_si_documentos_get_uploads_for_section( 'curso' );
+			if ( ! empty( $curso_uploads ) ) {
+				$clean = array_merge( $curso_uploads, $clean );
+			}
+		}
+
 		if ( empty( $clean ) ) {
 			continue;
 		}

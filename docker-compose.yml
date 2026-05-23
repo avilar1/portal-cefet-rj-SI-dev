@@ -38,6 +38,7 @@ services:
       # Core, uploads e plugins padrão ficam no volume; só o tema custom vem da pasta do Git.
       - wp_data:/var/www/html
       - ./wp-content/themes/portal-si-cefet:/var/www/html/wp-content/themes/portal-si-cefet
+      - ./docker/php-uploads.ini:/usr/local/etc/php/conf.d/uploads.ini:ro
 
   # WP-CLI: use só sob demanda (não sobe com "docker compose up -d" por omissão).
   # Ex.: docker compose --profile wpcli run --rm wpcli wp plugin list

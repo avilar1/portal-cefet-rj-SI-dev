@@ -24,12 +24,13 @@ Guia para **editores e administradores**. O portal separa três tipos de conteú
 4. Preencha:
    - **Título** — ex.: *Normativo — adequação de grade curricular 2026*
    - **Tipo** — Normativo, Memorando, Comunicado, etc.
+   - **Exibir na seção** — *Comunicados* (memorandos recentes) ou *Curso de Sistemas de Informação* (PPC, normativos permanentes)
    - **Data da publicação** — opcional; ordena do mais recente para o mais antigo no site
    - **Resumo** — uma frase para o visitante entender o conteúdo
    - **Arquivo** — **Escolher na biblioteca** → envie o PDF (ou selecione um já enviado)
    - **Ou link externo** — só se o ficheiro estiver noutro site (Google Drive institucional, etc.)
 5. Clique **Atualizar** na página.
-6. Abra `/documentos-institucionais/` no site e confira a secção **Comunicados e publicações do curso** no topo.
+6. Abra `/documentos-institucionais/` no site e confira a secção escolhida (**Comunicados** no topo ou **Curso de Sistemas de Informação** abaixo).
 
 ### Remover uma publicação antiga
 
@@ -38,7 +39,31 @@ Se for a única linha, **Remover** apenas limpa os campos.
 
 ### PPC e documentos “fixos” do curso
 
-O **Projeto Pedagógico (PPC)** e outros PDFs permanentes podem ser publicados **nesta mesma caixa** (tipo *Documento* ou *Normativo*), sem precisar de programador.
+O **Projeto Pedagógico (PPC)** e outros PDFs permanentes são publicados **nesta mesma caixa**. Escolha **Exibir na seção → Curso de Sistemas de Informação** (preenchido automaticamente se o tipo for *Normativo*).
+
+> Publicações antigas sem secção definida: **Normativo** ou título com «PPC» aparecem no bloco **Curso de SI**; demais tipos ficam em **Comunicados**.
+
+### PDF grande (ex.: PPC ~11 MB)
+
+O Docker local vem com limite baixo (2 MB). O repositório inclui `docker/php-uploads.ini` (64 MB). Depois de clonar ou atualizar:
+
+```powershell
+docker compose up -d
+```
+
+Confira em **wp-admin → Ferramentas → Saúde do site** (ou ao enviar um ficheiro) se o limite subiu.
+
+**Alternativa sem upload pelo browser:** copie o PDF para o container e importe com WP-CLI (a partir da pasta `contexto/` na raiz do projeto):
+
+```powershell
+docker compose --profile wpcli run --rm `
+  -v "${PWD}/contexto:/contexto" `
+  wpcli wp media import "/contexto/2025-11 PPC-SI-2025-2026.pdf" --title="PPC SI 2025-2026" --porcelain
+```
+
+Anote o ID devolvido, escolha **Escolher na biblioteca** na caixa de publicações e selecione o ficheiro importado.
+
+Em **produção** (servidor real), peça à TI o aumento de `upload_max_filesize` / `post_max_size` no PHP ou use link externo (Google Drive institucional) no campo **Ou link externo** da publicação.
 
 ---
 
