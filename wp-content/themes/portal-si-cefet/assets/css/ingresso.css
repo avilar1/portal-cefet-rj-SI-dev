@@ -1,0 +1,350 @@
+/**
+ * Ingresso — RF05.
+ */
+
+.site-main--ingresso .portal-ingresso-body {
+	max-width: var(--portal-max-width);
+	margin: 0 auto;
+	padding: 0 var(--portal-space) 2.5rem;
+}
+
+.portal-ingresso-header__badge {
+	display: inline-block;
+	margin: 0 0 0.5rem;
+	padding: 0.25rem 0.65rem;
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: var(--color-secondary, #0c326f);
+	background: var(--color-highlight, #ffcd07);
+	border-radius: 2px;
+}
+
+.portal-ingresso-meta {
+	margin: 0.5rem 0 0;
+	font-size: 0.875rem;
+	color: #666;
+}
+
+.portal-ingresso-section__title {
+	margin: 0 0 1rem;
+	font-family: var(--font-heading);
+	font-size: 1.375rem;
+	font-weight: 700;
+	color: var(--color-secondary, #0c326f);
+	border-bottom: 3px solid var(--color-highlight, #ffcd07);
+	padding-bottom: 0.35rem;
+}
+
+.portal-ingresso-section__title--compact {
+	border-bottom: none;
+	padding-bottom: 0;
+	margin-bottom: 0.65rem;
+}
+
+/* Alerta oficial */
+.portal-ingresso-alert {
+	margin-bottom: 2rem;
+	padding: 1rem 1.1rem;
+	background: #fff8e6;
+	border: 1px solid #e8c84a;
+	border-left: 4px solid var(--color-highlight, #ffcd07);
+	border-radius: 2px;
+}
+
+.portal-ingresso-alert p {
+	margin: 0;
+	font-size: 0.9375rem;
+	line-height: 1.55;
+	color: #333;
+}
+
+.portal-ingresso-alert a {
+	font-weight: 600;
+}
+
+/* Destaques */
+.portal-ingresso-highlights {
+	margin-bottom: 2.5rem;
+}
+
+.portal-ingresso-highlights__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1rem;
+}
+
+.portal-ingresso-highlights__content {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+	padding: 1rem !important;
+	min-height: 5.5rem;
+}
+
+.portal-ingresso-highlights__value {
+	font-family: var(--font-heading);
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: var(--color-secondary, #0c326f);
+	line-height: 1.2;
+}
+
+.portal-ingresso-highlights__label {
+	font-size: 0.8125rem;
+	color: #555;
+	line-height: 1.35;
+}
+
+/* Passos */
+.portal-ingresso-steps {
+	margin-bottom: 2.5rem;
+}
+
+.portal-ingresso-steps__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 1rem;
+}
+
+.portal-ingresso-steps__item {
+	display: flex;
+	gap: 1rem;
+	align-items: flex-start;
+	padding: 1rem 1.15rem;
+	background: #f8f8f8;
+	border: 1px solid #e8e8e8;
+	border-radius: 4px;
+}
+
+.portal-ingresso-steps__num {
+	flex-shrink: 0;
+	width: 2rem;
+	height: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: var(--font-heading);
+	font-weight: 700;
+	font-size: 1rem;
+	color: #fff;
+	background: var(--color-primary, #1351b4);
+	border-radius: 50%;
+}
+
+.portal-ingresso-steps__title {
+	margin: 0 0 0.35rem;
+	font-family: var(--font-heading);
+	font-size: 1.0625rem;
+	font-weight: 700;
+	color: var(--color-secondary, #0c326f);
+}
+
+.portal-ingresso-steps__text {
+	margin: 0;
+	font-size: 0.9375rem;
+	line-height: 1.5;
+	color: #444;
+}
+
+/* Links */
+.portal-ingresso-links {
+	margin-bottom: 2.5rem;
+}
+
+.portal-ingresso-links__grid {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+}
+
+.portal-ingresso-links__content {
+	display: flex;
+	flex-direction: column;
+	gap: 0.65rem;
+	padding: 1.15rem !important;
+	height: 100%;
+}
+
+.portal-ingresso-links__item--primary {
+	border: 2px solid var(--color-primary, #1351b4);
+}
+
+.portal-ingresso-links__title {
+	margin: 0;
+	font-family: var(--font-heading);
+	font-size: 1.0625rem;
+	font-weight: 700;
+	color: var(--color-secondary, #0c326f);
+}
+
+.portal-ingresso-links__desc {
+	margin: 0;
+	flex: 1;
+	font-size: 0.875rem;
+	line-height: 1.45;
+	color: #555;
+}
+
+.portal-ingresso-links__anchor {
+	font-weight: 600;
+	font-size: 0.9375rem;
+	color: var(--color-primary, #1351b4);
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.portal-ingresso-links__anchor:hover,
+.portal-ingresso-links__anchor:focus-visible {
+	color: var(--color-secondary, #0c326f);
+}
+
+/* Documentos */
+.portal-ingresso-documents {
+	margin-bottom: 2.5rem;
+}
+
+.portal-ingresso-documents__intro {
+	margin: 0 0 0.85rem;
+	font-size: 0.9375rem;
+	line-height: 1.5;
+	color: #444;
+	max-width: 48rem;
+}
+
+.portal-ingresso-documents__list {
+	margin: 0;
+	padding-left: 1.25rem;
+	font-size: 0.9375rem;
+	line-height: 1.55;
+	color: #333;
+}
+
+.portal-ingresso-documents__list li + li {
+	margin-top: 0.4rem;
+}
+
+/* Observações */
+.portal-ingresso-notices {
+	margin-bottom: 2.5rem;
+}
+
+.portal-ingresso-notices__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 0.75rem;
+}
+
+.portal-ingresso-notices__item {
+	padding: 0.85rem 1rem;
+	background: #f6f7f7;
+	border-left: 3px solid #888;
+	font-size: 0.875rem;
+	line-height: 1.45;
+	color: #444;
+}
+
+.portal-ingresso-notices__label {
+	display: block;
+	margin-bottom: 0.2rem;
+	color: var(--color-secondary, #0c326f);
+}
+
+/* Contato */
+.portal-ingresso-contact {
+	margin-bottom: 2.5rem;
+}
+
+.portal-ingresso-contact__intro,
+.portal-ingresso-contact__note {
+	margin: 0 0 0.5rem;
+	font-size: 0.9375rem;
+	line-height: 1.5;
+	color: #444;
+}
+
+.portal-ingresso-contact__email {
+	margin: 0;
+	font-size: 1.0625rem;
+	font-weight: 600;
+}
+
+.portal-ingresso-contact__email a {
+	color: var(--color-primary, #1351b4);
+}
+
+/* CTA final */
+.portal-ingresso-cta {
+	padding: 1.75rem 1.5rem;
+	background: #eef4fc;
+	border: 1px solid #c5d9f0;
+	border-radius: 4px;
+}
+
+.portal-ingresso-cta__title {
+	margin: 0 0 0.5rem;
+	font-family: var(--font-heading);
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: var(--color-secondary, #0c326f);
+}
+
+.portal-ingresso-cta__text {
+	margin: 0 0 1.25rem;
+	font-size: 0.9375rem;
+	line-height: 1.5;
+	color: #444;
+	max-width: 40rem;
+}
+
+.portal-ingresso-cta__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.65rem;
+}
+
+/* .portal-btn--secondary no hero usa texto branco; aqui o fundo é claro */
+.portal-ingresso-cta .portal-btn--secondary {
+	background: #fff;
+	color: var(--color-secondary, #0c326f);
+	border-color: var(--color-secondary, #0c326f);
+}
+
+.portal-ingresso-cta .portal-btn--secondary:hover,
+.portal-ingresso-cta .portal-btn--secondary:focus-visible {
+	background: var(--color-secondary, #0c326f);
+	color: #fff;
+	border-color: var(--color-secondary, #0c326f);
+}
+
+@media (max-width: 900px) {
+	.portal-ingresso-highlights__list {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.portal-ingresso-links__grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 520px) {
+	.portal-ingresso-highlights__list {
+		grid-template-columns: 1fr;
+	}
+
+	.portal-ingresso-cta__actions .portal-btn {
+		width: 100%;
+		justify-content: center;
+	}
+}

@@ -1,0 +1,35 @@
+.portal-documentos-admin-help {
+	margin: 0 0 1em;
+	padding: 10px 12px;
+	background: #f0f6fc;
+	border-left: 4px solid #1351b4;
+}
+
+.portal-documentos-admin-row {
+	margin: 0 0 1.25em;
+	padding: 12px 14px;
+	border: 1px solid #c3c4c7;
+	background: #fff;
+}
+
+.portal-documentos-admin-row legend {
+	padding: 0 6px;
+	font-weight: 600;
+}
+
+.portal-documentos-admin-remove {
+	margin-left: 0.75em;
+	color: #b32d2e;
+}
+
+.portal-documentos-admin-grid th {
+	width: 160px;
+	vertical-align: top;
+	padding-top: 12px;
+}
+
+.portal-doc-file-name {
+	margin: 0 0 0.5em;
+	font-size: 13px;
+	color: #50575e;
+}

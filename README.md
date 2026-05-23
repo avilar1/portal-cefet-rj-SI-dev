@@ -58,6 +58,9 @@ Prioridade de entrega: requisitos funcionais de **prioridade Alta** — ver tamb
 | **Comunicação** | Notícias (`inc/noticia.php`, templates, listagem 9/página); CPT **eventos** + agenda + single evento |
 | **Institucional** | Hub `/institucional/` (zonas A/B/C), dados em `data/institucional.php`, páginas filhas com breadcrumb `Início › Institucional › …` |
 | **Sobre o Curso (RF02)** | `/sobre-o-curso/` — hero, números, carta, âncoras, seções RF02; **textos no WP**, números em `data/sobre-o-curso.php` — ver [`docs/conteudo-wordpress-vs-codigo.md`](docs/conteudo-wordpress-vs-codigo.md) |
+| **Ingresso (RF05)** | `/ingresso/` — SISU 2026, passo a passo, links oficiais CEFET/MEC, documentação resumida; dados em `data/ingresso.php` |
+| **Documentos (RF06)** | `/documentos-institucionais/` — publicações editáveis no wp-admin + links fixos |
+| **Infraestrutura (RF04)** | `/infraestrutura/` — campus Maria da Graça, laboratórios, biblioteca, convivência; `data/infraestrutura.php` |
 | **Navegação** | Menu por **módulos** (requisitos §5): Institucional, Docentes, Pesquisa e Extensão, Fábrica, Comunicação, Contato — ver `inc/nav.php` |
 
 ### Padrão técnico para novos módulos

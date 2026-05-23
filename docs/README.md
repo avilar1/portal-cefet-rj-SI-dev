@@ -17,6 +17,7 @@ A pasta `contexto/` na raiz do repositório permanece no `.gitignore` (materiais
 |-----------|----------|
 | [**conteudo-wordpress-vs-codigo.md**](conteudo-wordpress-vs-codigo.md) | O que se edita no **wp-admin**, o que fica no **tema/`data/`**, e por que alterar PHP não atualiza a página depois do *seed* |
 | [**edicao-calendario-academico.md**](edicao-calendario-academico.md) | **Rotina anual** — como atualizar datas e PDF do calendário (sem código) |
+| [**edicao-documentos-institucionais.md**](edicao-documentos-institucionais.md) | **Publicações do curso** — normativos, memorandos e PDFs enviados pela coordenação (sem código) |
 
 ## Layouts aprovados (prompts de implementação)
 

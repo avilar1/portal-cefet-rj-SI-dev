@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PORTAL_SI_CEFET_VERSION', '0.4.3' );
+define( 'PORTAL_SI_CEFET_VERSION', '0.4.8' );
 
 require_once get_template_directory() . '/inc/seed-ia.php';
 require_once get_template_directory() . '/inc/seed-editorial.php';
@@ -18,6 +18,10 @@ require_once get_template_directory() . '/inc/institucional.php';
 require_once get_template_directory() . '/inc/sobre.php';
 require_once get_template_directory() . '/inc/calendario-admin.php';
 require_once get_template_directory() . '/inc/calendario.php';
+require_once get_template_directory() . '/inc/ingresso.php';
+require_once get_template_directory() . '/inc/documentos.php';
+require_once get_template_directory() . '/inc/documentos-admin.php';
+require_once get_template_directory() . '/inc/infraestrutura.php';
 require_once get_template_directory() . '/inc/breadcrumbs.php';
 require_once get_template_directory() . '/inc/search.php';
 require_once get_template_directory() . '/inc/home.php';
@@ -71,6 +75,15 @@ function portal_si_cefet_body_classes( $classes ) {
 	}
 	if ( is_page( PORTAL_SI_CALENDARIO_SLUG ) ) {
 		$classes[] = 'portal-is-calendario';
+	}
+	if ( is_page( PORTAL_SI_INGRESSO_SLUG ) ) {
+		$classes[] = 'portal-is-ingresso';
+	}
+	if ( is_page( PORTAL_SI_DOCUMENTOS_SLUG ) ) {
+		$classes[] = 'portal-is-documentos';
+	}
+	if ( is_page( PORTAL_SI_INFRAESTRUTURA_SLUG ) ) {
+		$classes[] = 'portal-is-infraestrutura';
 	}
 	return $classes;
 }
