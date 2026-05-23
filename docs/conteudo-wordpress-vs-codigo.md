@@ -68,6 +68,7 @@ Referência de implementação: [`layout_sobre_o_curso_mvp.md`](referencias/layo
 | **Ingresso** | Resumo da página (excerpt) opcional no wp-admin | Estrutura, links oficiais e textos em `data/ingresso.php`; convocações sempre no site do CEFET/RJ |
 | **Documentos institucionais** | **Publicações do curso** (PDF/memorandos/normativos) na caixa do wp-admin; resumo (excerpt) opcional | Links fixos CEFET + calendário em `data/documentos-institucionais.php`. Guia: [`edicao-documentos-institucionais.md`](edicao-documentos-institucionais.md) |
 | **Infraestrutura** | Resumo (excerpt) opcional; conteúdo extra no editor Gutenberg se necessário | Textos e secções em `data/infraestrutura.php` — laboratórios, biblioteca, campus MG |
+| **Corpo Docente** | **Professores** (CPT `portal_professor`) — nome, foto, Lattes, formação, biografia, linhas; resumo da página opcional | `page-corpo-docente.php`, `inc/professor.php`. Guia: [`edicao-corpo-docente.md`](edicao-corpo-docente.md). Import Excel (RF12) futuro |
 | **Agenda e Eventos** | Eventos (CPT `portal_evento`) no wp-admin | `page-agenda-e-eventos.php`, `inc/evento.php` — **não** é o calendário oficial |
 | **Hub Institucional** | Página hub pode ter conteúdo WP | Cards e textos do hub: `data/institucional.php` |
 | **Notícias** | Posts, categorias, imagens | Templates `archive` / `single`, listagem em `inc/noticia.php` |

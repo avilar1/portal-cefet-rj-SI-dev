@@ -42,6 +42,16 @@ function portal_si_the_breadcrumbs() {
 			}
 		}
 		$parts[] = '<span class="breadcrumbs__current" aria-current="page">' . esc_html( get_the_title() ) . '</span>';
+	} elseif ( is_singular( PORTAL_SI_PROFESSOR_POST_TYPE ) ) {
+		$hub_id = portal_si_get_page_id_by_slug( PORTAL_SI_INSTITUCIONAL_HUB_SLUG );
+		if ( $hub_id ) {
+			$parts[] = portal_si_breadcrumb_link( get_permalink( $hub_id ), get_the_title( $hub_id ) );
+		}
+		$page_id = portal_si_get_page_id_by_slug( PORTAL_SI_CORPO_DOCENTE_SLUG );
+		if ( $page_id ) {
+			$parts[] = portal_si_breadcrumb_link( get_permalink( $page_id ), get_the_title( $page_id ) );
+		}
+		$parts[] = '<span class="breadcrumbs__current" aria-current="page">' . esc_html( get_the_title() ) . '</span>';
 	} elseif ( is_singular( PORTAL_SI_EVENTO_POST_TYPE ) || ( is_singular() && PORTAL_SI_EVENTO_POST_TYPE === get_post_type() ) ) {
 		$parts[] = portal_si_breadcrumb_link(
 			portal_si_page_url( 'agenda-e-eventos' ),

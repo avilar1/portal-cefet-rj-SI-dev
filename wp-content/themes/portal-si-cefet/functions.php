@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PORTAL_SI_CEFET_VERSION', '0.4.8' );
+define( 'PORTAL_SI_CEFET_VERSION', '0.4.9' );
 
 require_once get_template_directory() . '/inc/seed-ia.php';
 require_once get_template_directory() . '/inc/seed-editorial.php';
@@ -22,6 +22,7 @@ require_once get_template_directory() . '/inc/ingresso.php';
 require_once get_template_directory() . '/inc/documentos.php';
 require_once get_template_directory() . '/inc/documentos-admin.php';
 require_once get_template_directory() . '/inc/infraestrutura.php';
+require_once get_template_directory() . '/inc/professor.php';
 require_once get_template_directory() . '/inc/breadcrumbs.php';
 require_once get_template_directory() . '/inc/search.php';
 require_once get_template_directory() . '/inc/home.php';
