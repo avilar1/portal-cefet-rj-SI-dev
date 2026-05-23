@@ -20,9 +20,12 @@ $variant       = isset( $args['variant'] ) ? $args['variant'] : 'compact';
 $empty_message = isset( $args['empty_message'] ) ? $args['empty_message'] : __( 'Nenhum evento nesta seção.', 'portal-si-cefet' );
 
 if ( empty( $events ) ) {
-	echo '<p class="portal-news-agenda__empty portal-agenda-list__empty">';
-	echo esc_html( $empty_message );
-	echo '</p>';
+	portal_si_the_coming_soon_notice(
+		array(
+			'variant' => 'compact',
+			'message' => $empty_message,
+		)
+	);
 	return;
 }
 

@@ -38,8 +38,16 @@ $email = function_exists( 'portal_si_fabrica_partner_email' ) ? portal_si_fabric
 				</a>
 			<?php endif; ?>
 		</div>
-		<p class="portal-contato-fabrica__note">
-			<?php esc_html_e( 'Formulário oficial em breve. Favor utilizar como contato o e-mail oficial da coordenação.', 'portal-si-cefet' ); ?>
-		</p>
+		<div class="portal-contato-fabrica__note">
+			<?php
+			portal_si_the_coming_soon_notice(
+				array(
+					'variant' => 'compact',
+					'badge'   => __( 'Conteúdo em breve', 'portal-si-cefet' ),
+					'message' => __( 'Formulário oficial em breve. Favor utilizar como contato o e-mail oficial da coordenação.', 'portal-si-cefet' ),
+				)
+			);
+			?>
+		</div>
 	</div>
 </section>

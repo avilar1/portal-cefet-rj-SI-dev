@@ -53,9 +53,15 @@ get_header();
 			)
 		);
 	else :
-		?>
-		<p class="search-no-results"><?php esc_html_e( 'Nenhum resultado encontrado. Tente outras palavras-chave.', 'portal-si-cefet' ); ?></p>
-	<?php endif; ?>
+		portal_si_the_coming_soon_notice(
+			array(
+				'variant' => 'section',
+				'badge'   => __( 'Sem resultados', 'portal-si-cefet' ),
+				'title'   => __( 'Nenhum resultado encontrado', 'portal-si-cefet' ),
+				'message' => __( 'Não encontramos páginas ou publicações com esse termo. Tente outras palavras-chave ou navegue pelo menu principal.', 'portal-si-cefet' ),
+			)
+		);
+	endif; ?>
 </main>
 <?php
 get_footer();

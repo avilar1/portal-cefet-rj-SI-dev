@@ -202,6 +202,19 @@ function portal_si_fabrica_portfolio_items() {
 }
 
 /**
+ * Portfólio exibe exemplos do tema (sem projetos publicados no painel).
+ *
+ * @return bool
+ */
+function portal_si_fabrica_portfolio_uses_demo_data() {
+	if ( ! function_exists( 'portal_si_get_fabrica_projetos' ) ) {
+		return ! empty( portal_si_fabrica_portfolio_items_from_data() );
+	}
+
+	return empty( portal_si_get_fabrica_projetos() ) && ! empty( portal_si_fabrica_portfolio_items_from_data() );
+}
+
+/**
  * @return array<string, mixed>
  */
 function portal_si_fabrica_portfolio() {

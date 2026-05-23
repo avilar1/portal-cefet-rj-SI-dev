@@ -103,6 +103,7 @@ function portal_si_institucional_nav_cards() {
 			'description' => isset( $row['description'] ) ? trim( (string) $row['description'] ) : '',
 			'slug'        => $slug,
 			'url'         => portal_si_page_url( $slug ),
+			'coming_soon' => function_exists( 'portal_si_slug_lacks_published_content' ) && portal_si_slug_lacks_published_content( $slug ),
 		);
 	}
 

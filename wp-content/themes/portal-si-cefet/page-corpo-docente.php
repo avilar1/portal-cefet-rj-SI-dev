@@ -50,16 +50,21 @@ get_header();
 				<?php endforeach; ?>
 			</div>
 		<?php else : ?>
-			<div class="portal-empty-state portal-professor-empty">
-				<p><?php esc_html_e( 'Os perfis dos professores estão sendo organizados e em breve aparecerão aqui.', 'portal-si-cefet' ); ?></p>
-				<?php if ( current_user_can( 'edit_posts' ) ) : ?>
-					<p>
-						<a class="portal-btn portal-btn--primary" href="<?php echo esc_url( admin_url( 'post-new.php?post_type=' . PORTAL_SI_PROFESSOR_POST_TYPE ) ); ?>">
-							<?php esc_html_e( 'Adicionar professor', 'portal-si-cefet' ); ?>
-						</a>
-					</p>
-				<?php endif; ?>
-			</div>
+			<?php
+			portal_si_the_coming_soon_notice(
+				array(
+					'variant' => 'section',
+					'message' => __( 'Os perfis dos professores estão sendo organizados e em breve aparecerão aqui.', 'portal-si-cefet' ),
+				)
+			);
+			?>
+			<?php if ( current_user_can( 'edit_posts' ) ) : ?>
+				<p class="portal-professor-empty-admin">
+					<a class="portal-btn portal-btn--primary" href="<?php echo esc_url( admin_url( 'post-new.php?post_type=' . PORTAL_SI_PROFESSOR_POST_TYPE ) ); ?>">
+						<?php esc_html_e( 'Adicionar professor', 'portal-si-cefet' ); ?>
+					</a>
+				</p>
+			<?php endif; ?>
 		<?php endif; ?>
 	</section>
 </main>

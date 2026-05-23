@@ -89,6 +89,16 @@ function portal_si_documentos_groups() {
 	$editorial = function_exists( 'portal_si_documentos_editorial_group' ) ? portal_si_documentos_editorial_group() : null;
 	if ( $editorial ) {
 		$out[] = $editorial;
+	} else {
+		$config = portal_si_documentos_config();
+		$block  = isset( $config['editorial_group'] ) && is_array( $config['editorial_group'] ) ? $config['editorial_group'] : array();
+		$out[]  = array(
+			'id'           => 'editorial',
+			'title'        => isset( $block['title'] ) ? (string) $block['title'] : __( 'Comunicados e publicações do curso', 'portal-si-cefet' ),
+			'intro'        => isset( $block['intro'] ) ? (string) $block['intro'] : '',
+			'items'        => array(),
+			'empty_notice' => true,
+		);
 	}
 
 	$config = portal_si_documentos_config();

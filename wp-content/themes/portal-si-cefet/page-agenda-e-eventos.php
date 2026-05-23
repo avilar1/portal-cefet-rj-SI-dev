@@ -52,9 +52,14 @@ $past     = portal_si_get_past_eventos( -1 );
 
 	<?php if ( empty( $upcoming ) && empty( $past ) ) : ?>
 		<div class="portal-event-section__inner">
-			<p class="portal-news-agenda__empty portal-agenda-list__empty">
-				<?php esc_html_e( 'Nenhum evento cadastrado no momento. Volte em breve ou acompanhe as notícias do curso.', 'portal-si-cefet' ); ?>
-			</p>
+			<?php
+			portal_si_the_coming_soon_notice(
+				array(
+					'variant' => 'section',
+					'message' => __( 'Nenhum evento cadastrado no momento. Volte em breve ou acompanhe as notícias do curso.', 'portal-si-cefet' ),
+				)
+			);
+			?>
 		</div>
 	<?php else : ?>
 		<?php

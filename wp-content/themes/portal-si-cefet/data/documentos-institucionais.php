@@ -28,6 +28,13 @@ return array(
 			'intro' => 'Documentos específicos da graduação no campus Maria da Graça.',
 			'items' => array(
 				array(
+					'title'       => 'Projeto Pedagógico do Curso (PPC)',
+					'description' => 'Documento completo com estrutura curricular, ementas e perfil do egresso.',
+					'url'         => '',
+					'meta'        => 'PDF',
+					'coming_soon' => true,
+				),
+				array(
 					'title'       => 'Calendário acadêmico 2026 (campus MG)',
 					'description' => 'Resumo das datas letivas e link para o PDF oficial do CONPUS.',
 					'url'         => '', // preenchido em inc/documentos.php

@@ -15,9 +15,12 @@ $empty_message = isset( $args['empty_message'] ) ? $args['empty_message'] : __( 
 $grid_class    = isset( $args['grid_class'] ) ? $args['grid_class'] : 'portal-noticia-grid';
 
 if ( empty( $items ) ) {
-	echo '<p class="portal-noticia-empty portal-news-agenda__empty">';
-	echo esc_html( $empty_message );
-	echo '</p>';
+	portal_si_the_coming_soon_notice(
+		array(
+			'variant' => 'compact',
+			'message' => $empty_message,
+		)
+	);
 	return;
 }
 

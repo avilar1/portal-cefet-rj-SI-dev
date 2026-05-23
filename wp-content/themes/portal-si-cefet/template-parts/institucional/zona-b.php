@@ -29,7 +29,7 @@ $heading_id = 'portal-inst-zona-b-title';
 			<?php foreach ( $cards as $card ) : ?>
 				<li>
 					<a
-						class="<?php echo esc_attr( portal_si_br_card_class( array( 'hover' ) ) . ' portal-service-card portal-inst-zona-b__card' ); ?>"
+						class="<?php echo esc_attr( portal_si_br_card_class( array( 'hover' ) ) . ' portal-service-card portal-inst-zona-b__card' . ( ! empty( $card['coming_soon'] ) ? ' portal-inst-zona-b__card--soon' : '' ) ); ?>"
 						href="<?php echo esc_url( $card['url'] ); ?>"
 					>
 						<div class="card-content portal-service-card__inner">
@@ -46,6 +46,9 @@ $heading_id = 'portal-inst-zona-b-title';
 								<span class="portal-service-card__title"><?php echo esc_html( $card['title'] ); ?></span>
 								<?php if ( ! empty( $card['description'] ) ) : ?>
 									<span class="portal-service-card__description"><?php echo esc_html( $card['description'] ); ?></span>
+								<?php endif; ?>
+								<?php if ( ! empty( $card['coming_soon'] ) ) : ?>
+									<span class="portal-inst-zona-b__soon-badge"><?php esc_html_e( 'Em breve', 'portal-si-cefet' ); ?></span>
 								<?php endif; ?>
 							</span>
 						</div>

@@ -35,6 +35,12 @@
 	margin-bottom: 0;
 }
 
+.site-main--page .entry-content {
+	max-width: var(--portal-max-width);
+	margin: 0 auto;
+	padding: 0 var(--portal-space);
+}
+
 /* Aviso: calendário oficial ≠ agenda de eventos */
 .portal-agenda-notice {
 	max-width: var(--portal-max-width);

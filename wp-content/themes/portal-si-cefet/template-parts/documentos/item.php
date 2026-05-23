@@ -38,7 +38,10 @@ $has_link = '' !== $url && ! $coming_soon;
 			<p class="portal-documentos-list__desc"><?php echo esc_html( $description ); ?></p>
 		<?php endif; ?>
 		<?php if ( $coming_soon ) : ?>
-			<p class="portal-documentos-list__soon"><?php esc_html_e( 'Arquivo em atualização pela coordenação.', 'portal-si-cefet' ); ?></p>
+			<p class="portal-documentos-list__soon">
+				<span class="portal-coming-soon__badge portal-coming-soon__badge--inline"><?php esc_html_e( 'Conteúdo em breve', 'portal-si-cefet' ); ?></span>
+				<?php esc_html_e( 'Arquivo em atualização pela coordenação.', 'portal-si-cefet' ); ?>
+			</p>
 		<?php elseif ( $has_link ) : ?>
 			<a
 				class="portal-documentos-list__link<?php echo $internal ? ' portal-documentos-list__link--internal' : ''; ?>"

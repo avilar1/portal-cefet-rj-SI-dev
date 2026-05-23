@@ -38,9 +38,15 @@ $official = isset( $config['official_page_url'] ) ? (string) $config['official_p
 					<span class="screen-reader-text"><?php esc_html_e( '(abre em nova aba)', 'portal-si-cefet' ); ?></span>
 				</a>
 			<?php else : ?>
-				<p class="portal-calendario-download__missing">
-					<?php esc_html_e( 'PDF não encontrado no tema. Contacte a equipe técnica.', 'portal-si-cefet' ); ?>
-				</p>
+				<?php
+				portal_si_the_coming_soon_notice(
+					array(
+						'variant' => 'inline',
+						'badge'   => __( 'Conteúdo em breve', 'portal-si-cefet' ),
+						'message' => __( 'O PDF oficial ainda não foi anexado nesta página. Enquanto isso, consulte o link do CEFET/RJ abaixo ou a coordenação do curso.', 'portal-si-cefet' ),
+					)
+				);
+				?>
 			<?php endif; ?>
 			<?php if ( $official ) : ?>
 				<a class="portal-calendario-download__secondary" href="<?php echo esc_url( $official ); ?>" target="_blank" rel="noopener noreferrer">
