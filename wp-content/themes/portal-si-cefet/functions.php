@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PORTAL_SI_CEFET_VERSION', '0.4.9' );
+define( 'PORTAL_SI_CEFET_VERSION', '0.5.2' );
 
 require_once get_template_directory() . '/inc/seed-ia.php';
 require_once get_template_directory() . '/inc/seed-editorial.php';
@@ -23,6 +23,9 @@ require_once get_template_directory() . '/inc/documentos.php';
 require_once get_template_directory() . '/inc/documentos-admin.php';
 require_once get_template_directory() . '/inc/infraestrutura.php';
 require_once get_template_directory() . '/inc/professor.php';
+require_once get_template_directory() . '/inc/fabrica-software.php';
+require_once get_template_directory() . '/inc/fabrica-projeto.php';
+require_once get_template_directory() . '/inc/fabrica-admin.php';
 require_once get_template_directory() . '/inc/breadcrumbs.php';
 require_once get_template_directory() . '/inc/search.php';
 require_once get_template_directory() . '/inc/home.php';
@@ -38,6 +41,7 @@ require_once get_template_directory() . '/inc/a11y.php';
 function portal_si_cefet_setup() {
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
+	add_post_type_support( 'page', 'excerpt' );
 	add_theme_support(
 		'html5',
 		array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script' )
