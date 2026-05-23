@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PORTAL_SI_CEFET_VERSION', '0.5.2' );
+define( 'PORTAL_SI_CEFET_VERSION', '0.5.3' );
 
 require_once get_template_directory() . '/inc/seed-ia.php';
 require_once get_template_directory() . '/inc/seed-editorial.php';
@@ -26,6 +26,8 @@ require_once get_template_directory() . '/inc/professor.php';
 require_once get_template_directory() . '/inc/fabrica-software.php';
 require_once get_template_directory() . '/inc/fabrica-projeto.php';
 require_once get_template_directory() . '/inc/fabrica-admin.php';
+require_once get_template_directory() . '/inc/contato.php';
+require_once get_template_directory() . '/inc/contato-admin.php';
 require_once get_template_directory() . '/inc/breadcrumbs.php';
 require_once get_template_directory() . '/inc/search.php';
 require_once get_template_directory() . '/inc/home.php';

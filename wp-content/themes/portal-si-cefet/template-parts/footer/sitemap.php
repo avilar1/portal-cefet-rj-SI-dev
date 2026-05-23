@@ -31,6 +31,7 @@ $columns = portal_si_footer_sitemap_columns();
 		<div class="portal-footer-sitemap__brand">
 			<p class="portal-footer-sitemap__logo">CEFET/RJ</p>
 			<p class="portal-footer-sitemap__course"><?php esc_html_e( 'Curso de Sistemas de Informação', 'portal-si-cefet' ); ?></p>
+			<?php get_template_part( 'template-parts/footer/contact-summary' ); ?>
 			<ul class="portal-footer-sitemap__social" aria-label="<?php esc_attr_e( 'Redes sociais institucionais', 'portal-si-cefet' ); ?>">
 				<li>
 					<a href="https://www.instagram.com/cefetrjoficial/" rel="noopener noreferrer" target="_blank">

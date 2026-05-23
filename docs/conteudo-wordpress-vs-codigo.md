@@ -52,7 +52,7 @@ Referência de implementação: [`layout_sobre_o_curso_mvp.md`](referencias/layo
 | **B — Números** | 4 cards (duração, gratuidade, etc.) | Não (MVP) | `data/sobre-o-curso.php` → chave `stats` |
 | **C — Carta** | Boas-vindas + foto | **Sim** — corpo da página (blocos/HTML) | Seed inicial em `inc/sobre.php`; estilos em `sobre.css` |
 | **D — Âncoras** | Menu Histórico / Objetivos / … | Textos das **seções** no corpo da página; IDs `#historico`, etc. devem bater com os links | `anchor_sections` em `data/sobre-o-curso.php`; template `anchor-nav.php`; marcador `<!-- portal-sobre-nav -->` no conteúdo separa carta das seções RF02 |
-| **E — Corpo RF02** | Histórico, objetivos, perfil, coordenação | **Sim** — todo o HTML após o marcador de navegação | Seed inicial em `inc/sobre.php`; classes CSS no tema |
+| **E — Corpo RF02** | Histórico, objetivos, perfil, coordenação | **Sim** — HTML após o marcador (exceto **coordenação**, injetada pelo tema) | Seed inicial em `inc/sobre.php`; bloco `#coordenacao` vem de `template-parts/sobre/coordination.php` (mesma fonte que Contato) |
 | **F — CTAs** | “Como ingressar” / “Voltar ao Institucional” | Não (MVP) | `template-parts/sobre/footer-cta.php` |
 
 **Marcador de navegação:** no conteúdo da página deve existir `<!-- portal-sobre-nav -->` entre a carta (Zona C) e as seções RF02 (Zona E). O tema insere a barra de âncoras nesse ponto. Se o marcador faltar, a nav aparece no fim do conteúdo (comportamento de fallback).
@@ -70,6 +70,7 @@ Referência de implementação: [`layout_sobre_o_curso_mvp.md`](referencias/layo
 | **Infraestrutura** | Resumo (excerpt) opcional; conteúdo extra no editor Gutenberg se necessário | Textos e secções em `data/infraestrutura.php` — laboratórios, biblioteca, campus MG |
 | **Corpo Docente** | **Professores** (CPT `portal_professor`) — nome, foto, Lattes, formação, biografia, linhas; resumo da página opcional | `page-corpo-docente.php`, `inc/professor.php`. Guia: [`edicao-corpo-docente.md`](edicao-corpo-docente.md). Import Excel (RF12) futuro |
 | **Fábrica de Software** | Resumo, intro do portfólio e e-mail de parceria na caixa da página; **projetos** em CPT `portal_fs_projeto` (menu Projetos Fábrica) | Missão, metodologia, equipe, parceria em `data/fabrica-software.php`. Guia: [`edicao-fabrica-de-software.md`](edicao-fabrica-de-software.md) |
+| **Contato** | Resumo e dados da coordenação na caixa da página Contato (reflete também em **Sobre o Curso** `#coordenacao`) | Mapa (campus MG), links úteis, ouvidoria em `data/contato.php`. Guia: [`edicao-contato.md`](edicao-contato.md) |
 | **Agenda e Eventos** | Eventos (CPT `portal_evento`) no wp-admin | `page-agenda-e-eventos.php`, `inc/evento.php` — **não** é o calendário oficial |
 | **Hub Institucional** | Página hub pode ter conteúdo WP | Cards e textos do hub: `data/institucional.php` |
 | **Notícias** | Posts, categorias, imagens | Templates `archive` / `single`, listagem em `inc/noticia.php` |

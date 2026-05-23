@@ -674,8 +674,36 @@
 }
 
 .portal-footer-sitemap__course {
-	margin: 0 0 1rem;
+	margin: 0 0 0.75rem;
 	font-size: 0.875rem;
+	opacity: 0.85;
+}
+
+.portal-footer-contact {
+	margin: 0 0 1rem;
+	font-size: 0.8125rem;
+	line-height: 1.45;
+	opacity: 0.9;
+}
+
+.portal-footer-contact p {
+	margin: 0 0 0.35rem;
+}
+
+.portal-footer-contact a {
+	color: inherit;
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.portal-footer-contact a:hover,
+.portal-footer-contact a:focus-visible {
+	color: var(--color-highlight);
+}
+
+.portal-footer-contact__more {
+	margin-top: 0.5rem !important;
+	font-size: 0.75rem;
 	opacity: 0.85;
 }
 

@@ -237,10 +237,10 @@ function portal_si_sobre_default_post_content() {
 				<div class="card-content portal-sobre-person-card__inner">
 					<span class="portal-sobre-person-card__avatar" aria-hidden="true"><?php portal_si_sobre_icon_person(); ?></span>
 					<div class="portal-sobre-person-card__body">
-						<h3 class="portal-sobre-person-card__name"><?php esc_html_e( 'Prof. Dr. João Silva', 'portal-si-cefet' ); ?></h3>
-						<p class="portal-sobre-person-card__role"><?php esc_html_e( 'Coordenador do Curso', 'portal-si-cefet' ); ?></p>
+						<h3 class="portal-sobre-person-card__name"><?php esc_html_e( 'Prof. Cristiano Fuschilo', 'portal-si-cefet' ); ?></h3>
+						<p class="portal-sobre-person-card__role"><?php esc_html_e( 'Coordenador do curso', 'portal-si-cefet' ); ?></p>
 						<p class="portal-sobre-person-card__contact"><span aria-hidden="true">✉</span> <a href="mailto:coord.si@cefet-rj.br">coord.si@cefet-rj.br</a></p>
-						<p class="portal-sobre-person-card__contact"><span aria-hidden="true">☎</span> (21) 2566-6000 <?php esc_html_e( 'ramal 1234', 'portal-si-cefet' ); ?></p>
+						<p class="portal-sobre-person-card__contact"><span aria-hidden="true">☎</span> <a href="tel:+552132977905">(21) 3297-7905</a></p>
 					</div>
 				</div>
 			</div>
@@ -248,10 +248,9 @@ function portal_si_sobre_default_post_content() {
 				<div class="card-content portal-sobre-person-card__inner">
 					<span class="portal-sobre-person-card__avatar" aria-hidden="true"><?php portal_si_sobre_icon_person(); ?></span>
 					<div class="portal-sobre-person-card__body">
-						<h3 class="portal-sobre-person-card__name"><?php esc_html_e( 'Profa. Dra. Maria Santos', 'portal-si-cefet' ); ?></h3>
-						<p class="portal-sobre-person-card__role"><?php esc_html_e( 'Vice-coordenadora', 'portal-si-cefet' ); ?></p>
+						<h3 class="portal-sobre-person-card__name"><?php esc_html_e( 'Vice-coordenador(a) do curso', 'portal-si-cefet' ); ?></h3>
+						<p class="portal-sobre-person-card__contact portal-sobre-person-card__contact--muted"><?php esc_html_e( 'Nome e telefone em atualização.', 'portal-si-cefet' ); ?></p>
 						<p class="portal-sobre-person-card__contact"><span aria-hidden="true">✉</span> <a href="mailto:vicecoord.si@cefet-rj.br">vicecoord.si@cefet-rj.br</a></p>
-						<p class="portal-sobre-person-card__contact"><span aria-hidden="true">☎</span> (21) 2566-6000 <?php esc_html_e( 'ramal 1235', 'portal-si-cefet' ); ?></p>
 					</div>
 				</div>
 			</div>
@@ -367,7 +366,52 @@ function portal_si_sobre_enqueue_assets() {
 add_action( 'wp_enqueue_scripts', 'portal_si_sobre_enqueue_assets', 16 );
 
 /**
- * Renderiza o conteúdo editorial com âncoras entre carta e seções RF02.
+ * Remove bloco legado de coordenação do HTML seedado (substituído por template dinâmico).
+ *
+ * @param string $html Conteúdo da página.
+ * @return string
+ */
+function portal_si_sobre_strip_coordination_block( $html ) {
+	return (string) preg_replace( '#<section id="coordenacao"[\s\S]*?</section>#', '', (string) $html );
+}
+
+/**
+ * Aplica filtros de conteúdo sem wpautop (HTML já estruturado em seções).
+ *
+ * @param string $html Conteúdo bruto.
+ * @return string
+ */
+function portal_si_sobre_render_content( $html ) {
+	$html = trim( (string) $html );
+	if ( '' === $html ) {
+		return '';
+	}
+
+	remove_filter( 'the_content', 'wpautop', 10 );
+	remove_filter( 'the_content', 'shortcode_unautop', 10 );
+
+	$rendered = do_blocks( $html );
+	$rendered = do_shortcode( $rendered );
+	$rendered = wptexturize( $rendered );
+	$rendered = convert_smilies( $rendered );
+	$rendered = convert_chars( $rendered );
+	if ( function_exists( 'wp_filter_content_tags' ) ) {
+		$rendered = wp_filter_content_tags( $rendered );
+	}
+
+	add_filter( 'the_content', 'wpautop', 10 );
+	add_filter( 'the_content', 'shortcode_unautop', 10 );
+
+	// Limpa parágrafos órfãos (wpautop legado no conteúdo seedado).
+	$rendered = preg_replace( '#(</(?:section|div|aside|figure|article|main|nav|header|footer|ul|ol|table|form)>\s*)<p>\s*$#', '$1', $rendered );
+	$rendered = preg_replace( '#^\s*</p>\s*#', '', $rendered );
+	$rendered = preg_replace( '#\s*<p>\s*</p>\s*$#', '', $rendered );
+
+	return trim( $rendered );
+}
+
+/**
+ * Imprime conteúdo com nav marker e coordenação dinâmica.
  */
 function portal_si_sobre_the_content() {
 	$post = get_post();
@@ -378,18 +422,26 @@ function portal_si_sobre_the_content() {
 	$raw = $post->post_content;
 	if ( false === strpos( $raw, PORTAL_SI_SOBRE_NAV_MARKER ) ) {
 		echo '<div class="portal-sobre-content__block">';
-		echo apply_filters( 'the_content', $raw ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo portal_si_sobre_render_content( portal_si_sobre_strip_coordination_block( $raw ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo '</div>';
 		get_template_part( 'template-parts/sobre/anchor-nav' );
+		echo '<div class="portal-sobre-content__block portal-sobre-content__block--coord">';
+		get_template_part( 'template-parts/sobre/coordination' );
+		echo '</div>';
 		return;
 	}
 
 	$parts = explode( PORTAL_SI_SOBRE_NAV_MARKER, $raw, 2 );
-	echo '<div class="portal-sobre-content__block portal-sobre-content__block--pre">';
-	echo apply_filters( 'the_content', $parts[0] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	echo '</div>';
+	printf(
+		'<div class="portal-sobre-content__block portal-sobre-content__block--pre">%s</div>',
+		portal_si_sobre_render_content( $parts[0] ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	);
 	get_template_part( 'template-parts/sobre/anchor-nav' );
-	echo '<div class="portal-sobre-content__block portal-sobre-content__block--main">';
-	echo apply_filters( 'the_content', $parts[1] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	printf(
+		'<div class="portal-sobre-content__block portal-sobre-content__block--main">%s</div>',
+		portal_si_sobre_render_content( portal_si_sobre_strip_coordination_block( $parts[1] ) ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	);
+	echo '<div class="portal-sobre-content__block portal-sobre-content__block--coord">';
+	get_template_part( 'template-parts/sobre/coordination' );
 	echo '</div>';
 }

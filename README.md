@@ -4,7 +4,7 @@ Repositório da **Fábrica de Software** do curso de **Sistemas de Informação*
 
 Portal institucional em **WordPress** com tema próprio `portal-si-cefet`, identidade alinhada ao **Design System do Governo Federal (gov.br)** e escopo definido na **Análise de Requisitos** do projeto.
 
-**Versão atual do tema:** `0.4.2`
+**Versão atual do tema:** `0.5.3`
 
 ---
 
@@ -61,6 +61,9 @@ Prioridade de entrega: requisitos funcionais de **prioridade Alta** — ver tamb
 | **Ingresso (RF05)** | `/ingresso/` — SISU 2026, passo a passo, links oficiais CEFET/MEC, documentação resumida; dados em `data/ingresso.php` |
 | **Documentos (RF06)** | `/documentos-institucionais/` — publicações editáveis no wp-admin + links fixos |
 | **Infraestrutura (RF04)** | `/infraestrutura/` — campus Maria da Graça, laboratórios, biblioteca, convivência; `data/infraestrutura.php` |
+| **Corpo docente (RF08)** | `/corpo-docente/` — CPT `portal_professor` |
+| **Fábrica de Software (RF13–14)** | `/fabrica-de-software/` — CPT `portal_fs_projeto` |
+| **Contato (RF27, RF29)** | `/contato/` — coordenação, mapa, rodapé |
 | **Navegação** | Menu por **módulos** (requisitos §5): Institucional, Docentes, Pesquisa e Extensão, Fábrica, Comunicação, Contato — ver `inc/nav.php` |
 
 ### Padrão técnico para novos módulos
@@ -150,15 +153,15 @@ projeto/
 
 ## Próximos passos
 
-Ordem alinhada ao cronograma da Análise de Requisitos (Sprint 2+):
+Checklist completo por RF: [`docs/IMPLEMENTACAO-CHECKLIST.md`](docs/IMPLEMENTACAO-CHECKLIST.md).
 
-1. ~~**Sobre o Curso (RF02)**~~ — implementado; ver [`layout_sobre_o_curso_mvp.md`](docs/referencias/layout_sobre_o_curso_mvp.md).
-2. **Demais páginas institucionais** — Ingresso (RF05), Grade (RF03/RF26), Infraestrutura (RF04), Documentos (RF06).
-3. **Corpo docente** — CPT + importação planilha (RF08, RF12).
-4. **Pesquisa e extensão**, **Fábrica de Software** (RF09–RF16).
-5. **Serviços digitais** — links úteis, TCCs (RF22–RF25).
-6. **Contato** — formulários, mapa (RF27–RF29).
-7. **Breadcrumb gov.br** (`br-breadcrumb`) e refinamentos de acessibilidade.
+Resumo:
+
+1. **Conteúdo editorial** — vice-coordenação, professores, projetos fábrica, validação de e-mails.
+2. **Grade (RF03) + Fluxo (RF26) + TCC (RF25)** — colegas.
+3. **Formulários** — RF16 parceiros, RF28 ouvidoria (adiado).
+4. **Pesquisa e extensão** — RF09–RF11 (médio).
+5. **Go-live** — substituir [página legada do curso no CEFET/RJ](https://www.cefet-rj.br/index.php/bacharelado-em-sistemas-de-informacao-maria-da-graca).
 
 ---
 
@@ -168,8 +171,9 @@ Ordem alinhada ao cronograma da Análise de Requisitos (Sprint 2+):
 |---------|----------|
 | [`docs/referencias/`](docs/referencias/) | Requisitos, heurísticas, layouts MVP |
 | [`docs/README.md`](docs/README.md) | Índice da pasta docs |
+| [`docs/IMPLEMENTACAO-CHECKLIST.md`](docs/IMPLEMENTACAO-CHECKLIST.md) | **Status por RF** — o que está feito, parcial e pendente |
 | [`docs/conteudo-wordpress-vs-codigo.md`](docs/conteudo-wordpress-vs-codigo.md) | **WP vs código** — seed, Sobre o Curso, quem edita o quê |
-| `REQUISITOS-PRIORIDADE.txt` | RFs Alta resumidos |
+| [`REQUISITOS-PRIORIDADE.txt`](REQUISITOS-PRIORIDADE.txt) | RFs Alta resumidos |
 | `PLUGINS-WORDPRESS.txt` | Stack e checklist |
 | `WORDPRESS-REDAÇÃO-E-PAPÉIS.txt` | Papéis WP e editorial |
 
@@ -177,7 +181,7 @@ Ordem alinhada ao cronograma da Análise de Requisitos (Sprint 2+):
 
 ## Para relatório / apresentação
 
-> Entregamos ambiente **Docker + WordPress**, tema **portal-si-cefet** com **Home**, **módulo de comunicação** (notícias e agenda/eventos), **hub institucional**, página **Sobre o Curso (RF02)** e navegação por **módulos do documento de requisitos**, com base no **DS gov.br** (híbrido) e heurísticas de **governo eletrônico**. A documentação de produto está versionada em **`docs/referencias/`**. Próximas sprints cobrem demais páginas institucionais, docentes, Fábrica e contato, priorizando RFs de **Alta** prioridade.
+> Entregamos ambiente **Docker + WordPress**, tema **portal-si-cefet** com **Home**, **comunicação** (notícias e agenda), **hub institucional**, **Sobre o Curso**, **corpo docente**, **Fábrica de Software**, **contato** e navegação por **módulos do documento de requisitos**, com base no **DS gov.br** (híbrido). Status detalhado: [`docs/IMPLEMENTACAO-CHECKLIST.md`](docs/IMPLEMENTACAO-CHECKLIST.md). Próximo foco: conteúdo editorial, Grade/TCC (colegas) e formulários RF16/RF28.
 
 ---
 

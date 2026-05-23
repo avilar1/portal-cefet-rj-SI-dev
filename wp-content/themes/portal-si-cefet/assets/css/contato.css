@@ -1,0 +1,265 @@
+/**
+ * Contato — RF27, RF29.
+ */
+
+.site-main--contato .portal-contato-body {
+	max-width: var(--portal-max-width);
+	margin: 0 auto;
+	padding: 0 var(--portal-space) 2.5rem;
+}
+
+.portal-contato-header__badge {
+	display: inline-block;
+	margin: 0 0 0.5rem;
+	padding: 0.25rem 0.65rem;
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: var(--color-secondary, #0c326f);
+	background: var(--color-highlight, #ffcd07);
+	border-radius: 2px;
+}
+
+.portal-contato-section {
+	margin-bottom: 2.5rem;
+}
+
+.portal-contato-section__title {
+	margin: 0 0 0.75rem;
+	font-family: var(--font-heading);
+	font-size: 1.375rem;
+	font-weight: 700;
+	color: var(--color-secondary, #0c326f);
+	border-bottom: 3px solid var(--color-highlight, #ffcd07);
+	padding-bottom: 0.35rem;
+}
+
+.portal-contato-section__intro {
+	margin: 0 0 1.25rem;
+	font-size: 0.9375rem;
+	line-height: 1.55;
+	color: #444;
+	max-width: 42rem;
+}
+
+/* Coordenação */
+.portal-contato-coord__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+	gap: 1.25rem;
+	align-items: start;
+}
+
+.portal-contato-person,
+.portal-contato-office {
+	padding: 1.25rem 1.35rem;
+	background: #fff;
+	border: 1px solid #e3e8ef;
+	border-radius: 4px;
+}
+
+.portal-contato-person__name {
+	margin: 0 0 0.35rem;
+	font-family: var(--font-heading);
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: var(--color-secondary, #0c326f);
+}
+
+.portal-contato-person__role {
+	margin: 0 0 1rem;
+	font-size: 0.9375rem;
+	color: #555;
+}
+
+.portal-contato-person__role--muted {
+	font-style: italic;
+	color: #666;
+}
+
+.portal-contato-person__contacts {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 0.75rem;
+}
+
+.portal-contato-person__label {
+	display: block;
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	color: #666;
+}
+
+.portal-contato-person__contacts a {
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--color-primary, #1351b4);
+	text-decoration: none;
+}
+
+.portal-contato-person__contacts a:hover,
+.portal-contato-person__contacts a:focus-visible {
+	text-decoration: underline;
+}
+
+.portal-contato-office__title {
+	margin: 0 0 0.75rem;
+	font-size: 1rem;
+	font-weight: 700;
+	color: var(--color-secondary, #0c326f);
+}
+
+.portal-contato-office p {
+	margin: 0 0 0.65rem;
+	font-size: 0.9375rem;
+	line-height: 1.5;
+	color: #333;
+}
+
+/* Mapa */
+.portal-contato-map__campus {
+	margin: 0 0 0.75rem;
+	font-size: 0.9375rem;
+	color: #333;
+}
+
+.portal-contato-map__embed {
+	position: relative;
+	aspect-ratio: 16 / 9;
+	background: #eef2f8;
+	border-radius: 2px;
+	overflow: hidden;
+}
+
+.portal-contato-map__embed iframe {
+	width: 100%;
+	height: 100%;
+	border: 0;
+	display: block;
+}
+
+.portal-contato-map__link {
+	margin: 0.75rem 0 0;
+}
+
+.portal-contato-map__link a {
+	font-weight: 600;
+	color: var(--color-secondary, #0c326f);
+}
+
+/* Canais */
+.portal-contato-channels__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 0.65rem;
+}
+
+.portal-contato-channels__item a {
+	display: block;
+	padding: 0.9rem 1rem;
+	background: #f8f9fb;
+	border: 1px solid #e3e8ef;
+	border-radius: 4px;
+	text-decoration: none;
+	color: inherit;
+	transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.portal-contato-channels__item a:hover,
+.portal-contato-channels__item a:focus-visible {
+	background: #eef4fc;
+	border-color: #c5d9f0;
+}
+
+.portal-contato-channels__item strong {
+	display: block;
+	color: var(--color-secondary, #0c326f);
+	margin-bottom: 0.2rem;
+}
+
+.portal-contato-channels__item span:not(.portal-contato-channels__ext) {
+	display: block;
+	font-size: 0.875rem;
+	color: #555;
+}
+
+.portal-contato-channels__ext {
+	float: right;
+	color: var(--color-secondary, #0c326f);
+}
+
+/* Fábrica parceria */
+.portal-contato-fabrica {
+	margin-bottom: 2rem;
+}
+
+.portal-contato-fabrica__inner {
+	padding: 1.75rem 1.5rem;
+	background: linear-gradient(135deg, #0c326f 0%, #1a4a8f 100%);
+	border-radius: 4px;
+	color: #fff;
+}
+
+.portal-contato-fabrica__title {
+	margin: 0 0 0.65rem;
+	font-family: var(--font-heading);
+	font-size: 1.25rem;
+	font-weight: 700;
+}
+
+.portal-contato-fabrica__text {
+	margin: 0 0 1.25rem;
+	font-size: 0.9375rem;
+	line-height: 1.55;
+	max-width: 42rem;
+}
+
+.portal-contato-fabrica__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.65rem;
+	margin-bottom: 1rem;
+}
+
+.portal-contato-fabrica .portal-btn--primary {
+	background: var(--color-highlight, #ffcd07);
+	color: var(--color-secondary, #0c326f);
+	border-color: var(--color-highlight, #ffcd07);
+}
+
+.portal-contato-fabrica .portal-btn--secondary {
+	background: transparent;
+	color: #fff;
+	border-color: rgba(255, 255, 255, 0.85);
+}
+
+.portal-contato-fabrica .portal-btn--secondary:hover,
+.portal-contato-fabrica .portal-btn--secondary:focus-visible {
+	background: #fff;
+	color: var(--color-secondary, #0c326f);
+}
+
+.portal-contato-fabrica__note {
+	margin: 0;
+	font-size: 0.8125rem;
+	opacity: 0.85;
+}
+
+.site-main--contato .portal-contato-ouvidoria .portal-btn--secondary {
+	background: #fff;
+	color: var(--color-secondary, #0c326f);
+	border-color: var(--color-secondary, #0c326f);
+}
+
+@media (max-width: 768px) {
+	.portal-contato-coord__grid {
+		grid-template-columns: 1fr;
+	}
+}
