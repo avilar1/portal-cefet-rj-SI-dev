@@ -20,7 +20,6 @@ function portal_si_coming_soon_page_slugs() {
 		'carreira-e-egressos',
 		'vida-estudantil',
 		'acessibilidade',
-		'politica-de-privacidade',
 		'termos-de-uso',
 		'mapa-do-site',
 	);

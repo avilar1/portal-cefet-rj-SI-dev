@@ -37,6 +37,7 @@ get_header();
 		<div class="portal-contato-body">
 			<?php
 			get_template_part( 'template-parts/contato/coordination' );
+			get_template_part( 'template-parts/contato/form' );
 			get_template_part( 'template-parts/contato/map' );
 			get_template_part( 'template-parts/contato/channels' );
 			get_template_part( 'template-parts/contato/partner-fabrica' );

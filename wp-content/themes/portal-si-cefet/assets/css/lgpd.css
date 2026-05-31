@@ -1,0 +1,165 @@
+/**
+ * LGPD — banner de cookies e formulário de contato.
+ */
+
+/* —— Cookie banner —— */
+.portal-cookie-banner {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	background: #fff;
+	border-top: 4px solid var(--color-highlight, #ffcd07);
+	box-shadow: 0 -4px 24px rgba(12, 50, 111, 0.15);
+	padding: 1.25rem var(--portal-space);
+}
+
+.portal-cookie-banner__inner {
+	max-width: var(--portal-max-width);
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 1rem 1.5rem;
+}
+
+.portal-cookie-banner__title {
+	margin: 0;
+	width: 100%;
+	font-family: var(--font-heading);
+	font-size: 1.125rem;
+	font-weight: 700;
+	color: var(--color-secondary, #0c326f);
+}
+
+.portal-cookie-banner__text {
+	margin: 0;
+	flex: 1 1 16rem;
+	font-size: 0.9375rem;
+	line-height: 1.55;
+	color: #333;
+}
+
+.portal-cookie-banner__text a {
+	font-weight: 600;
+}
+
+.portal-cookie-banner__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+}
+
+/* —— Formulário de contato —— */
+.portal-contato-form-section {
+	margin-bottom: 2.5rem;
+}
+
+.portal-contato-form {
+	padding: 1.5rem 1.75rem;
+	background: #fff;
+	border: 1px solid #e3e8ef;
+	border-radius: 4px;
+}
+
+.portal-contato-form__field {
+	margin-bottom: 1.25rem;
+}
+
+.portal-contato-form__field label {
+	display: block;
+	margin-bottom: 0.35rem;
+	font-weight: 600;
+	font-size: 0.9375rem;
+	color: #222;
+}
+
+.portal-contato-form__req {
+	color: #c0392b;
+}
+
+.portal-contato-form__input {
+	width: 100%;
+	max-width: 36rem;
+	padding: 0.65rem 0.75rem;
+	font-size: 1rem;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	line-height: 1.4;
+}
+
+.portal-contato-form__input:focus {
+	outline: 2px solid var(--color-primary, #1351b4);
+	outline-offset: 1px;
+	border-color: var(--color-primary, #1351b4);
+}
+
+.portal-contato-form__field--checkbox {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.5rem;
+}
+
+.portal-contato-form__field--checkbox input {
+	margin-top: 0.25rem;
+	flex-shrink: 0;
+	width: 1.125rem;
+	height: 1.125rem;
+}
+
+.portal-contato-form__field--checkbox label {
+	margin: 0;
+	font-weight: 400;
+	font-size: 0.9375rem;
+	line-height: 1.45;
+}
+
+.portal-contato-form__hint {
+	margin: 0.35rem 0 0;
+	font-size: 0.8125rem;
+	color: #666;
+}
+
+.portal-contato-form__actions {
+	margin-top: 0.5rem;
+}
+
+.portal-contato-form__notice {
+	margin-bottom: 1.25rem;
+	padding: 1rem 1.25rem;
+	border-radius: 4px;
+	font-size: 0.9375rem;
+	line-height: 1.5;
+}
+
+.portal-contato-form__notice p {
+	margin: 0 0 0.5rem;
+}
+
+.portal-contato-form__notice p:last-child {
+	margin-bottom: 0;
+}
+
+.portal-contato-form__notice--success {
+	background: #e8f5e9;
+	border: 1px solid #a5d6a7;
+	color: #1b5e20;
+}
+
+.portal-contato-form__notice--error {
+	background: #fdecea;
+	border: 1px solid #f5c6cb;
+	color: #842029;
+}
+
+@media (max-width: 40rem) {
+	.portal-cookie-banner__actions {
+		width: 100%;
+	}
+
+	.portal-cookie-banner__actions .portal-btn {
+		flex: 1 1 auto;
+		justify-content: center;
+	}
+}

@@ -39,15 +39,17 @@ $email = function_exists( 'portal_si_fabrica_partner_email' ) ? portal_si_fabric
 			<?php endif; ?>
 		</div>
 		<div class="portal-contato-fabrica__note">
-			<?php
-			portal_si_the_coming_soon_notice(
-				array(
-					'variant' => 'compact',
-					'badge'   => __( 'Conteúdo em breve', 'portal-si-cefet' ),
-					'message' => __( 'Formulário oficial em breve. Favor utilizar como contato o e-mail oficial da coordenação.', 'portal-si-cefet' ),
-				)
-			);
-			?>
+			<p>
+				<?php
+				echo wp_kses_post(
+					sprintf(
+						/* translators: %s: link to contact form */
+						__( 'Para solicitar parceria, use o %s nesta página (assunto «Parceria — Fábrica de Software») ou o e-mail indicado acima.', 'portal-si-cefet' ),
+						'<a href="#formulario-contato">' . esc_html__( 'formulário de contato', 'portal-si-cefet' ) . '</a>'
+					)
+				);
+				?>
+			</p>
 		</div>
 	</div>
 </section>

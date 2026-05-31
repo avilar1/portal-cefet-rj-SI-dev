@@ -112,13 +112,4 @@
 		closeMenu();
 		closeSearch();
 	});
-
-	var cookiesBtn = document.querySelector('[data-portal-cookies-notice]');
-	if (cookiesBtn) {
-		cookiesBtn.addEventListener('click', function () {
-			window.alert(
-				'Este portal utiliza cookies essenciais para funcionamento e, futuramente, preferências conforme a LGPD. A gestão completa de consentimento será integrada na versão de produção.'
-			);
-		});
-	}
 })();

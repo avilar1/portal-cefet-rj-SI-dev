@@ -25,8 +25,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</a>
 			</li>
 			<li>
-				<button type="button" class="portal-footer-legal__cookies" data-portal-cookies-notice>
-					<?php esc_html_e( 'Aviso de Cookies', 'portal-si-cefet' ); ?>
+				<button type="button" class="portal-footer-legal__cookies" data-portal-cookie-preferences>
+					<?php esc_html_e( 'Preferências de cookies', 'portal-si-cefet' ); ?>
 				</button>
 			</li>
 		</ul>

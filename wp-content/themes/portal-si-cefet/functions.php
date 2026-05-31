@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PORTAL_SI_CEFET_VERSION', '0.5.4' );
+define( 'PORTAL_SI_CEFET_VERSION', '0.5.5' );
 
 require_once get_template_directory() . '/inc/seed-ia.php';
 require_once get_template_directory() . '/inc/seed-editorial.php';
@@ -29,6 +29,7 @@ require_once get_template_directory() . '/inc/fabrica-admin.php';
 require_once get_template_directory() . '/inc/contato.php';
 require_once get_template_directory() . '/inc/contato-admin.php';
 require_once get_template_directory() . '/inc/coming-soon.php';
+require_once get_template_directory() . '/inc/lgpd.php';
 require_once get_template_directory() . '/inc/breadcrumbs.php';
 require_once get_template_directory() . '/inc/search.php';
 require_once get_template_directory() . '/inc/home.php';
@@ -92,6 +93,9 @@ function portal_si_cefet_body_classes( $classes ) {
 	}
 	if ( is_page( PORTAL_SI_INFRAESTRUTURA_SLUG ) ) {
 		$classes[] = 'portal-is-infraestrutura';
+	}
+	if ( is_page( PORTAL_SI_CONTATO_SLUG ) ) {
+		$classes[] = 'portal-is-contato';
 	}
 	return $classes;
 }
