@@ -24,7 +24,7 @@ get_header();
 				<p class="portal-page-header__intro"><?php echo esc_html( get_the_excerpt() ); ?></p>
 			<?php else : ?>
 				<p class="portal-page-header__intro">
-					<?php esc_html_e( 'Projetos de pesquisa, extensão e parcerias do curso de Sistemas de Informação. Algumas seções já estão disponíveis; outras estão em preparação.', 'portal-si-cefet' ); ?>
+					<?php esc_html_e( 'Projetos de pesquisa, extensão e parcerias do curso de Sistemas de Informação.', 'portal-si-cefet' ); ?>
 				</p>
 			<?php endif; ?>
 			<?php if ( get_the_content() ) : ?>
@@ -72,7 +72,7 @@ get_header();
 				array(
 					'variant' => 'section',
 					'badge'   => __( 'Em construção', 'portal-si-cefet' ),
-					'message' => __( 'A listagem de projetos de pesquisa, grupos de estudo e iniciação científica será publicada em breve.', 'portal-si-cefet' ),
+					'message' => __( 'A listagem de projetos de pesquisa, grupos de estudo e iniciação científica será publicada nesta seção.', 'portal-si-cefet' ),
 				)
 			);
 			?>

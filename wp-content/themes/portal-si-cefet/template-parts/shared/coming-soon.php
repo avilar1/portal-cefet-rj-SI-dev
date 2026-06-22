@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $variant      = isset( $args['variant'] ) ? sanitize_key( (string) $args['variant'] ) : 'section';
 $badge        = isset( $args['badge'] ) ? (string) $args['badge'] : __( 'Conteúdo em breve', 'portal-si-cefet' );
 $title        = isset( $args['title'] ) ? trim( (string) $args['title'] ) : '';
-$message      = isset( $args['message'] ) ? trim( (string) $args['message'] ) : __( 'Esta seção está em construção e será atualizada em breve pela equipe do curso.', 'portal-si-cefet' );
+$message      = isset( $args['message'] ) ? trim( (string) $args['message'] ) : __( 'Esta seção está em construção. O conteúdo será publicado em breve.', 'portal-si-cefet' );
 $show_contact = ! isset( $args['show_contact'] ) || ! empty( $args['show_contact'] );
 $contact_url  = isset( $args['contact_url'] ) ? (string) $args['contact_url'] : portal_si_coordination_contato_url();
 

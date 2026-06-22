@@ -42,9 +42,9 @@ Só professores com estado **Publicado** aparecem em `/corpo-docente/`. Use **Ra
 
 ---
 
-## Importação por planilha (futuro — RF12)
+## Importação em lote (RF12)
 
-Quando a equipe entregar a planilha Excel com os dados, a importação será feita pela equipe técnica e alimentará estes mesmos registos. Até lá, o cadastro manual no wp-admin é o fluxo oficial.
+A importação automatizada de perfis (RF12) pode ser implementada em versão futura e alimentará os mesmos registos do CPT. O **cadastro manual** em **Professores** no wp-admin é o fluxo atual.
 
 ---
 

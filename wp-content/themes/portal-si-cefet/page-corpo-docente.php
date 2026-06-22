@@ -54,7 +54,7 @@ get_header();
 			portal_si_the_coming_soon_notice(
 				array(
 					'variant' => 'section',
-					'message' => __( 'Os perfis dos professores estão sendo organizados e em breve aparecerão aqui.', 'portal-si-cefet' ),
+					'message' => __( 'Os perfis do corpo docente serão exibidos nesta seção conforme forem publicados.', 'portal-si-cefet' ),
 				)
 			);
 			?>

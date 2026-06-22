@@ -1,6 +1,6 @@
 <?php
 /**
- * Avisos «conteúdo em breve» — páginas e seções pendentes.
+ * Avisos «conteúdo em breve» — páginas e seções em evolução.
  *
  * @package Portal_SI_CEFET
  */
@@ -110,20 +110,20 @@ function portal_si_coordination_contato_url() {
  */
 function portal_si_coming_soon_message_for_slug( $slug ) {
 	$messages = array(
-		'grade-curricular'          => __( 'A grade curricular, ementas e fluxo de disciplinas estão sendo organizados pela coordenação e em breve estarão disponíveis aqui.', 'portal-si-cefet' ),
-		'carreira-e-egressos'       => __( 'Informações sobre empregabilidade, trajetórias de egressos e oportunidades de carreira serão publicadas em breve nesta seção.', 'portal-si-cefet' ),
-		'vida-estudantil'           => __( 'Conteúdos sobre bolsas, auxílios, benefícios e vida acadêmica no campus estão em preparação.', 'portal-si-cefet' ),
-		'acessibilidade'            => __( 'A declaração de acessibilidade e os recursos deste portal para pessoas com deficiência serão publicados em breve.', 'portal-si-cefet' ),
-		'politica-de-privacidade'   => __( 'A política de privacidade e o tratamento de dados pessoais conforme a LGPD estão em elaboração.', 'portal-si-cefet' ),
-		'termos-de-uso'             => __( 'Os termos de uso do portal institucional do curso serão publicados em breve.', 'portal-si-cefet' ),
-		'mapa-do-site'              => __( 'O mapa completo do portal está sendo atualizado. Enquanto isso, use o menu principal ou o mapa no rodapé.', 'portal-si-cefet' ),
+		'grade-curricular'          => __( 'A grade curricular, ementas e fluxo de disciplinas serão publicados nesta seção.', 'portal-si-cefet' ),
+		'carreira-e-egressos'       => __( 'Informações sobre empregabilidade, trajetórias de egressos e oportunidades de carreira serão publicadas nesta seção.', 'portal-si-cefet' ),
+		'vida-estudantil'           => __( 'Conteúdos sobre bolsas, auxílios, benefícios e vida acadêmica no campus serão publicados nesta seção.', 'portal-si-cefet' ),
+		'acessibilidade'            => __( 'A declaração de acessibilidade e os recursos deste portal para pessoas com deficiência serão publicados nesta seção.', 'portal-si-cefet' ),
+		'politica-de-privacidade'   => __( 'A política de privacidade e o tratamento de dados pessoais conforme a LGPD serão publicados nesta seção.', 'portal-si-cefet' ),
+		'termos-de-uso'             => __( 'Os termos de uso do portal institucional do curso serão publicados nesta seção.', 'portal-si-cefet' ),
+		'mapa-do-site'              => __( 'O mapa completo do portal está em atualização. Enquanto isso, use o menu principal ou o mapa no rodapé.', 'portal-si-cefet' ),
 	);
 
 	if ( isset( $messages[ $slug ] ) ) {
 		return $messages[ $slug ];
 	}
 
-	return __( 'Esta seção está em construção e será atualizada em breve pela equipe do curso.', 'portal-si-cefet' );
+	return __( 'Esta seção está em construção. O conteúdo será publicado em breve.', 'portal-si-cefet' );
 }
 
 /**

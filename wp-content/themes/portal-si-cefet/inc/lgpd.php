@@ -36,7 +36,7 @@ function portal_si_privacidade_default_content() {
 		<li><?php esc_html_e( 'Cookies necessários — para o site funcionar (por exemplo, lembrar se você aceitou ou recusou cookies).', 'portal-si-cefet' ); ?></li>
 		<li><?php esc_html_e( 'Preferência de alto contraste — guardada no seu aparelho, se você ativar essa opção.', 'portal-si-cefet' ); ?></li>
 	</ul>
-	<p><?php esc_html_e( 'Nesta versão de demonstração não usamos cookies de publicidade ou rastreamento. Se recusar cookies opcionais, a navegação continua normalmente.', 'portal-si-cefet' ); ?></p>
+	<p><?php esc_html_e( 'Não utilizamos cookies de publicidade ou rastreamento de terceiros. Se recusar cookies opcionais, a navegação continua normalmente.', 'portal-si-cefet' ); ?></p>
 
 	<h2><?php esc_html_e( 'Seus direitos', 'portal-si-cefet' ); ?></h2>
 	<p><?php esc_html_e( 'Você pode pedir informações, correção ou exclusão dos seus dados entrando em contato com a coordenação do curso pela página Contato deste portal.', 'portal-si-cefet' ); ?></p>

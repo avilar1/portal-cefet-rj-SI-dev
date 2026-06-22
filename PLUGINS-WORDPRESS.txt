@@ -37,7 +37,7 @@ INSTALAÇÃO AUTOMÁTICA (recomendado — WP-CLI no Docker)
    - Firewall em “learning mode” primeiro se notar bloqueios em dev.
 
    Contact Form 7 — RF16 / RF28
-   - Criar formulários depois nas páginas correspondentes (parceiros, ouvidoria).
+   - Formulários adicionais podem ser criados nas páginas correspondentes (parceiros, ouvidoria), se necessário.
    - LGPD: textos de consentimento virão com o conteúdo jurídico (RN10).
 
    UpdraftPlus — RNF12

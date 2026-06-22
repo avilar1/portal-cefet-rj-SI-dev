@@ -15,7 +15,7 @@ A pasta `contexto/` na raiz do repositório permanece no `.gitignore` (materiais
 
 | Documento | Conteúdo |
 |-----------|----------|
-| [**IMPLEMENTACAO-CHECKLIST.md**](IMPLEMENTACAO-CHECKLIST.md) | **Checklist por RF** — feito, parcial, adiado e pendente |
+| [**IMPLEMENTACAO-CHECKLIST.md**](IMPLEMENTACAO-CHECKLIST.md) | **Checklist por RF** — entregue, parcial e evolução |
 
 ## Operação e continuidade
 

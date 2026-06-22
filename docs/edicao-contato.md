@@ -31,7 +31,7 @@ Fonte institucional do curso: [Bacharelado em Sistemas de Informação — CEFET
 Valores iniciais no tema (jun/2025):
 
 - Coordenador: **Prof. Cristiano Fuschilo** — **(21) 3297-7905** — `coord.si@cefet-rj.br`
-- Vice-coordenação: cargo reservado; nome e telefone em atualização — `vicecoord.si@cefet-rj.br`
+- Vice-coordenação: editável no wp-admin — `vicecoord.si@cefet-rj.br` como padrão
 - Endereço: **Rua Miguel Ângelo, 96 — Maria da Graça**
 
 Confirme e-mail institucional com a coordenação (no site CEFET o e-mail aparece protegido; o tema usa `coord.si@cefet-rj.br` como padrão editável).
@@ -42,7 +42,7 @@ Confirme e-mail institucional com a coordenação (no site CEFET o e-mail aparec
 
 Seção **#parceria-fabrica** nesta página — destino do botão «Solicitar parceria» da Fábrica de Software.
 
-Mensagem exibida ao visitante: *«Formulário oficial em breve. Favor utilizar como contato o e-mail oficial da coordenação.»*
+Visitantes podem usar o **formulário de contato** nesta página (assunto «Parceria — Fábrica de Software») ou o e-mail indicado na seção.
 
 ---
 

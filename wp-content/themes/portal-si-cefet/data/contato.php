@@ -69,7 +69,7 @@ return array(
 
 	'ouvidoria' => array(
 		'title' => 'Ouvidoria e manifestações',
-		'text'  => 'Para reclamações, sugestões ou solicitações formais à instituição, utilize a Ouvidoria do CEFET/RJ. Formulário integrado ao portal do curso previsto para versão futura (RF28).',
+		'text'  => 'Para reclamações, sugestões ou solicitações formais à instituição, utilize a Ouvidoria do CEFET/RJ.',
 		'url'   => 'https://www.cefet-rj.br/index.php/ouvidoria',
 		'label' => 'Acessar Ouvidoria CEFET/RJ',
 	),
