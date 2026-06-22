@@ -10,3 +10,6 @@ Thumbs.db
 
 # Materiais locais / pacotes DS completos (documentação oficial em docs/referencias/)
 contexto/
+
+# TCC — tabulação local para gráficos (fora do escopo do repositório)
+scripts/analise-usabilidade-tcc.py
