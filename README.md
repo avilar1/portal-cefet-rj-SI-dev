@@ -161,7 +161,7 @@ Resumo:
 2. **Grade (RF03) + Fluxo (RF26) + TCC (RF25)** — colegas.
 3. **Formulários** — RF16 parceiros, RF28 ouvidoria (adiado).
 4. **Pesquisa e extensão** — RF09–RF11 (médio).
-5. **Go-live** — substituir [página legada do curso no CEFET/RJ](https://www.cefet-rj.br/index.php/bacharelado-em-sistemas-de-informacao-maria-da-graca).
+5. **Go-live** — substituir [página legada do curso no CEFET/RJ](https://www.cefet-rj.br/index.php/bacharelado-em-sistemas-de-informacao-maria-da-graca). Ver [`docs/DEPLOY.md`](docs/DEPLOY.md) e [`docs/BACKUP.md`](docs/BACKUP.md).
 
 ---
 
@@ -172,6 +172,8 @@ Resumo:
 | [`docs/referencias/`](docs/referencias/) | Requisitos, heurísticas, layouts MVP |
 | [`docs/README.md`](docs/README.md) | Índice da pasta docs |
 | [`docs/IMPLEMENTACAO-CHECKLIST.md`](docs/IMPLEMENTACAO-CHECKLIST.md) | **Status por RF** — o que está feito, parcial e pendente |
+| [`docs/DEPLOY.md`](docs/DEPLOY.md) | **Deploy** — homologação, HTTPS, atualização na VM |
+| [`docs/BACKUP.md`](docs/BACKUP.md) | **Backup** — BD, uploads, restauração e handoff |
 | [`docs/conteudo-wordpress-vs-codigo.md`](docs/conteudo-wordpress-vs-codigo.md) | **WP vs código** — seed, Sobre o Curso, quem edita o quê |
 | [`REQUISITOS-PRIORIDADE.txt`](REQUISITOS-PRIORIDADE.txt) | RFs Alta resumidos |
 | `PLUGINS-WORDPRESS.txt` | Stack e checklist |

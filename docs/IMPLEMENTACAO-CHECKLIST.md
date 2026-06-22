@@ -102,6 +102,8 @@ Prioridade Alta: [`REQUISITOS-PRIORIDADE.txt`](../REQUISITOS-PRIORIDADE.txt)
 | RF12 | Import professores | ⏸ | |
 | RNF03–07 | A11y, LGPD, DS gov.br | 🟡 | Contínuo |
 
+**Operação:** deploy e backup documentados em [`DEPLOY.md`](DEPLOY.md) e [`BACKUP.md`](BACKUP.md).
+
 ---
 
 ## Próximos focos sugeridos

@@ -17,6 +17,13 @@ A pasta `contexto/` na raiz do repositório permanece no `.gitignore` (materiais
 |-----------|----------|
 | [**IMPLEMENTACAO-CHECKLIST.md**](IMPLEMENTACAO-CHECKLIST.md) | **Checklist por RF** — feito, parcial, adiado e pendente |
 
+## Operação e continuidade
+
+| Documento | Conteúdo |
+|-----------|----------|
+| [**DEPLOY.md**](DEPLOY.md) | **Deploy** — VM, Docker, Caddy/HTTPS, atualização do tema, go-live |
+| [**BACKUP.md**](BACKUP.md) | **Backup e restauração** — BD, uploads, handoff para novo dev |
+
 ## Editorial vs código (obrigatório para a equipe)
 
 | Documento | Conteúdo |
