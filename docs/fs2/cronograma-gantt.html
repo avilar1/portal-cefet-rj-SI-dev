@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Cronograma Gantt FS II — Portal SI CEFET/RJ</title>
+	<link rel="stylesheet" href="assets/fs2-docs.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/frappe-gantt@0.6.1/dist/frappe-gantt.css" />
+</head>
+<body>
+	<div class="fs2-topbar">
+		<div class="fs2-topbar__inner">
+			<span>CEFET/RJ · Cronograma Gantt · Fábrica de Software II</span>
+			<a href="index.html">← Hub FS II</a>
+		</div>
+	</div>
+
+	<header class="fs2-header">
+		<div class="fs2-header__inner">
+			<h1>Cronograma Gantt — Fábrica de Software II</h1>
+			<p class="fs2-header__meta">Sprints de 15 dias · Atividades · Dependências · Backlog RF01–RF34</p>
+			<div class="fs2-header__badges">
+				<span class="fs2-badge fs2-badge--warning">M1: 03/09</span>
+				<span class="fs2-badge fs2-badge--danger">M2 Produto: 15/11</span>
+				<span class="fs2-badge fs2-badge--success">M3 Acadêmico: 30/11</span>
+			</div>
+		</div>
+	</header>
+
+	<nav class="fs2-nav" aria-label="Navegação">
+		<div class="fs2-nav__inner">
+			<a href="project-charter.html">Project Charter</a>
+			<a href="#gantt" aria-current="page">Gantt</a>
+			<a href="#backlog">Backlog</a>
+			<a href="#sprints">Sprints</a>
+		</div>
+	</nav>
+
+	<main class="fs2-main">
+		<section class="fs2-section" id="gantt">
+			<h2>Cronograma por atividades</h2>
+			<p>
+				Gráfico interativo com sprints, trilhas de conteúdo/infra e marcos acadêmico (03/09),
+				produto (15/11) e entrega final (30/11). Arraste a barra de scroll horizontal para navegar.
+			</p>
+
+			<div class="fs2-gantt-legend">
+				<span class="fs2-gantt-legend__item">
+					<span class="fs2-gantt-legend__swatch" style="background:#1351b4"></span> Sprint / gestão
+				</span>
+				<span class="fs2-gantt-legend__item">
+					<span class="fs2-gantt-legend__swatch" style="background:#0c326f"></span> Desenvolvimento / conteúdo
+				</span>
+				<span class="fs2-gantt-legend__item">
+					<span class="fs2-gantt-legend__swatch" style="background:#168821"></span> Infraestrutura / TI
+				</span>
+				<span class="fs2-gantt-legend__item">
+					<span class="fs2-gantt-legend__swatch" style="background:#e52207"></span> Marcos
+				</span>
+			</div>
+
+			<div class="fs2-gantt-filters no-print" id="gantt-filters" role="group" aria-label="Filtrar por sprint"></div>
+
+			<div class="fs2-gantt-wrap">
+				<div id="gantt-chart"></div>
+			</div>
+
+			<div class="fs2-callout fs2-callout--warn no-print">
+				<strong>Controles</strong>
+				Use os botões acima para filtrar por sprint. Modo de visualização:
+				<button type="button" id="btn-view-day" class="is-active" style="margin-left:0.5rem;padding:0.25rem 0.5rem">Dia</button>
+				<button type="button" id="btn-view-week" style="padding:0.25rem 0.5rem">Semana</button>
+				<button type="button" id="btn-view-month" style="padding:0.25rem 0.5rem">Mês</button>
+			</div>
+		</section>
+
+		<section class="fs2-section" id="sprints">
+			<h2>Resumo das sprints</h2>
+			<div class="fs2-table-wrap">
+				<table class="fs2-table" id="sprints-table">
+					<thead>
+						<tr>
+							<th>Sprint</th>
+							<th>Período</th>
+							<th>Entrega ao cliente</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="fs2-section" id="backlog">
+			<h2>Backlog de produto</h2>
+			<p>Itens priorizados por sprint. Edite <code>assets/backlog.js</code> para atualizar status e responsáveis.</p>
+
+			<div class="fs2-backlog-summary" id="backlog-summary"></div>
+
+			<div class="fs2-backlog-filters no-print" id="backlog-filters" role="group" aria-label="Filtrar backlog"></div>
+
+			<div class="fs2-table-wrap">
+				<table class="fs2-table" id="backlog-table">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Módulo</th>
+							<th>Item</th>
+							<th>Prioridade</th>
+							<th>Status</th>
+							<th>Sprint</th>
+							<th>Responsável</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</section>
+	</main>
+
+	<footer class="fs2-footer">
+		<div class="fs2-footer__inner">
+			Cronograma Gantt · Portal SI CEFET/RJ · Fábrica de Software II · 2026
+		</div>
+	</footer>
+
+	<script src="assets/gantt-data.js"></script>
+	<script src="assets/backlog.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/frappe-gantt@0.6.1/dist/frappe-gantt.min.js"></script>
+	<script>
+	(function () {
+		"use strict";
+
+		var ganttInstance = null;
+		var currentFilter = "all";
+		var currentView = "Day";
+
+		function formatDateBR(iso) {
+			if (!iso) return "—";
+			var p = iso.split("-");
+			return p[2] + "/" + p[1] + "/" + p[0];
+		}
+
+		function statusClass(status) {
+			var map = {
+				done: "fs2-status--done",
+				partial: "fs2-status--partial",
+				pending: "fs2-status--pending",
+				paused: "fs2-status--paused"
+			};
+			return map[status] || "fs2-status--pending";
+		}
+
+		function statusLabel(status) {
+			var map = {
+				done: "Entregue",
+				partial: "Parcial",
+				pending: "Pendente",
+				paused: "Retomar"
+			};
+			return map[status] || status;
+		}
+
+		function getFilteredTasks() {
+			if (currentFilter === "all") {
+				return FS2_GANTT.tasks.slice();
+			}
+			return FS2_GANTT.tasks.filter(function (t) {
+				return t.group === currentFilter;
+			});
+		}
+
+		function renderGantt() {
+			var container = document.getElementById("gantt-chart");
+			container.innerHTML = "";
+			var tasks = getFilteredTasks();
+
+			if (!tasks.length) {
+				container.textContent = "Nenhuma atividade para este filtro.";
+				return;
+			}
+
+			ganttInstance = new Gantt(container, tasks, {
+				view_mode: currentView,
+				bar_height: 28,
+				padding: 16,
+				date_format: "YYYY-MM-DD",
+				custom_popup_html: function (task) {
+					var end = task._end || task.end;
+					return (
+						'<div class="details-container" style="padding:0.5rem;font-size:0.8125rem">' +
+						"<strong>" + task.name + "</strong><br>" +
+						formatDateBR(task.start) + " → " + formatDateBR(end) + "<br>" +
+						"Progresso: " + (task.progress || 0) + "%" +
+						(task.group ? "<br>Sprint: " + task.group : "") +
+						"</div>"
+					);
+				},
+				on_click: function () {},
+				on_date_change: function () {},
+				on_progress_change: function () {}
+			});
+
+			drawMilestoneMarkers();
+		}
+
+		function drawMilestoneMarkers() {
+			/* Marcadores visuais via labels no popup; linhas verticais exigem SVG custom — legendas abaixo do gráfico */
+		}
+
+		function buildGanttFilters() {
+			var wrap = document.getElementById("gantt-filters");
+			wrap.innerHTML = "";
+
+			var allBtn = document.createElement("button");
+			allBtn.type = "button";
+			allBtn.textContent = "Todas";
+			allBtn.className = "is-active";
+			allBtn.dataset.group = "all";
+			allBtn.addEventListener("click", onGanttFilter);
+			wrap.appendChild(allBtn);
+
+			FS2_GANTT.groups.forEach(function (g) {
+				var btn = document.createElement("button");
+				btn.type = "button";
+				btn.textContent = g;
+				btn.dataset.group = g;
+				btn.addEventListener("click", onGanttFilter);
+				wrap.appendChild(btn);
+			});
+		}
+
+		function onGanttFilter(ev) {
+			currentFilter = ev.target.dataset.group;
+			document.querySelectorAll("#gantt-filters button").forEach(function (b) {
+				b.classList.toggle("is-active", b.dataset.group === currentFilter);
+			});
+			renderGantt();
+		}
+
+		function buildViewButtons() {
+			["Day", "Week", "Month"].forEach(function (mode) {
+				var btn = document.getElementById("btn-view-" + mode.toLowerCase());
+				if (!btn) return;
+				btn.addEventListener("click", function () {
+					currentView = mode;
+					document.querySelectorAll("[id^='btn-view-']").forEach(function (b) {
+						b.classList.remove("is-active");
+					});
+					btn.classList.add("is-active");
+					renderGantt();
+				});
+			});
+		}
+
+		function renderSprintsTable() {
+			var tbody = document.querySelector("#sprints-table tbody");
+			tbody.innerHTML = "";
+			FS2_BACKLOG.sprints.forEach(function (s) {
+				var tr = document.createElement("tr");
+				tr.innerHTML =
+					"<td><strong>" + s.id + "</strong> — " + s.name.replace(/^Sprint \d+ — /, "") + "</td>" +
+					"<td>" + formatDateBR(s.start) + " – " + formatDateBR(s.end) + "</td>" +
+					"<td>" + s.deliverable + "</td>";
+				tbody.appendChild(tr);
+			});
+			var trBuf = document.createElement("tr");
+			trBuf.innerHTML =
+				"<td><strong>Dez</strong> — Buffer crítico</td>" +
+				"<td>01/12 – 31/12</td>" +
+				"<td>Contingência (TI, bloqueadores) — sem features novas</td>";
+			tbody.appendChild(trBuf);
+		}
+
+		function renderBacklogSummary() {
+			var items = FS2_BACKLOG.items;
+			var counts = { done: 0, partial: 0, pending: 0, paused: 0 };
+			items.forEach(function (i) {
+				if (counts[i.status] !== undefined) counts[i.status]++;
+			});
+			var wrap = document.getElementById("backlog-summary");
+			wrap.innerHTML =
+				statBlock(counts.done, "Entregues") +
+				statBlock(counts.partial, "Parciais") +
+				statBlock(counts.pending, "Pendentes") +
+				statBlock(counts.paused, "Retomar") +
+				statBlock(items.length, "Total itens");
+		}
+
+		function statBlock(num, label) {
+			return (
+				'<div class="fs2-backlog-stat">' +
+				'<div class="fs2-backlog-stat__num">' + num + "</div>" +
+				'<div class="fs2-backlog-stat__label">' + label + "</div></div>"
+			);
+		}
+
+		var backlogFilter = "all";
+
+		function buildBacklogFilters() {
+			var wrap = document.getElementById("backlog-filters");
+			var filters = ["all", "done", "partial", "pending", "paused"];
+			var labels = { all: "Todos", done: "Entregues", partial: "Parciais", pending: "Pendentes", paused: "Retomar" };
+			filters.forEach(function (f) {
+				var btn = document.createElement("button");
+				btn.type = "button";
+				btn.textContent = labels[f];
+				btn.dataset.status = f;
+				if (f === "all") btn.className = "is-active";
+				btn.addEventListener("click", function (ev) {
+					backlogFilter = ev.target.dataset.status;
+					document.querySelectorAll("#backlog-filters button").forEach(function (b) {
+						b.classList.toggle("is-active", b.dataset.status === backlogFilter);
+					});
+					renderBacklogTable();
+				});
+				wrap.appendChild(btn);
+			});
+		}
+
+		function renderBacklogTable() {
+			var tbody = document.querySelector("#backlog-table tbody");
+			tbody.innerHTML = "";
+			FS2_BACKLOG.items
+				.filter(function (i) {
+					return backlogFilter === "all" || i.status === backlogFilter;
+				})
+				.forEach(function (item) {
+					var tr = document.createElement("tr");
+					tr.innerHTML =
+						"<td><strong>" + item.id + "</strong></td>" +
+						"<td>" + item.module + "</td>" +
+						"<td>" + item.title + "<br><small style='color:#555'>" + (item.dod || "") + "</small></td>" +
+						"<td>" + (item.priority || "—") + "</td>" +
+						'<td><span class="fs2-status ' + statusClass(item.status) + '">' + statusLabel(item.status) + "</span></td>" +
+						"<td>" + item.sprint + "</td>" +
+						"<td>" + item.owner + "</td>";
+					tbody.appendChild(tr);
+				});
+		}
+
+		function renderMilestonesBanner() {
+			var section = document.getElementById("gantt");
+			var existing = section.querySelector(".fs2-milestones");
+			if (existing) return;
+			var div = document.createElement("div");
+			div.className = "fs2-milestones";
+			div.style.marginBottom = "1.5rem";
+			FS2_BACKLOG.milestones.forEach(function (m) {
+				div.innerHTML +=
+					'<div class="fs2-milestone">' +
+					'<div class="fs2-milestone__label">' + m.label + "</div>" +
+					'<div class="fs2-milestone__date">' + formatDateBR(m.date) + "</div></div>";
+			});
+			var h2 = section.querySelector("h2");
+			h2.insertAdjacentElement("afterend", div);
+		}
+
+		document.addEventListener("DOMContentLoaded", function () {
+			renderMilestonesBanner();
+			buildGanttFilters();
+			buildViewButtons();
+			renderGantt();
+			renderSprintsTable();
+			renderBacklogSummary();
+			buildBacklogFilters();
+			renderBacklogTable();
+		});
+	})();
+	</script>
+</body>
+</html>

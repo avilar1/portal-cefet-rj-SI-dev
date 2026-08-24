@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>FS II — Documentação do Projeto | Portal SI CEFET/RJ</title>
+	<link rel="stylesheet" href="assets/fs2-docs.css" />
+</head>
+<body>
+	<div class="fs2-topbar">
+		<div class="fs2-topbar__inner">
+			<span>CEFET/RJ — Campus Maria da Graça · Fábrica de Software II</span>
+			<a href="../README.md">Repositório docs/</a>
+		</div>
+	</div>
+
+	<header class="fs2-header">
+		<div class="fs2-header__inner">
+			<h1>Portal SI CEFET/RJ — Fábrica de Software II</h1>
+			<p class="fs2-header__meta">Project Charter · Cronograma Gantt · Backlog de produto</p>
+			<div class="fs2-header__badges">
+				<span class="fs2-badge fs2-badge--primary">Versão 2.0 · Ago/2026</span>
+				<span class="fs2-badge fs2-badge--warning">Marco M1: 03/09/2026</span>
+				<span class="fs2-badge fs2-badge--danger">Produto: 15/11/2026</span>
+				<span class="fs2-badge fs2-badge--success">Acadêmico: 30/11/2026</span>
+			</div>
+		</div>
+	</header>
+
+	<main class="fs2-main">
+		<section class="fs2-section">
+			<h2>Bem-vindo</h2>
+			<p>
+				Esta pasta reúne a documentação de gestão do <strong>segundo período</strong> do projeto
+				(Portal do Curso de Sistemas de Informação), produzida pela Fábrica de Software.
+				Substituímos o formato Word tradicional por <strong>documentação HTML interativa</strong>,
+				versionada no Git — prática comum em equipes de produto e engenharia.
+			</p>
+
+			<div class="fs2-callout fs2-callout--info">
+				<strong>Por que HTML em vez de Word?</strong>
+				Documentação viva e rastreável no repositório; Gantt interativo com dependências;
+				backlog editável; visual alinhado ao Design System gov.br do portal;
+				exportação para PDF via impressão do navegador (<kbd>Ctrl+P</kbd>) quando necessário.
+			</div>
+
+			<div class="fs2-milestones">
+				<div class="fs2-milestone">
+					<div class="fs2-milestone__label">M1 — Acadêmico</div>
+					<div class="fs2-milestone__date">03/09</div>
+					<p style="margin:0.5rem 0 0;font-size:0.875rem">Project Charter entregue</p>
+				</div>
+				<div class="fs2-milestone">
+					<div class="fs2-milestone__label">M2 — Produto</div>
+					<div class="fs2-milestone__date">15/11</div>
+					<p style="margin:0.5rem 0 0;font-size:0.875rem">Go-live + credenciais admins</p>
+				</div>
+				<div class="fs2-milestone">
+					<div class="fs2-milestone__label">M3 — Acadêmico</div>
+					<div class="fs2-milestone__date">30/11</div>
+					<p style="margin:0.5rem 0 0;font-size:0.875rem">Apresentação e aceite final</p>
+				</div>
+				<div class="fs2-milestone" style="border-top-color:var(--govbr-gray-60)">
+					<div class="fs2-milestone__label">Contingência</div>
+					<div class="fs2-milestone__date">Dez</div>
+					<p style="margin:0.5rem 0 0;font-size:0.875rem">Buffer crítico (TI, bloqueadores)</p>
+				</div>
+			</div>
+		</section>
+
+		<div class="fs2-cards">
+			<a class="fs2-card" href="project-charter.html">
+				<h2>Project Charter</h2>
+				<p>Termo de abertura FS II: escopo completo, metodologia ágil, stakeholders, riscos e critérios de aceite.</p>
+			</a>
+			<a class="fs2-card" href="cronograma-gantt.html">
+				<h2>Cronograma Gantt</h2>
+				<p>Sprints de 15 dias, atividades, dependências e marcos 03/09 · 15/11 · 30/11.</p>
+			</a>
+			<a class="fs2-card" href="cronograma-gantt.html#backlog">
+				<h2>Backlog de produto</h2>
+				<p>RF01–RF34 + trilhas TI/conteúdo mapeados por sprint, status e Definition of Done.</p>
+			</a>
+		</div>
+
+		<section class="fs2-section">
+			<h2>Referências no repositório</h2>
+			<ul>
+				<li><a href="../referencias/Analise_Requisitos_Portal_SI_CefetRJ_revisado.md">Análise de Requisitos (FS I)</a></li>
+				<li><a href="../IMPLEMENTACAO-CHECKLIST.md">Checklist de implementação</a></li>
+				<li><a href="../DEPLOY.md">Guia de deploy</a></li>
+				<li><a href="../BACKUP.md">Guia de backup</a></li>
+			</ul>
+		</section>
+
+		<section class="fs2-section no-print">
+			<h2>Como usar</h2>
+			<ol>
+				<li>Abra os arquivos HTML no navegador (duplo clique ou servidor local).</li>
+				<li>Revise placeholders <code>[Gerente]</code> e <code>[Colega 1–3]</code> com a equipe.</li>
+				<li>Para PDF: abra o charter → <kbd>Ctrl+P</kbd> → «Salvar como PDF».</li>
+				<li>Atualize <code>assets/backlog.js</code> e <code>assets/gantt-data.js</code> a cada sprint.</li>
+			</ol>
+		</section>
+	</main>
+
+	<footer class="fs2-footer">
+		<div class="fs2-footer__inner">
+			Fábrica de Software — Curso de Sistemas de Informação · CEFET/RJ Campus Maria da Graça · 2026
+		</div>
+	</footer>
+</body>
+</html>

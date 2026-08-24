@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Project Charter FS II — Portal SI CEFET/RJ</title>
+	<link rel="stylesheet" href="assets/fs2-docs.css" />
+</head>
+<body>
+	<div class="fs2-topbar">
+		<div class="fs2-topbar__inner">
+			<span>CEFET/RJ · Fábrica de Software II · Project Charter v2.0</span>
+			<a href="index.html">← Hub FS II</a>
+		</div>
+	</div>
+
+	<header class="fs2-header">
+		<div class="fs2-header__inner">
+			<h1>Project Charter — Portal SI CEFET/RJ</h1>
+			<p class="fs2-header__meta">Termo de Abertura do Projeto · Fábrica de Software II · 2º semestre 2026</p>
+			<div class="fs2-header__badges">
+				<span class="fs2-badge fs2-badge--primary">Documento v2.0</span>
+				<span class="fs2-badge">Elaboração: 24/08/2026</span>
+				<span class="fs2-badge fs2-badge--warning">Status: Em validação</span>
+			</div>
+		</div>
+	</header>
+
+	<nav class="fs2-nav" aria-label="Seções do charter">
+		<div class="fs2-nav__inner">
+			<a href="#identificacao">Identificação</a>
+			<a href="#justificativa">Justificativa</a>
+			<a href="#objetivo">Objetivo</a>
+			<a href="#escopo">Escopo</a>
+			<a href="#metodologia">Metodologia</a>
+			<a href="#marcos">Marcos</a>
+			<a href="#stakeholders">Stakeholders</a>
+			<a href="#aceite">Aceite</a>
+			<a href="#riscos">Riscos</a>
+			<a href="#aprovacoes">Aprovações</a>
+		</div>
+	</nav>
+
+	<main class="fs2-main fs2-main--narrow">
+		<section class="fs2-section" id="identificacao">
+			<h2>1. Identificação do Projeto</h2>
+			<div class="fs2-table-wrap">
+				<table class="fs2-table">
+					<tbody>
+						<tr><th scope="row">Nome do projeto</th><td>Portal do Curso de Sistemas de Informação — CEFET/RJ</td></tr>
+						<tr><th scope="row">Disciplina / fase</th><td>Fábrica de Software II (continuidade FS I / TCC)</td></tr>
+						<tr><th scope="row">Cliente / Sponsor</th><td>CEFET/RJ — Coordenação do Curso de SI, Campus Maria da Graça</td></tr>
+						<tr><th scope="row">Equipe responsável</th><td>Fábrica de Software — 4 integrantes (1 gerente + 3 desenvolvedores)</td></tr>
+						<tr><th scope="row">Plataforma</th><td>WordPress + tema customizado <code>portal-si-cefet</code> (Design System gov.br)</td></tr>
+						<tr><th scope="row">Versão do charter</th><td>2.0 (FS II)</td></tr>
+						<tr><th scope="row">Documento anterior</th><td>Análise de Requisitos v1.0 (FS I) — base de negócio, não substituto deste charter</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="fs2-section" id="justificativa">
+			<h2>2. Justificativa / Business Case</h2>
+			<p>
+				No primeiro período (Fábrica de Software I), a equipe entregou um <strong>MVP funcional</strong>
+				do portal institucional: tema WordPress, módulos principais, ambiente Docker e documentação técnica.
+				O foco acadêmico concentrou-se também no TCC individual dos integrantes.
+			</p>
+			<p>
+				No FS II, o objetivo muda para <strong>entrega de produto</strong>: o portal deve sair do ambiente
+				de desenvolvimento/homologação e estar <strong>operacional no servidor do CEFET</strong>, com
+				administradores institucionais aptos a editar conteúdo. A página legada do curso no site central
+				continua dispersa; este portal centraliza informações acadêmicas, administrativas e de extensão
+				conforme a Análise de Requisitos aprovada.
+			</p>
+			<div class="fs2-callout fs2-callout--info">
+				<strong>Diferença em relação ao documento de requisitos</strong>
+				A Análise de Requisitos define <em>o quê</em> construir (RF, RN, RNF). Este charter define
+				<em>como e quando</em> entregar no FS II, <em>quem</em> decide, critérios de aceite e gestão ágil.
+			</div>
+		</section>
+
+		<section class="fs2-section" id="objetivo">
+			<h2>3. Objetivo do Período</h2>
+			<p>Concluir, validar e colocar em produção o portal institucional completo, atendendo a <strong>todos os requisitos funcionais (RF01–RF34)</strong> e requisitos não funcionais transversais, mediante:</p>
+			<ul>
+				<li>Desenvolvimento iterativo em <strong>sprints de 15 dias</strong> com entrega demonstrável ao cliente a cada ciclo;</li>
+				<li><strong>População com dados reais</strong> (docentes, notícias, projetos, documentos, grade);</li>
+				<li><strong>Deploy no servidor CEFET</strong> até <strong>15/11/2026</strong>;</li>
+				<li><strong>Entrega de credenciais</strong> e treinamento aos 2 professores administradores;</li>
+				<li><strong>Apresentação acadêmica</strong> e aceite formal até <strong>30/11/2026</strong>.</li>
+			</ul>
+		</section>
+
+		<section class="fs2-section" id="escopo">
+			<h2>4. Escopo</h2>
+
+			<h3>4.1 Escopo IN (compromisso FS II)</h3>
+			<ul>
+				<li>Todos os <strong>RF01 a RF34</strong> da Análise de Requisitos, incluindo itens parciais ou adiados no FS I;</li>
+				<li><strong>RNFs transversais</strong> (acessibilidade WCAG/eMAG, LGPD, performance, SEO, HTTPS, backup);</li>
+				<li>Refinamento e estabilização do tema <code>portal-si-cefet</code> existente;</li>
+				<li>População editorial com conteúdo real fornecido pela coordenação;</li>
+				<li>Infraestrutura de produção no servidor institucional (negociação com TI);</li>
+				<li>Documentação operacional (<a href="../DEPLOY.md">DEPLOY</a>, <a href="../BACKUP.md">BACKUP</a>, guias de edição);</li>
+				<li>Treinamento e handover para 2 professores administradores.</li>
+			</ul>
+
+			<h3>4.2 Escopo OUT (requisitos inversos — RI)</h3>
+			<p>Permanecem explicitamente <strong>fora do escopo</strong>, conforme Análise de Requisitos:</p>
+			<div class="fs2-table-wrap">
+				<table class="fs2-table">
+					<thead>
+						<tr><th>ID</th><th>Fora do escopo</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>RI01</td><td>Cadastro ou área logada para alunos/público</td></tr>
+						<tr><td>RI02</td><td>Sistema acadêmico (matrícula, notas, boletim)</td></tr>
+						<tr><td>RI03</td><td>Chat em tempo real</td></tr>
+						<tr><td>RI04</td><td>Integração automática SIGAA/e-MEC (exceto import planilha RF12)</td></tr>
+						<tr><td>RI05</td><td>E-commerce / pagamentos</td></tr>
+						<tr><td>RI06</td><td>Fórum, comentários abertos, rede social interna</td></tr>
+						<tr><td>RI07</td><td>App mobile nativo (portal responsivo via browser)</td></tr>
+					</tbody>
+				</table>
+			</div>
+
+			<h3>4.3 Baseline de implementação (ago/2026)</h3>
+			<p>Referência: <a href="../IMPLEMENTACAO-CHECKLIST.md">IMPLEMENTACAO-CHECKLIST.md</a></p>
+			<div class="fs2-table-wrap">
+				<table class="fs2-table">
+					<thead>
+						<tr><th>Status</th><th>RFs</th><th>Ação FS II</th></tr>
+					</thead>
+					<tbody>
+						<tr><td><span class="fs2-status fs2-status--done">Entregue</span></td><td>RF01–02, RF04–06, RF08, RF13–14, RF17–20, RF22, RF27, RF29</td><td>Manutenção e refinamento</td></tr>
+						<tr><td><span class="fs2-status fs2-status--partial">Parcial</span></td><td>RF03, RF11, RF21, RF25–26, RF28, RF30–34, RNF</td><td>Completar nas Sprints 1, 3, 4</td></tr>
+						<tr><td><span class="fs2-status fs2-status--pending">Pendente</span></td><td>RF07, RF09–10, RF15, RF23–24</td><td>Implementar Sprints 1–3</td></tr>
+						<tr><td><span class="fs2-status fs2-status--paused">Retomar</span></td><td>RF12, RF16</td><td>Sprints 2–3</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="fs2-section" id="metodologia">
+			<h2>5. Metodologia — Scrum Adaptado</h2>
+
+			<h3>5.1 Cadência</h3>
+			<div class="fs2-table-wrap">
+				<table class="fs2-table">
+					<thead>
+						<tr><th>Evento</th><th>Frequência</th><th>Duração</th><th>Participantes</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>Sprint Planning</td><td>Início de cada sprint</td><td>1–2 h</td><td>Equipe dev</td></tr>
+						<tr><td>Daily</td><td>Diário</td><td>15 min</td><td>Equipe dev</td></tr>
+						<tr><td>Sprint Review</td><td>Fim de cada sprint</td><td>30–45 min</td><td>Equipe + 2 professores (cliente)</td></tr>
+						<tr><td>Retrospective</td><td>Após review</td><td>30 min</td><td>Equipe dev</td></tr>
+						<tr><td>Backlog Refinement</td><td>Meio da sprint</td><td>1 h</td><td>Equipe dev</td></tr>
+					</tbody>
+				</table>
+			</div>
+
+			<h3>5.2 Regras de sprint</h3>
+			<ul>
+				<li><strong>Ciclo padrão:</strong> 15 dias corridos;</li>
+				<li><strong>Sprint 0 (exceção):</strong> 25/08 → 03/09 — charter, backlog, planejamento;</li>
+				<li><strong>Cada sprint</strong> produz incremento demonstrável ao cliente (não apenas código interno);</li>
+				<li>Backlog priorizado em <a href="cronograma-gantt.html#backlog">assets/backlog.js</a>;</li>
+				<li>Itens parciais do checklist entram como débito técnico até DoD cumprida.</li>
+			</ul>
+
+			<h3>5.3 Definition of Done (DoD) — incremento</h3>
+			<ul>
+				<li>Funcionalidade implementada no tema WordPress e testada localmente (Docker);</li>
+				<li>Conteúdo mínimo real ou estado vazio documentado (quando aplicável);</li>
+				<li>Sem regressão em RF já entregues;</li>
+				<li>Demonstrável na Sprint Review;</li>
+				<li>Documentação atualizada se houver guia de edição novo.</li>
+			</ul>
+
+			<h3>5.4 Trilhas paralelas</h3>
+			<ul>
+				<li><strong>Trilha TI:</strong> contato → requisitos → provisionamento → deploy (Sprint 1 a 5);</li>
+				<li><strong>Trilha Conteúdo:</strong> coleta contínua; pico de população Sprint 4–5.</li>
+			</ul>
+		</section>
+
+		<section class="fs2-section" id="marcos">
+			<h2>6. Marcos, Sprints e Entregas</h2>
+
+			<div class="fs2-milestones">
+				<div class="fs2-milestone">
+					<div class="fs2-milestone__label">M1 — Acadêmico</div>
+					<div class="fs2-milestone__date">03/09/2026</div>
+					<p style="margin:0.5rem 0 0;font-size:0.875rem">Entrega deste Project Charter + Gantt</p>
+				</div>
+				<div class="fs2-milestone">
+					<div class="fs2-milestone__label">M2 — Produto</div>
+					<div class="fs2-milestone__date">15/11/2026</div>
+					<p style="margin:0.5rem 0 0;font-size:0.875rem">Go-live servidor CEFET + credenciais</p>
+				</div>
+				<div class="fs2-milestone">
+					<div class="fs2-milestone__label">M3 — Acadêmico</div>
+					<div class="fs2-milestone__date">30/11/2026</div>
+					<p style="margin:0.5rem 0 0;font-size:0.875rem">Apresentação e aceite formal</p>
+				</div>
+			</div>
+
+			<div class="fs2-table-wrap">
+				<table class="fs2-table">
+					<caption>Cronograma detalhado: <a href="cronograma-gantt.html">Gantt interativo</a></caption>
+					<thead>
+						<tr><th>Sprint</th><th>Período</th><th>Entrega planejada ao cliente</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>S0 — Fundação</td><td>25/08 – 03/09</td><td>Project Charter + Gantt + backlog</td></tr>
+						<tr><td>S1 — Institucional</td><td>04/09 – 18/09</td><td>RF03, RF07, RF26, RF21 — módulo institucional completo</td></tr>
+						<tr><td>S2 — P&E e Docentes</td><td>19/09 – 03/10</td><td>RF09–12, RF11 — hub P&E + import docentes</td></tr>
+						<tr><td>S3 — Fábrica e Serviços</td><td>04/10 – 18/10</td><td>RF15–16, RF23–25 — fábrica + serviços + TCC</td></tr>
+						<tr><td>S4 — Transversal</td><td>19/10 – 02/11</td><td>RF28–34, RNF — admin, busca, SEO, qualidade</td></tr>
+						<tr><td>S5 — Go-live</td><td>03/11 – 15/11</td><td>Deploy CEFET + testes + treinamento + credenciais</td></tr>
+						<tr><td>S6 — Acadêmico</td><td>16/11 – 30/11</td><td>Ajustes, documentação, apresentação final</td></tr>
+						<tr><td>Dezembro</td><td>Contingência</td><td>Buffer crítico — sem novas features planejadas</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="fs2-section" id="stakeholders">
+			<h2>7. Stakeholders e Responsabilidades</h2>
+
+			<div class="fs2-table-wrap">
+				<table class="fs2-table">
+					<thead>
+						<tr><th>Papel</th><th>Quem</th><th>Responsabilidade</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>Sponsor / Cliente</td><td>CEFET — Coordenação SI</td><td>Aprovar escopo, validar incrementos, fornecer conteúdo</td></tr>
+						<tr><td>Cliente operacional</td><td>2 professores (coordenação)</td><td>Sprint Review, receber credenciais, editar portal</td></tr>
+						<tr><td>Gerente de projeto</td><td>[Gerente de Projeto]</td><td>Backlog, prazos, TI, comunicação com professores</td></tr>
+						<tr><td>Desenvolvedor</td><td>[Colega 1]</td><td>Institucional, serviços, busca/SEO</td></tr>
+						<tr><td>Desenvolvedor</td><td>[Colega 2]</td><td>Pesquisa &amp; Extensão, corpo docente, RF12</td></tr>
+						<tr><td>Desenvolvedor</td><td>[Colega 3]</td><td>Fábrica SW, TCC, ouvidoria, destaques</td></tr>
+						<tr><td>TI institucional</td><td>CEFET/RJ (a contatar)</td><td>Servidor, rede, TLS, política backup</td></tr>
+					</tbody>
+				</table>
+			</div>
+
+			<h3>RACI simplificado</h3>
+			<div class="fs2-table-wrap">
+				<table class="fs2-table">
+					<thead>
+						<tr><th>Atividade</th><th>Gerente</th><th>Dev 1</th><th>Dev 2</th><th>Dev 3</th><th>Professores</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>Priorização backlog</td><td>R/A</td><td>C</td><td>C</td><td>C</td><td>I</td></tr>
+						<tr><td>Implementação RF</td><td>A</td><td>R</td><td>R</td><td>R</td><td>I</td></tr>
+						<tr><td>Validação sprint</td><td>R</td><td>C</td><td>C</td><td>C</td><td>A</td></tr>
+						<tr><td>Conteúdo editorial</td><td>R</td><td>C</td><td>C</td><td>C</td><td>A</td></tr>
+						<tr><td>Deploy / TI</td><td>R/A</td><td>C</td><td>I</td><td>I</td><td>I</td></tr>
+						<tr><td>Credenciais admins</td><td>R/A</td><td>I</td><td>I</td><td>I</td><td>A</td></tr>
+					</tbody>
+				</table>
+			</div>
+			<p style="font-size:0.8125rem;color:var(--govbr-gray-60)">R = Responsável · A = Aprovador · C = Consultado · I = Informado</p>
+		</section>
+
+		<section class="fs2-section" id="aceite">
+			<h2>8. Critérios de Aceite</h2>
+
+			<h3>8.1 Aceite de produto — 15/11/2026 (M2)</h3>
+			<ul>
+				<li>Portal acessível no <strong>servidor do CEFET</strong> (URL acordada com TI);</li>
+				<li>Checklist <a href="../IMPLEMENTACAO-CHECKLIST.md">IMPLEMENTACAO-CHECKLIST</a> com <strong>100% dos RF</strong> em status ✅ ou equivalente funcional;</li>
+				<li>RNFs críticos atendidos (HTTPS, LGPD/cookies, a11y, backup documentado);</li>
+				<li>Conteúdo real populado (docentes, notícias ≥ 5, projetos, documentos, grade);</li>
+				<li>2 professores com perfil <strong>Administrador</strong> operacional e treinados;</li>
+				<li>Termo de aceite operacional assinado.</li>
+			</ul>
+
+			<h3>8.2 Aceite acadêmico — 30/11/2026 (M3)</h3>
+			<ul>
+				<li>Apresentação final da disciplina realizada;</li>
+				<li>Documentação FS II entregue (charter, gantt, backlog, operação);</li>
+				<li>Ajustes pós-feedback da coordenação incorporados ou registrados como débito justificado;</li>
+				<li>Aceite formal do professor orientador / disciplina.</li>
+			</ul>
+
+			<h3>8.3 População de dados reais (mínimo go-live)</h3>
+			<ul>
+				<li>Coordenação e contato atualizados;</li>
+				<li>Corpo docente completo (RF12 ou cadastro manual documentado);</li>
+				<li>Notícias reais (mínimo 5);</li>
+				<li>Eventos reais ou estado vazio explicado;</li>
+				<li>Projetos Fábrica e P&amp;E reais;</li>
+				<li>Documentos institucionais oficiais;</li>
+				<li>Calendário acadêmico 2026;</li>
+				<li>Grade + ementas; repositório TCC com curadoria inicial.</li>
+			</ul>
+		</section>
+
+		<section class="fs2-section" id="riscos">
+			<h2>9. Premissas, Restrições e Riscos</h2>
+
+			<h3>Premissas</h3>
+			<ul>
+				<li>WordPress + Docker permanecem stack acordada;</li>
+				<li>Coordenação disponível para Sprint Reviews quinzenais;</li>
+				<li>TI CEFET fornecerá servidor até Sprint 5;</li>
+				<li>Conteúdo editorial será fornecido pela coordenação (prazos acordados por sprint).</li>
+			</ul>
+
+			<h3>Restrições</h3>
+			<ul>
+				<li>Equipe acadêmica (4 devs) com outras disciplinas e provas;</li>
+				<li>RI01–RI07 permanecem invioláveis;</li>
+				<li>Substituição da página legada no domínio <code>*.cefet-rj.br</code> depende de TI institucional (pós-M2).</li>
+			</ul>
+
+			<div class="fs2-table-wrap">
+				<table class="fs2-table">
+					<caption>Riscos e mitigação</caption>
+					<thead>
+						<tr><th>Risco</th><th>Impacto</th><th>Mitigação</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>Escopo completo (34 RF) em ~11 semanas</td><td>Alto</td><td>Sprints fixas; repriorizar backlog na retro; foco DoD</td></tr>
+						<tr><td>TI demora servidor</td><td>Alto</td><td>Trilha TI desde S1; VM homolog até S5</td></tr>
+						<tr><td>Conteúdo depende de professores</td><td>Médio</td><td>Coleta desde S1; lista mínima por sprint</td></tr>
+						<tr><td>RF12 import complexo</td><td>Médio</td><td>Spike dia 1 S2; fallback manual documentado</td></tr>
+						<tr><td>Sprint 0 curta (charter 03/09)</td><td>Médio</td><td>Meta interna 28–29/08; revisão 01–03/09</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="fs2-section" id="aprovacoes">
+			<h2>10. Aprovações</h2>
+			<p>Ao assinar, os abaixo concordam com escopo, marcos e metodologia descritos neste charter.</p>
+
+			<div class="fs2-signatures">
+				<div class="fs2-signature">
+					<strong>[Nome — Gerente de Projeto]</strong>
+					<div class="fs2-signature__role">Gerente de Projeto · Fábrica de Software II</div>
+					<div class="fs2-signature__role">Data: ___/___/2026</div>
+				</div>
+				<div class="fs2-signature">
+					<strong>[Nome — Professor orientador 1]</strong>
+					<div class="fs2-signature__role">Cliente / Coordenação SI · CEFET/RJ</div>
+					<div class="fs2-signature__role">Data: ___/___/2026</div>
+				</div>
+				<div class="fs2-signature">
+					<strong>[Nome — Professor orientador 2]</strong>
+					<div class="fs2-signature__role">Cliente / Coordenação SI · CEFET/RJ</div>
+					<div class="fs2-signature__role">Data: ___/___/2026</div>
+				</div>
+				<div class="fs2-signature">
+					<strong>[Nome — Representante disciplina FS II]</strong>
+					<div class="fs2-signature__role">Professor da disciplina (se aplicável)</div>
+					<div class="fs2-signature__role">Data: ___/___/2026</div>
+				</div>
+			</div>
+
+			<p class="no-print" style="margin-top:2rem;font-size:0.875rem">
+				<a href="cronograma-gantt.html">Ver cronograma Gantt →</a> ·
+				<button type="button" onclick="window.print()" style="padding:0.4rem 0.8rem;cursor:pointer">Imprimir / PDF</button>
+			</p>
+		</section>
+	</main>
+
+	<footer class="fs2-footer">
+		<div class="fs2-footer__inner">
+			Project Charter v2.0 · Portal SI CEFET/RJ · Fábrica de Software II · 2026
+		</div>
+	</footer>
+</body>
+</html>
