@@ -363,6 +363,7 @@ table.fs2-table caption {
 .fs2-card:hover {
 	transform: translateY(-2px);
 	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+	background-color: #e8f0fe;
 }
 
 .fs2-card h2 {
