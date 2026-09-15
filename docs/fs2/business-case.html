@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Business Case (Parte I): Portal SI CEFET/RJ</title>
+	<link rel="stylesheet" href="assets/fs2-docs.css" />
+	<style>
+		.bc-cover th { width: 28%; vertical-align: top; }
+		.bc-checks {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+			gap: 0.5rem 1rem;
+			margin: 0.75rem 0 1rem;
+			padding: 0;
+			list-style: none;
+		}
+		.bc-checks li {
+			display: flex;
+			align-items: flex-start;
+			gap: 0.5rem;
+			font-size: 0.9375rem;
+		}
+		.bc-checks .mark {
+			flex: 0 0 1.25rem;
+			height: 1.25rem;
+			border: 2px solid var(--govbr-blue);
+			border-radius: 2px;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			font-weight: 700;
+			font-size: 0.75rem;
+			color: var(--govbr-blue-dark);
+			background: #fff;
+		}
+		.bc-checks .mark--on {
+			background: var(--govbr-blue);
+			color: #fff;
+			border-color: var(--govbr-blue);
+		}
+		.bc-pdi {
+			margin: 0.5rem 0 0;
+			padding-left: 1.25rem;
+		}
+		.bc-pdi li { margin-bottom: 0.35rem; }
+		.bc-toolbar {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.75rem;
+			align-items: center;
+			margin: 1rem 0 0;
+		}
+		.bc-btn {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.4rem;
+			padding: 0.55rem 1rem;
+			border: none;
+			border-radius: var(--radius);
+			background: var(--govbr-blue);
+			color: #fff;
+			font-weight: 600;
+			font-size: 0.875rem;
+			cursor: pointer;
+			text-decoration: none;
+		}
+		.bc-btn:hover { background: var(--govbr-blue-dark); color: #fff; }
+		.bc-btn--ghost {
+			background: #fff;
+			color: var(--govbr-blue-dark);
+			border: 1px solid var(--govbr-blue);
+		}
+		.bc-note {
+			font-size: 0.8125rem;
+			color: var(--govbr-gray-60);
+			font-style: italic;
+		}
+		.bc-toc ol { margin: 0.5rem 0 0; padding-left: 1.25rem; }
+		@media print {
+			.bc-toolbar { display: none !important; }
+			a.bc-btn::after { content: "" !important; }
+		}
+	</style>
+</head>
+<body>
+	<div class="fs2-topbar">
+		<div class="fs2-topbar__inner">
+			<span>CEFET/RJ · Fábrica de Software II · Business Case Parte I</span>
+			<a href="index.html">← Hub FS II</a>
+		</div>
+	</div>
+
+	<header class="fs2-header">
+		<div class="fs2-header__inner">
+			<h1>Business Case: Parte I</h1>
+			<p class="fs2-header__meta">
+				Portal do Curso de Sistemas de Informação - CEFET/RJ · Campus Maria da Graça
+			</p>
+			<div class="fs2-header__badges">
+				<span class="fs2-badge fs2-badge--primary">v1.0</span>
+				<span class="fs2-badge">Emissão: 14/09/2026</span>
+				<span class="fs2-badge fs2-badge--warning">Status: Em validação</span>
+				<span class="fs2-badge fs2-badge--success">Modelo institucional CEFET</span>
+			</div>
+			<div class="bc-toolbar no-print">
+				<button type="button" class="bc-btn" onclick="window.print()">Baixar / exportar PDF</button>
+				<a class="bc-btn bc-btn--ghost" href="project-charter.html">Project Charter</a>
+				<span class="bc-note">No diálogo de impressão, escolha «Salvar como PDF».</span>
+			</div>
+		</div>
+	</header>
+
+	<nav class="fs2-nav" aria-label="Seções do Business Case">
+		<div class="fs2-nav__inner">
+			<a href="#capa">Capa</a>
+			<a href="#sumario">Sumário</a>
+			<a href="#executivo">1. Sumário Executivo</a>
+			<a href="#visao">2. Visão Geral</a>
+			<a href="#resultados">Resultados</a>
+			<a href="#beneficios">Benefícios</a>
+			<a href="#escopo">Escopo</a>
+			<a href="#riscos">Riscos</a>
+		</div>
+	</nav>
+
+	<main class="fs2-main fs2-main--narrow">
+
+		<!-- ========== CAPA / METADADOS ========== -->
+		<section class="fs2-section" id="capa">
+			<h2>Identificação da iniciativa</h2>
+			<div class="fs2-table-wrap">
+				<table class="fs2-table bc-cover">
+					<tbody>
+						<tr>
+							<th scope="row">Título</th>
+							<td>Portal do Curso de Sistemas de Informação - CEFET/RJ (Campus Maria da Graça)</td>
+						</tr>
+						<tr>
+							<th scope="row">Iniciado por</th>
+							<td>Coordenação do Curso de Sistemas de Informação</td>
+						</tr>
+						<tr>
+							<th scope="row">Patrocinador Executivo</th>
+							<td>Cristiano Fuschilo: Coordenador do Curso de Sistemas de Informação</td>
+						</tr>
+						<tr>
+							<th scope="row">Organização Patrocinadora</th>
+							<td>CEFET/RJ - Curso de Sistemas de Informação - Campus Maria da Graça</td>
+						</tr>
+						<tr>
+							<th scope="row">Unidade Demandante</th>
+							<td>Coordenação de SI - Campus Maria da Graça</td>
+						</tr>
+						<tr>
+							<th scope="row">Tipo de Projeto</th>
+							<td>
+								<strong>Híbrido:</strong> Projeto de Substituição (página legada do curso no site institucional)
+								<strong>+</strong> Nova Iniciativa (portal próprio com CMS, identidade gov.br e módulos acadêmicos).
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">Elaborado por</th>
+							<td>
+								<strong>Equipe (Fábrica de Software):</strong>
+								<ul style="margin:0.35rem 0 0.5rem;padding-left:1.2rem">
+									<li>Calebe Pereira de Paula Moura</li>
+									<li>Mauro Felippe Telles Junior</li>
+									<li>Nicollas Leal dos Santos</li>
+									<li>Yago de Avila Vial</li>
+								</ul>
+								<strong>Responsável institucional:</strong> Cristiano Fuschilo
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<h3>Controle de versões</h3>
+			<div class="fs2-table-wrap">
+				<table class="fs2-table">
+					<thead>
+						<tr><th>Data</th><th>Autor</th><th>Notas</th></tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>14/09/2026</td>
+							<td>Yago de Avila Vial</td>
+							<td>Emissão inicial: Business Case Parte I (formato HTML alinhado ao modelo institucional)</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<h3>Partes consultadas</h3>
+			<div class="fs2-table-wrap">
+				<table class="fs2-table">
+					<thead>
+						<tr><th>Nome</th><th>Cargo / Função</th><th>Unidade</th></tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Cristiano Fuschilo</td>
+							<td>Coordenador do Curso / Patrocinador Executivo</td>
+							<td>Coordenação SI - Campus Maria da Graça</td>
+						</tr>
+						<tr>
+							<td>Eduardo Augusto Ferreira da Silva</td>
+							<td>Professor / apoio à iniciativa e articulações de infraestrutura</td>
+							<td>CEFET/RJ</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="fs2-section" id="sumario">
+			<h2>Sumário</h2>
+			<ol class="bc-toc">
+				<li><a href="#executivo">Sumário Executivo</a>
+					<ol>
+						<li><a href="#visao-geral-exec">Visão Geral</a></li>
+						<li><a href="#beneficios-exec">Benefícios</a></li>
+						<li><a href="#custos">Custos e Viabilidade Financeira</a></li>
+					</ol>
+				</li>
+				<li><a href="#visao">Visão Geral do Projeto</a>
+					<ol>
+						<li><a href="#justificativa">Justificativa da Iniciativa</a></li>
+						<li><a href="#conformidade">Projeto de Conformidade (complementar)</a></li>
+						<li><a href="#alinhamento">Alinhamento Estratégico e Valor Institucional</a></li>
+						<li><a href="#resultados">Resultados</a></li>
+						<li><a href="#beneficios">Benefícios Detalhados</a></li>
+						<li><a href="#desbeneficios">Desbenefícios</a></li>
+						<li><a href="#escopo">Escopo em Alto Nível</a></li>
+						<li><a href="#impactos">Impactos da Iniciativa</a></li>
+						<li><a href="#tecnologia">Resumo Tecnológico</a></li>
+						<li><a href="#premissas">Premissas</a></li>
+						<li><a href="#restricoes">Restrições</a></li>
+						<li><a href="#riscos">Principais Riscos</a></li>
+					</ol>
+				</li>
+			</ol>
+		</section>
+
+		<!-- ========== 1. SUMÁRIO EXECUTIVO ========== -->
+		<section class="fs2-section" id="executivo">
+			<h2>1. Sumário Executivo</h2>
+
+			<h3 id="visao-geral-exec">1.1 Visão Geral</h3>
+			<p>
+				A Coordenação do Curso de Sistemas de Informação do CEFET/RJ - Campus Maria da Graça
+				necessita de um <strong>canal digital próprio, atualizável e alinhado a padrões de governo eletrônico</strong>,
+				em substituição à página institucional legada, hoje limitada em estrutura, autonomia editorial
+				e capacidade de divulgação acadêmica.
+			</p>
+			<p>
+				A iniciativa propõe o <strong>Portal SI CEFET/RJ</strong>: plataforma WordPress com tema institucional
+				baseado no Design System gov.br, desenvolvida pela Fábrica de Software do próprio curso.
+				O resultado esperado é um portal público em produção até <strong>novembro/2026</strong>, com conteúdo
+				gerido pela coordenação e corpo docente, atendendo candidatos, alunos (~200), professores e comunidade externa.
+			</p>
+			<p>
+				Não há custo financeiro direto mensurável nesta Parte I (mão de obra acadêmica e infraestrutura
+				institucional/RNP). A alternativa recomendada é a continuidade e go-live do portal já desenvolvido
+				em MVP, com deploy em VM homologada e posterior publicação institucional.
+			</p>
+
+			<h3 id="beneficios-exec">1.2 Benefícios</h3>
+			<ul>
+				<li>Centralização e transparência das informações do curso (ingresso, grade, docentes, documentos, fábrica, contato).</li>
+				<li>Autonomia editorial da coordenação via painel WordPress (sem depender de intervenção técnica para atualizações rotineiras).</li>
+				<li>Experiência alinhada ao Design System do Governo Federal e a requisitos de acessibilidade (WCAG 2.1 AA / eMAG).</li>
+				<li>Formação prática dos alunos da Fábrica de Software em projeto real de produto digital institucional.</li>
+				<li>Melhoria da comunicação com candidatos e comunidade externa, apoiando captação e reputação do curso.</li>
+				<li>Base tecnológica moderna (Docker, HTTPS, backup) compatível com governança de TI institucional.</li>
+			</ul>
+			<p class="bc-note">Benefícios financeiros (VPL, payback, receita): não aplicáveis nesta iniciativa acadêmico-institucional.</p>
+
+			<h3 id="custos">1.3 Custos e Viabilidade Financeira</h3>
+			<p>
+				<strong>Não aplicável em termos monetários diretos.</strong> O desenvolvimento é realizado no âmbito da
+				disciplina Fábrica de Software (mão de obra discente). Infraestrutura prevista via recursos
+				institucionais / RNP (VM), sem orçamento de software proprietário obrigatório (stack open source:
+				WordPress, MariaDB, Caddy, Docker).
+			</p>
+			<div class="fs2-table-wrap">
+				<table class="fs2-table">
+					<thead>
+						<tr>
+							<th>Alternativa</th>
+							<th>Custo de Implementação</th>
+							<th>Custo Recorrente</th>
+							<th>Custo Total*</th>
+							<th>Benefícios Financeiros**</th>
+							<th>VPL</th>
+							<th>Payback</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>A - Manter página legada</td>
+							<td>N/A (R$ 0 incremental)</td>
+							<td>N/A</td>
+							<td>N/A</td>
+							<td>N/A</td>
+							<td>N/A</td>
+							<td>N/A</td>
+						</tr>
+						<tr>
+							<td>B - Portal WordPress (recomendado)</td>
+							<td>N/A (esforço acadêmico + VM institucional)</td>
+							<td>N/A (manutenção editorial da coordenação; hospedagem institucional)</td>
+							<td>N/A*</td>
+							<td>N/A</td>
+							<td>N/A</td>
+							<td>N/A</td>
+						</tr>
+						<tr>
+							<td>C - Sistema sob medida (fora do WordPress)</td>
+							<td>N/A (esforço e prazo significativamente maiores)</td>
+							<td>N/A</td>
+							<td>N/A</td>
+							<td>N/A</td>
+							<td>N/A</td>
+							<td>N/A</td>
+						</tr>
+						<tr>
+							<td><strong>Alternativa recomendada: B</strong></td>
+							<td>N/A</td>
+							<td>N/A</td>
+							<td>N/A*</td>
+							<td>N/A</td>
+							<td>N/A</td>
+							<td>N/A</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p class="bc-note">
+				* Horizonte de análise: semestre letivo FS II até go-live (nov/2026) e operação contínua sob responsabilidade da coordenação.
+				** Preenchido apenas quando houver benefícios financeiros mensuráveis: não é o caso.
+			</p>
+		</section>
+
+		<!-- ========== 2. VISÃO GERAL ========== -->
+		<section class="fs2-section" id="visao">
+			<h2>2. Visão Geral do Projeto</h2>
+
+			<h3 id="justificativa">2.1 Justificativa da Iniciativa (Por quê?)</h3>
+			<p>
+				<strong>Situação atual:</strong> as informações do Bacharelado em Sistemas de Informação (Campus Maria da Graça)
+				permanecem concentradas em página legada no portal central do CEFET/RJ, com baixa autonomia de edição,
+				estrutura limitada e dificuldade de manter notícias, corpo docente, documentos, calendário e divulgação
+				da Fábrica de Software em um único ponto confiável.
+			</p>
+			<p>
+				<strong>Necessidade / oportunidade:</strong> disponibilizar um portal institucional do curso, público,
+				acessível e atualizável, que informe candidatos, apoie alunos matriculados, credibilize o curso perante
+				a comunidade e sirva de vitrine acadêmica, alinhado à Análise de Requisitos já elaborada (RF01-RF34)
+				e ao Design System gov.br.
+			</p>
+			<p>
+				<strong>Importância:</strong> a iniciativa combina substituição de canal defasado com construção de
+				capacidade digital própria da coordenação, ao mesmo tempo em que forma alunos em condições reais de
+				entrega de software. Contribui para comunicação institucional, extensão formativa (Fábrica) e modernização
+				da presença digital do curso no âmbito do CEFET/RJ.
+			</p>
+
+			<h3 id="conformidade">2.2 Projeto de Conformidade (complementar)</h3>
+			<p>
+				A iniciativa <strong>não nasce</strong> como projeto exclusivamente de compliance. Contudo, a solução
+				deve observar requisitos legais e institucionais aplicáveis a serviços digitais públicos:
+			</p>
+			<div class="fs2-table-wrap">
+				<table class="fs2-table">
+					<tbody>
+						<tr>
+							<th scope="row">Órgão / Norma / Regulamento</th>
+							<td>LGPD (Lei 13.709/2018); WCAG 2.1 AA / eMAG; boas práticas de presença digital alinhadas ao Design System gov.br; HTTPS/TLS</td>
+						</tr>
+						<tr>
+							<th scope="row">Justificativa da conformidade</th>
+							<td>Portal público institucional trata dados de contato e deve oferecer acessibilidade, privacidade e canal seguro de acesso.</td>
+						</tr>
+						<tr>
+							<th scope="row">Constatações de auditoria</th>
+							<td>Não aplicável / não há auditoria formal disparando a iniciativa.</td>
+						</tr>
+						<tr>
+							<th scope="row">Impacto para a organização</th>
+							<td>Reduz risco reputacional e de conformidade em canal público do curso; facilita atualização responsável de conteúdos.</td>
+						</tr>
+						<tr>
+							<th scope="row">Prazo mínimo / máximo para adequação</th>
+							<td>Alinhado ao go-live do produto: <strong>15/11/2026</strong> (produto) e aceite acadêmico até <strong>30/11/2026</strong>.</td>
+						</tr>
+						<tr>
+							<th scope="row">Penalidade / consequência do não atendimento</th>
+							<td>Não há multa específica vinculada a este BC; risco principal é manutenção de canal inadequado, baixa transparência e exposição a falhas de acessibilidade/privacidade.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<h3 id="alinhamento">2.3 Alinhamento Estratégico e Valor Institucional</h3>
+			<p>
+				A iniciativa contribui para objetivos do <strong>PDI CEFET/RJ 2025-2029</strong>
+				(aprovado pelo Conselho Diretor, Resolução nº 90/2025), especialmente nos eixos de
+				<strong>Ensino</strong>, <strong>Extensão</strong>, <strong>Tecnologia da Informação</strong> e
+				<strong>Comunicação</strong>.
+			</p>
+
+			<p><strong>Alinhamento estratégico (categorias do modelo)</strong></p>
+			<ul class="bc-checks" aria-label="Categorias de alinhamento">
+				<li><span class="mark mark--on" aria-hidden="true">✓</span> Ensino e Formação</li>
+				<li><span class="mark" aria-hidden="true"></span> Pesquisa e Inovação <span class="bc-note">(apoio indireto via divulgação)</span></li>
+				<li><span class="mark mark--on" aria-hidden="true">✓</span> Extensão e Impacto</li>
+				<li><span class="mark mark--on" aria-hidden="true">✓</span> Desenvolvimento Tecnológico</li>
+				<li><span class="mark" aria-hidden="true"></span> Desenvolvimento Regional <span class="bc-note">(efeito indireto)</span></li>
+			</ul>
+
+			<p><strong>Objetivos estratégicos do PDI 2025-2029 diretamente relacionados</strong></p>
+			<ul class="bc-pdi">
+				<li>
+					<strong>Ensino - Obj. 1:</strong> Maximizar a ocupação das vagas nos cursos de graduação e técnico,
+					com estratégias de captação e manutenção de estudantes: o portal melhora a vitrine de ingresso (SISU/ENEM)
+					e a clareza de informações para candidatos.
+				</li>
+				<li>
+					<strong>Extensão - Obj. 1:</strong> Fortalecer a Extensão como processo formativo e transformador:
+					a Fábrica de Software opera como prática de formação com entrega real à coordenação/sociedade acadêmica.
+				</li>
+				<li>
+					<strong>TI - Obj. 1:</strong> Expandir a infraestrutura e conectividade de TI:
+					provisionamento de VM/rede (RNP/institucional) para hospedar o serviço.
+				</li>
+				<li>
+					<strong>TI - Obj. 2:</strong> Promover o alinhamento das ações de TI com ensino, pesquisa, extensão e gestão:
+					solução digital a serviço direto da coordenação acadêmica.
+				</li>
+				<li>
+					<strong>TI - Obj. 3:</strong> Adequar a gestão de TI às novas exigências de governança de TI:
+					HTTPS, backups, papéis de acesso e documentação operacional.
+				</li>
+				<li>
+					<strong>Comunicação - Obj. 1:</strong> Fortalecer a comunicação institucional do CEFET/RJ:
+					canal estruturado do curso, reduzindo dispersão de informação e limitações do site legado.
+				</li>
+			</ul>
+			<p class="bc-note">
+				Fonte: PDI CEFET/RJ 2025-2029
+				(<a href="https://www.cefet-rj.br/attachments/article/3902/PDI%20finalizado%20c%20ficha%20catalografica%2011_11_2025.pdf" rel="noopener noreferrer" target="_blank">documento oficial</a>).
+				Objetivos de Internacionalização e de Gestão de Pessoas (exceto comunicação/transparência em sentido amplo)
+				não foram marcados como alinhamento primário desta iniciativa.
+			</p>
+		</section>
+
+		<section class="fs2-section" id="resultados">
+			<h2>2.4 Resultados</h2>
+			<p>Principais resultados que possibilitam os benefícios esperados:</p>
+			<div class="fs2-table-wrap">
+				<table class="fs2-table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Resultado</th>
+							<th>Descrição</th>
+							<th>Benefício(s)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>R1</td>
+							<td>Portal institucional disponibilizado</td>
+							<td>Site público do curso em produção (homologação → go-live), com tema gov.br e módulos previstos na Análise de Requisitos.</td>
+							<td>B1, B2, B6</td>
+						</tr>
+						<tr>
+							<td>R2</td>
+							<td>Conteúdo oficial publicado e manutenível</td>
+							<td>Coordenação/editores atualizam notícias, docentes, documentos, calendário e demais conteúdos via wp-admin, sem deploy para tarefas editoriais.</td>
+							<td>B2, B3, B4</td>
+						</tr>
+						<tr>
+							<td>R3</td>
+							<td>Estudantes da Fábrica capacitados em entrega de produto</td>
+							<td>Equipe conclui ciclo de desenvolvimento, documentação, deploy e handoff em contexto real.</td>
+							<td>B1, B5</td>
+						</tr>
+						<tr>
+							<td>R4</td>
+							<td>Canal de comunicação com candidatos e comunidade</td>
+							<td>Informações de ingresso, estrutura do curso e contato centralizadas e acessíveis.</td>
+							<td>B3, B4, B7</td>
+						</tr>
+						<tr>
+							<td>R5</td>
+							<td>Operação mínima de TI estabelecida</td>
+							<td>VM, HTTPS, backup e procedimentos de atualização documentados (DEPLOY/BACKUP).</td>
+							<td>B6, B8</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="fs2-section" id="beneficios">
+			<h2>2.5 Benefícios Detalhados</h2>
+			<p class="bc-note">
+				Indicadores com estimativas iniciais (coordenação pode ajustar). Público interno do curso ≈ 200 alunos;
+				impacto adicional em candidatos e comunidade externa. Go-live: novembro/2026.
+			</p>
+			<div class="fs2-table-wrap">
+				<table class="fs2-table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Categoria</th>
+							<th>Benefício</th>
+							<th>Indicador</th>
+							<th>Prazo</th>
+							<th>Responsável</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>B1</td>
+							<td>Educacional</td>
+							<td>Desenvolvimento de competências práticas em engenharia de software / produto digital</td>
+							<td>4 estudantes da Fábrica envolvidos na entrega ponta a ponta</td>
+							<td>Até 30/11/2026</td>
+							<td>Equipe do projeto / Coordenação</td>
+						</tr>
+						<tr>
+							<td>B2</td>
+							<td>Organizacional</td>
+							<td>Autonomia da coordenação para atualizar o portal</td>
+							<td>2 administradores institucionais com acesso e treinamento básico</td>
+							<td>Até o go-live (15/11/2026)</td>
+							<td>Coordenação SI</td>
+						</tr>
+						<tr>
+							<td>B3</td>
+							<td>Institucional / Comunicação</td>
+							<td>Informação centralizada e transparente para a comunidade do curso</td>
+							<td>≥ 200 alunos potencialmente beneficiados + candidatos/comunidade externa</td>
+							<td>A partir do go-live</td>
+							<td>Coordenação SI</td>
+						</tr>
+						<tr>
+							<td>B4</td>
+							<td>Educacional / Captação</td>
+							<td>Melhor apoio à jornada de ingresso (SISU/ENEM) e apresentação do curso</td>
+							<td>Páginas de ingresso/sobre o curso publicadas e linkadas a fontes oficiais CEFET/MEC</td>
+							<td>Até 15/11/2026</td>
+							<td>Equipe + Coordenação</td>
+						</tr>
+						<tr>
+							<td>B5</td>
+							<td>Extensão / Formação</td>
+							<td>Integração entre formação acadêmica e demanda real da coordenação</td>
+							<td>1 organização beneficiária atendida (Coordenação SI) com produto em uso</td>
+							<td>Durante o projeto</td>
+							<td>Equipe do projeto</td>
+						</tr>
+						<tr>
+							<td>B6</td>
+							<td>Tecnológico / Inovação</td>
+							<td>Disponibilização de solução digital alinhada ao DS gov.br</td>
+							<td>1 portal em produção com HTTPS, tema próprio e stack documentada</td>
+							<td>Até 15/11/2026</td>
+							<td>Equipe do projeto</td>
+						</tr>
+						<tr>
+							<td>B7</td>
+							<td>Eficiência / Comunicação</td>
+							<td>Redução da dependência da página legada para divulgação do curso</td>
+							<td>Portal SI como referência principal do curso após validação da coordenação/TI</td>
+							<td>Até 30/11/2026 (aceite) / go-live institucional conforme TI</td>
+							<td>Patrocinador + TI</td>
+						</tr>
+						<tr>
+							<td>B8</td>
+							<td>Redução de riscos</td>
+							<td>Rotina mínima de backup e operação</td>
+							<td>Backup semanal configurado (meta RNF12) com retenção ≥ 30 dias</td>
+							<td>Até 30 dias após go-live</td>
+							<td>Equipe / Coordenação</td>
+						</tr>
+						<tr>
+							<td>B9</td>
+							<td>Reputação / Relacionamento</td>
+							<td>Fortalecimento da imagem digital do curso</td>
+							<td>Presença visual padronizada (gov.br) e canais de contato claros</td>
+							<td>A partir do go-live</td>
+							<td>Coordenação SI</td>
+						</tr>
+						<tr>
+							<td>B10</td>
+							<td>Social</td>
+							<td>Acesso público a informações acadêmicas sem barreira de login</td>
+							<td>100% do conteúdo público do portal acessível sem autenticação (exceto wp-admin)</td>
+							<td>No go-live</td>
+							<td>Equipe do projeto</td>
+						</tr>
+						<tr>
+							<td>B11</td>
+							<td>Financeiro</td>
+							<td>-</td>
+							<td>Não aplicável</td>
+							<td>-</td>
+							<td>-</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p class="bc-note">
+				Frequência editorial de notícias: estimativa operacional sugerida de <strong>ao menos 1 publicação/mês</strong>
+				no período letivo: valor a validar pela coordenação (indicador de uso, não de desenvolvimento).
+			</p>
+		</section>
+
+		<section class="fs2-section" id="desbeneficios">
+			<h2>2.6 Desbenefícios</h2>
+			<p>Consequências negativas esperadas:</p>
+			<ul>
+				<li>Necessidade de capacitação inicial dos editores/administradores no WordPress.</li>
+				<li>Tempo de adaptação da coordenação a um novo fluxo editorial e à nova URL/canal.</li>
+				<li>Demanda contínua de manutenção de conteúdo, plugins e atualizações de segurança após o semestre.</li>
+				<li>Dependência inicial da equipe discente para handoff técnico e da RNP/TI para infraestrutura.</li>
+				<li>Esforço adicional de validação de textos, fotos e dados oficiais junto a professores e coordenação.</li>
+			</ul>
+		</section>
+
+		<section class="fs2-section" id="escopo">
+			<h2>2.7 Escopo em Alto Nível da Iniciativa</h2>
+			<p>Escopo de avaliação deste Business Case (o detalhamento operacional está no Project Charter):</p>
+			<div class="fs2-table-wrap">
+				<table class="fs2-table">
+					<thead>
+						<tr><th>Incluído</th><th>Não incluído</th></tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<ul style="margin:0;padding-left:1.1rem">
+									<li>Portal WordPress com tema <code>portal-si-cefet</code> (DS gov.br)</li>
+									<li>Módulos funcionais da Análise de Requisitos (RF01-RF34) no compromisso FS II</li>
+									<li>Ambiente Docker, deploy em VM, HTTPS e documentação operacional</li>
+									<li>Handoff a administradores da coordenação</li>
+									<li>Substituição gradual da página legada como canal de referência do curso</li>
+								</ul>
+							</td>
+							<td>
+								<ul style="margin:0;padding-left:1.1rem">
+									<li>App mobile nativo</li>
+									<li>Integração profunda com sistemas acadêmicos corporativos (SIE etc.)</li>
+									<li>Suporte permanente pela equipe discente após o período do projeto</li>
+									<li>Redesign do portal central cefet-rj.br</li>
+									<li>Funcionalidades fora dos RI01-RI07 / fora do escopo de requisitos</li>
+								</ul>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="fs2-section" id="impactos">
+			<h2>2.8 Impactos da Iniciativa</h2>
+			<div class="fs2-table-wrap">
+				<table class="fs2-table">
+					<thead>
+						<tr>
+							<th>Parte interessada / Grupo</th>
+							<th>Tipo de impacto</th>
+							<th>Descrição do impacto</th>
+							<th>Grau</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Alunos do curso (~200)</td>
+							<td>Pessoas / Educacional</td>
+							<td>Novo ponto de acesso a notícias, calendário, documentos, docentes e serviços digitais.</td>
+							<td>Alto</td>
+						</tr>
+						<tr>
+							<td>Candidatos / comunidade externa</td>
+							<td>Pessoas / Comunicação</td>
+							<td>Melhor compreensão do curso e do ingresso; maior clareza de contato.</td>
+							<td>Alto</td>
+						</tr>
+						<tr>
+							<td>Coordenação / editores</td>
+							<td>Processo / Pessoas</td>
+							<td>Passam a publicar e manter conteúdo no wp-admin; mudam o fluxo em relação à página legada.</td>
+							<td>Alto</td>
+						</tr>
+						<tr>
+							<td>Professores</td>
+							<td>Pessoas / Processo</td>
+							<td>Atualização de perfis, projetos e eventuais conteúdos sob responsabilidade docente.</td>
+							<td>Médio</td>
+						</tr>
+						<tr>
+							<td>Equipe da Fábrica</td>
+							<td>Pessoas / Tecnologia</td>
+							<td>Desenvolvimento, documentação, deploy e transferência de conhecimento.</td>
+							<td>Alto</td>
+						</tr>
+						<tr>
+							<td>TI / RNP</td>
+							<td>Tecnologia / Infraestrutura</td>
+							<td>Provisionamento de VM, rede/portas e eventual alinhamento de domínio institucional.</td>
+							<td>Médio</td>
+						</tr>
+						<tr>
+							<td>CEFET/RJ</td>
+							<td>Institucional</td>
+							<td>Fortalece presença digital do curso e alinhamento a PDI (comunicação, TI, ensino/extensão).</td>
+							<td>Médio</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="fs2-section" id="tecnologia">
+			<h2>2.9 Resumo Tecnológico</h2>
+			<ul>
+				<li>Aplicação web institucional em <strong>WordPress</strong> com tema customizado <code>portal-si-cefet</code>.</li>
+				<li>Identidade visual e componentes alinhados ao <strong>Design System gov.br</strong>.</li>
+				<li>Persistência em <strong>MariaDB</strong>; orquestração local/servidor via <strong>Docker Compose</strong>.</li>
+				<li>Exposição pública com <strong>Caddy</strong> (HTTPS/Let’s Encrypt) em VM de homologação/produção.</li>
+				<li>Plugins essenciais: SEO, cache, segurança, formulários e backup (conforme requisitos não funcionais).</li>
+				<li>Arquitetura pensada para manutenção editorial pela coordenação e atualização de código via Git.</li>
+			</ul>
+		</section>
+
+		<section class="fs2-section" id="premissas">
+			<h2>2.10 Premissas</h2>
+			<ul>
+				<li>A Coordenação permanecerá disponível para validação de conteúdo e aceite.</li>
+				<li>A infraestrutura (VM/portas) será provida pela via institucional/RNP em tempo hábil para o go-live.</li>
+				<li>WordPress + Docker permanece a stack acordada.</li>
+				<li>Conteúdo oficial (textos, fotos, documentos) será fornecido ou validado pela coordenação/professores.</li>
+				<li>Usuários finais acessam o portal por navegador com conexão à internet.</li>
+				<li>O go-live no domínio oficial <code>*.cefet-rj.br</code>, se distinto da homologação, depende de TI institucional.</li>
+			</ul>
+		</section>
+
+		<section class="fs2-section" id="restricoes">
+			<h2>2.11 Restrições</h2>
+			<ul>
+				<li>Prazo acadêmico do FS II com marco de produto em <strong>15/11/2026</strong> e aceite em <strong>30/11/2026</strong>.</li>
+				<li>Equipe limitada (4 integrantes) com demais disciplinas e obrigações acadêmicas.</li>
+				<li>Orçamento financeiro direto inexistente: dependência de infra institucional.</li>
+				<li>Requisitos inversos (RI01-RI07) permanecem fora de escopo.</li>
+				<li>Necessidade de observar políticas institucionais de segurança, acesso e proteção de dados.</li>
+				<li>Substituição plena da URL legada no portal central depende de autorização da coordenação/TI.</li>
+			</ul>
+		</section>
+
+		<section class="fs2-section" id="riscos">
+			<h2>2.12 Principais Riscos (Key Risks)</h2>
+
+			<h3>Riscos de fazer o projeto</h3>
+			<ul>
+				<li>Atraso no provisionamento da VM / liberação de portas (RNP/TI), comprimindo o go-live.</li>
+				<li>Conteúdo oficial incompleto ou tardio (docentes, documentos, textos) na data de publicação.</li>
+				<li>Baixa adesão inicial dos editores ao novo fluxo no WordPress.</li>
+				<li>Escopo completo (RF01-RF34) pressionar qualidade ou prazo: necessidade de priorização contínua.</li>
+				<li>Falhas de configuração (HTTPS, backup, permissões) impactarem disponibilidade ou segurança.</li>
+			</ul>
+
+			<h3>Riscos de não fazer o projeto</h3>
+			<ul>
+				<li>Permanência de canal legado disperso, difícil de atualizar e pouco alinhado a padrões atuais de governo eletrônico.</li>
+				<li>Perda de oportunidade de autonomia editorial da coordenação.</li>
+				<li>Comunicação insuficiente com candidatos e comunidade, prejudicando captação e transparência.</li>
+				<li>Desperdício do MVP já construído na Fábrica de Software I e da capacidade formativa do FS II.</li>
+				<li>Manutenção da dependência de intermediários técnicos para alterações simples de conteúdo.</li>
+			</ul>
+		</section>
+
+		<section class="fs2-section no-print">
+			<h2>Documentos relacionados</h2>
+			<ul>
+				<li><a href="project-charter.html">Project Charter FS II</a>: escopo detalhado, metodologia e aceite</li>
+				<li><a href="cronograma-gantt.html">Cronograma Gantt + Backlog</a></li>
+				<li><a href="../referencias/Analise_Requisitos_Portal_SI_CefetRJ_revisado.md">Análise de Requisitos</a></li>
+				<li><a href="../DEPLOY.md">Guia de Deploy</a> · <a href="../BACKUP.md">Backup</a></li>
+			</ul>
+			<div class="fs2-callout fs2-callout--info">
+				<strong>Como gerar o PDF</strong>
+				Use o botão <em>Baixar / exportar PDF</em> no topo (ou <kbd>Ctrl+P</kbd>) e selecione
+				«Salvar como PDF». A estrutura segue o modelo Word institucional (Parte I).
+			</div>
+		</section>
+	</main>
+
+	<footer class="fs2-footer">
+		<div class="fs2-footer__inner">
+			Business Case Parte I · Portal SI CEFET/RJ · Fábrica de Software · 14/09/2026 ·
+			<a href="index.html">Hub FS II</a>
+		</div>
+	</footer>
+</body>
+</html>

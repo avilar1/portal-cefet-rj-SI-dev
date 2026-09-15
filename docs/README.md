@@ -15,7 +15,8 @@ A pasta `contexto/` na raiz do repositório permanece no `.gitignore` (materiais
 
 | Artefato | Conteúdo |
 |----------|----------|
-| [**fs2/index.html**](fs2/index.html) | **Project Charter** + **Cronograma Gantt** + backlog (HTML interativo; abrir no navegador) |
+| [**fs2/index.html**](fs2/index.html) | Hub FS II: **Business Case**, Project Charter, Gantt e backlog (HTML; PDF via impressão) |
+| [**fs2/business-case.html**](fs2/business-case.html) | Business Case Parte I (modelo institucional CEFET / PDI 2025–2029) |
 
 ## Status de implementação
 
