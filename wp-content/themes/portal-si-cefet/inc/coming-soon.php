@@ -16,7 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function portal_si_coming_soon_page_slugs() {
 	$slugs = array(
-		'grade-curricular',
 		'carreira-e-egressos',
 		'vida-estudantil',
 		'acessibilidade',
@@ -110,7 +109,6 @@ function portal_si_coordination_contato_url() {
  */
 function portal_si_coming_soon_message_for_slug( $slug ) {
 	$messages = array(
-		'grade-curricular'          => __( 'A grade curricular, ementas e fluxo de disciplinas serão publicados nesta seção.', 'portal-si-cefet' ),
 		'carreira-e-egressos'       => __( 'Informações sobre empregabilidade, trajetórias de egressos e oportunidades de carreira serão publicadas nesta seção.', 'portal-si-cefet' ),
 		'vida-estudantil'           => __( 'Conteúdos sobre bolsas, auxílios, benefícios e vida acadêmica no campus serão publicados nesta seção.', 'portal-si-cefet' ),
 		'acessibilidade'            => __( 'A declaração de acessibilidade e os recursos deste portal para pessoas com deficiência serão publicados nesta seção.', 'portal-si-cefet' ),
