@@ -7,8 +7,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PORTAL_SI_CEFET_VERSION', '0.8.2' );
+define( 'PORTAL_SI_CEFET_VERSION', '0.8.4' );
 
+require_once get_template_directory() . '/inc/brand.php';
 require_once get_template_directory() . '/inc/seed-ia.php';
 require_once get_template_directory() . '/inc/seed-editorial.php';
 require_once get_template_directory() . '/inc/comments-policy.php';

@@ -11,10 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="portal-main-nav__inner">
 		<a class="portal-main-nav__brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
 			<span class="portal-main-nav__brand-icon" aria-hidden="true">
-				<svg width="28" height="28" viewBox="0 0 24 24" focusable="false">
-					<rect width="24" height="24" rx="2" fill="#fff"/>
-					<path fill="#1351B4" d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zm7 11.5-7 3.85-7-3.85V18l7 4 7-4v-3.5z"/>
-				</svg>
+				<?php portal_si_the_logo(); ?>
 			</span>
 			<span class="portal-main-nav__brand-text">
 				<span class="portal-main-nav__brand-name">CEFET/RJ</span>

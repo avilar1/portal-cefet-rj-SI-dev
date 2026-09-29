@@ -175,6 +175,15 @@
 .portal-main-nav__brand-icon {
 	flex-shrink: 0;
 	line-height: 0;
+	padding: 0.25rem 0.35rem;
+	background: #fff;
+	border-radius: 4px;
+}
+
+.portal-main-nav__brand-icon img {
+	display: block;
+	width: auto;
+	height: 2rem;
 }
 
 .portal-main-nav__brand-text {
@@ -751,6 +760,26 @@
 	align-items: center;
 	justify-content: space-between;
 	gap: 0.5rem 1rem;
+}
+
+.portal-footer-legal__brand {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.portal-footer-legal__logo {
+	flex-shrink: 0;
+	line-height: 0;
+	padding: 0.2rem 0.3rem;
+	background: #fff;
+	border-radius: 3px;
+}
+
+.portal-footer-legal__logo img {
+	display: block;
+	width: auto;
+	height: 1.5rem;
 }
 
 .portal-footer-legal__copy {

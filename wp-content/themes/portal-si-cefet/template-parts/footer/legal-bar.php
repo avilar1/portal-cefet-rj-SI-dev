@@ -9,10 +9,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <div class="portal-footer-legal">
 	<div class="portal-footer-legal__inner">
-		<p class="portal-footer-legal__copy">
-			&copy; <?php echo esc_html( wp_date( 'Y' ) ); ?>
-			<?php esc_html_e( 'CEFET/RJ — Todos os direitos reservados', 'portal-si-cefet' ); ?>
-		</p>
+		<div class="portal-footer-legal__brand">
+			<span class="portal-footer-legal__logo">
+				<?php portal_si_the_logo( array( 'alt' => __( 'Sistemas de Informação — CEFET/RJ', 'portal-si-cefet' ) ) ); ?>
+			</span>
+			<p class="portal-footer-legal__copy">
+				&copy; <?php echo esc_html( wp_date( 'Y' ) ); ?>
+				<?php esc_html_e( 'CEFET/RJ — Todos os direitos reservados', 'portal-si-cefet' ); ?>
+			</p>
+		</div>
 		<ul class="portal-footer-legal__links">
 			<li>
 				<a href="<?php echo esc_url( portal_si_page_url( 'politica-de-privacidade' ) ); ?>">
