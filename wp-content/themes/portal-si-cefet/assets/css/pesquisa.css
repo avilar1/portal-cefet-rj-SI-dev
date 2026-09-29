@@ -38,12 +38,34 @@
 	margin: 0;
 }
 
-/* Hub: 4 atalhos */
+/* Hub: 6 atalhos (3 × 2) */
+.site-main--pesquisa .portal-pesquisa-hub__links {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 64rem) {
+	.site-main--pesquisa .portal-pesquisa-hub__links {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 36rem) {
+	.site-main--pesquisa .portal-pesquisa-hub__links {
+		grid-template-columns: 1fr;
+	}
+}
+
 .portal-pesquisa-hub__link-card .card-content {
 	display: block;
 	height: 100%;
 	padding: 1rem 1.15rem !important;
-}/* Filtros */
+}
+
+.portal-pesquisa-hub__parcerias {
+	scroll-margin-top: 1.5rem;
+}
+
+/* Filtros */
 .portal-projeto-filters {
 	display: flex;
 	flex-wrap: wrap;

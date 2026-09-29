@@ -37,6 +37,11 @@ $shortcuts     = array(
 		'desc'  => __( 'Como participar e projetos que aceitam alunos.', 'portal-si-cefet' ),
 	),
 	array(
+		'url'   => portal_si_page_url( PORTAL_SI_TCCS_SLUG ),
+		'title' => __( 'Repositório de TCCs', 'portal-si-cefet' ),
+		'desc'  => __( 'Trabalhos defendidos, por autor, orientador e ano.', 'portal-si-cefet' ),
+	),
+	array(
 		'url'   => portal_si_page_url( 'corpo-docente' ),
 		'title' => __( 'Corpo docente', 'portal-si-cefet' ),
 		'desc'  => __( 'Professores, formação e linhas de atuação.', 'portal-si-cefet' ),
@@ -45,6 +50,11 @@ $shortcuts     = array(
 		'url'   => portal_si_page_url( 'fabrica-de-software' ),
 		'title' => __( 'Fábrica de Software', 'portal-si-cefet' ),
 		'desc'  => __( 'Projetos de extensão com parceiros externos.', 'portal-si-cefet' ),
+	),
+	array(
+		'url'   => '#parcerias',
+		'title' => __( 'Parcerias', 'portal-si-cefet' ),
+		'desc'  => __( 'Convênios e instituições parceiras do curso.', 'portal-si-cefet' ),
 	),
 );
 
@@ -128,7 +138,7 @@ get_header();
 			?>
 		</section>
 
-		<section aria-labelledby="pesquisa-parcerias-title">
+		<section id="parcerias" class="portal-pesquisa-hub__parcerias" aria-labelledby="pesquisa-parcerias-title">
 			<h2 id="pesquisa-parcerias-title" class="portal-pesquisa-hub__section-title">
 				<?php esc_html_e( 'Parcerias e convênios', 'portal-si-cefet' ); ?>
 			</h2>

@@ -72,6 +72,24 @@ return array(
 				'description' => 'PPC, regulamentos e arquivos oficiais',
 				'slug'        => 'documentos-institucionais',
 			),
+			array(
+				'icon'        => 'lightbulb',
+				'title'       => 'Pesquisa e Extensão',
+				'description' => 'Projetos, iniciação científica e parcerias',
+				'slug'        => 'pesquisa-e-extensao',
+			),
+			array(
+				'icon'        => 'archive',
+				'title'       => 'Repositório de TCCs',
+				'description' => 'Trabalhos de conclusão defendidos no curso',
+				'slug'        => 'tccs',
+			),
+			array(
+				'icon'        => 'briefcase',
+				'title'       => 'Fábrica de Software',
+				'description' => 'Projetos reais com parceiros externos',
+				'slug'        => 'fabrica-de-software',
+			),
 		),
 	),
 

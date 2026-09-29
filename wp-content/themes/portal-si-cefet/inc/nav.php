@@ -110,6 +110,10 @@ function portal_si_footer_sitemap_columns() {
 					'label' => __( 'Iniciação Científica', 'portal-si-cefet' ),
 					'slug'  => 'iniciacao-cientifica',
 				),
+				array(
+					'label' => __( 'Repositório de TCCs', 'portal-si-cefet' ),
+					'slug'  => 'tccs',
+				),
 			),
 		),
 		array(

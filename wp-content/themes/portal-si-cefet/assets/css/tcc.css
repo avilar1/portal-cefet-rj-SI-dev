@@ -1,0 +1,358 @@
+/**
+ * Repositório de TCCs — RF25.
+ */
+
+.portal-tcc-body {
+	max-width: var(--portal-max-width);
+	margin: 0 auto;
+	padding: 0 var(--portal-space) 2.5rem;
+}
+
+.portal-tcc-header__badge {
+	display: inline-block;
+	margin: 0 0 0.5rem;
+	padding: 0.25rem 0.65rem;
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: var(--color-secondary, #0c326f);
+	background: var(--color-highlight, #ffcd07);
+	border-radius: 2px;
+}
+
+/* Busca */
+.portal-tcc-search {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	gap: 0.85rem 1rem;
+	margin-bottom: 1.25rem;
+	padding: 1rem 1.15rem;
+	background: #f5f7fa;
+	border: 1px solid #dfe5ee;
+	border-radius: 4px;
+}
+
+.portal-tcc-search__field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+	flex: 0 1 12rem;
+}
+
+.portal-tcc-search__field--text {
+	flex: 1 1 20rem;
+}
+
+.portal-tcc-search label {
+	font-size: 0.875rem;
+	font-weight: 700;
+	color: #333;
+}
+
+.portal-tcc-search input,
+.portal-tcc-search select {
+	width: 100%;
+	min-height: 2.5rem;
+	padding: 0.4rem 0.6rem;
+	font: inherit;
+	font-size: 0.9375rem;
+	border: 1px solid #888;
+	border-radius: 4px;
+	background: #fff;
+}
+
+.portal-tcc-search input:focus-visible,
+.portal-tcc-search select:focus-visible {
+	outline: 3px solid var(--color-highlight, #ffcd07);
+	outline-offset: 1px;
+}
+
+.portal-tcc-search__actions {
+	display: flex;
+	align-items: center;
+	gap: 0.85rem;
+}
+
+.portal-tcc-search__actions .portal-btn {
+	min-height: 2.5rem;
+	cursor: pointer;
+}
+
+.portal-tcc-search__clear {
+	font-size: 0.875rem;
+	font-weight: 600;
+}
+
+.portal-tcc-count {
+	margin: 0 0 1rem;
+	font-size: 0.875rem;
+	color: #555;
+}
+
+.portal-tcc-exemplo-note {
+	margin: 0 0 1rem;
+	padding: 0.6rem 0.85rem;
+	font-size: 0.875rem;
+	color: #5c4500;
+	background: #fffbea;
+	border-left: 4px solid #e8c84a;
+}
+
+/* Lista */
+.portal-tcc-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border-top: 1px solid #dfe5ee;
+}
+
+.portal-tcc-item {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 0.5rem 1.5rem;
+	padding: 1rem 0.25rem;
+	border-bottom: 1px solid #dfe5ee;
+}
+
+.portal-tcc-item__main {
+	flex: 1 1 28rem;
+	min-width: 0;
+}
+
+.portal-tcc-item__title {
+	margin: 0 0 0.3rem;
+	font-family: var(--font-heading);
+	font-size: 1.0625rem;
+	font-weight: 700;
+	line-height: 1.35;
+}
+
+.portal-tcc-item__title a {
+	color: var(--color-secondary, #0c326f);
+	text-decoration: none;
+}
+
+.portal-tcc-item__title a:hover,
+.portal-tcc-item__title a:focus-visible {
+	text-decoration: underline;
+}
+
+.portal-tcc-item__meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25rem 1rem;
+	margin: 0;
+	font-size: 0.875rem;
+	color: #555;
+}
+
+.portal-tcc-item__side {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	gap: 0.35rem;
+}
+
+.portal-tcc-item__periodo {
+	font-weight: 700;
+	color: var(--color-primary, #1351b4);
+	margin-right: 0.25rem;
+}
+
+.portal-tcc-badge {
+	display: inline-block;
+	padding: 0.1rem 0.45rem;
+	font-size: 0.75rem;
+	font-weight: 700;
+	border-radius: 2px;
+	color: #333;
+	background: #ededed;
+}
+
+.portal-tcc-badge--pdf {
+	color: #fff;
+	background: #b3261e;
+}
+
+.portal-tcc-badge--link {
+	color: #fff;
+	background: var(--color-primary, #1351b4);
+}
+
+.portal-tcc-badge--exemplo {
+	color: #5c4500;
+	background: #fff1b8;
+	border: 1px dashed #b58a00;
+}
+
+.portal-tcc-pagination {
+	margin-top: 1.5rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	justify-content: center;
+}
+
+.portal-tcc-pagination .page-numbers {
+	padding: 0.35rem 0.7rem;
+	border: 1px solid #c5d9f0;
+	border-radius: 2px;
+	text-decoration: none;
+}
+
+.portal-tcc-pagination .page-numbers.current {
+	color: #fff;
+	background: var(--color-primary, #1351b4);
+	border-color: var(--color-primary, #1351b4);
+}
+
+/* TCC individual */
+.portal-tcc-single__autores {
+	margin: 0.5rem 0 0;
+	font-size: 1rem;
+	font-weight: 600;
+	color: #444;
+}
+
+.portal-tcc-single__layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 18rem;
+	gap: 2rem;
+	align-items: start;
+}
+
+.portal-tcc-single__section-title {
+	margin: 0 0 0.75rem;
+	font-family: var(--font-heading);
+	font-size: 1.25rem;
+	color: var(--color-secondary, #0c326f);
+}
+
+.portal-tcc-single__content .entry-content {
+	margin-bottom: 1.75rem;
+	line-height: 1.6;
+}
+
+.portal-tcc-keywords {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+}
+
+.portal-tcc-keywords a {
+	display: inline-block;
+	padding: 0.25rem 0.7rem;
+	font-size: 0.875rem;
+	color: var(--color-primary, #1351b4);
+	background: #eef4fc;
+	border: 1px solid #c5d9f0;
+	border-radius: 999px;
+	text-decoration: none;
+}
+
+.portal-tcc-keywords a:hover,
+.portal-tcc-keywords a:focus-visible {
+	text-decoration: underline;
+}
+
+.portal-tcc-single__aside {
+	padding: 1.1rem;
+	background: #f5f7fa;
+	border: 1px solid #dfe5ee;
+	border-radius: 4px;
+}
+
+.portal-tcc-single__meta {
+	margin: 0;
+}
+
+.portal-tcc-single__meta dt {
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: #555;
+}
+
+.portal-tcc-single__meta dd {
+	margin: 0.15rem 0 0.85rem;
+	font-weight: 600;
+	color: var(--color-secondary, #0c326f);
+}
+
+.portal-tcc-single__actions {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.portal-tcc-single__actions .portal-btn,
+.portal-tcc-single__back .portal-btn {
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+}
+
+/* .portal-btn--secondary no hero usa texto branco; aqui o fundo é claro */
+.portal-tcc-single__actions .portal-btn--secondary {
+	background: #fff;
+	color: var(--color-secondary, #0c326f);
+	border-color: var(--color-secondary, #0c326f);
+}
+
+.portal-tcc-single__actions .portal-btn--secondary:hover,
+.portal-tcc-single__actions .portal-btn--secondary:focus-visible {
+	background: var(--color-secondary, #0c326f);
+	color: #fff;
+}
+
+.portal-tcc-single__unavailable {
+	margin: 0;
+	font-size: 0.875rem;
+	color: #555;
+}
+
+.portal-tcc-single__back {
+	margin-top: 2rem;
+}
+
+/* Perfil do professor */
+.professor-profile__tccs {
+	margin-top: 2rem;
+}
+
+.professor-profile__tccs-title {
+	margin: 0 0 0.75rem;
+	font-family: var(--font-heading);
+	font-size: 1.375rem;
+	font-weight: 700;
+	color: var(--color-secondary, #0c326f);
+}
+
+@media (max-width: 48rem) {
+	.portal-tcc-single__layout {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Alto contraste */
+body.portal-high-contrast .portal-tcc-search,
+body.portal-high-contrast .portal-tcc-single__aside,
+body.portal-high-contrast .portal-tcc-exemplo-note {
+	color: #000 !important;
+	background: #fff !important;
+	border-color: #000 !important;
+}
+
+body.portal-high-contrast .portal-tcc-badge,
+body.portal-high-contrast .portal-tcc-keywords a {
+	color: #000 !important;
+	background: #fff !important;
+	border: 1px solid #000 !important;
+}

@@ -56,7 +56,7 @@ window.FS2_BACKLOG = {
 		{ id: "RF16", module: "Fábrica SW", title: "Formulário parceiros", priority: "Alta", status: "paused", sprint: "S3", owner: "[Colega 3]", dod: "Canal exclusivo de demanda para parceiros externos" },
 		{ id: "RF23", module: "Serviços", title: "Serviços acadêmicos", priority: "Média", status: "pending", sprint: "S3", owner: "[Colega 1]", dod: "Secretaria, biblioteca, SAE com contatos e horários" },
 		{ id: "RF24", module: "Serviços", title: "Ferramentas digitais", priority: "Média", status: "pending", sprint: "S3", owner: "[Colega 1]", dod: "GitHub Student Pack, Figma Education, etc." },
-		{ id: "RF25", module: "Serviços", title: "Repositório TCC", priority: "Alta", status: "partial", sprint: "S3", owner: "[Colega 3]", dod: "Busca por título/autor/ano + conteúdo inicial curado" },
+		{ id: "RF25", module: "Serviços", title: "Repositório TCC", priority: "Alta", status: "partial", sprint: "S3", owner: "[Colega 3]", dod: "Busca por título/autor/ano + conteúdo inicial curado — busca, filtros, página do TCC e PDF ou link externo prontos (envio de PDF desativável em TCCs → Configurações); aguarda lista real de TCCs para substituir os 4 exemplos" },
 
 		/* —— Sprint 4 —— */
 		{ id: "RF28", module: "Contato", title: "Ouvidoria", priority: "Média", status: "partial", sprint: "S4", owner: "[Colega 3]", dod: "Formulário ou integração com prazo de resposta" },

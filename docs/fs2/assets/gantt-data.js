@@ -36,7 +36,7 @@ window.FS2_GANTT = {
 		{ id: "s3-rf16", name: "S3: RF16 Formulário parceiros", start: "2026-10-04", end: "2026-10-18", progress: 0, dependencies: "s2-rf11", custom_class: "bar-content", group: "S3" },
 		{ id: "s3-rf23", name: "S3: RF23 Serviços acadêmicos", start: "2026-10-04", end: "2026-10-18", progress: 0, dependencies: "s2-rf11", custom_class: "bar-content", group: "S3" },
 		{ id: "s3-rf24", name: "S3: RF24 Ferramentas digitais", start: "2026-10-04", end: "2026-10-18", progress: 0, dependencies: "s2-rf11", custom_class: "bar-content", group: "S3" },
-		{ id: "s3-rf25", name: "S3: RF25 Repositório TCC", start: "2026-10-04", end: "2026-10-18", progress: 25, dependencies: "s2-rf11", custom_class: "bar-content", group: "S3" },
+		{ id: "s3-rf25", name: "S3: RF25 Repositório TCC", start: "2026-10-04", end: "2026-10-18", progress: 90, dependencies: "s2-rf11", custom_class: "bar-content", group: "S3" },
 
 		/* Sprint 4 */
 		{ id: "s4-rf28", name: "S4: RF28 Ouvidoria", start: "2026-10-19", end: "2026-11-02", progress: 30, dependencies: "s3-rf25", custom_class: "bar-content", group: "S4" },

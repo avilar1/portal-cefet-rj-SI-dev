@@ -24,6 +24,7 @@ function portal_si_search_pre_get_posts( $query ) {
 			PORTAL_SI_FABRICA_PROJETO_POST_TYPE,
 			PORTAL_SI_PROJETO_POST_TYPE,
 			PORTAL_SI_ALBUM_POST_TYPE,
+			PORTAL_SI_TCC_POST_TYPE,
 		)
 	);
 }

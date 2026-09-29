@@ -36,6 +36,18 @@ while ( have_posts() ) :
 					<?php get_template_part( 'template-parts/projeto/grid', null, array( 'items' => $projetos ) ); ?>
 				</section>
 			<?php endif; ?>
+
+			<?php $tccs = portal_si_get_tccs_do_professor( $professor['id'] ); ?>
+			<?php if ( $tccs ) : ?>
+				<section class="professor-profile__tccs" aria-labelledby="professor-tccs-title">
+					<h2 id="professor-tccs-title" class="professor-profile__tccs-title"><?php esc_html_e( 'TCCs orientados', 'portal-si-cefet' ); ?></h2>
+					<ul class="portal-tcc-list">
+						<?php foreach ( $tccs as $tcc ) : ?>
+							<?php get_template_part( 'template-parts/tcc/item', null, array( 'tcc' => $tcc ) ); ?>
+						<?php endforeach; ?>
+					</ul>
+				</section>
+			<?php endif; ?>
 		</div>
 	</main>
 	<?php
