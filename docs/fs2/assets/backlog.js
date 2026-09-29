@@ -4,7 +4,7 @@
  */
 window.FS2_BACKLOG = {
 	version: "1.0",
-	updated: "2026-08-24",
+	updated: "2026-09-29",
 	sprints: [
 		{ id: "S0", name: "Sprint 0 — Fundação", start: "2026-08-25", end: "2026-09-03", deliverable: "Project Charter + Gantt + backlog" },
 		{ id: "S1", name: "Sprint 1 — Institucional", start: "2026-09-04", end: "2026-09-18", deliverable: "Módulo institucional 100% validado" },
@@ -38,12 +38,12 @@ window.FS2_BACKLOG = {
 		{ id: "RF29", module: "Contato", title: "Contato coordenação", priority: "Alta", status: "done", sprint: "—", owner: "Equipe", dod: "Destaque na página e rodapé" },
 
 		/* —— Sprint 1 —— */
-		{ id: "RF03", module: "Institucional", title: "Grade curricular completa", priority: "Alta", status: "partial", sprint: "S1", owner: "[Colega 1]", dod: "Estrutura por período + ementas/conteúdo real validado pelo cliente" },
-		{ id: "RF07", module: "Institucional", title: "Vida estudantil / bolsas", priority: "Média", status: "pending", sprint: "S1", owner: "[Colega 1]", dod: "Página publicada com bolsas e auxílios CEFET" },
-		{ id: "RF26", module: "Serviços", title: "Fluxo de disciplinas", priority: "Alta", status: "partial", sprint: "S1", owner: "[Colega 1]", dod: "Visualização de progressão e pré-requisitos vinculada à grade" },
+		{ id: "RF03", module: "Institucional", title: "Grade curricular completa", priority: "Alta", status: "partial", sprint: "S1", owner: "[Colega 1]", dod: "Estrutura por período + ementas/conteúdo real validado pelo cliente (publicada com PPC 2025 e editável no painel; aguarda validação da coordenação)" },
+		{ id: "RF07", module: "Institucional", title: "Vida estudantil / bolsas", priority: "Média", status: "done", sprint: "S1", owner: "[Colega 1]", dod: "Página publicada com bolsas e auxílios CEFET" },
+		{ id: "RF26", module: "Serviços", title: "Fluxo de disciplinas", priority: "Alta", status: "done", sprint: "S1", owner: "[Colega 1]", dod: "Visualização de progressão e pré-requisitos vinculada à grade" },
 		{ id: "RF21", module: "Comunicação", title: "Destaques home / galeria", priority: "Média", status: "partial", sprint: "S1", owner: "[Colega 3]", dod: "Refino visual destaques; galeria multimídia se priorizado" },
 		{ id: "TR-TI-1", module: "Infra", title: "Primeiro contato TI CEFET", priority: "—", status: "pending", sprint: "S1", owner: "[Gerente]", dod: "Reunião agendada; requisitos servidor documentados" },
-		{ id: "TR-CT-1", module: "Conteúdo", title: "Coleta grade e docentes", priority: "—", status: "pending", sprint: "S1", owner: "[Gerente]", dod: "Planilhas/listas recebidas da coordenação" },
+		{ id: "TR-CT-1", module: "Conteúdo", title: "Coleta grade e docentes", priority: "—", status: "partial", sprint: "S1", owner: "[Gerente]", dod: "Planilhas/listas recebidas da coordenação" },
 
 		/* —— Sprint 2 —— */
 		{ id: "RF09", module: "Pesquisa/Ext.", title: "Projetos de pesquisa", priority: "Alta", status: "pending", sprint: "S2", owner: "[Colega 2]", dod: "Listagem com responsável e situação" },

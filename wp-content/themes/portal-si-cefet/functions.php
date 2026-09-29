@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PORTAL_SI_CEFET_VERSION', '0.5.8' );
+define( 'PORTAL_SI_CEFET_VERSION', '0.5.9' );
 
 require_once get_template_directory() . '/inc/seed-ia.php';
 require_once get_template_directory() . '/inc/seed-editorial.php';
@@ -22,6 +22,7 @@ require_once get_template_directory() . '/inc/ingresso.php';
 require_once get_template_directory() . '/inc/grade-curricular.php';
 require_once get_template_directory() . '/inc/disciplina.php';
 require_once get_template_directory() . '/inc/fluxo.php';
+require_once get_template_directory() . '/inc/vida-estudantil.php';
 require_once get_template_directory() . '/inc/documentos.php';
 require_once get_template_directory() . '/inc/documentos-admin.php';
 require_once get_template_directory() . '/inc/infraestrutura.php';

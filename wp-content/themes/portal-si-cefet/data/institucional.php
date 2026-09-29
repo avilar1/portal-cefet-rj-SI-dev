@@ -63,7 +63,7 @@ return array(
 			array(
 				'icon'        => 'calendar',
 				'title'       => 'Vida Estudantil',
-				'description' => 'Bolsas, auxílios, benefícios e ferramentas',
+				'description' => 'Bolsas, auxílios e apoio ao estudante',
 				'slug'        => 'vida-estudantil',
 			),
 			array(

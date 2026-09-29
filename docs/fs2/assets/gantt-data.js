@@ -17,12 +17,12 @@ window.FS2_GANTT = {
 		{ id: "m1-charter", name: "M1 — Entrega Charter ao professor", start: "2026-09-03", end: "2026-09-03", progress: 0, dependencies: "s0-review", custom_class: "bar-milestone", group: "Marcos" },
 
 		/* Sprint 1 */
-		{ id: "s1-rf03", name: "S1: RF03 Grade curricular completa", start: "2026-09-04", end: "2026-09-18", progress: 30, dependencies: "m1-charter", custom_class: "bar-content", group: "S1" },
-		{ id: "s1-rf07", name: "S1: RF07 Vida estudantil", start: "2026-09-04", end: "2026-09-15", progress: 0, dependencies: "m1-charter", custom_class: "bar-content", group: "S1" },
-		{ id: "s1-rf26", name: "S1: RF26 Fluxo de disciplinas", start: "2026-09-08", end: "2026-09-18", progress: 20, dependencies: "s1-rf03", custom_class: "bar-content", group: "S1" },
+		{ id: "s1-rf03", name: "S1: RF03 Grade curricular completa", start: "2026-09-04", end: "2026-09-18", progress: 90, dependencies: "m1-charter", custom_class: "bar-content", group: "S1" },
+		{ id: "s1-rf07", name: "S1: RF07 Vida estudantil", start: "2026-09-04", end: "2026-09-15", progress: 100, dependencies: "m1-charter", custom_class: "bar-content", group: "S1" },
+		{ id: "s1-rf26", name: "S1: RF26 Fluxo de disciplinas", start: "2026-09-08", end: "2026-09-18", progress: 100, dependencies: "s1-rf03", custom_class: "bar-content", group: "S1" },
 		{ id: "s1-rf21", name: "S1: RF21 Destaques home", start: "2026-09-10", end: "2026-09-18", progress: 40, dependencies: "m1-charter", custom_class: "bar-content", group: "S1" },
 		{ id: "s1-ti", name: "S1: Trilha TI — primeiro contato", start: "2026-09-04", end: "2026-09-18", progress: 0, dependencies: "m1-charter", custom_class: "bar-infra", group: "S1" },
-		{ id: "s1-content", name: "S1: Coleta conteúdo grade/docentes", start: "2026-09-04", end: "2026-09-18", progress: 0, dependencies: "m1-charter", custom_class: "bar-content", group: "S1" },
+		{ id: "s1-content", name: "S1: Coleta conteúdo grade/docentes", start: "2026-09-04", end: "2026-09-18", progress: 50, dependencies: "m1-charter", custom_class: "bar-content", group: "S1" },
 
 		/* Sprint 2 */
 		{ id: "s2-rf09", name: "S2: RF09 Projetos pesquisa", start: "2026-09-19", end: "2026-10-03", progress: 0, dependencies: "s1-rf03", custom_class: "bar-content", group: "S2" },

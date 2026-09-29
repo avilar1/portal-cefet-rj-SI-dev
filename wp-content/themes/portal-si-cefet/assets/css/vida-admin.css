@@ -1,0 +1,36 @@
+/**
+ * Vida estudantil — caixa de conteúdo no painel.
+ */
+
+.portal-vida-admin-row {
+	margin: 0 0 1rem;
+	padding: 0 1rem 0.5rem;
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+}
+
+.portal-vida-admin-row__legend {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 0 0.5rem;
+	font-weight: 600;
+}
+
+.portal-vida-admin-row__title {
+	font-size: 14px;
+}
+
+.portal-vida-admin-row .form-table th {
+	width: 8rem;
+	padding: 0.6rem 0.5rem 0.6rem 0;
+}
+
+.portal-vida-admin-row .form-table td {
+	padding: 0.5rem 0;
+}
+
+.portal-vida-admin-row input[type="text"].regular-text {
+	margin-top: 0.4rem;
+}

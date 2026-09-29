@@ -17,7 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 function portal_si_coming_soon_page_slugs() {
 	$slugs = array(
 		'carreira-e-egressos',
-		'vida-estudantil',
 		'acessibilidade',
 		'termos-de-uso',
 		'mapa-do-site',
@@ -110,7 +109,6 @@ function portal_si_coordination_contato_url() {
 function portal_si_coming_soon_message_for_slug( $slug ) {
 	$messages = array(
 		'carreira-e-egressos'       => __( 'Informações sobre empregabilidade, trajetórias de egressos e oportunidades de carreira serão publicadas nesta seção.', 'portal-si-cefet' ),
-		'vida-estudantil'           => __( 'Conteúdos sobre bolsas, auxílios, benefícios e vida acadêmica no campus serão publicados nesta seção.', 'portal-si-cefet' ),
 		'acessibilidade'            => __( 'A declaração de acessibilidade e os recursos deste portal para pessoas com deficiência serão publicados nesta seção.', 'portal-si-cefet' ),
 		'politica-de-privacidade'   => __( 'A política de privacidade e o tratamento de dados pessoais conforme a LGPD serão publicados nesta seção.', 'portal-si-cefet' ),
 		'termos-de-uso'             => __( 'Os termos de uso do portal institucional do curso serão publicados nesta seção.', 'portal-si-cefet' ),
