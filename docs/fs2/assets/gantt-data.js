@@ -20,7 +20,7 @@ window.FS2_GANTT = {
 		{ id: "s1-rf03", name: "S1: RF03 Grade curricular completa", start: "2026-09-04", end: "2026-09-18", progress: 90, dependencies: "m1-charter", custom_class: "bar-content", group: "S1" },
 		{ id: "s1-rf07", name: "S1: RF07 Vida estudantil", start: "2026-09-04", end: "2026-09-15", progress: 100, dependencies: "m1-charter", custom_class: "bar-content", group: "S1" },
 		{ id: "s1-rf26", name: "S1: RF26 Fluxo de disciplinas", start: "2026-09-08", end: "2026-09-18", progress: 100, dependencies: "s1-rf03", custom_class: "bar-content", group: "S1" },
-		{ id: "s1-rf21", name: "S1: RF21 Destaques home", start: "2026-09-10", end: "2026-09-18", progress: 40, dependencies: "m1-charter", custom_class: "bar-content", group: "S1" },
+		{ id: "s1-rf21", name: "S1: RF21 Galeria multimídia", start: "2026-09-10", end: "2026-09-18", progress: 100, dependencies: "m1-charter", custom_class: "bar-content", group: "S1" },
 		{ id: "s1-ti", name: "S1: Trilha TI — primeiro contato", start: "2026-09-04", end: "2026-09-18", progress: 0, dependencies: "m1-charter", custom_class: "bar-infra", group: "S1" },
 		{ id: "s1-content", name: "S1: Coleta conteúdo grade/docentes", start: "2026-09-04", end: "2026-09-18", progress: 50, dependencies: "m1-charter", custom_class: "bar-content", group: "S1" },
 

@@ -1,0 +1,324 @@
+/**
+ * Galeria multimídia — RF21 (página, álbum, lightbox e faixa da home).
+ */
+
+.site-main--galeria .portal-galeria-body,
+.site-main--album .portal-album-body {
+	max-width: var(--portal-max-width);
+	margin: 0 auto;
+	padding: 0 var(--portal-space) 2.5rem;
+}
+
+.portal-galeria-header__badge {
+	display: inline-block;
+	margin: 0 0 0.5rem;
+	padding: 0.25rem 0.65rem;
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: var(--color-secondary, #0c326f);
+	background: var(--color-highlight, #ffcd07);
+	border-radius: 2px;
+}
+
+/* Filtro por categoria */
+.portal-galeria-filter {
+	margin-bottom: 1.5rem;
+}
+
+.portal-galeria-filter__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.portal-galeria-filter__link {
+	display: inline-block;
+	padding: 0.4rem 0.9rem;
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: var(--color-primary, #1351b4);
+	text-decoration: none;
+	border: 1px solid var(--color-primary, #1351b4);
+	border-radius: 999px;
+}
+
+.portal-galeria-filter__link:hover,
+.portal-galeria-filter__link:focus-visible {
+	background: #eef4fc;
+}
+
+.portal-galeria-filter__link[aria-current="page"] {
+	color: #fff;
+	background: var(--color-primary, #1351b4);
+}
+
+.portal-galeria-pagination {
+	margin-top: 2rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	justify-content: center;
+}
+
+.portal-galeria-pagination .page-numbers {
+	padding: 0.35rem 0.7rem;
+	border: 1px solid #c5d9f0;
+	border-radius: 2px;
+	text-decoration: none;
+}
+
+.portal-galeria-pagination .page-numbers.current {
+	color: #fff;
+	background: var(--color-primary, #1351b4);
+	border-color: var(--color-primary, #1351b4);
+}
+
+/* Álbum */
+.portal-album-meta {
+	margin: 0.5rem 0 0;
+	font-size: 0.9375rem;
+	color: #555;
+}
+
+.portal-album-description {
+	max-width: 48rem;
+	margin-bottom: 2rem;
+}
+
+.portal-album-section {
+	margin-bottom: 2.5rem;
+}
+
+.portal-album-section__title {
+	margin: 0 0 1rem;
+	font-family: var(--font-heading);
+	font-size: 1.375rem;
+	font-weight: 700;
+	color: var(--color-secondary, #0c326f);
+	border-bottom: 3px solid var(--color-highlight, #ffcd07);
+	padding-bottom: 0.35rem;
+}
+
+.portal-album-photos {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+	gap: 0.75rem;
+}
+
+.portal-album-photos__link {
+	display: block;
+	aspect-ratio: 4 / 3;
+	overflow: hidden;
+	background: #e8eef5;
+	border-radius: 2px;
+}
+
+.portal-album-photos__img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.2s ease;
+}
+
+.portal-album-photos__link:hover .portal-album-photos__img,
+.portal-album-photos__link:focus-visible .portal-album-photos__img {
+	transform: scale(1.04);
+}
+
+.portal-album-photos__link:focus-visible {
+	outline: 3px solid var(--color-highlight, #ffcd07);
+	outline-offset: 2px;
+}
+
+.portal-album-videos {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+	gap: 1.25rem;
+}
+
+.portal-album-video__frame {
+	position: relative;
+	aspect-ratio: 16 / 9;
+	background: #000;
+}
+
+.portal-album-video__frame iframe {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+.portal-album-video__link {
+	display: block;
+	padding: 1rem;
+	font-weight: 600;
+	background: #eef4fc;
+	border: 1px solid #c5d9f0;
+	border-radius: 2px;
+}
+
+.portal-album-back {
+	margin-top: 1rem;
+}
+
+/* Lightbox (dialog nativo) */
+.portal-lightbox {
+	width: min(96vw, 72rem);
+	max-width: none;
+	max-height: 96vh;
+	padding: 0;
+	color: #fff;
+	background: #111;
+	border: 0;
+	border-radius: 4px;
+}
+
+.portal-lightbox::backdrop {
+	background: rgba(0, 0, 0, 0.85);
+}
+
+.portal-lightbox__figure {
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 3rem 3.5rem 1rem;
+}
+
+.portal-lightbox__img {
+	display: block;
+	max-width: 100%;
+	max-height: calc(96vh - 8rem);
+	object-fit: contain;
+}
+
+.portal-lightbox__caption {
+	margin-top: 0.75rem;
+	font-size: 0.9375rem;
+	text-align: center;
+}
+
+.portal-lightbox__counter {
+	position: absolute;
+	top: 0.9rem;
+	left: 1rem;
+	font-size: 0.875rem;
+}
+
+.portal-lightbox__btn {
+	position: absolute;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.75rem;
+	height: 2.75rem;
+	padding: 0;
+	font-size: 1.5rem;
+	line-height: 1;
+	color: #fff;
+	background: rgba(255, 255, 255, 0.12);
+	border: 0;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.portal-lightbox__btn:hover,
+.portal-lightbox__btn:focus-visible {
+	background: rgba(255, 255, 255, 0.28);
+}
+
+.portal-lightbox__btn:focus-visible {
+	outline: 3px solid var(--color-highlight, #ffcd07);
+	outline-offset: 2px;
+}
+
+.portal-lightbox__btn--close {
+	top: 0.5rem;
+	right: 0.5rem;
+}
+
+.portal-lightbox__btn--prev,
+.portal-lightbox__btn--next {
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.portal-lightbox__btn--prev {
+	left: 0.5rem;
+}
+
+.portal-lightbox__btn--next {
+	right: 0.5rem;
+}
+
+.portal-lightbox__btn[hidden] {
+	display: none;
+}
+
+/* Faixa da home */
+.portal-home-galeria {
+	padding: 1.5rem var(--portal-space) 3rem;
+}
+
+.portal-home-galeria__inner {
+	max-width: var(--portal-max-width);
+	margin: 0 auto;
+}
+
+.portal-home-galeria__header {
+	justify-content: flex-end;
+	margin-bottom: 1rem;
+}
+
+/* Alto contraste */
+body.portal-high-contrast .portal-galeria-filter__link {
+	color: #000 !important;
+	background: #fff !important;
+	border-color: #000 !important;
+}
+
+body.portal-high-contrast .portal-galeria-filter__link[aria-current="page"] {
+	color: #fff !important;
+	background: #000 !important;
+	text-decoration: underline;
+}
+
+body.portal-high-contrast .portal-album-video__link {
+	color: #000 !important;
+	background: #fff !important;
+	border-color: #000 !important;
+}
+
+@media (max-width: 30rem) {
+	.portal-lightbox__figure {
+		padding: 3rem 0.5rem 1rem;
+	}
+
+	.portal-lightbox__btn--prev,
+	.portal-lightbox__btn--next {
+		top: auto;
+		bottom: 0.5rem;
+		transform: none;
+	}
+
+	.portal-lightbox__figure {
+		padding-bottom: 3.75rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.portal-album-photos__img {
+		transition: none;
+	}
+}

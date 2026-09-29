@@ -7,13 +7,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PORTAL_SI_CEFET_VERSION', '0.5.9' );
+define( 'PORTAL_SI_CEFET_VERSION', '0.6.0' );
 
 require_once get_template_directory() . '/inc/seed-ia.php';
 require_once get_template_directory() . '/inc/seed-editorial.php';
 require_once get_template_directory() . '/inc/comments-policy.php';
 require_once get_template_directory() . '/inc/evento.php';
 require_once get_template_directory() . '/inc/noticia.php';
+require_once get_template_directory() . '/inc/galeria.php';
 require_once get_template_directory() . '/inc/institucional.php';
 require_once get_template_directory() . '/inc/sobre.php';
 require_once get_template_directory() . '/inc/calendario-admin.php';

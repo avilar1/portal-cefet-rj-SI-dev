@@ -120,6 +120,10 @@ function portal_si_footer_sitemap_columns() {
 					'slug'  => 'agenda-e-eventos',
 				),
 				array(
+					'label' => __( 'Galeria', 'portal-si-cefet' ),
+					'slug'  => 'galeria',
+				),
+				array(
 					'label' => __( 'Contato', 'portal-si-cefet' ),
 					'slug'  => 'contato',
 				),

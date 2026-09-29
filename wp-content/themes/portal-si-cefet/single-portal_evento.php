@@ -41,6 +41,15 @@ get_header();
 				<?php the_content(); ?>
 			</div>
 
+			<?php $album = portal_si_album_for_evento( get_the_ID() ); ?>
+			<?php if ( $album ) : ?>
+				<p class="portal-event-single__album">
+					<a class="portal-btn portal-btn--secondary" href="<?php echo esc_url( get_permalink( $album ) ); ?>">
+						<?php esc_html_e( 'Ver fotos do evento', 'portal-si-cefet' ); ?>
+					</a>
+				</p>
+			<?php endif; ?>
+
 			<p class="portal-event-single__back">
 				<a class="portal-btn portal-btn--primary" href="<?php echo esc_url( portal_si_page_url( 'agenda-e-eventos' ) ); ?>">
 					<?php esc_html_e( '← Voltar para Agenda e Eventos', 'portal-si-cefet' ); ?>

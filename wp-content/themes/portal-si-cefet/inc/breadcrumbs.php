@@ -58,6 +58,12 @@ function portal_si_the_breadcrumbs() {
 			__( 'Agenda e Eventos', 'portal-si-cefet' )
 		);
 		$parts[] = '<span class="breadcrumbs__current" aria-current="page">' . esc_html( get_the_title() ) . '</span>';
+	} elseif ( is_singular( PORTAL_SI_ALBUM_POST_TYPE ) ) {
+		$parts[] = portal_si_breadcrumb_link(
+			portal_si_page_url( PORTAL_SI_GALERIA_SLUG ),
+			__( 'Galeria', 'portal-si-cefet' )
+		);
+		$parts[] = '<span class="breadcrumbs__current" aria-current="page">' . esc_html( get_the_title() ) . '</span>';
 	} elseif ( is_single() && 'post' === get_post_type() ) {
 		$posts_page = (int) get_option( 'page_for_posts' );
 		if ( $posts_page ) {

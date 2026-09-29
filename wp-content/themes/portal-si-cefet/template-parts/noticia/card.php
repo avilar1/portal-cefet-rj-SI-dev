@@ -15,13 +15,16 @@ if ( ! $noticia ) {
 }
 
 $show_excerpt = ! empty( $args['show_excerpt'] );
+$media_label  = ! empty( $noticia['aria_label'] )
+	? $noticia['aria_label']
+	: sprintf( __( 'Ver notícia: %s', 'portal-si-cefet' ), $noticia['title'] );
 ?>
 <li class="portal-noticia-grid__item">
 	<article class="<?php echo esc_attr( portal_si_br_card_class( array( 'hover' ) ) . ' portal-noticia-card' ); ?>">
 		<a
 			class="portal-noticia-card__media"
 			href="<?php echo esc_url( $noticia['url'] ); ?>"
-			aria-label="<?php echo esc_attr( sprintf( __( 'Ver notícia: %s', 'portal-si-cefet' ), $noticia['title'] ) ); ?>"
+			aria-label="<?php echo esc_attr( $media_label ); ?>"
 		>
 			<?php if ( ! empty( $noticia['has_thumb'] ) && ! empty( $noticia['thumb_html'] ) ) : ?>
 				<?php echo $noticia['thumb_html']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>

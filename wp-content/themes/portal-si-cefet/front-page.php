@@ -30,6 +30,19 @@ get_header();
 		)
 	);
 	get_template_part( 'template-parts/home/news-agenda' );
+
+	$galeria_albums = portal_si_galeria_home_albums();
+	if ( $galeria_albums ) {
+		get_template_part(
+			'template-parts/home/section-divider',
+			null,
+			array(
+				'label' => __( 'Galeria', 'portal-si-cefet' ),
+				'id'    => 'portal-home-galeria-title',
+			)
+		);
+		get_template_part( 'template-parts/home/galeria', null, array( 'albums' => $galeria_albums ) );
+	}
 	?>
 </main>
 <?php
