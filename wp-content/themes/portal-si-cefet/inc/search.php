@@ -15,6 +15,16 @@ function portal_si_search_pre_get_posts( $query ) {
 	if ( is_admin() || ! $query->is_main_query() || ! $query->is_search() ) {
 		return;
 	}
-	$query->set( 'post_type', array( 'post', 'page', PORTAL_SI_PROFESSOR_POST_TYPE, PORTAL_SI_FABRICA_PROJETO_POST_TYPE ) );
+	$query->set(
+		'post_type',
+		array(
+			'post',
+			'page',
+			PORTAL_SI_PROFESSOR_POST_TYPE,
+			PORTAL_SI_FABRICA_PROJETO_POST_TYPE,
+			PORTAL_SI_PROJETO_POST_TYPE,
+			PORTAL_SI_ALBUM_POST_TYPE,
+		)
+	);
 }
 add_action( 'pre_get_posts', 'portal_si_search_pre_get_posts' );

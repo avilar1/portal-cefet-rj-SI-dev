@@ -46,9 +46,9 @@ window.FS2_BACKLOG = {
 		{ id: "TR-CT-1", module: "Conteúdo", title: "Coleta grade e docentes", priority: "—", status: "partial", sprint: "S1", owner: "[Gerente]", dod: "Planilhas/listas recebidas da coordenação" },
 
 		/* —— Sprint 2 —— */
-		{ id: "RF09", module: "Pesquisa/Ext.", title: "Projetos de pesquisa", priority: "Alta", status: "pending", sprint: "S2", owner: "[Colega 2]", dod: "Listagem com responsável e situação" },
-		{ id: "RF10", module: "Pesquisa/Ext.", title: "Iniciação científica", priority: "Média", status: "pending", sprint: "S2", owner: "[Colega 2]", dod: "Critérios e contatos publicados" },
-		{ id: "RF11", module: "Pesquisa/Ext.", title: "Hub P&E / parcerias", priority: "Média", status: "partial", sprint: "S2", owner: "[Colega 2]", dod: "Hub com listagens completas e convênios" },
+		{ id: "RF09", module: "Pesquisa/Ext.", title: "Projetos de pesquisa", priority: "Alta", status: "done", sprint: "S2", owner: "[Colega 2]", dod: "Listagem com responsável e situação (CPT editável com filtros; projetos de exemplo a substituir por reais)" },
+		{ id: "RF10", module: "Pesquisa/Ext.", title: "Iniciação científica", priority: "Média", status: "done", sprint: "S2", owner: "[Colega 2]", dod: "Critérios e contatos publicados (página editável + projetos com vagas automáticos)" },
+		{ id: "RF11", module: "Pesquisa/Ext.", title: "Hub P&E / parcerias", priority: "Média", status: "partial", sprint: "S2", owner: "[Colega 2]", dod: "Hub com listagens completas e convênios (listagens prontas; aguarda lista de convênios)" },
 		{ id: "RF12", module: "Pesquisa/Ext.", title: "Importação planilha docentes", priority: "Alta", status: "paused", sprint: "S2", owner: "[Colega 2]", dod: "Import CSV/planilha funcional ou fallback documentado" },
 
 		/* —— Sprint 3 —— */

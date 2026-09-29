@@ -102,6 +102,14 @@ function portal_si_footer_sitemap_columns() {
 					'label' => __( 'Pesquisa e Extensão', 'portal-si-cefet' ),
 					'slug'  => 'pesquisa-e-extensao',
 				),
+				array(
+					'label' => __( 'Projetos', 'portal-si-cefet' ),
+					'slug'  => 'projetos',
+				),
+				array(
+					'label' => __( 'Iniciação Científica', 'portal-si-cefet' ),
+					'slug'  => 'iniciacao-cientifica',
+				),
 			),
 		),
 		array(

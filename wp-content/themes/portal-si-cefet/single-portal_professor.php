@@ -28,6 +28,14 @@ while ( have_posts() ) :
 				</a>
 			</p>
 			<?php get_template_part( 'template-parts/professor/profile', null, array( 'professor' => $professor ) ); ?>
+
+			<?php $projetos = portal_si_get_projetos_do_professor( $professor['id'] ); ?>
+			<?php if ( $projetos ) : ?>
+				<section class="professor-profile__projetos" aria-labelledby="professor-projetos-title">
+					<h2 id="professor-projetos-title" class="portal-pesquisa-section__title"><?php esc_html_e( 'Projetos coordenados', 'portal-si-cefet' ); ?></h2>
+					<?php get_template_part( 'template-parts/projeto/grid', null, array( 'items' => $projetos ) ); ?>
+				</section>
+			<?php endif; ?>
 		</div>
 	</main>
 	<?php

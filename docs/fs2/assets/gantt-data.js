@@ -25,9 +25,9 @@ window.FS2_GANTT = {
 		{ id: "s1-content", name: "S1: Coleta conteúdo grade/docentes", start: "2026-09-04", end: "2026-09-18", progress: 50, dependencies: "m1-charter", custom_class: "bar-content", group: "S1" },
 
 		/* Sprint 2 */
-		{ id: "s2-rf09", name: "S2: RF09 Projetos pesquisa", start: "2026-09-19", end: "2026-10-03", progress: 0, dependencies: "s1-rf03", custom_class: "bar-content", group: "S2" },
-		{ id: "s2-rf10", name: "S2: RF10 Iniciação científica", start: "2026-09-19", end: "2026-10-03", progress: 0, dependencies: "s1-rf03", custom_class: "bar-content", group: "S2" },
-		{ id: "s2-rf11", name: "S2: RF11 Hub P&E completo", start: "2026-09-19", end: "2026-10-03", progress: 50, dependencies: "s1-rf03", custom_class: "bar-content", group: "S2" },
+		{ id: "s2-rf09", name: "S2: RF09 Projetos pesquisa", start: "2026-09-19", end: "2026-10-03", progress: 100, dependencies: "s1-rf03", custom_class: "bar-content", group: "S2" },
+		{ id: "s2-rf10", name: "S2: RF10 Iniciação científica", start: "2026-09-19", end: "2026-10-03", progress: 100, dependencies: "s1-rf03", custom_class: "bar-content", group: "S2" },
+		{ id: "s2-rf11", name: "S2: RF11 Hub P&E completo", start: "2026-09-19", end: "2026-10-03", progress: 90, dependencies: "s1-rf03", custom_class: "bar-content", group: "S2" },
 		{ id: "s2-rf12", name: "S2: RF12 Import planilha docentes", start: "2026-09-19", end: "2026-10-03", progress: 0, dependencies: "s1-content", custom_class: "bar-content", group: "S2" },
 		{ id: "s2-pop", name: "S2: População corpo docente real", start: "2026-09-22", end: "2026-10-03", progress: 0, dependencies: "s2-rf12", custom_class: "bar-content", group: "S2" },
 

@@ -12,8 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 $config = portal_si_grade_config();
 $notes  = isset( $config['notes'] ) && is_array( $config['notes'] ) ? $config['notes'] : array();
 $source = isset( $config['source'] ) && is_array( $config['source'] ) ? $config['source'] : array();
+$transicao = portal_si_grade_transicao();
 
-if ( empty( $notes ) && empty( $source ) ) {
+if ( empty( $notes ) && empty( $source ) && ! $transicao ) {
 	return;
 }
 ?>
@@ -37,6 +38,16 @@ if ( empty( $notes ) && empty( $source ) ) {
 				</li>
 			<?php endforeach; ?>
 		</ul>
+	<?php endif; ?>
+
+	<?php if ( $transicao ) : ?>
+		<div class="portal-grade-transicao" role="note">
+			<p class="portal-grade-transicao__text"><?php echo esc_html( $transicao['text'] ); ?></p>
+			<a class="portal-grade-transicao__link" href="<?php echo esc_url( $transicao['url'] ); ?>" target="_blank" rel="noopener noreferrer">
+				<?php echo esc_html( $transicao['label'] ); ?>
+				<span class="screen-reader-text"><?php esc_html_e( '(abre em nova aba)', 'portal-si-cefet' ); ?></span>
+			</a>
+		</div>
 	<?php endif; ?>
 
 	<?php if ( ! empty( $source['label'] ) ) : ?>
