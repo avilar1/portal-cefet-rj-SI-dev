@@ -525,6 +525,13 @@
 	line-height: 1.4;
 }
 
+.portal-service-card__external {
+	font-size: 0.8125rem;
+	font-weight: 600;
+	color: var(--color-primary, #1351b4);
+	line-height: 1.4;
+}
+
 .portal-service-card__external-mark {
 	margin-left: 0.15em;
 	font-size: 0.85em;
@@ -637,6 +644,7 @@
 	background: var(--color-secondary);
 	color: #fff;
 	padding: 2.5rem var(--portal-space) 2rem;
+	scroll-margin-top: 5.5rem;
 }
 
 .portal-footer-sitemap__inner {

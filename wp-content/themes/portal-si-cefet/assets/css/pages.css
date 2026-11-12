@@ -220,3 +220,38 @@
 		grid-template-columns: 1fr;
 	}
 }
+
+/* Dúvidas frequentes e Acessibilidade */
+.portal-help-list {
+	list-style: none;
+	max-width: var(--portal-max-width);
+	margin: 1.25rem auto 0;
+	padding: 0 var(--portal-space) 2rem;
+	display: grid;
+	gap: 1rem;
+}
+
+.portal-help-item {
+	padding: 1.25rem 1.35rem;
+	background: #fff;
+	border: 1px solid #e3e8ef;
+	border-radius: 4px;
+}
+
+.portal-help-item h2 {
+	margin: 0 0 0.5rem;
+	font-family: var(--font-heading);
+	font-size: 1.125rem;
+	font-weight: 700;
+	color: var(--color-secondary, #0c326f);
+	line-height: 1.3;
+}
+
+.portal-help-item p {
+	margin: 0 0 0.75rem;
+	line-height: 1.55;
+}
+
+.portal-help-item p:last-child {
+	margin-bottom: 0;
+}

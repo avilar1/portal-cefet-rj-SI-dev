@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $columns = portal_si_footer_sitemap_columns();
 ?>
-<div class="portal-footer-sitemap">
+<div class="portal-footer-sitemap" id="portal-mapa-do-site">
 	<div class="portal-footer-sitemap__inner">
 		<div class="portal-footer-sitemap__columns">
 			<?php foreach ( $columns as $column ) : ?>

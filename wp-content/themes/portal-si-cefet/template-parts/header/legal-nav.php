@@ -21,6 +21,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</a>
 			</li>
 			<li>
+				<a href="<?php echo esc_url( portal_si_page_url( 'duvidas-frequentes' ) ); ?>">
+					<?php esc_html_e( 'Dúvidas', 'portal-si-cefet' ); ?>
+				</a>
+			</li>
+			<li>
 				<a href="https://www.vlibras.gov.br/" rel="noopener noreferrer" target="_blank">
 					<?php esc_html_e( 'VLibras', 'portal-si-cefet' ); ?>
 					<span class="screen-reader-text"><?php esc_html_e( '(abre em nova aba)', 'portal-si-cefet' ); ?></span>
@@ -37,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</button>
 			</li>
 			<li>
-				<a href="<?php echo esc_url( portal_si_page_url( 'mapa-do-site' ) ); ?>">
+				<a href="#portal-mapa-do-site">
 					<?php esc_html_e( 'Mapa do Site', 'portal-si-cefet' ); ?>
 				</a>
 			</li>

@@ -121,6 +121,18 @@
 	color: #666;
 }
 
+.portal-contato-form__field--error .portal-contato-form__input {
+	border-color: #842029;
+	background: #fff8f7;
+}
+
+.portal-contato-form__error {
+	margin: 0.35rem 0 0;
+	font-size: 0.8125rem;
+	font-weight: 700;
+	color: #842029;
+}
+
 .portal-contato-form__actions {
 	margin-top: 0.5rem;
 }

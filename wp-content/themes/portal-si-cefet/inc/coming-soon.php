@@ -17,7 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 function portal_si_coming_soon_page_slugs() {
 	$slugs = array(
 		'carreira-e-egressos',
-		'acessibilidade',
 		'termos-de-uso',
 		'mapa-do-site',
 	);

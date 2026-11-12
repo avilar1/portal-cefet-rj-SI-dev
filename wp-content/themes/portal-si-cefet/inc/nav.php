@@ -56,7 +56,7 @@ function portal_si_header_compact_items() {
 		),
 		array(
 			'slug'  => 'noticias',
-			'label' => __( 'Comunicação', 'portal-si-cefet' ),
+			'label' => __( 'Notícias', 'portal-si-cefet' ),
 		),
 		array(
 			'slug'  => 'contato',

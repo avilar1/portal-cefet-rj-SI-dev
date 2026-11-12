@@ -27,6 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<li>
 				<a href="<?php echo esc_url( portal_si_page_url( 'termos-de-uso' ) ); ?>">
 					<?php esc_html_e( 'Termos de Uso', 'portal-si-cefet' ); ?>
+					<span class="portal-coming-soon__badge portal-coming-soon__badge--inline"><?php esc_html_e( 'Em breve', 'portal-si-cefet' ); ?></span>
 				</a>
 			</li>
 			<li>

@@ -272,7 +272,39 @@ function portal_si_contato_form_subjects() {
 }
 
 /**
- * Processa envio do formulário (POST → redirect).
+ * Mensagem ao lado do campo que falhou.
+ *
+ * @param string $field Chave do campo.
+ * @return string
+ */
+function portal_si_contato_form_field_message( $field ) {
+	$messages = array(
+		'nome'     => __( 'Informe seu nome.', 'portal-si-cefet' ),
+		'email'    => __( 'Informe um e-mail válido.', 'portal-si-cefet' ),
+		'assunto'  => __( 'Selecione um assunto.', 'portal-si-cefet' ),
+		'mensagem' => __( 'Escreva uma mensagem com pelo menos 10 caracteres.', 'portal-si-cefet' ),
+		'consent'  => __( 'Autorize o uso dos dados para que a coordenação possa responder.', 'portal-si-cefet' ),
+	);
+
+	return isset( $messages[ $field ] ) ? $messages[ $field ] : '';
+}
+
+/**
+ * Guarda a tentativa inválida para o template reexibir os dados.
+ *
+ * @param array<string, mixed>|null $set Dados da tentativa, ou null para ler.
+ * @return array<string, mixed>|null
+ */
+function portal_si_contato_form_attempt( $set = null ) {
+	static $attempt = null;
+	if ( is_array( $set ) ) {
+		$attempt = $set;
+	}
+	return $attempt;
+}
+
+/**
+ * Processa envio do formulário. Sucesso redireciona; erro permanece na página.
  */
 function portal_si_contato_handle_form_submission() {
 	if ( ! is_page( PORTAL_SI_CONTATO_SLUG ) ) {
@@ -290,8 +322,9 @@ function portal_si_contato_handle_form_submission() {
 		exit;
 	}
 
-	$name    = isset( $_POST['portal_si_nome'] ) ? sanitize_text_field( wp_unslash( $_POST['portal_si_nome'] ) ) : '';
-	$email   = isset( $_POST['portal_si_email'] ) ? sanitize_email( wp_unslash( $_POST['portal_si_email'] ) ) : '';
+	$name      = isset( $_POST['portal_si_nome'] ) ? sanitize_text_field( wp_unslash( $_POST['portal_si_nome'] ) ) : '';
+	$email_raw = isset( $_POST['portal_si_email'] ) ? sanitize_text_field( wp_unslash( $_POST['portal_si_email'] ) ) : '';
+	$email     = sanitize_email( $email_raw );
 	$subject = isset( $_POST['portal_si_assunto'] ) ? sanitize_key( wp_unslash( $_POST['portal_si_assunto'] ) ) : '';
 	$message = isset( $_POST['portal_si_mensagem'] ) ? sanitize_textarea_field( wp_unslash( $_POST['portal_si_mensagem'] ) ) : '';
 	$consent = ! empty( $_POST['portal_si_consent'] );
@@ -316,16 +349,20 @@ function portal_si_contato_handle_form_submission() {
 	}
 
 	if ( ! empty( $errors ) ) {
-		wp_safe_redirect(
-			add_query_arg(
-				array(
-					'contato' => 'erro',
-					'campos'  => implode( ',', $errors ),
+		portal_si_contato_form_attempt(
+			array(
+				'status' => 'erro',
+				'campos' => $errors,
+				'values' => array(
+					'nome'     => $name,
+					'email'    => $email_raw,
+					'assunto'  => $subject,
+					'mensagem' => $message,
+					'consent'  => $consent ? '1' : '',
 				),
-				portal_si_page_url( PORTAL_SI_CONTATO_SLUG ) . '#formulario-contato'
 			)
 		);
-		exit;
+		return;
 	}
 
 	$ref = 'SI-' . wp_date( 'Ymd' ) . '-' . strtoupper( substr( wp_generate_password( 6, false, false ), 0, 6 ) );
@@ -365,6 +402,11 @@ add_action( 'template_redirect', 'portal_si_contato_handle_form_submission', 5 )
  * @return array<string, mixed>
  */
 function portal_si_contato_form_flash() {
+	$attempt = portal_si_contato_form_attempt();
+	if ( is_array( $attempt ) ) {
+		return $attempt;
+	}
+
 	$status = isset( $_GET['contato'] ) ? sanitize_key( wp_unslash( $_GET['contato'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
 	if ( '' === $status ) {

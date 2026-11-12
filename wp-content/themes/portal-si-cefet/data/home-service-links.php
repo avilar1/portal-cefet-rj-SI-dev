@@ -23,7 +23,7 @@ return array(
 	array(
 		'icon'        => 'calendar',
 		'title'       => 'Calendário Acadêmico',
-		'description' => 'Datas importantes e eventos',
+		'description' => 'Datas oficiais do período letivo',
 		'url'         => '',
 		'external'    => false,
 		'slug'        => 'calendario-academico',
@@ -52,7 +52,7 @@ return array(
 	array(
 		'icon'        => 'briefcase',
 		'title'       => 'Estágio',
-		'description' => 'Orientações e documentos — Campus MG',
+		'description' => 'Orientações e documentos — Campus Maria da Graça',
 		'url'         => 'https://www.cefet-rj.br/index.php/estagio-campus-maria-da-graca',
 		'external'    => true,
 	),

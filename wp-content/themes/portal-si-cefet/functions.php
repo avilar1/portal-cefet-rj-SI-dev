@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PORTAL_SI_CEFET_VERSION', '0.8.4' );
+define( 'PORTAL_SI_CEFET_VERSION', '0.8.5' );
 
 require_once get_template_directory() . '/inc/brand.php';
 require_once get_template_directory() . '/inc/seed-ia.php';
@@ -48,6 +48,7 @@ require_once get_template_directory() . '/inc/fonts.php';
 require_once get_template_directory() . '/inc/design-system.php';
 require_once get_template_directory() . '/inc/ds-components.php';
 require_once get_template_directory() . '/inc/a11y.php';
+require_once get_template_directory() . '/inc/duvidas.php';
 
 /**
  * Suporte a recursos usados nas próximas etapas (título, thumbnails, HTML5).

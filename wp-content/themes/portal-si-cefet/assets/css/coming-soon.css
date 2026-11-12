@@ -60,6 +60,10 @@
 	vertical-align: middle;
 }
 
+.portal-footer-legal .portal-coming-soon__badge--inline {
+	margin: 0 0 0 0.4rem;
+}
+
 .portal-coming-soon__title {
 	margin: 0 0 0.65rem;
 	font-family: var(--font-heading);

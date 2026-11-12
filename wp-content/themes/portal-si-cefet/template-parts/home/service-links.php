@@ -45,6 +45,9 @@ $services = portal_si_home_service_links();
 									<?php endif; ?>
 								</span>
 								<span class="portal-service-card__description"><?php echo esc_html( $service['description'] ); ?></span>
+								<?php if ( $is_external ) : ?>
+									<span class="portal-service-card__external"><?php esc_html_e( 'Abre um site do CEFET/RJ', 'portal-si-cefet' ); ?></span>
+								<?php endif; ?>
 							</span>
 						</div>
 					</a>
