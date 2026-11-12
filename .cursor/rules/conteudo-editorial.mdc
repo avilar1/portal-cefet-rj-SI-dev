@@ -1,0 +1,19 @@
+---
+description: Onde vive o conteúdo — WordPress, data/ do tema ou só seed
+globs: wp-content/themes/portal-si-cefet/**/*.php
+alwaysApply: false
+---
+
+# Conteúdo: WordPress, data/ e seed
+
+Guia completo: `docs/conteudo-wordpress-vs-codigo.md`.
+
+Depois do seed, o visitante vê o que está no WordPress, não o PHP que gerou o texto na primeira vez.
+
+- Texto que a coordenação muda sem deploy (páginas, posts, professores, projetos, eventos, datas do calendário) fica no wp-admin. Não corrija esse texto editando o seed.
+- Funções `portal_si_*_default_post_content()` e opções `portal_si_*_seeded_*` são bootstrap de uma vez. Editar `inc/sobre.php` não atualiza `/sobre-o-curso/` se a opção `portal_si_sobre_content_seeded_v1` já existe.
+- Números, links oficiais e blocos que mudam pouco ficam em `data/<modulo>.php` e exigem deploy do tema.
+- Layout, CSS e novos blocos ficam no tema (`template-parts/`, `assets/css/`).
+- Agenda (`portal_evento`) não é o Calendário Acadêmico.
+
+Para recolocar o HTML do código numa página já seedada (só em dev): esvaziar o conteúdo no WP e apagar a opção de seed. Isso descarta edição manual.

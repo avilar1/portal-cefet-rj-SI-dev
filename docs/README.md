@@ -10,6 +10,7 @@ A pasta `contexto/` na raiz do repositório permanece no `.gitignore` (materiais
 |---------|-----|
 | [Analise_Requisitos_Portal_SI_CefetRJ_revisado.md](referencias/Analise_Requisitos_Portal_SI_CefetRJ_revisado.md) | Regras de negócio (RN), requisitos funcionais (RF), IA (Seção 8), cronograma |
 | [heuristicas_governo_eletronico.md](referencias/heuristicas_governo_eletronico.md) | Heurísticas H1–H12 para portais de governo eletrônico |
+| [**guia-ux-avaliacao.md**](guia-ux-avaliacao.md) | O que a avaliação do portal mostrou e a ordem de prioridade no tema |
 
 ## Fábrica de Software II (gestão do projeto)
 

@@ -1,0 +1,14 @@
+---
+description: Design System gov.br híbrido no tema portal-si-cefet
+globs: wp-content/themes/portal-si-cefet/**/*.php,wp-content/themes/portal-si-cefet/**/*.css
+alwaysApply: false
+---
+
+# Visual e acessibilidade
+
+Identidade: `@govbr-ds/core` 3.7.0, uso híbrido. As heurísticas de uso estão em `heuristicas-egov.mdc`.
+
+- Tokens do tema em `assets/css/ds-tokens.css`. Componentes gov.br pontuais (card, divider, core-tokens) em `inc/ds-components.php`.
+- Não enfileire `core.min.css`. Novo componente do DS entra como folha vendor isolada, no mesmo padrão de `card.min.css`.
+- Tipografia: Rawline e Raleway (`inc/fonts.php`). Reutilize `br-card` e `br-divider` em vez de reinventar o card.
+- Shell já existente: faixa gov.br, menu, breadcrumbs, rodapé legal, alto contraste. Página nova entra nesse shell; não crie header próprio.

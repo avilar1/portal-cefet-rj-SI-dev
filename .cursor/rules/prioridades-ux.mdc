@@ -1,0 +1,20 @@
+---
+description: Prioridades de UX medidas na avaliação do portal SI
+globs: wp-content/themes/portal-si-cefet/**/*.php,wp-content/themes/portal-si-cefet/**/*.css,wp-content/themes/portal-si-cefet/**/*.js
+alwaysApply: false
+---
+
+# Prioridades de UX deste portal
+
+Evidência e roteiro: `docs/guia-ux-avaliacao.md`. As doze heurísticas continuam em `heuristicas-egov.mdc`. Ao criar ou alterar interface, nesta ordem:
+
+- **Página enxuta (H8).** Um assunto por bloco. Não repita o mesmo destino em menu, card e texto longo na mesma tela.
+- **Volta clara (H3).** De qualquer página dá para voltar à anterior e à home (breadcrumb e link). Atalho sem caminho de volta não conta.
+- **Atalho visível (H7).** Acesso rápido aos destinos frequentes, com busca e menu principal no mesmo shell.
+- **Linguagem cidadã (H2).** Sem juridiquês. Sigla explicada na primeira ocorrência.
+- **Órgão reconhecível (H12).** CEFET/RJ — Campus Maria da Graça, contato humano e link externo identificado. Imagem quebrada e visual incompleto derrubam a confiança mesmo com HTTPS.
+- **Celular e contraste (H11).** A página funciona no telefone; não é o desktop reduzido. Contraste suficiente e informação que não dependa só de cor.
+- **Ajuda encontrável (H10).** Orientação curta localizável a partir da tarefa. Foi o ponto mais fraco deste portal na avaliação.
+- **Incompleto anunciado.** Página ou seção sem conteúdo usa `template-parts/shared/coming-soon.php` (selo, o que falta, contato). Não apresente link em construção como serviço pronto.
+
+H1, H5 e H9 não foram medidas na navegação exploratória. Em formulário e fluxo com etapas: diga o status, impeça o erro antes e explique como corrigir.

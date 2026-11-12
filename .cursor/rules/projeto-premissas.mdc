@@ -1,0 +1,22 @@
+---
+description: Premissas do Portal SI CEFET/RJ — escopo, referências e o que não versionar
+alwaysApply: true
+---
+
+# Premissas do portal
+
+Tema `portal-si-cefet` (WordPress + Docker). Textos da interface em português, text domain `portal-si-cefet`.
+
+Antes de implementar ou mudar escopo, leia a fonte. Não copie o documento para o código nem para o chat:
+
+- Negócio e escopo: `docs/referencias/Analise_Requisitos_Portal_SI_CefetRJ_revisado.md`
+- Usabilidade e-gov (H1–H12): `docs/referencias/heuristicas_governo_eletronico.md`
+- Layouts fechados: `docs/referencias/layout_*.md`
+- O que já foi entregue: `docs/IMPLEMENTACAO-CHECKLIST.md`
+- Índice: `docs/README.md`
+
+- Não crie página, slug, CPT ou requisito que a análise não peça. Prioridade de entrega: RF de prioridade Alta em `REQUISITOS-PRIORIDADE.txt`.
+- `docs/` é o que a equipe compartilha. `contexto/` está no `.gitignore`; não versionar rascunhos nem o pacote completo do DS.
+- Não commitar `.env`, senhas ou dumps. Credenciais saem de `env.example`.
+- WordPress core e o `wp-content` do volume Docker não estão neste repositório. Alteração de tema fica em `wp-content/themes/portal-si-cefet/`.
+- Calendário Acadêmico (`/calendario-academico/`) não é a Agenda de eventos.

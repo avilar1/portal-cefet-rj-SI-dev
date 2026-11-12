@@ -1,0 +1,22 @@
+---
+description: Heurísticas H1–H12 de usabilidade para governo eletrônico
+globs: wp-content/themes/portal-si-cefet/**/*.php,wp-content/themes/portal-si-cefet/**/*.css,wp-content/themes/portal-si-cefet/**/*.js
+alwaysApply: false
+---
+
+# Heurísticas de governo eletrônico
+
+Checklist completo: `docs/referencias/heuristicas_governo_eletronico.md`. O que a avaliação deste portal priorizou: `docs/guia-ux-avaliacao.md`. Ao criar ou alterar interface, cumpra:
+
+- **H1 — Status:** diga o que aconteceu (envio, busca, carregamento, vazio, erro) sem fazer a pessoa adivinhar.
+- **H2 — Mundo real:** linguagem de estudante e cidadão; sigla explicada na primeira ocorrência.
+- **H3 — Controle:** saída clara (voltar, cancelar, breadcrumb). Peça confirmação antes de ação irreversível.
+- **H4 — Consistência:** mesmos rótulos e o mesmo shell (faixa gov.br, menu, breadcrumb, rodapé) em toda página.
+- **H5 — Prevenção:** impeça o erro antes (obrigatório, formato, destino do link).
+- **H6 — Reconhecimento:** opções visíveis; não exija memorizar caminho, código ou sigla.
+- **H7 — Eficiência:** atalho para tarefa frequente (acesso rápido, âncora, busca) sem esconder o caminho principal.
+- **H8 — Estética mínima:** um assunto por bloco; sem texto ou ornamento que não ajude a decisão.
+- **H9 — Recuperar erro:** mensagem clara, perto da causa, dizendo como corrigir.
+- **H10 — Ajuda:** texto curto onde a tarefa não é óbvia; ajuda não substitui rótulo claro.
+- **H11 — Acessibilidade:** contraste, texto alternativo, informação que não dependa só de cor, uso por teclado e leitor de tela, `prefers-reduced-motion`.
+- **H12 — Confiança:** CEFET/RJ — Campus Maria da Graça identificável; contato oficial; link externo identificado; sem publicidade.

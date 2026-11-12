@@ -1,0 +1,24 @@
+---
+description: Padrão de módulo do tema portal-si-cefet
+globs: wp-content/themes/portal-si-cefet/**/*.php
+alwaysApply: false
+---
+
+# Módulos do tema
+
+Novo módulo segue o recorte já usado no tema:
+
+```
+inc/<modulo>.php                 lógica, CPT, consultas
+template-parts/<modulo>/         markup reutilizável
+page-<slug>.php                  composição da tela
+data/<modulo>.php                dados estáveis (mudam pouco)
+assets/css/<modulo>.css          estilos, enqueue condicional
+```
+
+- Inclua o arquivo novo com `require_once` em `functions.php`.
+- Prefixo `portal_si_` em funções. CPT `portal_*` (ex.: `portal_professor`). Slug em constante `PORTAL_SI_*_SLUG`.
+- Todo PHP de include começa com `if ( ! defined( 'ABSPATH' ) ) { exit; }`.
+- Saída escapada (`esc_html`, `esc_url`, `esc_attr`, `wp_kses_post`). Strings visíveis com `__( '...', 'portal-si-cefet' )`.
+- CSS do módulo só na rota que o usa, com dependência `portal-si-pages` e versão `PORTAL_SI_CEFET_VERSION`. Modelo: `portal_si_tcc_enqueue_assets()` em `inc/tcc.php`.
+- Ao fechar um módulo, atualize `docs/IMPLEMENTACAO-CHECKLIST.md` e, se houver conteúdo editorial, `docs/conteudo-wordpress-vs-codigo.md`.
