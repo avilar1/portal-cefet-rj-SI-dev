@@ -102,6 +102,49 @@ body {
 	margin-top: 0.75rem;
 }
 
+.fs2-header__inner--split {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1.5rem;
+}
+
+.fs2-export {
+	flex: 0 0 auto;
+	max-width: 16rem;
+	text-align: right;
+}
+
+.fs2-export__btn {
+	display: inline-block;
+	padding: 0.7rem 1rem;
+	font: inherit;
+	font-size: 0.875rem;
+	font-weight: 700;
+	line-height: 1.3;
+	color: var(--govbr-blue-dark);
+	background: #fff;
+	border: 2px solid var(--govbr-blue);
+	border-bottom: 4px solid var(--govbr-yellow);
+	border-radius: var(--radius);
+	cursor: pointer;
+	box-shadow: var(--shadow);
+}
+
+.fs2-export__btn:hover,
+.fs2-export__btn:focus-visible {
+	background: var(--govbr-blue);
+	color: #fff;
+	border-color: var(--govbr-blue-dark);
+}
+
+.fs2-export__hint {
+	margin: 0.4rem 0 0;
+	font-size: 0.75rem;
+	line-height: 1.35;
+	color: var(--govbr-gray-60);
+}
+
 .fs2-badge {
 	display: inline-block;
 	padding: 0.2rem 0.6rem;
@@ -577,6 +620,15 @@ table.fs2-table caption {
 @media (max-width: 640px) {
 	.fs2-header h1 {
 		font-size: 1.375rem;
+	}
+
+	.fs2-header__inner--split {
+		flex-direction: column;
+	}
+
+	.fs2-export {
+		max-width: none;
+		text-align: left;
 	}
 
 	.fs2-section {

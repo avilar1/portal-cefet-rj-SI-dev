@@ -16,13 +16,21 @@
 	</div>
 
 	<header class="fs2-header">
-		<div class="fs2-header__inner">
-			<h1>Cronograma Gantt — Fábrica de Software II</h1>
-			<p class="fs2-header__meta">Sprints de 15 dias · Atividades · Dependências · Backlog RF01–RF34</p>
-			<div class="fs2-header__badges">
-				<span class="fs2-badge fs2-badge--warning">M1: 03/09</span>
-				<span class="fs2-badge fs2-badge--danger">M2 Go-live: 27/11</span>
-				<span class="fs2-badge fs2-badge--success">M3 Acadêmico: 30/11</span>
+		<div class="fs2-header__inner fs2-header__inner--split">
+			<div>
+				<h1>Cronograma Gantt — Fábrica de Software II</h1>
+				<p class="fs2-header__meta">Sprints de 15 dias · Atividades · Dependências · Backlog RF01–RF34</p>
+				<div class="fs2-header__badges">
+					<span class="fs2-badge fs2-badge--warning">M1: 03/09</span>
+					<span class="fs2-badge fs2-badge--danger">M2 Go-live: 27/11</span>
+					<span class="fs2-badge fs2-badge--success">M3 Acadêmico: 30/11</span>
+				</div>
+			</div>
+			<div class="fs2-export no-print">
+				<button type="button" class="fs2-export__btn" id="btn-export-projectlibre">
+					Baixar para o Project Libre
+				</button>
+				<p class="fs2-export__hint">Arquivo XML · no programa, Arquivo → Abrir</p>
 			</div>
 		</div>
 	</header>
@@ -359,7 +367,120 @@
 			h2.insertAdjacentElement("afterend", div);
 		}
 
+		function xmlEscape(value) {
+			return String(value)
+				.replace(/&/g, "&amp;")
+				.replace(/</g, "&lt;")
+				.replace(/>/g, "&gt;")
+				.replace(/"/g, "&quot;");
+		}
+
+		function parseIsoDate(iso) {
+			var p = iso.split("-");
+			return new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+		}
+
+		function workingDays(startIso, endIso) {
+			var cursor = parseIsoDate(startIso);
+			var end = parseIsoDate(endIso);
+			var count = 0;
+			while (cursor <= end) {
+				var day = cursor.getDay();
+				if (day !== 0 && day !== 6) count += 1;
+				cursor.setDate(cursor.getDate() + 1);
+			}
+			return count;
+		}
+
+		function buildProjectLibreXml(tasks) {
+			var uidById = {};
+			tasks.forEach(function (task, index) {
+				uidById[task.id] = index + 1;
+			});
+
+			var first = tasks[0];
+			var last = tasks[tasks.length - 1];
+			var lines = [];
+			lines.push('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>');
+			lines.push('<Project xmlns="http://schemas.microsoft.com/project">');
+			lines.push("<SaveVersion>14</SaveVersion>");
+			lines.push("<Name>" + xmlEscape("Portal SI CEFET/RJ — FS II") + "</Name>");
+			lines.push("<Title>" + xmlEscape("Cronograma Fábrica de Software II") + "</Title>");
+			lines.push("<ScheduleFromStart>1</ScheduleFromStart>");
+			lines.push("<StartDate>" + first.start + "T08:00:00</StartDate>");
+			lines.push("<FinishDate>" + last.end + "T17:00:00</FinishDate>");
+			lines.push("<CalendarUID>1</CalendarUID>");
+			lines.push("<MinutesPerDay>480</MinutesPerDay>");
+			lines.push("<MinutesPerWeek>2400</MinutesPerWeek>");
+			lines.push("<DaysPerMonth>20</DaysPerMonth>");
+			lines.push("<DefaultStartTime>08:00:00</DefaultStartTime>");
+			lines.push("<DefaultEndTime>17:00:00</DefaultEndTime>");
+			lines.push("<DurationFormat>7</DurationFormat>");
+			lines.push("<Calendars><Calendar>");
+			lines.push("<UID>1</UID><Name>Padrão</Name><IsBaseCalendar>1</IsBaseCalendar><WeekDays>");
+			[1, 2, 3, 4, 5, 6, 7].forEach(function (dayType) {
+				var working = dayType >= 2 && dayType <= 6;
+				lines.push("<WeekDay><DayType>" + dayType + "</DayType><DayWorking>" + (working ? "1" : "0") + "</DayWorking>");
+				if (working) {
+					lines.push("<WorkingTimes><WorkingTime><FromTime>08:00:00</FromTime><ToTime>12:00:00</ToTime></WorkingTime><WorkingTime><FromTime>13:00:00</FromTime><ToTime>17:00:00</ToTime></WorkingTime></WorkingTimes>");
+				}
+				lines.push("</WeekDay>");
+			});
+			lines.push("</WeekDays></Calendar></Calendars>");
+			lines.push("<Tasks>");
+			lines.push("<Task><UID>0</UID><ID>0</ID><Name>" + xmlEscape("Portal SI CEFET/RJ — FS II") + "</Name><OutlineLevel>0</OutlineLevel><Summary>1</Summary><Milestone>0</Milestone><Start>" + first.start + "T08:00:00</Start><Finish>" + last.end + "T17:00:00</Finish><Duration>PT0H0M0S</Duration></Task>");
+
+			tasks.forEach(function (task, index) {
+				var milestone = task.start === task.end || task.custom_class === "bar-milestone";
+				var days = milestone ? 0 : workingDays(task.start, task.end);
+				if (!milestone && days < 1) days = 1;
+				var finish = milestone ? task.start + "T08:00:00" : task.end + "T17:00:00";
+				lines.push("<Task>");
+				lines.push("<UID>" + (index + 1) + "</UID>");
+				lines.push("<ID>" + (index + 1) + "</ID>");
+				lines.push("<Name>" + xmlEscape(task.name) + "</Name>");
+				lines.push("<Type>1</Type><IsNull>0</IsNull><Active>1</Active>");
+				lines.push("<OutlineLevel>1</OutlineLevel>");
+				lines.push("<Priority>500</Priority>");
+				lines.push("<Start>" + task.start + "T08:00:00</Start>");
+				lines.push("<Finish>" + finish + "</Finish>");
+				lines.push("<Duration>PT" + (days * 8) + "H0M0S</Duration>");
+				lines.push("<DurationFormat>7</DurationFormat>");
+				lines.push("<Milestone>" + (milestone ? "1" : "0") + "</Milestone>");
+				lines.push("<Summary>0</Summary>");
+				lines.push("<PercentComplete>" + (task.progress || 0) + "</PercentComplete>");
+				if (task.dependencies) {
+					String(task.dependencies).split(",").forEach(function (depId) {
+						var pred = uidById[depId.trim()];
+						if (!pred) return;
+						lines.push("<PredecessorLink><PredecessorUID>" + pred + "</PredecessorUID><Type>1</Type><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>");
+					});
+				}
+				lines.push("</Task>");
+			});
+
+			lines.push("</Tasks><Resources/><Assignments/>");
+			lines.push("</Project>");
+			return lines.join("");
+		}
+
+		function downloadProjectLibre() {
+			if (!window.FS2_GANTT || !FS2_GANTT.tasks || !FS2_GANTT.tasks.length) return;
+			var xml = buildProjectLibreXml(FS2_GANTT.tasks);
+			var blob = new Blob([xml], { type: "application/xml" });
+			var url = URL.createObjectURL(blob);
+			var link = document.createElement("a");
+			link.href = url;
+			link.download = "cronograma-portal-si-fs2.xml";
+			document.body.appendChild(link);
+			link.click();
+			link.remove();
+			URL.revokeObjectURL(url);
+		}
+
 		document.addEventListener("DOMContentLoaded", function () {
+			var exportBtn = document.getElementById("btn-export-projectlibre");
+			if (exportBtn) exportBtn.addEventListener("click", downloadProjectLibre);
 			renderMilestonesBanner();
 			buildGanttFilters();
 			buildViewButtons();
