@@ -3,20 +3,20 @@
  * Fonte editável: RF, status, sprint alvo, responsável, DoD
  */
 window.FS2_BACKLOG = {
-	version: "1.0",
-	updated: "2026-09-29",
+	version: "1.1",
+	updated: "2026-11-19",
 	sprints: [
 		{ id: "S0", name: "Sprint 0 — Fundação", start: "2026-08-25", end: "2026-09-03", deliverable: "Project Charter + Gantt + backlog" },
 		{ id: "S1", name: "Sprint 1 — Institucional", start: "2026-09-04", end: "2026-09-18", deliverable: "Módulo institucional 100% validado" },
 		{ id: "S2", name: "Sprint 2 — P&E e Docentes", start: "2026-09-19", end: "2026-10-03", deliverable: "Hub P&E + importação docentes" },
 		{ id: "S3", name: "Sprint 3 — Fábrica e Serviços", start: "2026-10-04", end: "2026-10-18", deliverable: "Fábrica + serviços + repositório TCC" },
 		{ id: "S4", name: "Sprint 4 — Transversal", start: "2026-10-19", end: "2026-11-02", deliverable: "Admin, busca, SEO, qualidade" },
-		{ id: "S5", name: "Sprint 5 — Go-live", start: "2026-11-03", end: "2026-11-15", deliverable: "Produto no servidor CEFET + credenciais" },
-		{ id: "S6", name: "Sprint 6 — Acadêmico", start: "2026-11-16", end: "2026-11-30", deliverable: "Apresentação e aceite formal" }
+		{ id: "S5", name: "Sprint 5 — Go-live", start: "2026-11-19", end: "2026-11-27", deliverable: "Publicação na Oracle Always Free + credenciais dos professores" },
+		{ id: "S6", name: "Sprint 6 — Acadêmico", start: "2026-11-23", end: "2026-11-30", deliverable: "Apresentação e aceite formal" }
 	],
 	milestones: [
 		{ id: "M1", date: "2026-09-03", label: "Entrega Project Charter (acadêmico)" },
-		{ id: "M2", date: "2026-11-15", label: "Deadline produto (go-live + credenciais)" },
+		{ id: "M2", date: "2026-11-27", label: "Go-live na Oracle Always Free + credenciais dos professores" },
 		{ id: "M3", date: "2026-11-30", label: "Entrega acadêmica final" }
 	],
 	items: [
@@ -66,14 +66,14 @@ window.FS2_BACKLOG = {
 		{ id: "RF33", module: "Admin", title: "Busca global", priority: "Alta", status: "partial", sprint: "S4", owner: "[Colega 1]", dod: "Notícias, docs, projetos, professores indexados" },
 		{ id: "RF34", module: "Admin", title: "Sitemap XML", priority: "Média", status: "partial", sprint: "S4", owner: "[Colega 1]", dod: "Plugin SEO configurado" },
 		{ id: "RNF", module: "Transversal", title: "A11y, LGPD, performance", priority: "—", status: "partial", sprint: "S4", owner: "Equipe", dod: "Checklist RNF03–07; Lighthouse a11y ≥ 90" },
-		{ id: "TR-TI-2", module: "Infra", title: "Provisionamento servidor CEFET", priority: "—", status: "pending", sprint: "S4", owner: "[Gerente]", dod: "Acesso SSH/VM; Docker ou stack acordada com TI" },
+		{ id: "TR-TI-2", module: "Infra", title: "Servidor institucional CEFET", priority: "—", status: "paused", sprint: "S4", owner: "[Gerente]", dod: "Fora do caminho crítico. A publicação de 27/11 segue o padrão da homologação na Oracle Always Free" },
 		{ id: "TR-CT-2", module: "Conteúdo", title: "População dados reais (pico)", priority: "—", status: "pending", sprint: "S4", owner: "Equipe", dod: "Docentes, notícias (≥5), projetos, docs oficiais" },
 
 		/* —— Sprint 5 —— */
-		{ id: "TR-DEPLOY", module: "Infra", title: "Deploy produção CEFET", priority: "—", status: "pending", sprint: "S5", owner: "[Gerente]", dod: "Portal acessível no servidor institucional" },
-		{ id: "TR-TEST", module: "QA", title: "Testes aceite final (100% RF)", priority: "—", status: "pending", sprint: "S5", owner: "Equipe", dod: "IMPLEMENTACAO-CHECKLIST sem pendências bloqueadoras" },
-		{ id: "TR-TRAIN", module: "Operação", title: "Treinamento administradores", priority: "—", status: "pending", sprint: "S5", owner: "[Gerente]", dod: "Sessão com 2 professores; guias docs/edicao-*.md" },
-		{ id: "TR-CRED", module: "Operação", title: "Entrega credenciais + termo aceite", priority: "—", status: "pending", sprint: "S5", owner: "[Gerente]", dod: "Admins operacionais; termo assinado até 15/11" },
+		{ id: "TR-DEPLOY", module: "Infra", title: "Publicar na Oracle Always Free", priority: "—", status: "pending", sprint: "S5", owner: "[Gerente]", dod: "Mesmo padrão da homologação (Docker + Caddy). Portal no ar até 27/11" },
+		{ id: "TR-TEST", module: "QA", title: "Teste do portal publicado", priority: "—", status: "pending", sprint: "S5", owner: "Equipe", dod: "Home, contato, notícias e login dos professores conferidos no endereço público" },
+		{ id: "TR-TRAIN", module: "Operação", title: "Entrega do acesso aos professores", priority: "—", status: "pending", sprint: "S5", owner: "[Gerente]", dod: "Dois professores com credencial de editor e os guias docs/edicao-*.md" },
+		{ id: "TR-CRED", module: "Operação", title: "Credenciais dos professores", priority: "—", status: "pending", sprint: "S5", owner: "[Gerente]", dod: "Usuários criados na publicação Oracle até 27/11" },
 
 		/* —— Sprint 6 —— */
 		{ id: "TR-DOC", module: "Documentação", title: "Documentação final operação", priority: "—", status: "pending", sprint: "S6", owner: "[Gerente]", dod: "DEPLOY.md + BACKUP.md revisados pós-go-live" },

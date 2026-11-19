@@ -21,7 +21,7 @@
 			<p class="fs2-header__meta">Sprints de 15 dias · Atividades · Dependências · Backlog RF01–RF34</p>
 			<div class="fs2-header__badges">
 				<span class="fs2-badge fs2-badge--warning">M1: 03/09</span>
-				<span class="fs2-badge fs2-badge--danger">M2 Produto: 15/11</span>
+				<span class="fs2-badge fs2-badge--danger">M2 Go-live: 27/11</span>
 				<span class="fs2-badge fs2-badge--success">M3 Acadêmico: 30/11</span>
 			</div>
 		</div>
@@ -41,8 +41,12 @@
 			<h2>Cronograma por atividades</h2>
 			<p>
 				Gráfico interativo com sprints, trilhas de conteúdo/infra e marcos acadêmico (03/09),
-				produto (15/11) e entrega final (30/11). Arraste a barra de scroll horizontal para navegar.
+				go-live (27/11) e entrega final (30/11). Arraste a barra de scroll horizontal para navegar.
 			</p>
+			<div class="fs2-callout fs2-callout--info">
+				<strong>Replanejado em 19/11.</strong>
+				O marco de 15/11 não foi o go-live. A publicação segue o padrão da homologação, na Oracle Always Free, com credenciais dos professores até 27/11. A reserva de dezembro ficou em 01–12/12, para ajuste depois do feedback e para o domínio institucional, se a TI liberar. Itens de prioridade média que ainda não entraram (showcase, serviços acadêmicos, ferramentas digitais) não bloqueiam essa data.
+			</div>
 
 			<div class="fs2-gantt-legend">
 				<span class="fs2-gantt-legend__item">
@@ -265,9 +269,9 @@
 			});
 			var trBuf = document.createElement("tr");
 			trBuf.innerHTML =
-				"<td><strong>Dez</strong> — Buffer crítico</td>" +
-				"<td>01/12 – 31/12</td>" +
-				"<td>Contingência (TI, bloqueadores) — sem features novas</td>";
+				"<td><strong>Dez</strong> — Reserva curta</td>" +
+				"<td>01/12 – 12/12</td>" +
+				"<td>Ajuste pós-feedback e domínio institucional, se a TI liberar. Sem funcionalidade nova.</td>";
 			tbody.appendChild(trBuf);
 		}
 
