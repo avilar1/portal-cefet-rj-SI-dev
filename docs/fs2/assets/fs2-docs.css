@@ -453,6 +453,12 @@ table.fs2-table caption {
 	border-radius: 2px;
 }
 
+.fs2-gantt-legend__swatch--baseline {
+	height: 0.35rem;
+	background: #7b8794;
+	align-self: center;
+}
+
 .fs2-gantt-filters {
 	display: flex;
 	flex-wrap: wrap;
@@ -476,26 +482,116 @@ table.fs2-table caption {
 	border-color: var(--govbr-blue);
 }
 
-/* Frappe Gantt overrides */
-.gantt .bar-milestone .bar {
-	fill: var(--govbr-red);
+/* Frappe Gantt — cores PMBOK (status / caminho crítico) */
+.gantt .bar-summary .bar {
+	fill: #1b1b1b;
+	opacity: 0.92;
 }
 
-.gantt .bar-sprint .bar {
+.gantt .bar-summary .bar-progress {
+	fill: #333;
+}
+
+.gantt .bar-summary .bar-label {
+	fill: #fff;
+	font-weight: 700;
+}
+
+.gantt .bar-done .bar {
+	fill: var(--govbr-green);
+}
+
+.gantt .bar-done .bar-progress {
+	fill: #0f5c18;
+}
+
+.gantt .bar-progress .bar {
 	fill: var(--govbr-blue);
 }
 
-.gantt .bar-content .bar {
+.gantt .bar-progress .bar-progress {
 	fill: var(--govbr-blue-dark);
 }
 
-.gantt .bar-infra .bar {
-	fill: var(--govbr-green);
+.gantt .bar-planned .bar {
+	fill: #9eb3c8;
+}
+
+.gantt .bar-planned .bar-progress {
+	fill: #6b849c;
+}
+
+/* Buffer / slack (float) — comum em cronogramas para mostrar folga ou pausa */
+.gantt .bar-buffer .bar {
+	fill: #d9e2ec;
+	stroke: #627d98;
+	stroke-width: 1;
+	stroke-dasharray: 6 4;
+}
+
+.gantt .bar-buffer .bar-progress {
+	fill: #bcccdc;
+}
+
+.gantt .bar-buffer .bar-label {
+	fill: var(--govbr-gray-80);
+}
+
+.gantt .arrow {
+	fill: none;
+	stroke: #486581;
+	stroke-width: 1.5;
+}
+
+.gantt .bar-baseline {
+	fill: #7b8794;
+	opacity: 0.85;
+	pointer-events: none;
+}
+
+.gantt .bar-paused .bar {
+	fill: #c5a46e;
+	stroke: #8a6d3b;
+	stroke-width: 1;
+	stroke-dasharray: 4 3;
+}
+
+.gantt .bar-paused .bar-progress {
+	fill: #a8844a;
+}
+
+.gantt .bar-paused .bar-label {
+	fill: var(--govbr-gray-80);
+}
+
+.gantt .bar-critical .bar {
+	fill: var(--govbr-red);
+}
+
+.gantt .bar-critical .bar-progress {
+	fill: #a11805;
+}
+
+.gantt .bar-milestone .bar {
+	fill: #8a1538;
+}
+
+.gantt .bar-milestone .bar-progress {
+	fill: #5c0e26;
 }
 
 .gantt .bar-milestone .bar-label {
 	fill: #fff;
 	font-weight: 700;
+}
+
+.gantt .bar-label {
+	fill: #fff;
+	font-weight: 600;
+}
+
+.gantt .bar-planned .bar-label {
+	fill: var(--govbr-gray-80);
 }
 
 /* —— Backlog board —— */

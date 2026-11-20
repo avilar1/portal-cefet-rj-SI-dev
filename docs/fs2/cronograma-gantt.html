@@ -52,22 +52,41 @@
 				go-live (27/11) e entrega final (30/11). Arraste a barra de scroll horizontal para navegar.
 			</p>
 			<div class="fs2-callout fs2-callout--info">
-				<strong>Replanejado em 19/11.</strong>
-				O marco de 15/11 não foi o go-live. A publicação segue o padrão da homologação, na Oracle Always Free, com credenciais dos professores até 27/11. A reserva de dezembro ficou em 01–12/12, para ajuste depois do feedback e para o domínio institucional, se a TI liberar. Itens de prioridade média que ainda não entraram (showcase, serviços acadêmicos, ferramentas digitais) não bloqueiam essa data.
+				<strong>Replanejado em 19–20/11.</strong>
+				O marco de 15/11 não foi o go-live. A publicação segue o padrão da homologação, na Oracle Always Free, com credenciais dos professores até 27/11.
+				Itens que pareciam “parciais” foram quebrados em subtarefas: a parte já entregue aparece como concluída; o residual que depende de dado real, validação externa ou escolha fica <strong>paralisado</strong> na Contingência e <strong>não bloqueia</strong> o M2.
+				A reserva de dezembro (01–12/12) cobre retomada dessas paralisadas, feedback e domínio institucional, se a TI liberar.
+				O intervalo 05–17/11 aparece como <strong>pausa técnica</strong> (demandas externas / outro projeto), com folga de 1 dia antes da retomada do go-live.
+				Barras coloridas = <strong>realizado / vigente</strong>. Faixa cinza fina sob cada tarefa = <strong>baseline</strong> (plano original, go-live previsto em 15/11).
 			</div>
 
 			<div class="fs2-gantt-legend">
 				<span class="fs2-gantt-legend__item">
-					<span class="fs2-gantt-legend__swatch" style="background:#1351b4"></span> Sprint / gestão
+					<span class="fs2-gantt-legend__swatch" style="background:#1b1b1b"></span> Resumo (sprint/grupo)
 				</span>
 				<span class="fs2-gantt-legend__item">
-					<span class="fs2-gantt-legend__swatch" style="background:#0c326f"></span> Desenvolvimento / conteúdo
+					<span class="fs2-gantt-legend__swatch" style="background:#168821"></span> Concluída
 				</span>
 				<span class="fs2-gantt-legend__item">
-					<span class="fs2-gantt-legend__swatch" style="background:#168821"></span> Infraestrutura / TI
+					<span class="fs2-gantt-legend__swatch" style="background:#1351b4"></span> Em andamento
 				</span>
 				<span class="fs2-gantt-legend__item">
-					<span class="fs2-gantt-legend__swatch" style="background:#e52207"></span> Marcos
+					<span class="fs2-gantt-legend__swatch" style="background:#9eb3c8"></span> Planejada / futura
+				</span>
+				<span class="fs2-gantt-legend__item">
+					<span class="fs2-gantt-legend__swatch" style="background:#d9e2ec;outline:1px dashed #627d98"></span> Pausa / buffer
+				</span>
+				<span class="fs2-gantt-legend__item">
+					<span class="fs2-gantt-legend__swatch" style="background:#c5a46e;outline:1px dashed #8a6d3b"></span> Paralisada
+				</span>
+				<span class="fs2-gantt-legend__item">
+					<span class="fs2-gantt-legend__swatch" style="background:#e52207"></span> Caminho crítico (go-live)
+				</span>
+				<span class="fs2-gantt-legend__item">
+					<span class="fs2-gantt-legend__swatch" style="background:#8a1538"></span> Marco
+				</span>
+				<span class="fs2-gantt-legend__item">
+					<span class="fs2-gantt-legend__swatch fs2-gantt-legend__swatch--baseline"></span> Baseline (plano original)
 				</span>
 			</div>
 
@@ -167,7 +186,7 @@
 				done: "Entregue",
 				partial: "Parcial",
 				pending: "Pendente",
-				paused: "Retomar"
+				paused: "Paralisada"
 			};
 			return map[status] || status;
 		}
@@ -193,17 +212,32 @@
 
 			ganttInstance = new Gantt(container, tasks, {
 				view_mode: currentView,
-				bar_height: 28,
-				padding: 16,
+				bar_height: 26,
+				padding: 20,
 				date_format: "YYYY-MM-DD",
 				custom_popup_html: function (task) {
 					var end = task._end || task.end;
+					var statusMap = {
+						"bar-summary": "Resumo",
+						"bar-done": "Concluída",
+						"bar-progress": "Em andamento",
+						"bar-planned": "Planejada",
+						"bar-buffer": "Pausa / buffer",
+						"bar-paused": "Paralisada",
+						"bar-critical": "Caminho crítico",
+						"bar-milestone": "Marco"
+					};
+					var status = statusMap[task.custom_class] || "";
 					return (
 						'<div class="details-container" style="padding:0.5rem;font-size:0.8125rem">' +
 						"<strong>" + task.name + "</strong><br>" +
 						formatDateBR(task.start) + " → " + formatDateBR(end) + "<br>" +
 						"Progresso: " + (task.progress || 0) + "%" +
-						(task.group ? "<br>Sprint: " + task.group : "") +
+						(status ? "<br>Status: " + status : "") +
+						(task.group ? "<br>Grupo: " + task.group : "") +
+						(task.baseline_start
+							? "<br>Baseline: " + formatDateBR(task.baseline_start) + " → " + formatDateBR(task.baseline_end)
+							: "") +
 						"</div>"
 					);
 				},
@@ -212,11 +246,116 @@
 				on_progress_change: function () {}
 			});
 
-			drawMilestoneMarkers();
+			/* Frappe 0.6 sai do meio/baixo; update() (não draw()) reaplica o path no elemento existente. */
+			fixDependencyArrowsFromBarEnd(ganttInstance);
+			drawBaselineBars(ganttInstance);
 		}
 
-		function drawMilestoneMarkers() {
-			/* Marcadores visuais via labels no popup; linhas verticais exigem SVG custom — legendas abaixo do gráfico */
+		function fixDependencyArrowsFromBarEnd(gantt) {
+			if (!gantt || !gantt.arrows || !gantt.arrows.length) return;
+			var padding = gantt.options.padding;
+			var curve = gantt.options.arrow_curve || 5;
+			var seen = {};
+
+			gantt.arrows.forEach(function (arrow) {
+				var key = arrow.from_task.task.id + "->" + arrow.to_task.task.id;
+				if (seen[key]) return;
+				seen[key] = true;
+
+				arrow.calculate_path = function () {
+					var fromBar = this.from_task.$bar;
+					var toBar = this.to_task.$bar;
+					var startX = fromBar.getX() + fromBar.getWidth();
+					var startY = fromBar.getY() + fromBar.getHeight() / 2;
+					var endX = toBar.getX() - padding / 2;
+					var endY = toBar.getY() + toBar.getHeight() / 2;
+					var goingUp = this.from_task.task._index > this.to_task.task._index;
+					var sweep = goingUp ? 1 : 0;
+					var dy = goingUp ? -curve : curve;
+					var elbowY = goingUp ? endY + curve : endY - curve;
+					var midX = Math.max(startX + Math.min(padding, 12), endX - curve);
+
+					if (toBar.getX() >= startX - 2) {
+						this.path =
+							"M " + startX + " " + startY +
+							" H " + midX +
+							" V " + elbowY +
+							" a " + curve + " " + curve + " 0 0 " + sweep + " " + curve + " " + dy +
+							" L " + endX + " " + endY +
+							" m -5 -5 l 5 5 l -5 5";
+					} else {
+						var drop = goingUp ? -padding / 2 : padding / 2;
+						this.path =
+							"M " + startX + " " + startY +
+							" v " + drop +
+							" H " + (endX - curve) +
+							" V " + endY +
+							" L " + endX + " " + endY +
+							" m -5 -5 l 5 5 l -5 5";
+					}
+				};
+
+				/* draw() cria path novo e deixa o antigo (meio/baixo) na tela — usar update. */
+				arrow.update();
+			});
+		}
+
+		function parseIsoLocal(iso) {
+			var p = String(iso).split("-");
+			return new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]), 0, 0, 0, 0);
+		}
+
+		function dateToGanttX(gantt, iso) {
+			var start = parseIsoLocal(iso);
+			var gStart = gantt.gantt_start;
+			var step = gantt.options.step;
+			var col = gantt.options.column_width;
+			if (gantt.view_is && gantt.view_is("Month")) {
+				var days = (start - gStart) / 864e5;
+				return days * col / 30;
+			}
+			var hours = (start - gStart) / 36e5;
+			return (hours / step) * col;
+		}
+
+		function drawBaselineBars(gantt) {
+			if (!gantt || !gantt.$svg || !gantt.bars) return;
+			var old = gantt.$svg.querySelector(".baseline-layer");
+			if (old) old.remove();
+
+			var ns = "http://www.w3.org/2000/svg";
+			var layer = document.createElementNS(ns, "g");
+			layer.setAttribute("class", "baseline-layer");
+			var barLayer = gantt.$svg.querySelector(".bar");
+			if (barLayer && barLayer.parentNode) {
+				barLayer.parentNode.insertBefore(layer, barLayer);
+			} else {
+				gantt.$svg.appendChild(layer);
+			}
+
+			gantt.bars.forEach(function (bar) {
+				var task = bar.task;
+				if (!task.baseline_start || !task.baseline_end || task.summary) return;
+				var x1 = dateToGanttX(gantt, task.baseline_start);
+				var endExclusive = parseIsoLocal(task.baseline_end);
+				endExclusive.setDate(endExclusive.getDate() + 1);
+				var ymd =
+					endExclusive.getFullYear() + "-" +
+					String(endExclusive.getMonth() + 1).padStart(2, "0") + "-" +
+					String(endExclusive.getDate()).padStart(2, "0");
+				var x2 = dateToGanttX(gantt, ymd);
+				var width = Math.max(x2 - x1, 4);
+				var y = bar.$bar.getY() + bar.$bar.getHeight() + 2;
+				var rect = document.createElementNS(ns, "rect");
+				rect.setAttribute("class", "bar-baseline");
+				rect.setAttribute("x", x1);
+				rect.setAttribute("y", y);
+				rect.setAttribute("width", width);
+				rect.setAttribute("height", "5");
+				rect.setAttribute("rx", "2");
+				rect.setAttribute("ry", "2");
+				layer.appendChild(rect);
+			});
 		}
 
 		function buildGanttFilters() {
@@ -294,7 +433,7 @@
 				statBlock(counts.done, "Entregues") +
 				statBlock(counts.partial, "Parciais") +
 				statBlock(counts.pending, "Pendentes") +
-				statBlock(counts.paused, "Retomar") +
+				statBlock(counts.paused, "Paralisadas") +
 				statBlock(items.length, "Total itens");
 		}
 
@@ -311,7 +450,7 @@
 		function buildBacklogFilters() {
 			var wrap = document.getElementById("backlog-filters");
 			var filters = ["all", "done", "partial", "pending", "paused"];
-			var labels = { all: "Todos", done: "Entregues", partial: "Parciais", pending: "Pendentes", paused: "Retomar" };
+			var labels = { all: "Todos", done: "Entregues", partial: "Parciais", pending: "Pendentes", paused: "Paralisadas" };
 			filters.forEach(function (f) {
 				var btn = document.createElement("button");
 				btn.type = "button";
@@ -431,25 +570,28 @@
 			lines.push("<Task><UID>0</UID><ID>0</ID><Name>" + xmlEscape("Portal SI CEFET/RJ — FS II") + "</Name><OutlineLevel>0</OutlineLevel><Summary>1</Summary><Milestone>0</Milestone><Start>" + first.start + "T08:00:00</Start><Finish>" + last.end + "T17:00:00</Finish><Duration>PT0H0M0S</Duration></Task>");
 
 			tasks.forEach(function (task, index) {
-				var milestone = task.start === task.end || task.custom_class === "bar-milestone";
+				var isSummary = !!task.summary || task.custom_class === "bar-summary";
+				var milestone = !isSummary && (task.start === task.end || task.custom_class === "bar-milestone");
 				var days = milestone ? 0 : workingDays(task.start, task.end);
-				if (!milestone && days < 1) days = 1;
+				if (!milestone && !isSummary && days < 1) days = 1;
+				if (isSummary && days < 1) days = 1;
 				var finish = milestone ? task.start + "T08:00:00" : task.end + "T17:00:00";
+				var outlineLevel = isSummary ? 1 : 2;
 				lines.push("<Task>");
 				lines.push("<UID>" + (index + 1) + "</UID>");
 				lines.push("<ID>" + (index + 1) + "</ID>");
 				lines.push("<Name>" + xmlEscape(task.name) + "</Name>");
-				lines.push("<Type>1</Type><IsNull>0</IsNull><Active>1</Active>");
-				lines.push("<OutlineLevel>1</OutlineLevel>");
+				lines.push("<Type>" + (isSummary ? "1" : "0") + "</Type><IsNull>0</IsNull><Active>1</Active>");
+				lines.push("<OutlineLevel>" + outlineLevel + "</OutlineLevel>");
 				lines.push("<Priority>500</Priority>");
 				lines.push("<Start>" + task.start + "T08:00:00</Start>");
 				lines.push("<Finish>" + finish + "</Finish>");
 				lines.push("<Duration>PT" + (days * 8) + "H0M0S</Duration>");
 				lines.push("<DurationFormat>7</DurationFormat>");
 				lines.push("<Milestone>" + (milestone ? "1" : "0") + "</Milestone>");
-				lines.push("<Summary>0</Summary>");
+				lines.push("<Summary>" + (isSummary ? "1" : "0") + "</Summary>");
 				lines.push("<PercentComplete>" + (task.progress || 0) + "</PercentComplete>");
-				if (task.dependencies) {
+				if (!isSummary && task.dependencies) {
 					String(task.dependencies).split(",").forEach(function (depId) {
 						var pred = uidById[depId.trim()];
 						if (!pred) return;

@@ -3,14 +3,14 @@
  * Fonte editável: RF, status, sprint alvo, responsável, DoD
  */
 window.FS2_BACKLOG = {
-	version: "1.1",
-	updated: "2026-11-19",
+	version: "1.2",
+	updated: "2026-11-20",
 	sprints: [
 		{ id: "S0", name: "Sprint 0 — Fundação", start: "2026-08-25", end: "2026-09-03", deliverable: "Project Charter + Gantt + backlog" },
-		{ id: "S1", name: "Sprint 1 — Institucional", start: "2026-09-04", end: "2026-09-18", deliverable: "Módulo institucional 100% validado" },
-		{ id: "S2", name: "Sprint 2 — P&E e Docentes", start: "2026-09-19", end: "2026-10-03", deliverable: "Hub P&E + importação docentes" },
-		{ id: "S3", name: "Sprint 3 — Fábrica e Serviços", start: "2026-10-04", end: "2026-10-18", deliverable: "Fábrica + serviços + repositório TCC" },
-		{ id: "S4", name: "Sprint 4 — Transversal", start: "2026-10-19", end: "2026-11-02", deliverable: "Admin, busca, SEO, qualidade" },
+		{ id: "S1", name: "Sprint 1 — Institucional", start: "2026-09-04", end: "2026-09-18", deliverable: "Entregas técnicas do módulo institucional (validação residual paralisada)" },
+		{ id: "S2", name: "Sprint 2 — P&E e Docentes", start: "2026-09-19", end: "2026-10-03", deliverable: "Hub P&E (listagens); import/convênios paralisados" },
+		{ id: "S3", name: "Sprint 3 — Fábrica e Serviços", start: "2026-10-04", end: "2026-10-18", deliverable: "Repositório TCC (busca/página); lista real e médias paralisados" },
+		{ id: "S4", name: "Sprint 4 — Transversal", start: "2026-10-19", end: "2026-11-04", deliverable: "Admin, busca, SEO e RNF na base; polimento paralisado" },
 		{ id: "S5", name: "Sprint 5 — Go-live", start: "2026-11-19", end: "2026-11-27", deliverable: "Publicação na Oracle Always Free + credenciais dos professores" },
 		{ id: "S6", name: "Sprint 6 — Acadêmico", start: "2026-11-23", end: "2026-11-30", deliverable: "Apresentação e aceite formal" }
 	],
@@ -38,36 +38,36 @@ window.FS2_BACKLOG = {
 		{ id: "RF29", module: "Contato", title: "Contato coordenação", priority: "Alta", status: "done", sprint: "—", owner: "Equipe", dod: "Destaque na página e rodapé" },
 
 		/* —— Sprint 1 —— */
-		{ id: "RF03", module: "Institucional", title: "Grade curricular completa", priority: "Alta", status: "partial", sprint: "S1", owner: "[Colega 1]", dod: "Estrutura por período + ementas/conteúdo real validado pelo cliente (publicada com PPC 2025 e editável no painel; aguarda validação da coordenação)" },
+		{ id: "RF03", module: "Institucional", title: "Grade curricular completa", priority: "Alta", status: "paused", sprint: "S1", owner: "[Colega 1]", dod: "Subtarefa entregue: estrutura/PPC no painel. Paralisada: validação da coordenação / ementas finais (não bloqueia M2)" },
 		{ id: "RF07", module: "Institucional", title: "Vida estudantil / bolsas", priority: "Média", status: "done", sprint: "S1", owner: "[Colega 1]", dod: "Página publicada com bolsas e auxílios CEFET" },
 		{ id: "RF26", module: "Serviços", title: "Fluxo de disciplinas", priority: "Alta", status: "done", sprint: "S1", owner: "[Colega 1]", dod: "Visualização de progressão e pré-requisitos vinculada à grade" },
 		{ id: "RF21", module: "Comunicação", title: "Galeria multimídia", priority: "Média", status: "done", sprint: "S1", owner: "[Colega 3]", dod: "Álbuns de fotos e vídeos por categoria, editáveis no painel, com faixa opcional na home (sem alterar as zonas existentes)" },
-		{ id: "TR-TI-1", module: "Infra", title: "Primeiro contato TI CEFET", priority: "—", status: "pending", sprint: "S1", owner: "[Gerente]", dod: "Reunião agendada; requisitos servidor documentados" },
-		{ id: "TR-CT-1", module: "Conteúdo", title: "Coleta grade e docentes", priority: "—", status: "partial", sprint: "S1", owner: "[Gerente]", dod: "Planilhas/listas recebidas da coordenação" },
+		{ id: "TR-TI-1", module: "Infra", title: "Primeiro contato TI CEFET", priority: "—", status: "paused", sprint: "S1", owner: "[Gerente]", dod: "Paralisada: aguarda agenda/TI. Fora do caminho crítico do go-live Oracle" },
+		{ id: "TR-CT-1", module: "Conteúdo", title: "Coleta grade e docentes", priority: "—", status: "paused", sprint: "S1", owner: "[Gerente]", dod: "Subtarefa entregue: lote inicial. Paralisada: coleta complementar (dado externo)" },
 
 		/* —— Sprint 2 —— */
-		{ id: "RF09", module: "Pesquisa/Ext.", title: "Projetos de pesquisa", priority: "Alta", status: "done", sprint: "S2", owner: "[Colega 2]", dod: "Listagem com responsável e situação (CPT editável com filtros; projetos de exemplo a substituir por reais)" },
+		{ id: "RF09", module: "Pesquisa/Ext.", title: "Projetos de pesquisa", priority: "Alta", status: "done", sprint: "S2", owner: "[Colega 2]", dod: "Listagem com responsável e situação (CPT editável com filtros)" },
 		{ id: "RF10", module: "Pesquisa/Ext.", title: "Iniciação científica", priority: "Média", status: "done", sprint: "S2", owner: "[Colega 2]", dod: "Critérios e contatos publicados (página editável + projetos com vagas automáticos)" },
-		{ id: "RF11", module: "Pesquisa/Ext.", title: "Hub P&E / parcerias", priority: "Média", status: "partial", sprint: "S2", owner: "[Colega 2]", dod: "Hub com listagens completas e convênios (listagens prontas; aguarda lista de convênios)" },
-		{ id: "RF12", module: "Pesquisa/Ext.", title: "Importação planilha docentes", priority: "Alta", status: "paused", sprint: "S2", owner: "[Colega 2]", dod: "Import CSV/planilha funcional ou fallback documentado" },
+		{ id: "RF11", module: "Pesquisa/Ext.", title: "Hub P&E / parcerias", priority: "Média", status: "paused", sprint: "S2", owner: "[Colega 2]", dod: "Subtarefa entregue: listagens do hub. Paralisada: convênios reais (lista externa)" },
+		{ id: "RF12", module: "Pesquisa/Ext.", title: "Importação planilha docentes", priority: "Alta", status: "paused", sprint: "S2", owner: "[Colega 2]", dod: "Paralisada: import CSV/planilha ou fallback — não bloqueia M2" },
 
 		/* —— Sprint 3 —— */
-		{ id: "RF15", module: "Fábrica SW", title: "Showcase excelência", priority: "Média", status: "pending", sprint: "S3", owner: "[Colega 3]", dod: "Destaque de soluções acadêmicas relevantes" },
-		{ id: "RF16", module: "Fábrica SW", title: "Formulário parceiros", priority: "Alta", status: "paused", sprint: "S3", owner: "[Colega 3]", dod: "Canal exclusivo de demanda para parceiros externos" },
-		{ id: "RF23", module: "Serviços", title: "Serviços acadêmicos", priority: "Média", status: "pending", sprint: "S3", owner: "[Colega 1]", dod: "Secretaria, biblioteca, SAE com contatos e horários" },
-		{ id: "RF24", module: "Serviços", title: "Ferramentas digitais", priority: "Média", status: "pending", sprint: "S3", owner: "[Colega 1]", dod: "GitHub Student Pack, Figma Education, etc." },
-		{ id: "RF25", module: "Serviços", title: "Repositório TCC", priority: "Alta", status: "partial", sprint: "S3", owner: "[Colega 3]", dod: "Busca por título/autor/ano + conteúdo inicial curado — busca, filtros, página do TCC e PDF ou link externo prontos (envio de PDF desativável em TCCs → Configurações); aguarda lista real de TCCs para substituir os 4 exemplos" },
+		{ id: "RF15", module: "Fábrica SW", title: "Showcase excelência", priority: "Média", status: "paused", sprint: "S3", owner: "[Colega 3]", dod: "Paralisada (prioridade média): não bloqueia M2" },
+		{ id: "RF16", module: "Fábrica SW", title: "Formulário parceiros", priority: "Alta", status: "paused", sprint: "S3", owner: "[Colega 3]", dod: "Paralisada: canal de demanda externa — não bloqueia M2" },
+		{ id: "RF23", module: "Serviços", title: "Serviços acadêmicos", priority: "Média", status: "paused", sprint: "S3", owner: "[Colega 1]", dod: "Paralisada (prioridade média): não bloqueia M2" },
+		{ id: "RF24", module: "Serviços", title: "Ferramentas digitais", priority: "Média", status: "paused", sprint: "S3", owner: "[Colega 1]", dod: "Paralisada (prioridade média): não bloqueia M2" },
+		{ id: "RF25", module: "Serviços", title: "Repositório TCC", priority: "Alta", status: "paused", sprint: "S3", owner: "[Colega 3]", dod: "Subtarefa entregue: busca, filtros, página e PDF/link. Paralisada: substituir exemplos pela lista real de TCCs" },
 
 		/* —— Sprint 4 —— */
-		{ id: "RF28", module: "Contato", title: "Ouvidoria", priority: "Média", status: "partial", sprint: "S4", owner: "[Colega 3]", dod: "Formulário ou integração com prazo de resposta" },
-		{ id: "RF30", module: "Admin", title: "Área administrativa", priority: "Alta", status: "partial", sprint: "S4", owner: "[Gerente]", dod: "Painel WP configurado para operação" },
-		{ id: "RF31", module: "Admin", title: "Perfis Admin / Editor", priority: "Alta", status: "partial", sprint: "S4", owner: "[Gerente]", dod: "2 professores com credenciais testadas" },
-		{ id: "RF32", module: "Admin", title: "Menu configurável", priority: "Alta", status: "partial", sprint: "S4", owner: "[Gerente]", dod: "Menus wp-admin alinhados à IA" },
-		{ id: "RF33", module: "Admin", title: "Busca global", priority: "Alta", status: "partial", sprint: "S4", owner: "[Colega 1]", dod: "Notícias, docs, projetos, professores indexados" },
-		{ id: "RF34", module: "Admin", title: "Sitemap XML", priority: "Média", status: "partial", sprint: "S4", owner: "[Colega 1]", dod: "Plugin SEO configurado" },
-		{ id: "RNF", module: "Transversal", title: "A11y, LGPD, performance", priority: "—", status: "partial", sprint: "S4", owner: "Equipe", dod: "Checklist RNF03–07; Lighthouse a11y ≥ 90" },
-		{ id: "TR-TI-2", module: "Infra", title: "Servidor institucional CEFET", priority: "—", status: "paused", sprint: "S4", owner: "[Gerente]", dod: "Fora do caminho crítico. A publicação de 27/11 segue o padrão da homologação na Oracle Always Free" },
-		{ id: "TR-CT-2", module: "Conteúdo", title: "População dados reais (pico)", priority: "—", status: "pending", sprint: "S4", owner: "Equipe", dod: "Docentes, notícias (≥5), projetos, docs oficiais" },
+		{ id: "RF28", module: "Contato", title: "Ouvidoria", priority: "Média", status: "paused", sprint: "S4", owner: "[Colega 3]", dod: "Subtarefa entregue: formulário base. Paralisada: prazo/integração — não bloqueia M2" },
+		{ id: "RF30", module: "Admin", title: "Área administrativa", priority: "Alta", status: "paused", sprint: "S4", owner: "[Gerente]", dod: "Subtarefa entregue: painel configurado. Paralisada: ajuste fino de operação" },
+		{ id: "RF31", module: "Admin", title: "Perfis Admin / Editor", priority: "Alta", status: "paused", sprint: "S4", owner: "[Gerente]", dod: "Base pronta; credenciais dos professores fecham no S5 (TR-CRED). Polimento residual paralisado" },
+		{ id: "RF32", module: "Admin", title: "Menu configurável", priority: "Alta", status: "paused", sprint: "S4", owner: "[Gerente]", dod: "Subtarefa entregue: menus alinhados. Paralisada: ajuste fino" },
+		{ id: "RF33", module: "Admin", title: "Busca global", priority: "Alta", status: "paused", sprint: "S4", owner: "[Colega 1]", dod: "Subtarefa entregue: indexação base. Paralisada: cobertura residual" },
+		{ id: "RF34", module: "Admin", title: "Sitemap XML", priority: "Média", status: "paused", sprint: "S4", owner: "[Colega 1]", dod: "Subtarefa entregue: SEO/sitemap base. Paralisada: residual" },
+		{ id: "RNF", module: "Transversal", title: "A11y, LGPD, performance", priority: "—", status: "paused", sprint: "S4", owner: "Equipe", dod: "Subtarefa entregue: checklist. Paralisada: Lighthouse/polimento — não bloqueia M2" },
+		{ id: "TR-TI-2", module: "Infra", title: "Servidor institucional CEFET", priority: "—", status: "paused", sprint: "S4", owner: "[Gerente]", dod: "Paralisada. Fora do caminho crítico. Go-live 27/11 na Oracle Always Free" },
+		{ id: "TR-CT-2", module: "Conteúdo", title: "População dados reais (pico)", priority: "—", status: "paused", sprint: "S4", owner: "Equipe", dod: "Subtarefa entregue: lotes iniciais. Paralisada: pico restante (dado externo)" },
 
 		/* —— Sprint 5 —— */
 		{ id: "TR-DEPLOY", module: "Infra", title: "Publicar na Oracle Always Free", priority: "—", status: "pending", sprint: "S5", owner: "[Gerente]", dod: "Mesmo padrão da homologação (Docker + Caddy). Portal no ar até 27/11" },
