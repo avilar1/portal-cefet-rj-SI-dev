@@ -348,9 +348,10 @@ table.fs2-table caption {
 	background: #e6f4ea;
 }
 
-.fs2-callout strong {
+.fs2-callout__title {
 	display: block;
 	margin-bottom: 0.25rem;
+	font-weight: 700;
 }
 
 /* —— Milestones timeline —— */
