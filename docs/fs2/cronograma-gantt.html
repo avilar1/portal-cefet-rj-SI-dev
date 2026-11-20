@@ -48,21 +48,26 @@
 		<section class="fs2-section" id="gantt">
 			<h2>Cronograma por atividades</h2>
 			<p>
-				Gráfico interativo com sprints, trilhas de conteúdo/infra e marcos acadêmico (03/09),
-				go-live (27/11) e entrega final (30/11). Arraste a barra de scroll horizontal para navegar.
+				Visão do Portal SI CEFET/RJ ao longo das sprints: entregas concluídas, caminho crítico do go-live
+				e marcos de aceite (M1 em 03/09, M2 em 27/11 e M3 em 30/11).
 			</p>
 			<div class="fs2-callout fs2-callout--info">
-				<span class="fs2-callout__title">Replanejado em 19–20/11.</span>
-				O marco de 15/11 não foi o go-live. A publicação segue o padrão da homologação, na Oracle Always Free, com credenciais dos professores até 27/11.
-				Itens que pareciam “parciais” foram quebrados em subtarefas: a parte já entregue aparece como concluída; o residual que depende de dado real, validação externa ou escolha fica <strong>paralisado</strong> na Contingência e <strong>não bloqueia</strong> o M2.
-				A reserva de dezembro (01–12/12) cobre retomada dessas paralisadas, feedback e domínio institucional, se a TI liberar.
-				O intervalo 05–17/11 aparece como <strong>pausa técnica</strong> (demandas externas / outro projeto), com folga de 1 dia antes da retomada do go-live.
-				Barras coloridas = <strong>realizado / vigente</strong>. Faixa cinza fina sob cada tarefa = <strong>baseline</strong> (plano original, go-live previsto em 15/11).
+				<span class="fs2-callout__title">Situação do cronograma (atualizado em 20/11)</span>
+				O go-live operacional está previsto para <strong>27/11</strong>, com publicação na Oracle Always Free
+				(mesmo padrão da homologação) e entrega das credenciais aos professores.
+				A entrega acadêmica final permanece em <strong>30/11</strong>.
+				O que já foi entregue ao produto aparece como concluído; o que depende de insumos externos
+				(dados oficiais, validação da coordenação ou decisão de TI) fica <strong>paralisado</strong>
+				na Contingência e <strong>não impede</strong> o go-live.
+				Entre 05 e 17/11 houve <strong>pausa técnica</strong> por demandas externas.
+				A reserva de 01 a 12/12 cobre ajustes pós-feedback e, se a TI institucional liberar, o domínio do portal.
+				No gráfico, as barras coloridas mostram a <strong>situação vigente</strong>; a faixa cinza sob cada atividade
+				é a <strong>linha de base</strong> (plano original, com go-live em 15/11).
 			</div>
 
 			<div class="fs2-gantt-legend">
 				<span class="fs2-gantt-legend__item">
-					<span class="fs2-gantt-legend__swatch" style="background:#1b1b1b"></span> Resumo (sprint/grupo)
+					<span class="fs2-gantt-legend__swatch" style="background:#1b1b1b"></span> Resumo da sprint
 				</span>
 				<span class="fs2-gantt-legend__item">
 					<span class="fs2-gantt-legend__swatch" style="background:#168821"></span> Concluída
@@ -71,22 +76,22 @@
 					<span class="fs2-gantt-legend__swatch" style="background:#1351b4"></span> Em andamento
 				</span>
 				<span class="fs2-gantt-legend__item">
-					<span class="fs2-gantt-legend__swatch" style="background:#9eb3c8"></span> Planejada / futura
+					<span class="fs2-gantt-legend__swatch" style="background:#9eb3c8"></span> Planejada
 				</span>
 				<span class="fs2-gantt-legend__item">
-					<span class="fs2-gantt-legend__swatch" style="background:#d9e2ec;outline:1px dashed #627d98"></span> Pausa / buffer
+					<span class="fs2-gantt-legend__swatch" style="background:#d9e2ec;outline:1px dashed #627d98"></span> Pausa técnica
 				</span>
 				<span class="fs2-gantt-legend__item">
-					<span class="fs2-gantt-legend__swatch" style="background:#c5a46e;outline:1px dashed #8a6d3b"></span> Paralisada
+					<span class="fs2-gantt-legend__swatch" style="background:#c5a46e;outline:1px dashed #8a6d3b"></span> Paralisada (insumo externo)
 				</span>
 				<span class="fs2-gantt-legend__item">
-					<span class="fs2-gantt-legend__swatch" style="background:#e52207"></span> Caminho crítico (go-live)
+					<span class="fs2-gantt-legend__swatch" style="background:#e52207"></span> Caminho crítico do go-live
 				</span>
 				<span class="fs2-gantt-legend__item">
 					<span class="fs2-gantt-legend__swatch" style="background:#8a1538"></span> Marco
 				</span>
 				<span class="fs2-gantt-legend__item">
-					<span class="fs2-gantt-legend__swatch fs2-gantt-legend__swatch--baseline"></span> Baseline (plano original)
+					<span class="fs2-gantt-legend__swatch fs2-gantt-legend__swatch--baseline"></span> Linha de base (plano original)
 				</span>
 			</div>
 
@@ -97,8 +102,10 @@
 			</div>
 
 			<div class="fs2-callout fs2-callout--warn no-print">
-				<span class="fs2-callout__title">Controles</span>
-				Use os botões acima para filtrar por sprint. Modo de visualização:
+				<span class="fs2-callout__title">Como navegar</span>
+				Filtre por sprint nos botões acima. A vista <strong>Dia</strong> destaca as dependências entre atividades
+				(setas do término ao início). Em <strong>Semana</strong> ou <strong>Mês</strong> a escala é mais compacta
+				e as setas seguem o desenho simplificado do gráfico. Escala:
 				<button type="button" id="btn-view-day" class="is-active" style="margin-left:0.5rem;padding:0.25rem 0.5rem">Dia</button>
 				<button type="button" id="btn-view-week" style="padding:0.25rem 0.5rem">Semana</button>
 				<button type="button" id="btn-view-month" style="padding:0.25rem 0.5rem">Mês</button>
@@ -123,7 +130,7 @@
 
 		<section class="fs2-section" id="backlog">
 			<h2>Backlog de produto</h2>
-			<p>Itens priorizados por sprint. Edite <code>assets/backlog.js</code> para atualizar status e responsáveis.</p>
+			<p>Requisitos e trilhas priorizados por sprint, com status, responsável e critério de pronto.</p>
 
 			<div class="fs2-backlog-summary" id="backlog-summary"></div>
 
@@ -150,7 +157,7 @@
 
 	<footer class="fs2-footer">
 		<div class="fs2-footer__inner">
-			Cronograma Gantt · Portal SI CEFET/RJ · Fábrica de Software II · 2026
+			Portal SI CEFET/RJ · Fábrica de Software II · Cronograma vigente com linha de base · Atualizado em 20/11/2026
 		</div>
 	</footer>
 
@@ -222,9 +229,9 @@
 						"bar-done": "Concluída",
 						"bar-progress": "Em andamento",
 						"bar-planned": "Planejada",
-						"bar-buffer": "Pausa / buffer",
-						"bar-paused": "Paralisada",
-						"bar-critical": "Caminho crítico",
+						"bar-buffer": "Pausa técnica",
+						"bar-paused": "Paralisada (insumo externo)",
+						"bar-critical": "Caminho crítico do go-live",
 						"bar-milestone": "Marco"
 					};
 					var status = statusMap[task.custom_class] || "";
@@ -236,7 +243,7 @@
 						(status ? "<br>Status: " + status : "") +
 						(task.group ? "<br>Grupo: " + task.group : "") +
 						(task.baseline_start
-							? "<br>Baseline: " + formatDateBR(task.baseline_start) + " → " + formatDateBR(task.baseline_end)
+							? "<br>Linha de base: " + formatDateBR(task.baseline_start) + " → " + formatDateBR(task.baseline_end)
 							: "") +
 						"</div>"
 					);
@@ -253,8 +260,18 @@
 
 		function fixDependencyArrowsFromBarEnd(gantt) {
 			if (!gantt || !gantt.arrows || !gantt.arrows.length) return;
+			var mode =
+				(gantt.options && gantt.options.view_mode) || currentView || "Day";
+			/*
+			 * Semana/Mês: manter o traçado nativo do Frappe (origem embaixo/meio).
+			 * Só na vista Dia forçamos saída pelo fim da barra (FS).
+			 */
+			if (mode === "Week" || mode === "Month") return;
+
 			var padding = gantt.options.padding;
 			var curve = gantt.options.arrow_curve || 5;
+			var minGapPx = 24;
+			var stubPx = 14;
 			var seen = {};
 
 			gantt.arrows.forEach(function (arrow) {
@@ -267,35 +284,40 @@
 					var toBar = this.to_task.$bar;
 					var startX = fromBar.getX() + fromBar.getWidth();
 					var startY = fromBar.getY() + fromBar.getHeight() / 2;
-					var endX = toBar.getX() - padding / 2;
+					var endX = toBar.getX() - 4;
 					var endY = toBar.getY() + toBar.getHeight() / 2;
 					var goingUp = this.from_task.task._index > this.to_task.task._index;
 					var sweep = goingUp ? 1 : 0;
 					var dy = goingUp ? -curve : curve;
 					var elbowY = goingUp ? endY + curve : endY - curve;
-					var midX = Math.max(startX + Math.min(padding, 12), endX - curve);
+					var space = toBar.getX() - startX;
+					var headRight = " m -5 -5 l 5 5 l -5 5";
 
-					if (toBar.getX() >= startX - 2) {
+					if (space >= minGapPx) {
+						var midX = startX + Math.min(Math.max(stubPx, space / 2), space - curve);
 						this.path =
 							"M " + startX + " " + startY +
 							" H " + midX +
 							" V " + elbowY +
 							" a " + curve + " " + curve + " 0 0 " + sweep + " " + curve + " " + dy +
 							" L " + endX + " " + endY +
-							" m -5 -5 l 5 5 l -5 5";
+							headRight;
 					} else {
-						var drop = goingUp ? -padding / 2 : padding / 2;
+						var exitY = goingUp
+							? fromBar.getY() - 3
+							: fromBar.getY() + fromBar.getHeight() + 3;
+						var leftX = Math.min(fromBar.getX(), toBar.getX()) - stubPx;
+						if (leftX < 4) leftX = 4;
 						this.path =
 							"M " + startX + " " + startY +
-							" v " + drop +
-							" H " + (endX - curve) +
+							" V " + exitY +
+							" H " + leftX +
 							" V " + endY +
-							" L " + endX + " " + endY +
-							" m -5 -5 l 5 5 l -5 5";
+							" H " + endX +
+							headRight;
 					}
 				};
 
-				/* draw() cria path novo e deixa o antigo (meio/baixo) na tela — usar update. */
 				arrow.update();
 			});
 		}
